@@ -1,0 +1,191 @@
+<script language="JavaScript">
+/*!
+    @fn         function debug(p_msg)
+	@param		p_msg Message to display
+    @brief      Debugging routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function debug(p_msg)
+{
+    //alert(p_msg);
+}
+
+/*!
+    @fn         function error(p_msg)
+	@param		p_msg Message to display
+    @brief      Error routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function error(p_msg)
+{
+    alert(p_msg);
+}
+
+/*!
+    @fn         function warn(p_msg)
+	@param		p_msg Message to display
+    @brief      Warn routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function warn(p_msg)
+{
+    //alert(p_msg);
+}
+
+/*!
+    @fn         function trace(p_msg)
+	@param		p_msg Message to display
+    @brief      Trace routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function trace(p_msg)
+{
+    //alert(p_msg);
+}
+
+/*!
+    @fn         function ASSERT(p_cond,p_msg)
+	@param		p_cond The flag that determines if we don't display p_msg
+	@param		p_msg Message to display
+    @brief      If p_cond is not true then display p_msg
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+</script>
+<script language="JavaScript" type="text/javascript" src="../base/mw_lib.js" ></script>
+
+<script language="JavaScript" type="text/javascript" src="../pipeline/mw_lib_pipeline.js"></script>
+<script language="JavaScript" type="text/javascript" src="../network/mw_lib_network.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../xml/mw_lib_xml.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../xml/mw_lib_xml_serialise.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../xslt/mw_lib_xml_xslt.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../cookie/mw_lib_cookie.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../css/mw_lib_css.js" ></script>
+<script>	
+	MetaWrap.g_js_root = '/metawrap/javascript/tests/logger/';
+</script>
+<script language="JavaScript" type="text/javascript" src="../logger/mw_lib_logger.js" ></script>
+<script>	
+	MetaWrap.g_js_root = '';
+</script>
+<script language="JavaScript" type="text/javascript" src="../objectmodel/mw_lib_objectmodel.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../objectmodel/mw_lib_objectmodel_node.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../objectmodel/mw_lib_objectmodel_node_cookie.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../code/mw_lib_code.js" ></script>
+<script language="JavaScript">
+
+///////////////////////////////
+
+
+//////////////////////////////
+
+
+var l_tiles = {};
+
+l_tiles["tile11"] = "A";
+l_tiles["tile12"] = "A";
+l_tiles["tile13"] = "B";
+
+l_tiles["tile21"] = "B";
+l_tiles["tile22"] = "C";
+l_tiles["tile23"] = "C";
+
+l_tiles["tile31"] = "D";
+l_tiles["tile32"] = "D";
+l_tiles["tile33"] = "E";
+
+l_tiles["tile41"] = "E";
+l_tiles["tile42"] = "F";
+l_tiles["tile43"] = "F";
+
+
+
+// If you click on any element in the tic tac toe grid..
+function changed(p_element)
+{
+	if (MetaWrap.State.testState("canflip"))
+	{
+		// if its a candidate already		
+		if (MetaWrap.State.testState("candidate_" + p_element.id))
+		{
+			return;;
+		}
+
+		// if its a flipped already		
+		if (MetaWrap.State.testState("flipped_" + p_element.id))
+		{
+			return;;
+		}
+		
+		// draw it as a candidate
+        p_element.value = "?" + l_tiles[p_element.id] + "?";          
+		
+		// Set this as a candidate
+        MetaWrap.State.affirmState("candidate_" + p_element.id);
+		
+	}
+}
+
+function hideTile(p_name)
+{
+	alert("hideTile " + p_name);
+
+	//// if its not flipped
+	if (!MetaWrap.State.testState("flipped_" + p_name))
+	{
+		// then we put it back as it was
+		
+		MetaWrap.$(p_name).value = "___";
+	}
+	
+	//alert("hideTile " + p_name);
+	
+	//MetaWrap.$(p_name).value = "___";
+	
+	return true;
+}
+
+function flipTile(p_name)
+{		
+	MetaWrap.$(p_name).value = "*" + l_tiles[p_name] + "*";
+	
+	return true;
+}
+
+function showTile(p_name)
+{
+	//alert("showTile " + p_name);	
+	return true;
+}
+
+function gameOver()
+{
+	alert("GAME OVER");	
+	return true;
+}
+
+
+
+</script>
+
+<body>
+<p><a href="./test_16_state.xml">XML State Machine Description</a></p>
+<p>
+<input value="___" type="button" id="tile11" size="1" maxlength="1" onclick="changed(this)" ><input value="___" type="button" id="tile21" size="1" maxlength="1" onclick="changed(this)" ><input value="___" type="button" id="tile31" size="1" maxlength="1" onclick="changed(this)" ><input value="___" type="button" id="tile41" size="1" maxlength="1" onclick="changed(this)" ><br/>
+<input value="___" type="button" id="tile12" size="1" maxlength="1" onclick="changed(this)" ><input value="___" type="button" id="tile22" size="1" maxlength="1" onclick="changed(this)" ><input value="___" type="button" id="tile32" size="1" maxlength="1" onclick="changed(this)" ><input value="___" type="button" id="tile42" size="1" maxlength="1" onclick="changed(this)" ><br/>
+<input value="___" type="button" id="tile13" size="1" maxlength="1" onclick="changed(this)" ><input value="___" type="button" id="tile23" size="1" maxlength="1" onclick="changed(this)" ><input value="___" type="button" id="tile33" size="1" maxlength="1" onclick="changed(this)" ><input value="___" type="button" id="tile43" size="1" maxlength="1" onclick="changed(this)" ><br/>
+</p>
+</body>
+<script language="JavaScript" type="text/javascript" src="../state/mw_lib_state.js" ></script>
+

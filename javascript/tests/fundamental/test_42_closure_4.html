@@ -1,0 +1,22 @@
+<script language="JavaScript">
+window.onload = init;
+
+function init()
+{
+	createLinks();
+	var x = document.getElementsByTagName('a');
+
+	y.z;
+	for (var i=0;i<x.length;i++)
+	{
+		createNewClick(x[i]);
+	}
+}
+
+function createNewClick(obj)
+{
+	obj.onclick = function () {
+		this.firstChild.nodeValue = ' Clicked! - ';
+	}
+}
+</script>

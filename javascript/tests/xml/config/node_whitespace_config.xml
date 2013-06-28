@@ -1,0 +1,3083 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<config xmlns:exsl2="http://www.exslt.org/common">
+   <params>
+      <gmt>+10:00:00</gmt>
+
+      <now>2005-09-09 02:36:01</now>
+
+      <tel>1</tel>
+
+      <tim>1</tim>
+
+      <vid>1</vid>
+
+      <motd>We need your view. Visit v8supercar.com.au and click on the example Broadband survey and tell us if the V8 Supercars and example together rock your world! Got a question about your V8 race screen or if you need help, click on the CHAT button and ask us. By the way the chat room is also about fun so come on in! If you have a question for the 'Back Chat @ the Track' segment, email it to v8supercars@example.com. To see highlights and replays of our interviews go to www.exampleguide.com (you'll also find music, NRL, movies, games and more!).</motd>
+
+      <tz>Melbourne</tz>
+
+      <ver>Sep 8 2005 12:35PM</ver>
+   </params>
+
+   <timezones>
+      <timezone>
+         <tzn>Canberra, Melbourne, Sydney</tzn>
+
+         <tzo>+10:00:00</tzo>
+
+         <tzdls>false</tzdls>
+
+         <tzstate>ACT VIC NSW</tzstate>
+      </timezone>
+
+      <timezone>
+         <tzn>Brisbane, Hobart</tzn>
+
+         <tzo>+10:00:00</tzo>
+
+         <tzdls>false</tzdls>
+
+         <tzstate>QLD TAS</tzstate>
+      </timezone>
+
+      <timezone>
+         <tzn>Perth</tzn>
+
+         <tzo>+08:00:00</tzo>
+
+         <tzdls>false</tzdls>
+
+         <tzstate>WA</tzstate>
+      </timezone>
+
+      <timezone>
+         <tzn>Adelaide</tzn>
+
+         <tzo>+09:30:00</tzo>
+
+         <tzdls>false</tzdls>
+
+         <tzstate>SA</tzstate>
+      </timezone>
+
+      <timezone>
+         <tzn>Darwin</tzn>
+
+         <tzo>+09:30:00</tzo>
+
+         <tzdls>false</tzdls>
+
+         <tzstate>NT</tzstate>
+      </timezone>
+
+      <timezone>
+         <tzn>Pukekohe, Auckland</tzn>
+
+         <tzo>+12:00:00</tzo>
+
+         <tzdls>false</tzdls>
+
+         <tzstate>NZ</tzstate>
+      </timezone>
+
+      <timezone>
+         <tzn>Shanghai, China</tzn>
+
+         <tzo>+08:00:00</tzo>
+
+         <tzdls>false</tzdls>
+
+         <tzstate>CN</tzstate>
+      </timezone>
+   </timezones>
+
+   <rounds>
+      <round>
+         <rn>2004 example Grand Finale</rn>
+
+         <rl>Eastern Creek Raceway</rl>
+
+         <rd>02 - 04 Dec 2004</rd>
+
+         <rs>2004-12-02</rs>
+
+         <re>2004-12-04</re>
+
+         <ri>13</ri>
+
+         <rk>166</rk>
+
+         <rv>2004_r13,_eastern_creek_raceway</rv>
+
+         <rt>4</rt>
+
+         <races>
+         </races>
+      </round>
+
+      <round>
+         <rn>Clipsal 500</rn>
+
+         <rl>Adelaide Street Circuit</rl>
+
+         <rd>17 - 20 Mar 2005</rd>
+
+         <rs>2005-03-18</rs>
+
+         <re>2005-03-20</re>
+
+         <ri>01</ri>
+
+         <rk>184</rk>
+
+         <rv>r01,_adelaide_street_circuit</rv>
+
+         <rt>1</rt>
+
+         <races>
+            <race>
+               <rk>415</rk>
+
+               <rr>184</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>35</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>09:45</rs>
+
+               <re>10:20</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>1</rn>
+            </race>
+
+            <race>
+               <rk>416</rk>
+
+               <rr>184</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>35</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>12:15</rs>
+
+               <re>12:50</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>2</rn>
+            </race>
+
+            <race>
+               <rk>417</rk>
+
+               <rr>184</rr>
+
+               <rc>QUAL</rc>
+
+               <rl>20</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>14:20</rs>
+
+               <re>15:05</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>3</rn>
+            </race>
+
+            <race>
+               <rk>418</rk>
+
+               <rr>184</rr>
+
+               <rc>TOP10</rc>
+
+               <rl>30</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>16:00</rs>
+
+               <re>16:30</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>4</rn>
+            </race>
+
+            <race>
+               <rk>419</rk>
+
+               <rr>184</rr>
+
+               <rc>RACE1</rc>
+
+               <rl>250</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>14:00</rs>
+
+               <re>16:15</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>5</rn>
+            </race>
+
+            <race>
+               <rk>447</rk>
+
+               <rr>184</rr>
+
+               <rc>RACE2</rc>
+
+               <rl>250</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>14:00</rs>
+
+               <re>16:15</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>6</rn>
+            </race>
+         </races>
+      </round>
+
+      <round>
+         <rn>PlaceMakers V8 International</rn>
+
+         <rl>Pukekohe Park Raceway</rl>
+
+         <rd>15 - 17 Apr 2005</rd>
+
+         <rs>2005-04-15</rs>
+
+         <re>2005-04-17</re>
+
+         <ri>02</ri>
+
+         <rk>185</rk>
+
+         <rv>r02,_pukekohe_park_raceway</rv>
+
+         <rt>2</rt>
+
+         <races>
+            <race>
+               <rk>425</rk>
+
+               <rr>185</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>2</rl>
+
+               <ru>HRS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>13:10</rs>
+
+               <re>15:10</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>1</rn>
+            </race>
+
+            <race>
+               <rk>426</rk>
+
+               <rr>185</rr>
+
+               <rc>QUAL</rc>
+
+               <rl>20</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>11:30</rs>
+
+               <re>12:15</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>2</rn>
+            </race>
+
+            <race>
+               <rk>427</rk>
+
+               <rr>185</rr>
+
+               <rc>TOP10</rc>
+
+               <rl>30</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>12:30</rs>
+
+               <re>13:00</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>3</rn>
+            </race>
+
+            <race>
+               <rk>428</rk>
+
+               <rr>185</rr>
+
+               <rc>RACE1</rc>
+
+               <rl>100</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>15:00</rs>
+
+               <re>15:50</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>4</rn>
+            </race>
+
+            <race>
+               <rk>429</rk>
+
+               <rr>185</rr>
+
+               <rc>RACE2</rc>
+
+               <rl>140</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>12:10</rs>
+
+               <re>13:15</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>5</rn>
+            </race>
+
+            <race>
+               <rk>430</rk>
+
+               <rr>185</rr>
+
+               <rc>RACE3</rc>
+
+               <rl>140</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>16:35</rs>
+
+               <re>17:40</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>6</rn>
+            </race>
+         </races>
+      </round>
+
+      <round>
+         <rn>Barbagallo Raceway</rn>
+
+         <rl>Barbagallo Raceway Wanneroo</rl>
+
+         <rd>06 - 08 May 2005</rd>
+
+         <rs>2005-05-06</rs>
+
+         <re>2005-05-08</re>
+
+         <ri>03</ri>
+
+         <rk>186</rk>
+
+         <rv>r03,_barbagallo_raceway_wanneroo</rv>
+
+         <rt>3</rt>
+
+         <races>
+            <race>
+               <rk>431</rk>
+
+               <rr>186</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>2</rl>
+
+               <ru>HRS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>13:30</rs>
+
+               <re>15:30</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>1</rn>
+            </race>
+
+            <race>
+               <rk>432</rk>
+
+               <rr>186</rr>
+
+               <rc>QUAL</rc>
+
+               <rl>20</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>10:45</rs>
+
+               <re>11:30</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>2</rn>
+            </race>
+
+            <race>
+               <rk>433</rk>
+
+               <rr>186</rr>
+
+               <rc>TOP10</rc>
+
+               <rl>30</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>11:45</rs>
+
+               <re>12:15</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>3</rn>
+            </race>
+
+            <race>
+               <rk>434</rk>
+
+               <rr>186</rr>
+
+               <rc>RACE1</rc>
+
+               <rl>120</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>15:00</rs>
+
+               <re>15:50</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>4</rn>
+            </race>
+
+            <race>
+               <rk>435</rk>
+
+               <rr>186</rr>
+
+               <rc>RACE2</rc>
+
+               <rl>140</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>10:00</rs>
+
+               <re>11:00</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>5</rn>
+            </race>
+
+            <race>
+               <rk>436</rk>
+
+               <rr>186</rr>
+
+               <rc>RACE3</rc>
+
+               <rl>140</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>13:40</rs>
+
+               <re>14:40</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>6</rn>
+            </race>
+         </races>
+      </round>
+
+      <round>
+         <rn>Eastern Creek</rn>
+
+         <rl>Eastern Creek Raceway</rl>
+
+         <rd>27 - 29 May 2005</rd>
+
+         <rs>2005-05-27</rs>
+
+         <re>2005-05-29</re>
+
+         <ri>04</ri>
+
+         <rk>187</rk>
+
+         <rv>r04,_eastern_creek_raceway</rv>
+
+         <rt>4</rt>
+
+         <races>
+            <race>
+               <rk>437</rk>
+
+               <rr>187</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>2</rl>
+
+               <ru>HRS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>09:00</rs>
+
+               <re>11:00</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>1</rn>
+            </race>
+
+            <race>
+               <rk>438</rk>
+
+               <rr>187</rr>
+
+               <rc>QUAL</rc>
+
+               <rl>20</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>14:15</rs>
+
+               <re>15:00</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>2</rn>
+            </race>
+
+            <race>
+               <rk>439</rk>
+
+               <rr>187</rr>
+
+               <rc>TOP10</rc>
+
+               <rl>30</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>15:15</rs>
+
+               <re>15:45</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>3</rn>
+            </race>
+
+            <race>
+               <rk>440</rk>
+
+               <rr>187</rr>
+
+               <rc>RACE1</rc>
+
+               <rl>140</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>11:20</rs>
+
+               <re>12:30</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>4</rn>
+            </race>
+
+            <race>
+               <rk>441</rk>
+
+               <rr>187</rr>
+
+               <rc>RACE2</rc>
+
+               <rl>140</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>15:15</rs>
+
+               <re>16:30</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>5</rn>
+            </race>
+         </races>
+      </round>
+
+      <round>
+         <rn>Shanghai China</rn>
+
+         <rl>Shanghai International Raceway</rl>
+
+         <rd>10 - 12 Jun 2005</rd>
+
+         <rs>2005-06-10</rs>
+
+         <re>2005-06-12</re>
+
+         <ri>05</ri>
+
+         <rk>188</rk>
+
+         <rv>r05,_shanghai_china</rv>
+
+         <rt>5</rt>
+
+         <races>
+            <race>
+               <rk>448</rk>
+
+               <rr>188</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>2</rl>
+
+               <ru>HRS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>12:40</rs>
+
+               <re>14:40</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>1</rn>
+            </race>
+
+            <race>
+               <rk>449</rk>
+
+               <rr>188</rr>
+
+               <rc>QUAL</rc>
+
+               <rl>20</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>10:45</rs>
+
+               <re>11:30</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>2</rn>
+            </race>
+
+            <race>
+               <rk>450</rk>
+
+               <rr>188</rr>
+
+               <rc>TOP10</rc>
+
+               <rl>30</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>11:45</rs>
+
+               <re>12:15</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>3</rn>
+            </race>
+
+            <race>
+               <rk>451</rk>
+
+               <rr>188</rr>
+
+               <rc>RACE1</rc>
+
+               <rl>100</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>15:20</rs>
+
+               <re>16:10</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>4</rn>
+            </race>
+
+            <race>
+               <rk>452</rk>
+
+               <rr>188</rr>
+
+               <rc>RACE2</rc>
+
+               <rl>140</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>10:20</rs>
+
+               <re>11:30</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>5</rn>
+            </race>
+
+            <race>
+               <rk>453</rk>
+
+               <rr>188</rr>
+
+               <rc>RACE3</rc>
+
+               <rl>140</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>13:30</rs>
+
+               <re>14:40</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>6</rn>
+            </race>
+         </races>
+      </round>
+
+      <round>
+         <rn>SKYCITY V8 Supercars Darwin</rn>
+
+         <rl>Hidden Valley Raceway</rl>
+
+         <rd>01 - 03 Jul 2005</rd>
+
+         <rs>2005-07-01</rs>
+
+         <re>2005-07-03</re>
+
+         <ri>06</ri>
+
+         <rk>189</rk>
+
+         <rv>r06,_hidden_valley_raceway</rv>
+
+         <rt>6</rt>
+
+         <races>
+            <race>
+               <rk>464</rk>
+
+               <rr>189</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>2</rl>
+
+               <ru>HRS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>13:30</rs>
+
+               <re>14:30</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>1</rn>
+            </race>
+
+            <race>
+               <rk>465</rk>
+
+               <rr>189</rr>
+
+               <rc>QUAL</rc>
+
+               <rl>20</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>11:30</rs>
+
+               <re>12:15</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>2</rn>
+            </race>
+
+            <race>
+               <rk>466</rk>
+
+               <rr>189</rr>
+
+               <rc>TOP10</rc>
+
+               <rl>30</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>12:30</rs>
+
+               <re>13:00</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>3</rn>
+            </race>
+
+            <race>
+               <rk>467</rk>
+
+               <rr>189</rr>
+
+               <rc>RACE1</rc>
+
+               <rl>20</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>15:00</rs>
+
+               <re>15:20</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>4</rn>
+            </race>
+
+            <race>
+               <rk>468</rk>
+
+               <rr>189</rr>
+
+               <rc>RACE2</rc>
+
+               <rl>48</rl>
+
+               <ru>LAPS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>11:50</rs>
+
+               <re>12:50</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>5</rn>
+            </race>
+
+            <race>
+               <rk>469</rk>
+
+               <rr>189</rr>
+
+               <rc>RACE3</rc>
+
+               <rl>48</rl>
+
+               <ru>LAPS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>14:50</rs>
+
+               <re>15:50</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>6</rn>
+            </race>
+         </races>
+      </round>
+
+      <round>
+         <rn>Queensland 300</rn>
+
+         <rl>Queensland Raceway</rl>
+
+         <rd>22 - 24 Jul 2005</rd>
+
+         <rs>2005-07-22</rs>
+
+         <re>2005-07-24</re>
+
+         <ri>07</ri>
+
+         <rk>190</rk>
+
+         <rv>r07,_queensland_raceway</rv>
+
+         <rt>7</rt>
+
+         <races>
+            <race>
+               <rk>454</rk>
+
+               <rr>190</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>2</rl>
+
+               <ru>HRS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>13:30</rs>
+
+               <re>15:30</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>1</rn>
+            </race>
+
+            <race>
+               <rk>455</rk>
+
+               <rr>190</rr>
+
+               <rc>QUAL</rc>
+
+               <rl>20</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>13:35</rs>
+
+               <re>14:20</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>2</rn>
+            </race>
+
+            <race>
+               <rk>456</rk>
+
+               <rr>190</rr>
+
+               <rc>TOP10</rc>
+
+               <rl>30</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>14:35</rs>
+
+               <re>15:05</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>3</rn>
+            </race>
+
+            <race>
+               <rk>457</rk>
+
+               <rr>190</rr>
+
+               <rc>RACE1</rc>
+
+               <rl>280</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>13:45</rs>
+
+               <re>15:45</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>4</rn>
+            </race>
+         </races>
+      </round>
+
+      <round>
+         <rn>Oran Park</rn>
+
+         <rl>Oran Park Raceway</rl>
+
+         <rd>12 - 14 Aug 2005</rd>
+
+         <rs>2005-08-12</rs>
+
+         <re>2005-08-14</re>
+
+         <ri>08</ri>
+
+         <rk>192</rk>
+
+         <rv>r08,_oran_park_raceway</rv>
+
+         <rt>8</rt>
+
+         <races>
+            <race>
+               <rk>470</rk>
+
+               <rr>192</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>2</rl>
+
+               <ru>HRS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>09:00</rs>
+
+               <re>11:00</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>1</rn>
+            </race>
+
+            <race>
+               <rk>471</rk>
+
+               <rr>192</rr>
+
+               <rc>QUAL</rc>
+
+               <rl>20</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>13:30</rs>
+
+               <re>14:15</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>2</rn>
+            </race>
+
+            <race>
+               <rk>472</rk>
+
+               <rr>192</rr>
+
+               <rc>TOP10</rc>
+
+               <rl>30</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>14:30</rs>
+
+               <re>15:00</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>3</rn>
+            </race>
+
+            <race>
+               <rk>473</rk>
+
+               <rr>192</rr>
+
+               <rc>RACE1</rc>
+
+               <rl>54</rl>
+
+               <ru>LAPS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>12:00</rs>
+
+               <re>13:05</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>4</rn>
+            </race>
+
+            <race>
+               <rk>474</rk>
+
+               <rr>192</rr>
+
+               <rc>RACE2</rc>
+
+               <rl>54</rl>
+
+               <ru>LAPS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>15:15</rs>
+
+               <re>16:20</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>5</rn>
+            </race>
+         </races>
+      </round>
+
+      <round>
+         <rn>Betta Electrical 500</rn>
+
+         <rl>Sandown International Raceway</rl>
+
+         <rd>09 - 11 Sep 2005</rd>
+
+         <rs>2005-09-09</rs>
+
+         <re>2005-09-11</re>
+
+         <ri>09</ri>
+
+         <rk>193</rk>
+
+         <rv>r09,_sandown_international_raceway</rv>
+
+         <rt>9</rt>
+
+         <races>
+            <race>
+               <rk>487</rk>
+
+               <rr>193</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>2</rl>
+
+               <ru>HRS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>10:45</rs>
+
+               <re>12:45</re>
+
+               <ra>PENDING</ra>
+
+               <rn>1</rn>
+            </race>
+
+            <race>
+               <rk>488</rk>
+
+               <rr>193</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>30</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>14:35</rs>
+
+               <re>15:05</re>
+
+               <ra>PENDING</ra>
+
+               <rn>2</rn>
+            </race>
+
+            <race>
+               <rk>489</rk>
+
+               <rr>193</rr>
+
+               <rc>QUAL</rc>
+
+               <rl>20</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>13:30</rs>
+
+               <re>14:15</re>
+
+               <ra>PENDING</ra>
+
+               <rn>3</rn>
+            </race>
+
+            <race>
+               <rk>490</rk>
+
+               <rr>193</rr>
+
+               <rc>TOP10</rc>
+
+               <rl>30</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>14:30</rs>
+
+               <re>15:00</re>
+
+               <ra>PENDING</ra>
+
+               <rn>4</rn>
+            </race>
+
+            <race>
+               <rk>491</rk>
+
+               <rr>193</rr>
+
+               <rc>WARM</rc>
+
+               <rl>20</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>09:30</rs>
+
+               <re>09:50</re>
+
+               <ra>PENDING</ra>
+
+               <rn>5</rn>
+            </race>
+
+            <race>
+               <rk>492</rk>
+
+               <rr>193</rr>
+
+               <rc>RACE1</rc>
+
+               <rl>161</rl>
+
+               <ru>LAPS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>13:00</rs>
+
+               <re>16:45</re>
+
+               <ra>PENDING</ra>
+
+               <rn>6</rn>
+            </race>
+         </races>
+      </round>
+
+      <round>
+         <rn>Super Cheap Auto 1000</rn>
+
+         <rl>Mount Panorama, Bathurst</rl>
+
+         <rd>06 - 09 Oct 2005</rd>
+
+         <rs>2005-10-06</rs>
+
+         <re>2005-10-09</re>
+
+         <ri>10</ri>
+
+         <rk>191</rk>
+
+         <rv>r10,_mount_panorama_bathurst</rv>
+
+         <rt>10</rt>
+
+         <races>
+            <race>
+               <rk>493</rk>
+
+               <rr>191</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>2</rl>
+
+               <ru>HRS</ru>
+
+               <rd>THU</rd>
+
+               <rs>11:00</rs>
+
+               <re>13:00</re>
+
+               <ra>PENDING</ra>
+
+               <rn>1</rn>
+            </race>
+
+            <race>
+               <rk>494</rk>
+
+               <rr>191</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>30</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>09:55</rs>
+
+               <re>10:25</re>
+
+               <ra>PENDING</ra>
+
+               <rn>2</rn>
+            </race>
+
+            <race>
+               <rk>495</rk>
+
+               <rr>191</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>30</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>10:35</rs>
+
+               <re>11:05</re>
+
+               <ra>PENDING</ra>
+
+               <rn>3</rn>
+            </race>
+
+            <race>
+               <rk>496</rk>
+
+               <rr>191</rr>
+
+               <rc>QUAL</rc>
+
+               <rl>45</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>14:00</rs>
+
+               <re>15:40</re>
+
+               <ra>PENDING</ra>
+
+               <rn>4</rn>
+            </race>
+
+            <race>
+               <rk>497</rk>
+
+               <rr>191</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>60</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>10:00</rs>
+
+               <re>11:00</re>
+
+               <ra>PENDING</ra>
+
+               <rn>5</rn>
+            </race>
+
+            <race>
+               <rk>498</rk>
+
+               <rr>191</rr>
+
+               <rc>TOP10</rc>
+
+               <rl>45</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>15:40</rs>
+
+               <re>16:25</re>
+
+               <ra>PENDING</ra>
+
+               <rn>6</rn>
+            </race>
+
+            <race>
+               <rk>499</rk>
+
+               <rr>191</rr>
+
+               <rc>WARM</rc>
+
+               <rl>20</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>07:15</rs>
+
+               <re>07:35</re>
+
+               <ra>PENDING</ra>
+
+               <rn>7</rn>
+            </race>
+
+            <race>
+               <rk>500</rk>
+
+               <rr>191</rr>
+
+               <rc>RACE1</rc>
+
+               <rl>161</rl>
+
+               <ru>LAPS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>10:00</rs>
+
+               <re>17:45</re>
+
+               <ra>PENDING</ra>
+
+               <rn>8</rn>
+            </race>
+         </races>
+      </round>
+
+      <round>
+         <rn>Gillette V8 Supercar Challenge</rn>
+
+         <rl>Gold Coast Indy 300</rl>
+
+         <rd>20 - 23 Oct 2005</rd>
+
+         <rs>2005-10-20</rs>
+
+         <re>2005-10-23</re>
+
+         <ri>11</ri>
+
+         <rk>194</rk>
+
+         <rv>r11,_gold_coast_indy</rv>
+
+         <rt>11</rt>
+
+         <races>
+            <race>
+               <rk>501</rk>
+
+               <rr>194</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>35</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>09:00</rs>
+
+               <re>09:35</re>
+
+               <ra>PENDING</ra>
+
+               <rn>1</rn>
+            </race>
+
+            <race>
+               <rk>502</rk>
+
+               <rr>194</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>35</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>12:10</rs>
+
+               <re>12:45</re>
+
+               <ra>PENDING</ra>
+
+               <rn>2</rn>
+            </race>
+
+            <race>
+               <rk>503</rk>
+
+               <rr>194</rr>
+
+               <rc>QUAL</rc>
+
+               <rl>20</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>15:10</rs>
+
+               <re>15:55</re>
+
+               <ra>PENDING</ra>
+
+               <rn>3</rn>
+            </race>
+
+            <race>
+               <rk>504</rk>
+
+               <rr>194</rr>
+
+               <rc>TOP10</rc>
+
+               <rl>40</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>16:10</rs>
+
+               <re>16:50</re>
+
+               <ra>PENDING</ra>
+
+               <rn>4</rn>
+            </race>
+
+            <race>
+               <rk>505</rk>
+
+               <rr>194</rr>
+
+               <rc>RACE1</rc>
+
+               <rl>140</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>15:35</rs>
+
+               <re>16:50</re>
+
+               <ra>PENDING</ra>
+
+               <rn>5</rn>
+            </race>
+
+            <race>
+               <rk>506</rk>
+
+               <rr>194</rr>
+
+               <rc>RACE2</rc>
+
+               <rl>100</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>10:50</rs>
+
+               <re>11:50</re>
+
+               <ra>PENDING</ra>
+
+               <rn>6</rn>
+            </race>
+
+            <race>
+               <rk>507</rk>
+
+               <rr>194</rr>
+
+               <rc>RACE3</rc>
+
+               <rl>100</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>15:45</rs>
+
+               <re>16:45</re>
+
+               <ra>PENDING</ra>
+
+               <rn>7</rn>
+            </race>
+         </races>
+      </round>
+
+      <round>
+         <rn>Tasmania Triple Challenge</rn>
+
+         <rl>Symmons Plains Raceway</rl>
+
+         <rd>11 - 13 Nov 2005</rd>
+
+         <rs>2005-11-11</rs>
+
+         <re>2005-11-13</re>
+
+         <ri>12</ri>
+
+         <rk>195</rk>
+
+         <rv>r12,_symmons_plains_raceway</rv>
+
+         <rt>12</rt>
+
+         <races>
+            <race>
+               <rk>508</rk>
+
+               <rr>195</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>2</rl>
+
+               <ru>HRS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>13:30</rs>
+
+               <re>15:30</re>
+
+               <ra>PENDING</ra>
+
+               <rn>1</rn>
+            </race>
+
+            <race>
+               <rk>509</rk>
+
+               <rr>195</rr>
+
+               <rc>QUAL</rc>
+
+               <rl>20</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>11:50</rs>
+
+               <re>12:35</re>
+
+               <ra>PENDING</ra>
+
+               <rn>2</rn>
+            </race>
+
+            <race>
+               <rk>510</rk>
+
+               <rr>195</rr>
+
+               <rc>TOP10</rc>
+
+               <rl>30</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>12:50</rs>
+
+               <re>13:20</re>
+
+               <ra>PENDING</ra>
+
+               <rn>3</rn>
+            </race>
+
+            <race>
+               <rk>511</rk>
+
+               <rr>195</rr>
+
+               <rc>RACE1</rc>
+
+               <rl>42</rl>
+
+               <ru>LAPS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>15:35</rs>
+
+               <re>16:20</re>
+
+               <ra>PENDING</ra>
+
+               <rn>4</rn>
+            </race>
+
+            <race>
+               <rk>512</rk>
+
+               <rr>195</rr>
+
+               <rc>RACE2</rc>
+
+               <rl>42</rl>
+
+               <ru>LAPS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>12:20</rs>
+
+               <re>13:10</re>
+
+               <ra>PENDING</ra>
+
+               <rn>5</rn>
+            </race>
+
+            <race>
+               <rk>513</rk>
+
+               <rr>195</rr>
+
+               <rc>RACE3</rc>
+
+               <rl>42</rl>
+
+               <ru>LAPS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>15:20</rs>
+
+               <re>16:25</re>
+
+               <ra>PENDING</ra>
+
+               <rn>6</rn>
+            </race>
+         </races>
+      </round>
+
+      <round>
+         <rn>example Grand Finale</rn>
+
+         <rl>Philip Island Raceway</rl>
+
+         <rd>25 - 27 Nov 2005</rd>
+
+         <rs>2005-11-25</rs>
+
+         <re>2005-11-27</re>
+
+         <ri>13</ri>
+
+         <rk>196</rk>
+
+         <rv>r13,_phillip_island</rv>
+
+         <rt>13</rt>
+
+         <races>
+            <race>
+               <rk>514</rk>
+
+               <rr>196</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>2</rl>
+
+               <ru>HRS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>13:00</rs>
+
+               <re>15:00</re>
+
+               <ra>PENDING</ra>
+
+               <rn>1</rn>
+            </race>
+
+            <race>
+               <rk>515</rk>
+
+               <rr>196</rr>
+
+               <rc>QUAL</rc>
+
+               <rl>20</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>10:40</rs>
+
+               <re>11:25</re>
+
+               <ra>PENDING</ra>
+
+               <rn>2</rn>
+            </race>
+
+            <race>
+               <rk>516</rk>
+
+               <rr>196</rr>
+
+               <rc>TOP10</rc>
+
+               <rl>30</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>11:40</rs>
+
+               <re>12:10</re>
+
+               <ra>PENDING</ra>
+
+               <rn>3</rn>
+            </race>
+
+            <race>
+               <rk>517</rk>
+
+               <rr>196</rr>
+
+               <rc>RACE1</rc>
+
+               <rl>100</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>15:40</rs>
+
+               <re>16:25</re>
+
+               <ra>PENDING</ra>
+
+               <rn>4</rn>
+            </race>
+
+            <race>
+               <rk>518</rk>
+
+               <rr>196</rr>
+
+               <rc>RACE2</rc>
+
+               <rl>140</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>11:45</rs>
+
+               <re>12:50</re>
+
+               <ra>PENDING</ra>
+
+               <rn>5</rn>
+            </race>
+
+            <race>
+               <rk>519</rk>
+
+               <rr>196</rr>
+
+               <rc>RACE3</rc>
+
+               <rl>140</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>15:25</rs>
+
+               <re>16:30</re>
+
+               <ra>PENDING</ra>
+
+               <rn>6</rn>
+            </race>
+         </races>
+      </round>
+   </rounds>
+
+   <sessions>
+      <session>
+         <sn>PanelBeaters</sn>
+
+         <sd>2005-09-09</sd>
+
+         <ss>17:55</ss>
+
+         <se>19:30</se>
+
+         <sm>Radio</sm>
+
+         <si>
+         </si>
+
+         <sl>95</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>Day 1 Racing at Sandown</sn>
+
+         <sd>2005-09-10</sd>
+
+         <ss>11:50</ss>
+
+         <se>12:11</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>21</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>2005 Oran Park Race 2</sn>
+
+         <sd>2005-09-10</sd>
+
+         <ss>12:11</ss>
+
+         <se>12:18</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>7</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>2003 Sandown Qualifying</sn>
+
+         <sd>2005-09-10</sd>
+
+         <ss>12:18</ss>
+
+         <se>12:25</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>7</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>2004 Sandown Qualifying</sn>
+
+         <sd>2005-09-10</sd>
+
+         <ss>12:25</ss>
+
+         <se>12:35</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>10</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>2002 Bathurst Highlights</sn>
+
+         <sd>2005-09-10</sd>
+
+         <ss>12:35</ss>
+
+         <se>12:48</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>13</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>2003 Sandown Top 10</sn>
+
+         <sd>2005-09-10</sd>
+
+         <ss>12:48</ss>
+
+         <se>12:59</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>11</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>2004 Sandown Top 10</sn>
+
+         <sd>2005-09-10</sd>
+
+         <ss>12:59</ss>
+
+         <se>13:16</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>17</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>Sandown Hotseat</sn>
+
+         <sd>2005-09-10</sd>
+
+         <ss>13:16</ss>
+
+         <se>13:18</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>2</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>Alex Tagliani (with Mark Fogarty)</sn>
+
+         <sd>2005-09-10</sd>
+
+         <ss>13:18</ss>
+
+         <se>13:24</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>6</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>Neil introduces Day 1</sn>
+
+         <sd>2005-09-10</sd>
+
+         <ss>13:24</ss>
+
+         <se>13:28</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>4</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>Race Control Radio</sn>
+
+         <sd>2005-09-10</sd>
+
+         <ss>13:28</ss>
+
+         <se>13:30</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>2</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>Qualifying</sn>
+
+         <sd>2005-09-10</sd>
+
+         <ss>13:30</ss>
+
+         <se>14:15</se>
+
+         <sm>Video, Timing, Telemetry</sm>
+
+         <si>489</si>
+
+         <sl>45</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>Standby for Top 10</sn>
+
+         <sd>2005-09-10</sd>
+
+         <ss>14:15</ss>
+
+         <se>14:23</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>8</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>Back Chat @ the Track</sn>
+
+         <sd>2005-09-10</sd>
+
+         <ss>14:23</ss>
+
+         <se>14:28</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>5</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>Race Control Radio</sn>
+
+         <sd>2005-09-10</sd>
+
+         <ss>14:28</ss>
+
+         <se>14:30</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>2</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>Top 10</sn>
+
+         <sd>2005-09-10</sd>
+
+         <ss>14:30</ss>
+
+         <se>15:00</se>
+
+         <sm>Video, Telemetry, Timing</sm>
+
+         <si>490</si>
+
+         <sl>30</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>Standby for Press Conference</sn>
+
+         <sd>2005-09-10</sd>
+
+         <ss>15:00</ss>
+
+         <se>15:10</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>10</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>Press Conference</sn>
+
+         <sd>2005-09-10</sd>
+
+         <ss>15:10</ss>
+
+         <se>15:25</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>15</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>End of Day 1</sn>
+
+         <sd>2005-09-10</sd>
+
+         <ss>15:25</ss>
+
+         <se>16:00</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>35</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>Day 2 Racing at Sandown</sn>
+
+         <sd>2005-09-11</sd>
+
+         <ss>11:00</ss>
+
+         <se>11:21</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>21</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>PanelBeaters (segment replay)</sn>
+
+         <sd>2005-09-11</sd>
+
+         <ss>11:21</ss>
+
+         <se>11:40</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>19</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>2003 Sandown Race 1</sn>
+
+         <sd>2005-09-11</sd>
+
+         <ss>11:40</ss>
+
+         <se>11:59</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>19</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>2004 Sandown Race 1</sn>
+
+         <sd>2005-09-11</sd>
+
+         <ss>11:59</ss>
+
+         <se>12:12</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>13</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>2003 Bathurst Race Highlights</sn>
+
+         <sd>2005-09-11</sd>
+
+         <ss>12:12</ss>
+
+         <se>12:37</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>25</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>Steve Ellery (with Neil Crompton)</sn>
+
+         <sd>2005-09-11</sd>
+
+         <ss>12:37</ss>
+
+         <se>12:44</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>7</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>2005 Sandown Qual/Top 10</sn>
+
+         <sd>2005-09-11</sd>
+
+         <ss>12:44</ss>
+
+         <se>12:52</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>8</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>Sandown Hotseat</sn>
+
+         <sd>2005-09-11</sd>
+
+         <ss>12:52</ss>
+
+         <se>12:54</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>2</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>Neil Crompton - news @ the Track</sn>
+
+         <sd>2005-09-11</sd>
+
+         <ss>12:54</ss>
+
+         <se>12:58</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>4</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>Race Control Radio</sn>
+
+         <sd>2005-09-11</sd>
+
+         <ss>12:58</ss>
+
+         <se>13:00</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>2</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>Race 1 - 500km</sn>
+
+         <sd>2005-09-11</sd>
+
+         <ss>13:00</ss>
+
+         <se>16:45</se>
+
+         <sm>Video, Timing, Telemetry</sm>
+
+         <si>492</si>
+
+         <sl>161</sl>
+
+         <su>Laps</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>Standby for Podium</sn>
+
+         <sd>2005-09-11</sd>
+
+         <ss>16:45</ss>
+
+         <se>16:50</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>5</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>Podium Presentation</sn>
+
+         <sd>2005-09-11</sd>
+
+         <ss>16:50</ss>
+
+         <se>16:55</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>5</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>Standby for Press Conference</sn>
+
+         <sd>2005-09-11</sd>
+
+         <ss>16:55</ss>
+
+         <se>17:05</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>10</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>Press Conference</sn>
+
+         <sd>2005-09-11</sd>
+
+         <ss>17:05</ss>
+
+         <se>17:20</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>15</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+
+      <session>
+         <sn>End of Day - 26 Days to Bathurst!</sn>
+
+         <sd>2005-09-11</sd>
+
+         <ss>17:20</ss>
+
+         <se>18:00</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>40</sl>
+
+         <su>MINS</su>
+
+         <sc>
+         </sc>
+      </session>
+   </sessions>
+
+   <streams>
+      <str>
+         <sn>180K Unicast</sn>
+
+         <su>mms://streaming.example.com/</su>
+
+         <ss>UCS-wh_V8supe0live4</ss>
+
+         <sr>180</sr>
+
+         <sm>Adsl,Cable,NoCookie,Unknown,DialUp,None</sm>
+
+         <st>Video</st>
+      </str>
+
+      <str>
+         <sn>380K Unicast</sn>
+
+         <su>mms://streaming.example.com/</su>
+
+         <ss>UCS-wh_V8supe0live3</ss>
+
+         <sr>380</sr>
+
+         <sm>Adsl,Cable,NoCookie,Unknown,DialUp,None</sm>
+
+         <st>Video</st>
+      </str>
+
+      <str>
+         <sn>600K Unicast</sn>
+
+         <su>mms://streaming.example.com/</su>
+
+         <ss>UCS-wh_V8supe0live2</ss>
+
+         <sr>600</sr>
+
+         <sm>Backup</sm>
+
+         <st>Video</st>
+      </str>
+
+      <str>
+         <sn>1000K Unicast</sn>
+
+         <su>mms://streaming.example.com/</su>
+
+         <ss>UCS-wh_V8supe0live2</ss>
+
+         <sr>1000</sr>
+
+         <sm>Cable,NoCookie,DialUp,None</sm>
+
+         <st>Video</st>
+      </str>
+
+      <str>
+         <sn>180K Unicast HTTP</sn>
+
+         <su>http://streaming.example.com/</su>
+
+         <ss>UCS-wh_V8supe0live4</ss>
+
+         <sr>180</sr>
+
+         <sm>Adsl,Cable,NoCookie,Unknown,DialUp,None</sm>
+
+         <st>Video</st>
+      </str>
+
+      <str>
+         <sn>Satellite - 380K Multicast</sn>
+
+         <su>http://v8supercar.example.com/vodlibs/</su>
+
+         <ss>v8_wm901_190305.nsc</ss>
+
+         <sr>380</sr>
+
+         <sm>Satellite,None</sm>
+
+         <st>Video</st>
+      </str>
+
+      <str>
+         <sn>Satellite - 380K Multicast</sn>
+
+         <su>http://v8supercar.example.com/vodlibs/</su>
+
+         <ss>v8_wm901_satellite_120504.nsc</ss>
+
+         <sr>380</sr>
+
+         <sm>Backup</sm>
+
+         <st>Video</st>
+      </str>
+
+      <str>
+         <sn>Satellite - 380K Multicast</sn>
+
+         <su>http://v8supercar.example.com/vodlibs/</su>
+
+         <ss>v8_wm902_satellite_120504.nsc</ss>
+
+         <sr>380</sr>
+
+         <sm>Backup</sm>
+
+         <st>Video</st>
+      </str>
+
+      <str>
+         <sn>Radio - 180k 380k Unicast</sn>
+
+         <su>http://streaming.example.com/</su>
+
+         <ss>ucs-wh_v8supe0live5</ss>
+
+         <sr>180</sr>
+
+         <sm>Adsl,Cable,NoCookie,Unknown,None</sm>
+
+         <st>Radio</st>
+      </str>
+
+      <str>
+         <sn>Radio - Unavailable on Satellite and DialUp</sn>
+
+         <su>
+         </su>
+
+         <ss>
+         </ss>
+
+         <sr>
+         </sr>
+
+         <sm>Satellite,DialUp</sm>
+
+         <st>Radio</st>
+      </str>
+
+      <str>
+         <sn>Multicast Kicker</sn>
+
+         <su>rtsp://123.45.123.102/</su>
+
+         <ss>v8_wm901_190305</ss>
+
+         <sr>380k</sr>
+
+         <sm>NoCookie</sm>
+
+         <st>Video</st>
+      </str>
+
+      <str>
+         <sn>Chief Test</sn>
+
+         <su>mms://columbia:8999</su>
+
+         <ss>
+         </ss>
+
+         <sr>Unknown</sr>
+
+         <sm>NoCookie</sm>
+
+         <st>Video</st>
+      </str>
+   </streams>
+
+   <modes>
+      <mode>
+         <mn>Racing</mn>
+
+         <mt>V8 SUPERCARS LIVE</mt>
+      </mode>
+
+      <mode>
+         <mn>Rest</mn>
+
+         <mt>V8 SUPERCARS (Rest Mode)</mt>
+      </mode>
+
+      <mode>
+         <mn>Normal</mn>
+
+         <mt>V8 SUPERCARS (Normal Mode)</mt>
+      </mode>
+   </modes>
+</config>
+

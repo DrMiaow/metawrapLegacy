@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<!--
+    $Id: -test_7_wirewrap_remix.xml,v 1.1 2007/10/24 09:44:43 james Exp $
+
+    $Log: -test_7_wirewrap_remix.xml,v $
+    Revision 1.1  2007/10/24 09:44:43  james
+    *** empty log message ***
+
+    Revision 1.1  2007/08/14 07:56:34  james
+    *** empty log message ***
+
+    Revision 1.3  2005/11/09 13:06:36  james
+    added stub for smsmodem
+
+    Revision 1.2  2005/11/02 20:55:58  james
+    Changed wirewrap to allow window event handlers to be added
+
+    Revision 1.1  2005/11/02 11:41:22  james
+    Got basic remix transform happening
+    
+    @brief Example XML for css selector applied HTML/JavaScript behaviors
+ -->
+<wirewrap xmlns="http://xsd.metawrap.com/wirewrap/1.0/wirewrap.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xsd.metawrap.com/wirewrap/1.0/ http://xsd.metawrap.com/wirewrap/1.0/wirewrap.xsd" >
+    <onload>
+        alert("Loaded");
+    </onload>          
+    
+    <selector css="*">        
+        <style>
+            font-family: "Gothic" fantasy;
+        </style>              
+    </selector>
+       
+    <selector css="#sortable-list li">        
+        <cut/>
+        
+        <replace>
+        </replace>
+        
+        <prefix>
+        </prefix>        
+    </selector>
+           
+    <selector css="body">
+        <style>
+            background: black;
+        </style>
+        <onclick>
+            alert("Hello Cruel World");
+        </onclick>        
+    </selector>   
+    
+    <selector css=".dropout li.hover">        
+        <style>
+            background: green;
+        </style>              
+    </selector>   
+    
+</wirewrap>

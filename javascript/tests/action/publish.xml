@@ -1,0 +1,33 @@
+<project name="metawrap.javascript.action" default="publish" basedir=".">
+
+    <property file="../../../../secret.project.properties" />
+	
+	<!-- Publish the individual XSDs -->
+	<ant dir="../test/action/" antfile="publish.xml" />	
+	<ant dir="../test/code/" antfile="publish.xml" />		
+	<ant dir="../test/state/" antfile="publish.xml" />			
+	<ant dir="../test/metawrap/" antfile="publish.xml" />			
+
+    <!-- Deploy all the sub files -->
+    <target name="publish" description="packages up all the javascript files into a deployable library">
+        <input message="Please enter ftp USERNAME for js.metawrap.com" addproperty="metawrap.javascript.lib.ftp.username" />
+        <input message="Please enter ftp PASSWORD for js.metawrap.com" addproperty="metawrap.javascript.lib.ftp.password" />
+        
+          <ftp server="xsd.metawrap.com"
+               port="21"
+               remotedir="metawrap/xsd/1.0/action"
+               userid="${metawrap.javascript.lib.ftp.username}"
+               password="${metawrap.javascript.lib.ftp.password}"
+               depends="yes"
+               passive="yes"
+               binary="yes"
+               verbose="true"              
+          >         
+            <fileset dir=".">
+              <include name="action.xsd"  />
+            </fileset>
+          </ftp>    
+        
+    </target>
+</project>
+

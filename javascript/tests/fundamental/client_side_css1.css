@@ -1,0 +1,17 @@
+block {display:block}
+inline {display:inline; font-weight:bold;}
+bulletList {display:block; margin-left:40px; list-style-type:disc;}
+bulletList listItem {display:list-item;  }
+numberList {display:block; 
+	margin-left:40px; 
+	list-style-type:decimal; 
+	counter-reset: item;}
+numberList listItem {display:list-item; }
+numberList { 
+	content: counter(item);
+	counter-increment: item;
+}
+hidden {display:none}
+myTable {display:table}
+tableRow {display:table-row}
+tableData {display:table-cell}

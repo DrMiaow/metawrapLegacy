@@ -1,0 +1,116 @@
+<script language="JavaScript">
+/*!
+    @fn         function debug(p_msg)
+	@param		p_msg Message to display
+    @brief      Debugging routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function debug(p_msg)
+{
+    alert(p_msg);
+}
+
+
+
+/*!
+    @fn         function error(p_msg)
+	@param		p_msg Message to display
+    @brief      Error routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function error(p_msg)
+{
+    alert(p_msg);
+}
+
+/*!
+    @fn         function warn(p_msg)
+	@param		p_msg Message to display
+    @brief      Warn routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function warn(p_msg)
+{
+    alert(p_msg);
+}
+
+/*!
+    @fn         function trace(p_msg)
+	@param		p_msg Message to display
+    @brief      Trace routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function trace(p_msg)
+{
+    //window.status = p_msg;
+}
+
+/*!
+    @fn         function ASSERT(p_cond,p_msg)
+	@param		p_cond The flag that determines if we don't display p_msg
+	@param		p_msg Message to display
+    @brief      If p_cond is not true then display p_msg
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+</script>
+<script language="JavaScript" type="text/javascript" src="../base/mw_lib.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../logger/mw_lib_logger.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../pipeline/mw_lib_pipeline.js"></script>
+<script language="JavaScript" type="text/javascript" src="../network/mw_lib_network.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../xml/mw_lib_xml.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../xml/mw_lib_xml_serialise.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../xslt/mw_lib_xml_xslt.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../cookie/mw_lib_cookie.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../css/mw_lib_css.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../objectmodel/mw_lib_objectmodel.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../objectmodel/mw_lib_objectmodel_node.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../objectmodel/mw_lib_objectmodel_node_cookie.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../code/mw_lib_code.js" ></script>
+
+<script language="JavaScript">
+
+function IsLoggedIn()
+{
+	return false;
+}
+
+function IsLoggedOut()
+{
+	return true;
+}
+
+function OnLoggedOut()
+{
+	alert("User has logged out");
+	return true;
+}
+
+function OnLoggedIn()
+{
+	alert("User has logged in");
+	return true;
+}
+
+function OnEnteredSiteAsLoggedOut()
+{
+	alert("User has entered the site and is logged out");
+	return true;
+}
+
+
+</script>
+<script language="JavaScript" type="text/javascript" src="../state/mw_lib_state.js" ></script>
+
+

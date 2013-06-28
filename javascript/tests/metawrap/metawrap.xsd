@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    $Id: metawrap.xsd,v 1.3 2008/07/20 07:10:06 james Exp $
+
+    $Log: metawrap.xsd,v $
+    Revision 1.3  2008/07/20 07:10:06  james
+    *** empty log message ***
+
+    Revision 1.2  2006/05/17 08:17:04  james
+    XML Schema changes
+
+    Revision 1.1  2006/03/29 12:13:09  james
+    Overarching schema
+
+    
+    @brief Schema definition for the MetaWrap WireWrap XML Schema
+ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="../metawrap/metawrap.xsd" targetNamespace="../metawrap/metawrap.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:annotation>
+		<xs:documentation xml:lang="en">
+            Schema definition for MetaWrap WireWrap
+            Copyright 2006 The MetaWrap Projet
+        </xs:documentation>
+	</xs:annotation>
+
+	<xs:include schemaLocation="../code/code.xsd" id="code" />
+	<xs:include schemaLocation="../state/state.xsd" id="state" />	
+	<xs:include schemaLocation="../stateviewmap/stateviewmap.xsd" id="stateviews" />	
+	<xs:include schemaLocation="../action/action.xsd" id="action" />		
+	
+	<!-- Main structure -->
+	<xs:element name="metawrap" type="metawrap"/>
+	<!-- Instructions -->
+	<xs:complexType name="metawrap">
+		<xs:sequence>
+			<xs:element name="states" type="states" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="stateviews" type="stateviews" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="actions" type="actions" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="code" type="code" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

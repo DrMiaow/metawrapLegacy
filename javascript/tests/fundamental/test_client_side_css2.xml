@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/css" href="client_side_css2.css"?>
+<catalog>
+<book>
+<author>Simon St.Laurent</author>
+<title>XML Elements of Style</title>
+<pubyear>2000</pubyear>
+<publisher>McGraw-Hill</publisher>
+<isbn>0-07-212220-X</isbn>
+<price>$29.99</price>
+</book>
+<book>
+<author>Elliotte Rusty Harold</author>
+<title>XML Bible</title>
+<pubyear>1999</pubyear>
+<publisher>IDG Books</publisher>
+<isbn>0764532367</isbn>
+<price>$49.99</price>
+</book>
+<book>
+<author>Robert Eckstein</author>
+<title>XML Pocket Reference</title>
+<pubyear>1999</pubyear>
+<publisher>O'Reilly and Associates</publisher>
+<isbn>1-56592-709-5</isbn>
+<price>$8.95</price>
+</book>
+<book>
+<author>Kevin Dick</author>
+<title>XML: A Manager's Guide</title>
+<pubyear>1999</pubyear>
+<publisher>Addison-Wesley</publisher>
+<isbn>0201433354</isbn>
+<price>$29.95</price>
+</book>
+<book>
+<author>Simon St.Laurent</author>
+<title>XML: A Primer, 2nd Ed.</title>
+<pubyear>1999</pubyear>
+<publisher>IDG Books</publisher>
+<isbn>0-7645-3310-X</isbn>
+<price>$19.99</price>
+</book>
+<book>
+<author>Simon St.Laurent</author>
+<title>Building XML Applications</title>
+<pubyear>1999</pubyear>
+<publisher>McGraw-Hill</publisher>
+<isbn>0-07-134116-1</isbn>
+<price>$49.99</price>
+</book>
+</catalog>

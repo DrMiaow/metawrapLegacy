@@ -1,0 +1,2714 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<config>
+   <params>
+      <gmt>+11:00:00</gmt>
+
+      <now>2005-02-19 11:13:14</now>
+
+      <tel>1</tel>
+
+      <tim>1</tim>
+
+      <vid>1</vid>
+
+      <motd>Click on the CHAT button for help with video streams.</motd>
+
+      <tz>Canberra, Melbourne, Sydney</tz>
+   </params>
+
+   <timezones>
+      <timezone>
+         <tzn>Perth</tzn>
+
+         <tzo>+08:00</tzo>
+
+         <tzdls>false</tzdls>
+      </timezone>
+
+      <timezone>
+         <tzn>Adelaide</tzn>
+
+         <tzo>+10:30</tzo>
+
+         <tzdls>false</tzdls>
+      </timezone>
+
+      <timezone>
+         <tzn>Darwin</tzn>
+
+         <tzo>+09:30</tzo>
+
+         <tzdls>false</tzdls>
+      </timezone>
+
+      <timezone>
+         <tzn>Brisbane</tzn>
+
+         <tzo>+10:00</tzo>
+
+         <tzdls>false</tzdls>
+      </timezone>
+
+      <timezone>
+         <tzn>Canberra, Melbourne, Sydney</tzn>
+
+         <tzo>+11:00</tzo>
+
+         <tzdls>false</tzdls>
+      </timezone>
+
+      <timezone>
+         <tzn>Hobart</tzn>
+
+         <tzo>+11:00</tzo>
+
+         <tzdls>false</tzdls>
+      </timezone>
+
+      <timezone>
+         <tzn>Pukekohe, Auckland</tzn>
+
+         <tzo>+13:00</tzo>
+
+         <tzdls>false</tzdls>
+      </timezone>
+   </timezones>
+
+   <rounds>
+      <round>
+         <rn>2004 Foster's Australian Grand Prix</rn>
+
+         <rl>Albert Park Grand Prix Circuit</rl>
+
+         <rd>4 - 7 Mar 2004</rd>
+
+         <rs>2004-03-04</rs>
+
+         <re>2004-03-07</re>
+
+         <ri>
+         </ri>
+
+         <rk>154</rk>
+
+         <rv>albert_park_grand_prix_circuit</rv>
+
+         <races>
+            <race>
+               <rk>281</rk>
+
+               <rr>154</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>30</rl>
+
+               <ru>MINS</ru>
+
+               <rd>THU</rd>
+
+               <rs>10:55</rs>
+
+               <re>11:25</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>1</rn>
+            </race>
+
+            <race>
+               <rk>282</rk>
+
+               <rr>154</rr>
+
+               <rc>QUAL</rc>
+
+               <rl>30</rl>
+
+               <ru>MINS</ru>
+
+               <rd>THU</rd>
+
+               <rs>14:00</rs>
+
+               <re>14:30</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>2</rn>
+            </race>
+
+            <race>
+               <rk>283</rk>
+
+               <rr>154</rr>
+
+               <rc>TOP10</rc>
+
+               <rl>40</rl>
+
+               <ru>MINS</ru>
+
+               <rd>THU</rd>
+
+               <rs>16:05</rs>
+
+               <re>16:40</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>3</rn>
+            </race>
+
+            <race>
+               <rk>284</rk>
+
+               <rr>154</rr>
+
+               <rc>RACE1</rc>
+
+               <rl>10</rl>
+
+               <ru>LAPS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>15:25</rs>
+
+               <re>15:45</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>4</rn>
+            </race>
+
+            <race>
+               <rk>285</rk>
+
+               <rr>154</rr>
+
+               <rc>RACE2</rc>
+
+               <rl>19</rl>
+
+               <ru>LAPS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>16:00</rs>
+
+               <re>16:40</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>5</rn>
+            </race>
+
+            <race>
+               <rk>286</rk>
+
+               <rr>154</rr>
+
+               <rc>RACE3</rc>
+
+               <rl>10</rl>
+
+               <ru>LAPS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>10:37</rs>
+
+               <re>10:57</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>6</rn>
+            </race>
+         </races>
+      </round>
+
+      <round>
+         <rn>Clipsal 500</rn>
+
+         <rl>Adelaide Street Circuit</rl>
+
+         <rd>18 - 21 Mar 2004</rd>
+
+         <rs>2004-03-18</rs>
+
+         <re>2004-03-21</re>
+
+         <ri>01</ri>
+
+         <rk>155</rk>
+
+         <rv>r01,_adelaide_street_circuit</rv>
+
+         <races>
+            <race>
+               <rk>276</rk>
+
+               <rr>155</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>35</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>09:30</rs>
+
+               <re>10:05</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>1</rn>
+            </race>
+
+            <race>
+               <rk>277</rk>
+
+               <rr>155</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>35</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>12:00</rs>
+
+               <re>12:35</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>2</rn>
+            </race>
+
+            <race>
+               <rk>278</rk>
+
+               <rr>155</rr>
+
+               <rc>QUAL</rc>
+
+               <rl>20</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>14:05</rs>
+
+               <re>14:50</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>3</rn>
+            </race>
+
+            <race>
+               <rk>279</rk>
+
+               <rr>155</rr>
+
+               <rc>TOP10</rc>
+
+               <rl>30</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>16:35</rs>
+
+               <re>17:05</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>4</rn>
+            </race>
+
+            <race>
+               <rk>280</rk>
+
+               <rr>155</rr>
+
+               <rc>RACE1</rc>
+
+               <rl>250</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>14:00</rs>
+
+               <re>16:15</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>5</rn>
+            </race>
+
+            <race>
+               <rk>391</rk>
+
+               <rr>155</rr>
+
+               <rc>RACE2</rc>
+
+               <rl>250</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>14:00</rs>
+
+               <re>16:15</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>6</rn>
+            </race>
+         </races>
+      </round>
+
+      <round>
+         <rn>
+         </rn>
+
+         <rl>Eastern Creek Raceway</rl>
+
+         <rd>2 - 4 Apr 2004</rd>
+
+         <rs>2004-04-02</rs>
+
+         <re>2004-04-04</re>
+
+         <ri>02</ri>
+
+         <rk>156</rk>
+
+         <rv>r02,_eastern_creek_raceway</rv>
+
+         <races>
+            <race>
+               <rk>287</rk>
+
+               <rr>156</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>90</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>14:00</rs>
+
+               <re>15:30</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>1</rn>
+            </race>
+
+            <race>
+               <rk>288</rk>
+
+               <rr>156</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>35</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>09:29</rs>
+
+               <re>10:05</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>2</rn>
+            </race>
+
+            <race>
+               <rk>289</rk>
+
+               <rr>156</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>35</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>11:35</rs>
+
+               <re>12:10</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>3</rn>
+            </race>
+
+            <race>
+               <rk>290</rk>
+
+               <rr>156</rr>
+
+               <rc>QUAL</rc>
+
+               <rl>20</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>13:40</rs>
+
+               <re>14:25</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>4</rn>
+            </race>
+
+            <race>
+               <rk>291</rk>
+
+               <rr>156</rr>
+
+               <rc>TOP10</rc>
+
+               <rl>30</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>15:55</rs>
+
+               <re>16:25</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>5</rn>
+            </race>
+
+            <race>
+               <rk>392</rk>
+
+               <rr>156</rr>
+
+               <rc>RACE1</rc>
+
+               <rl>300</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>13:30</rs>
+
+               <re>15:45</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>6</rn>
+            </race>
+         </races>
+      </round>
+
+      <round>
+         <rn>PlaceMakers NZ V8 International</rn>
+
+         <rl>Pukekohe Park Raceway</rl>
+
+         <rd>30 April - 02 May 2004</rd>
+
+         <rs>2004-04-30</rs>
+
+         <re>2004-05-02</re>
+
+         <ri>03</ri>
+
+         <rk>157</rk>
+
+         <rv>r03,_pukekohe_park_raceway</rv>
+
+         <races>
+            <race>
+               <rk>292</rk>
+
+               <rr>157</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>35</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>09:55</rs>
+
+               <re>10:30</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>1</rn>
+            </race>
+
+            <race>
+               <rk>293</rk>
+
+               <rr>157</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>35</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>12:15</rs>
+
+               <re>12:50</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>2</rn>
+            </race>
+
+            <race>
+               <rk>294</rk>
+
+               <rr>157</rr>
+
+               <rc>QUAL</rc>
+
+               <rl>20</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>14:25</rs>
+
+               <re>15:10</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>3</rn>
+            </race>
+
+            <race>
+               <rk>295</rk>
+
+               <rr>157</rr>
+
+               <rc>TOP10</rc>
+
+               <rl>30</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>11:45</rs>
+
+               <re>12:15</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>4</rn>
+            </race>
+
+            <race>
+               <rk>296</rk>
+
+               <rr>157</rr>
+
+               <rc>RACE1</rc>
+
+               <rl>100</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>14:35</rs>
+
+               <re>15:25</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>5</rn>
+            </race>
+
+            <race>
+               <rk>297</rk>
+
+               <rr>157</rr>
+
+               <rc>RACE2</rc>
+
+               <rl>150</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>12:10</rs>
+
+               <re>13:20</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>6</rn>
+            </race>
+
+            <race>
+               <rk>393</rk>
+
+               <rr>157</rr>
+
+               <rc>RACE3</rc>
+
+               <rl>150</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>15:40</rs>
+
+               <re>16:50</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>7</rn>
+            </race>
+         </races>
+      </round>
+
+      <round>
+         <rn>
+         </rn>
+
+         <rl>Hidden Valley Raceway</rl>
+
+         <rd>21 - 23 May 2004</rd>
+
+         <rs>2004-05-21</rs>
+
+         <re>2004-05-23</re>
+
+         <ri>04</ri>
+
+         <rk>158</rk>
+
+         <rv>r04,_hidden_valley_raceway</rv>
+
+         <races>
+            <race>
+               <rk>298</rk>
+
+               <rr>158</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>35</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>14:30</rs>
+
+               <re>15:05</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>1</rn>
+            </race>
+
+            <race>
+               <rk>299</rk>
+
+               <rr>158</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>35</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>09:30</rs>
+
+               <re>10:05</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>2</rn>
+            </race>
+
+            <race>
+               <rk>300</rk>
+
+               <rr>158</rr>
+
+               <rc>QUAL</rc>
+
+               <rl>20</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>11:40</rs>
+
+               <re>12:25</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>3</rn>
+            </race>
+
+            <race>
+               <rk>301</rk>
+
+               <rr>158</rr>
+
+               <rc>TOP10</rc>
+
+               <rl>30</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>14:30</rs>
+
+               <re>15:00</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>4</rn>
+            </race>
+
+            <race>
+               <rk>302</rk>
+
+               <rr>158</rr>
+
+               <rc>RACE1</rc>
+
+               <rl>20</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>16:30</rs>
+
+               <re>16:50</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>5</rn>
+            </race>
+
+            <race>
+               <rk>303</rk>
+
+               <rr>158</rr>
+
+               <rc>RACE2</rc>
+
+               <rl>100</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>11:45</rs>
+
+               <re>12:30</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>6</rn>
+            </race>
+
+            <race>
+               <rk>304</rk>
+
+               <rr>158</rr>
+
+               <rc>RACE3</rc>
+
+               <rl>100</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>14:30</rs>
+
+               <re>15:15</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>7</rn>
+            </race>
+         </races>
+      </round>
+
+      <round>
+         <rn>
+         </rn>
+
+         <rl>Barbagallo Raceway Wanneroo</rl>
+
+         <rd>11 - 13 Jun 2004</rd>
+
+         <rs>2004-06-11</rs>
+
+         <re>2004-06-13</re>
+
+         <ri>05</ri>
+
+         <rk>159</rk>
+
+         <rv>r05,_barbagallo_raceway_wanneroo</rv>
+
+         <races>
+            <race>
+               <rk>305</rk>
+
+               <rr>159</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>35</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>14:30</rs>
+
+               <re>15:05</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>1</rn>
+            </race>
+
+            <race>
+               <rk>306</rk>
+
+               <rr>159</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>35</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>09:15</rs>
+
+               <re>09:50</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>2</rn>
+            </race>
+
+            <race>
+               <rk>307</rk>
+
+               <rr>159</rr>
+
+               <rc>QUAL</rc>
+
+               <rl>20</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>11:30</rs>
+
+               <re>12:15</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>3</rn>
+            </race>
+
+            <race>
+               <rk>308</rk>
+
+               <rr>159</rr>
+
+               <rc>TOP10</rc>
+
+               <rl>30</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>14:15</rs>
+
+               <re>14:45</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>4</rn>
+            </race>
+
+            <race>
+               <rk>309</rk>
+
+               <rr>159</rr>
+
+               <rc>RACE1</rc>
+
+               <rl>100</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>16:10</rs>
+
+               <re>16:55</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>5</rn>
+            </race>
+
+            <race>
+               <rk>310</rk>
+
+               <rr>159</rr>
+
+               <rc>RACE2</rc>
+
+               <rl>100</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>10:35</rs>
+
+               <re>11:20</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>6</rn>
+            </race>
+
+            <race>
+               <rk>311</rk>
+
+               <rr>159</rr>
+
+               <rc>RACE3</rc>
+
+               <rl>100</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>13:00</rs>
+
+               <re>13:45</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>7</rn>
+            </race>
+         </races>
+      </round>
+
+      <round>
+         <rn>
+         </rn>
+
+         <rl>Queensland Raceway</rl>
+
+         <rd>2 - 4 Jul 2003</rd>
+
+         <rs>2004-07-02</rs>
+
+         <re>2004-07-04</re>
+
+         <ri>06</ri>
+
+         <rk>160</rk>
+
+         <rv>r06,_queensland_raceway</rv>
+
+         <races>
+            <race>
+               <rk>312</rk>
+
+               <rr>160</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>35</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>14:30</rs>
+
+               <re>15:05</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>1</rn>
+            </race>
+
+            <race>
+               <rk>313</rk>
+
+               <rr>160</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>35</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>10:35</rs>
+
+               <re>11:10</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>2</rn>
+            </race>
+
+            <race>
+               <rk>314</rk>
+
+               <rr>160</rr>
+
+               <rc>QUAL</rc>
+
+               <rl>20</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>13:35</rs>
+
+               <re>14:20</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>3</rn>
+            </race>
+
+            <race>
+               <rk>315</rk>
+
+               <rr>160</rr>
+
+               <rc>TOP10</rc>
+
+               <rl>30</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>16:15</rs>
+
+               <re>16:45</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>4</rn>
+            </race>
+
+            <race>
+               <rk>394</rk>
+
+               <rr>160</rr>
+
+               <rc>RACE1</rc>
+
+               <rl>280</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>13:45</rs>
+
+               <re>15:45</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>5</rn>
+            </race>
+         </races>
+      </round>
+
+      <round>
+         <rn>
+         </rn>
+
+         <rl>Winton Motor Raceway</rl>
+
+         <rd>23 - 25 Jul 2004</rd>
+
+         <rs>2004-07-23</rs>
+
+         <re>2004-07-25</re>
+
+         <ri>07</ri>
+
+         <rk>161</rk>
+
+         <rv>r07,_winton_motor_raceway</rv>
+
+         <races>
+            <race>
+               <rk>316</rk>
+
+               <rr>161</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>90</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>14:00</rs>
+
+               <re>15:30</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>1</rn>
+            </race>
+
+            <race>
+               <rk>317</rk>
+
+               <rr>161</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>35</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>09:25</rs>
+
+               <re>10:00</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>2</rn>
+            </race>
+
+            <race>
+               <rk>318</rk>
+
+               <rr>161</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>35</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>11:40</rs>
+
+               <re>12:15</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>3</rn>
+            </race>
+
+            <race>
+               <rk>319</rk>
+
+               <rr>161</rr>
+
+               <rc>QUAL</rc>
+
+               <rl>20</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>13:50</rs>
+
+               <re>14:35</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>4</rn>
+            </race>
+
+            <race>
+               <rk>395</rk>
+
+               <rr>161</rr>
+
+               <rc>TOP10</rc>
+
+               <rl>30</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>16:05</rs>
+
+               <re>16:35</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>5</rn>
+            </race>
+
+            <race>
+               <rk>396</rk>
+
+               <rr>161</rr>
+
+               <rc>RACE1</rc>
+
+               <rl>300</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>13:00</rs>
+
+               <re>15:30</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>6</rn>
+            </race>
+         </races>
+      </round>
+
+      <round>
+         <rn>
+         </rn>
+
+         <rl>Oran Park Raceway</rl>
+
+         <rd>13 - 15 Aug 2004</rd>
+
+         <rs>2004-08-13</rs>
+
+         <re>2004-08-15</re>
+
+         <ri>08</ri>
+
+         <rk>164</rk>
+
+         <rv>r08,_oran_park_raceway</rv>
+
+         <races>
+            <race>
+               <rk>331</rk>
+
+               <rr>164</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>90</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>14:00</rs>
+
+               <re>15:30</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>1</rn>
+            </race>
+
+            <race>
+               <rk>332</rk>
+
+               <rr>164</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>35</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>09:15</rs>
+
+               <re>09:50</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>2</rn>
+            </race>
+
+            <race>
+               <rk>333</rk>
+
+               <rr>164</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>35</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>11:30</rs>
+
+               <re>12:05</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>3</rn>
+            </race>
+
+            <race>
+               <rk>334</rk>
+
+               <rr>164</rr>
+
+               <rc>QUAL</rc>
+
+               <rl>20</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>13:50</rs>
+
+               <re>14:35</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>4</rn>
+            </race>
+
+            <race>
+               <rk>335</rk>
+
+               <rr>164</rr>
+
+               <rc>TOP10</rc>
+
+               <rl>30</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>16:05</rs>
+
+               <re>16:35</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>5</rn>
+            </race>
+
+            <race>
+               <rk>397</rk>
+
+               <rr>164</rr>
+
+               <rc>RACE1</rc>
+
+               <rl>140</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>11:20</rs>
+
+               <re>12:30</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>6</rn>
+            </race>
+
+            <race>
+               <rk>398</rk>
+
+               <rr>164</rr>
+
+               <rc>RACE2</rc>
+
+               <rl>140</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>14:30</rs>
+
+               <re>15:40</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>7</rn>
+            </race>
+         </races>
+      </round>
+
+      <round>
+         <rn>Betta Electrical 500</rn>
+
+         <rl>Sandown International Raceway</rl>
+
+         <rd>10 - 12 Sep 2004</rd>
+
+         <rs>2004-09-10</rs>
+
+         <re>2004-09-12</re>
+
+         <ri>09</ri>
+
+         <rk>162</rk>
+
+         <rv>r09,_sandown_international_raceway</rv>
+
+         <races>
+            <race>
+               <rk>321</rk>
+
+               <rr>162</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>60</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>10:35</rs>
+
+               <re>11:35</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>1</rn>
+            </race>
+
+            <race>
+               <rk>322</rk>
+
+               <rr>162</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>30</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>14:15</rs>
+
+               <re>14:45</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>2</rn>
+            </race>
+
+            <race>
+               <rk>323</rk>
+
+               <rr>162</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>45</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>09:45</rs>
+
+               <re>10:30</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>3</rn>
+            </race>
+
+            <race>
+               <rk>324</rk>
+
+               <rr>162</rr>
+
+               <rc>QUAL</rc>
+
+               <rl>20</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>12:40</rs>
+
+               <re>13:25</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>4</rn>
+            </race>
+
+            <race>
+               <rk>399</rk>
+
+               <rr>162</rr>
+
+               <rc>TOP10</rc>
+
+               <rl>30</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>15:15</rs>
+
+               <re>15:45</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>5</rn>
+            </race>
+
+            <race>
+               <rk>400</rk>
+
+               <rr>162</rr>
+
+               <rc>RACE1</rc>
+
+               <rl>500</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>13:00</rs>
+
+               <re>16:45</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>6</rn>
+            </race>
+         </races>
+      </round>
+
+      <round>
+         <rn>Bob Jane T-Marts 1000</rn>
+
+         <rl>Mount Panorama Bathurst</rl>
+
+         <rd>7 - 10 Oct 2004</rd>
+
+         <rs>2004-09-17</rs>
+
+         <re>2004-10-10</re>
+
+         <ri>10</ri>
+
+         <rk>163</rk>
+
+         <rv>r10,_mount_panorama_bathurst</rv>
+
+         <races>
+            <race>
+               <rk>325</rk>
+
+               <rr>163</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>60</rl>
+
+               <ru>MINS</ru>
+
+               <rd>THU</rd>
+
+               <rs>11:00</rs>
+
+               <re>12:00</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>1</rn>
+            </race>
+
+            <race>
+               <rk>326</rk>
+
+               <rr>163</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>30</rl>
+
+               <ru>MINS</ru>
+
+               <rd>THU</rd>
+
+               <rs>14:20</rs>
+
+               <re>14:50</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>2</rn>
+            </race>
+
+            <race>
+               <rk>327</rk>
+
+               <rr>163</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>30</rl>
+
+               <ru>MINS</ru>
+
+               <rd>THU</rd>
+
+               <rs>15:00</rs>
+
+               <re>15:30</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>3</rn>
+            </race>
+
+            <race>
+               <rk>328</rk>
+
+               <rr>163</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>60</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>09:25</rs>
+
+               <re>10:25</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>4</rn>
+            </race>
+
+            <race>
+               <rk>329</rk>
+
+               <rr>163</rr>
+
+               <rc>QUAL</rc>
+
+               <rl>45</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>14:00</rs>
+
+               <re>15:40</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>5</rn>
+            </race>
+
+            <race>
+               <rk>330</rk>
+
+               <rr>163</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>60</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>10:00</rs>
+
+               <re>11:00</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>6</rn>
+            </race>
+
+            <race>
+               <rk>401</rk>
+
+               <rr>163</rr>
+
+               <rc>TOP10</rc>
+
+               <rl>45</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>15:40</rs>
+
+               <re>16:25</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>7</rn>
+            </race>
+
+            <race>
+               <rk>414</rk>
+
+               <rr>163</rr>
+
+               <rc>RACE1</rc>
+
+               <rl>1000</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>10:00</rs>
+
+               <re>17:45</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>8</rn>
+            </race>
+         </races>
+      </round>
+
+      <round>
+         <rn>Gillette V8 Supercar Challenge</rn>
+
+         <rl>Gold Coast Indy 300</rl>
+
+         <rd>21 - 24 Oct 2004</rd>
+
+         <rs>2004-10-15</rs>
+
+         <re>2004-10-24</re>
+
+         <ri>11</ri>
+
+         <rk>165</rk>
+
+         <rv>r11,_gold_coast_indy_300</rv>
+
+         <races>
+            <race>
+               <rk>336</rk>
+
+               <rr>165</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>35</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>09:00</rs>
+
+               <re>09:35</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>1</rn>
+            </race>
+
+            <race>
+               <rk>337</rk>
+
+               <rr>165</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>35</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>13:00</rs>
+
+               <re>13:35</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>2</rn>
+            </race>
+
+            <race>
+               <rk>338</rk>
+
+               <rr>165</rr>
+
+               <rc>QUAL</rc>
+
+               <rl>20</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>16:00</rs>
+
+               <re>16:45</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>3</rn>
+            </race>
+
+            <race>
+               <rk>339</rk>
+
+               <rr>165</rr>
+
+               <rc>TOP10</rc>
+
+               <rl>30</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>12:10</rs>
+
+               <re>12:40</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>4</rn>
+            </race>
+
+            <race>
+               <rk>340</rk>
+
+               <rr>165</rr>
+
+               <rc>RACE1</rc>
+
+               <rl>100</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>15:50</rs>
+
+               <re>16:50</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>5</rn>
+            </race>
+
+            <race>
+               <rk>402</rk>
+
+               <rr>165</rr>
+
+               <rc>RACE2</rc>
+
+               <rl>100</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>12:00</rs>
+
+               <re>13:30</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>6</rn>
+            </race>
+         </races>
+      </round>
+
+      <round>
+         <rn>Tasmania Triple Challenge</rn>
+
+         <rl>Symmons Plains Raceway</rl>
+
+         <rd>12 - 14 Nov 2004</rd>
+
+         <rs>2004-10-29</rs>
+
+         <re>2004-11-14</re>
+
+         <ri>12</ri>
+
+         <rk>167</rk>
+
+         <rv>r12,_symmons_plains_raceway,_tasmania</rv>
+
+         <races>
+            <race>
+               <rk>345</rk>
+
+               <rr>167</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>35</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>14:30</rs>
+
+               <re>15:05</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>1</rn>
+            </race>
+
+            <race>
+               <rk>346</rk>
+
+               <rr>167</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>35</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>09:20</rs>
+
+               <re>08:55</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>2</rn>
+            </race>
+
+            <race>
+               <rk>347</rk>
+
+               <rr>167</rr>
+
+               <rc>QUAL</rc>
+
+               <rl>20</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>11:35</rs>
+
+               <re>12:20</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>3</rn>
+            </race>
+
+            <race>
+               <rk>348</rk>
+
+               <rr>167</rr>
+
+               <rc>TOP10</rc>
+
+               <rl>30</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>14:00</rs>
+
+               <re>14:30</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>4</rn>
+            </race>
+
+            <race>
+               <rk>411</rk>
+
+               <rr>167</rr>
+
+               <rc>RACE1</rc>
+
+               <rl>100</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>16:00</rs>
+
+               <re>16:45</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>5</rn>
+            </race>
+
+            <race>
+               <rk>412</rk>
+
+               <rr>167</rr>
+
+               <rc>RACE2</rc>
+
+               <rl>100</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>12:05</rs>
+
+               <re>12:50</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>6</rn>
+            </race>
+
+            <race>
+               <rk>413</rk>
+
+               <rr>167</rr>
+
+               <rc>RACE3</rc>
+
+               <rl>100</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>15:00</rs>
+
+               <re>15:45</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>7</rn>
+            </race>
+         </races>
+      </round>
+
+      <round>
+         <rn>example Grand Finale</rn>
+
+         <rl>Eastern Creek Raceway</rl>
+
+         <rd>3 - 5 Dec 2004</rd>
+
+         <rs>2004-12-01</rs>
+
+         <re>2004-12-05</re>
+
+         <ri>13</ri>
+
+         <rk>166</rk>
+
+         <rv>r13,_eastern_creek_raceway</rv>
+
+         <races>
+            <race>
+               <rk>341</rk>
+
+               <rr>166</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>35</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>10:30</rs>
+
+               <re>11:05</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>1</rn>
+            </race>
+
+            <race>
+               <rk>342</rk>
+
+               <rr>166</rr>
+
+               <rc>PRAC</rc>
+
+               <rl>35</rl>
+
+               <ru>MINS</ru>
+
+               <rd>FRI</rd>
+
+               <rs>13:15</rs>
+
+               <re>13:50</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>2</rn>
+            </race>
+
+            <race>
+               <rk>343</rk>
+
+               <rr>166</rr>
+
+               <rc>QUAL</rc>
+
+               <rl>20</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>13:40</rs>
+
+               <re>14:25</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>3</rn>
+            </race>
+
+            <race>
+               <rk>344</rk>
+
+               <rr>166</rr>
+
+               <rc>TOP10</rc>
+
+               <rl>30</rl>
+
+               <ru>MINS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>16:10</rs>
+
+               <re>16:40</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>4</rn>
+            </race>
+
+            <race>
+               <rk>404</rk>
+
+               <rr>166</rr>
+
+               <rc>RACE1</rc>
+
+               <rl>100</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SAT</rd>
+
+               <rs>18:15</rs>
+
+               <re>19:05</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>5</rn>
+            </race>
+
+            <race>
+               <rk>405</rk>
+
+               <rr>166</rr>
+
+               <rc>RACE2</rc>
+
+               <rl>150</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>12:30</rs>
+
+               <re>13:40</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>6</rn>
+            </race>
+
+            <race>
+               <rk>406</rk>
+
+               <rr>166</rr>
+
+               <rc>RACE3</rc>
+
+               <rl>150</rl>
+
+               <ru>KLMS</ru>
+
+               <rd>SUN</rd>
+
+               <rs>15:40</rs>
+
+               <re>16:45</re>
+
+               <ra>RELEASED</ra>
+
+               <rn>7</rn>
+            </race>
+         </races>
+      </round>
+   </rounds>
+
+   <sessions>
+      <session>
+         <sn>Program Guide</sn>
+
+         <sd>2004-12-05</sd>
+
+         <ss>10:00</ss>
+
+         <se>11:40</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>100</sl>
+
+         <su>MINS</su>
+      </session>
+
+      <session>
+         <sn>2004 Rd 13 Qualifying Highlights</sn>
+
+         <sd>2004-12-05</sd>
+
+         <ss>11:40</ss>
+
+         <se>11:55</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>15</sl>
+
+         <su>MINS</su>
+      </session>
+
+      <session>
+         <sn>2004 Rd 13 Top 10 Highlights</sn>
+
+         <sd>2004-12-05</sd>
+
+         <ss>11:55</ss>
+
+         <se>12:10</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>15</sl>
+
+         <su>MINS</su>
+      </session>
+
+      <session>
+         <sn>2004 Rd 13 Race 1 Highlights</sn>
+
+         <sd>2004-12-05</sd>
+
+         <ss>12:10</ss>
+
+         <se>12:25</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>15</sl>
+
+         <su>MINS</su>
+      </session>
+
+      <session>
+         <sn>Race 2</sn>
+
+         <sd>2004-12-05</sd>
+
+         <ss>12:25</ss>
+
+         <se>13:40</se>
+
+         <sm>Video,Timing,Telemetry</sm>
+
+         <si>405</si>
+
+         <sl>39</sl>
+
+         <su>LAPS</su>
+      </session>
+
+      <session>
+         <sn>Lunch</sn>
+
+         <sd>2004-12-05</sd>
+
+         <ss>13:40</ss>
+
+         <se>14:35</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>55</sl>
+
+         <su>MINS</su>
+      </session>
+
+      <session>
+         <sn>Red Diaries Part 2</sn>
+
+         <sd>2004-12-05</sd>
+
+         <ss>14:35</ss>
+
+         <se>15:35</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>60</sl>
+
+         <su>MINS</su>
+      </session>
+
+      <session>
+         <sn>Race 3</sn>
+
+         <sd>2004-12-05</sd>
+
+         <ss>15:35</ss>
+
+         <se>16:55</se>
+
+         <sm>Video,Timing,Telemetry</sm>
+
+         <si>406</si>
+
+         <sl>39</sl>
+
+         <su>LAPS</su>
+      </session>
+
+      <session>
+         <sn>Podium Presentation</sn>
+
+         <sd>2004-12-05</sd>
+
+         <ss>16:55</ss>
+
+         <se>17:10</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>15</sl>
+
+         <su>MINS</su>
+      </session>
+
+      <session>
+         <sn>Press Conference</sn>
+
+         <sd>2004-12-05</sd>
+
+         <ss>17:10</ss>
+
+         <se>17:30</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>20</sl>
+
+         <su>MINS</su>
+      </session>
+
+      <session>
+         <sn>End of Day</sn>
+
+         <sd>2004-12-05</sd>
+
+         <ss>17:30</ss>
+
+         <se>18:00</se>
+
+         <sm>Video</sm>
+
+         <si>
+         </si>
+
+         <sl>30</sl>
+
+         <su>MINS</su>
+      </session>
+   </sessions>
+
+   <streams>
+      <str>
+         <sn>180K Unicast</sn>
+
+         <su></su>
+
+         <ss></ss>
+
+         <sr>180</sr>
+
+         <sm>Adsl,Cable,NoCookie,Unknown,DialUp,None</sm>
+
+         <st>Video</st>
+      </str>
+
+      <str>
+         <sn>380K Unicast</sn>
+
+         <su></su>
+
+         <ss></ss>
+
+         <sr>380</sr>
+
+         <sm>Adsl,Cable,NoCookie,Unknown,DialUp,None</sm>
+
+         <st>Video</st>
+      </str>
+
+      <str>
+         <sn>600K Unicast</sn>
+
+         <su></su>
+
+         <ss></ss>
+
+         <sr>600</sr>
+
+         <sm>Cable,NoCookie,Unknown,DialUp,None</sm>
+
+         <st>Video</st>
+      </str>
+
+      <str>
+         <sn>180K Unicast HTTP</sn>
+
+         <su></su>
+
+         <ss></ss>
+
+         <sr>180</sr>
+
+         <sm>Adsl,Cable,NoCookie,Unknown,DialUp,None</sm>
+
+         <st>Video</st>
+      </str>
+
+      <str>
+         <sn>Satellite - 380K Multicast</sn>
+
+         <su></su>
+
+         <ss></ss>
+
+         <sr>380</sr>
+
+         <sm>Satellite</sm>
+
+         <st>Video</st>
+      </str>
+
+      <str>
+         <sn>Satellite - 380K Multicast</sn>
+
+         <su></su>
+
+         <ss></ss>
+
+         <sr>380</sr>
+
+         <sm>Backup</sm>
+
+         <st>Video</st>
+      </str>
+
+      <str>
+         <sn>Radio - 180k 380k Unicast</sn>
+
+         <su>http://wmt.streaming.example.com/</su>
+
+         <ss>ucs-wh_v8supe0live5</ss>
+
+         <sr>380</sr>
+
+         <sm>Adsl,Cable,NoCookie,Unknown,None</sm>
+
+         <st>Radio</st>
+      </str>
+
+      <str>
+         <sn>Radio - Unavailable on Satellite and DialUp</sn>
+
+         <su>
+         </su>
+
+         <ss>
+         </ss>
+
+         <sr>
+         </sr>
+
+         <sm>Satellite,DialUp</sm>
+
+         <st>Radio</st>
+      </str>
+   </streams>
+
+   <modes>
+      <mode>
+         <mn>Racing</mn>
+
+         <mt>V8 SUPERCARS LIVE</mt>
+      </mode>
+
+      <mode>
+         <mn>Rest</mn>
+
+         <mt>V8 SUPERCARS (Rest Mode)</mt>
+      </mode>
+
+      <mode>
+         <mn>Normal</mn>
+
+         <mt>V8 SUPERCARS (Normal Mode)</mt>
+      </mode>
+   </modes>
+</config>
+

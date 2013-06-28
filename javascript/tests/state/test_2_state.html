@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<title>
+		MetaWrap "State" Library - Testcases #3 - Paths - $Id: test_2_state.html,v 1.6 2008/07/20 07:10:07 james Exp $
+	</title>
+
+	<style>
+.wrap{
+    width: 67%;
+    margin: 0 0 1em 14%;
+    padding: 2% 3% 2% 5%;
+    BACKGROUND: white;
+    border-style: solid;
+    border-width: 1px;
+    top: -1px;
+}
+h1,h2,h3,h4{
+    position: relative;
+    left: -1em;
+    clear: both;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: orange;
+    font: 0.8em trebuchet ms;
+}
+em{
+    background: #ffc;
+}
+pre{
+    font-size: 1.1em;
+    background: #f0f0f0;
+    -moz-border-radius: 10px;
+    padding: 1em;
+}
+pre span{
+    font-weight: bold;
+}
+.selector, pre b{
+    color: red;
+}
+.beh{
+    color: blue;
+}
+.event{
+    color: green;
+}
+
+#sortable-list li{
+    cursor:move;
+    -moz-user-select: none;
+    width: 100%;
+}
+
+.dropout li{
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    float: left;
+    margin: 5px;
+    border: 1px solid #ccc;
+    list-style: none;
+    background: red;
+}
+
+.dropout li.hover{
+    background: yellow;
+}
+	</style>
+<script language="JavaScript">
+/*!
+    @fn         function debug(p_msg)
+	@param		p_msg Message to display
+    @brief      Debugging routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function debug(p_msg)
+{
+    alert(p_msg);
+}
+
+
+
+/*!
+    @fn         function error(p_msg)
+	@param		p_msg Message to display
+    @brief      Error routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function error(p_msg)
+{
+    alert(p_msg);
+}
+
+/*!
+    @fn         function warn(p_msg)
+	@param		p_msg Message to display
+    @brief      Warn routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function warn(p_msg)
+{
+    alert(p_msg);
+}
+
+/*!
+    @fn         function trace(p_msg)
+	@param		p_msg Message to display
+    @brief      Trace routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function trace(p_msg)
+{
+    //window.status = p_msg;
+}
+
+/*!
+    @fn         function ASSERT(p_cond,p_msg)
+	@param		p_cond The flag that determines if we don't display p_msg
+	@param		p_msg Message to display
+    @brief      If p_cond is not true then display p_msg
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+</script>
+
+
+
+<script language="JavaScript" type="text/javascript" src="../base/mw_lib.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../pipeline/mw_lib_pipeline.js"></script>
+<script language="JavaScript" type="text/javascript" src="../network/mw_lib_network.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../xml/mw_lib_xml.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../xslt/mw_lib_xml_xslt.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../cookie/mw_lib_cookie.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../css/mw_lib_css.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../objectmodel/mw_lib_objectmodel.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../objectmodel/mw_lib_objectmodel_node.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../objectmodel/mw_lib_objectmodel_node_cookie.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../code/mw_lib_code.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../logger/mw_lib_logger.js" ></script>
+
+<script language="JavaScript">
+MetaWrap.ObjectModel.create("X.X",1);
+MetaWrap.ObjectModel.create("X.Y",1);
+MetaWrap.ObjectModel.create("X.Z",1);
+</script>
+
+
+</head>
+<body>
+<div class="wrap">
+<table width="100%" ID="Table1">
+	<tr align="middle" >
+		<td>
+			<h2>
+				MetaWrap "State" Library - Testcases #3 - Paths
+			</h2>
+		</td>
+		<td>
+			<a href="http://www.metawrap.com"><img border="0" src="../images/metawrap_logo_sm.png" align="right" /></a>
+		</td>
+	</tr>
+</table>
+<pre>$Id: test_2_state.html,v 1.6 2008/07/20 07:10:07 james Exp $</pre>
+</div>
+
+<div class="wrap">
+<script language="JavaScript" type="text/javascript" src="../state/mw_lib_state.js" ></script>
+<script language="JavaScript" src="../fundamental/test.js" ></script>
+</div>
+
+<script language="JavaScript">
+	
+	
+	var l_name = 'Simple local path';
+	var l_test = 'var l_s = MetaWrap.State.m_state.findState("loggedin");';
+	var l_valid = 'l_s == MetaWrap.State.m_state.m_states["loggedin"]';
+	var l_display = 'true';
+	//l_display = 'l_s.m_name';
+	passFail(l_name,l_test,l_valid,l_display);
+
+	l_name = 'Simple root path';
+	l_test = 'var l_s = MetaWrap.State.m_state.findState("/loggedin");';
+	l_valid = 'l_s == MetaWrap.State.m_state.m_states["loggedin"]';
+	l_display = 'true';
+	passFail(l_name,l_test,l_valid,l_display);
+
+	l_name = 'Longer root path';
+	l_test = 'var l_s = MetaWrap.State.m_state.findState("/loggedin/superuser");';
+	l_valid = 'l_s.m_name == "superuser"';
+	l_display = 'true';
+	passFail(l_name,l_test,l_valid,l_display);
+
+	l_name = 'Local path';
+	l_test = 'var l_s = MetaWrap.State.m_state.findState(".");';
+	l_valid = 'l_s.m_name == ""';
+	l_display = 'true';
+	passFail(l_name,l_test,l_valid,l_display);
+
+	l_name = 'Local path';
+	l_test = 'var l_s = MetaWrap.State.m_state.findState("./loggedout");';
+	l_valid = 'l_s.m_name == "loggedout"';
+	l_display = 'true';
+	passFail(l_name,l_test,l_valid,l_display);
+
+	l_name = 'Local path';
+	l_test = 'var l_s = MetaWrap.State.m_state.findState("./loggedout/registered");';
+	l_valid = 'l_s.m_name == "registered"';
+	l_display = 'true';
+	passFail(l_name,l_test,l_valid,l_display);
+
+	l_name = 'Relative';
+	l_test = 'var l_s = MetaWrap.State.m_state.findState("./loggedout/registered/..");';
+	l_valid = 'l_s.m_name == "loggedout"';
+	l_display = 'true';
+	passFail(l_name,l_test,l_valid,l_display);
+
+</script>
+
+
+</body>
+</html>
+

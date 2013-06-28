@@ -1,0 +1,1936 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<style>
+.wrap{
+    width: 67%;
+    margin: 0 0 1em 14%;
+    padding: 2% 3% 2% 5%;
+    BACKGROUND: white;
+    border-style: solid;
+    border-width: 1px;
+    top: -1px;
+}
+h1,h2,h3,h4{
+    position: relative;
+    left: -1em;
+    clear: both;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: orange;
+    font: 0.8em trebuchet ms;
+}
+em{
+    background: #ffc;
+}
+pre{
+    font-size: 1.1em;
+    background: #f0f0f0;
+    -moz-border-radius: 10px;
+    padding: 1em;
+}
+pre span{
+    font-weight: bold;
+}
+.selector, pre b{
+    color: red;
+}
+.beh{
+    color: blue;
+}
+.event{
+    color: green;
+}
+
+#sortable-list li{
+    cursor:move;
+    -moz-user-select: none;
+    width: 100%;
+}
+
+.dropout li{
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    float: left;
+    margin: 5px;
+    border: 1px solid #ccc;
+    list-style: none;
+    background: red;
+}
+
+.dropout li.hover{
+    background: yellow;
+}
+	</style>
+
+
+	<title>
+		Page - Event - Simulate - TestCase #5 - MetaWrap JavaScript Library - $Id: test_5_page_event_simulate.html,v 1.14 2006/05/09 10:04:56 james Exp $
+	</title>
+	<script type="text/javascript" src="../base/mw_lib.js"></script>
+	<script type="text/javascript" src="../cookie/mw_lib_cookie.js"></script>
+	<script type="text/javascript" src="../page/mw_lib_page.js"></script>
+	<script type="text/javascript" src="../page/mw_lib_page_event.js"></script>
+	<script type="text/javascript" src="../page/mw_lib_page_event_simulate.js"></script>
+	<script type="text/javascript" src="../xml/mw_lib_xml.js"></script>
+	<script type="text/javascript" src="../xml/mw_lib_xml_serialise.js"></script>
+	<script type="text/javascript" src="../tester/mw_lib_tester.js"></script>
+	<script type="text/javascript" src="../macro/mw_lib_macro.js"></script>
+
+<script language="JavaScript">
+
+MwUse("MetaWrap.Page.Event","mw_lib_page_event.js");
+
+
+
+function error(p_msg)
+{
+    alert(p_msg);
+}
+
+function debug(p_msg)
+{
+    alert(p_msg);
+}
+
+function trace(p_msg)
+{
+    window.status = p_msg;
+    document.title = p_msg;
+}
+
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+
+</script>
+</head>
+<body>
+<div class="wrap">
+<table width="100%">
+	<tr align="middle" >
+		<td>
+			<h2>
+				Page - Event - Simulate - TestCases #5 - Simple Event Simulation
+			</h2>
+		</td>
+		<td>
+			<a href="http://www.metawrap.com"><img border="0" src="../images/metawrap_logo_sm.png" align="right" /></a>
+		</td>
+	</tr>
+</table>
+
+<pre>$Id: test_5_page_event_simulate.html,v 1.14 2006/05/09 10:04:56 james Exp $</pre>
+
+
+</div>
+
+<div class="wrap">
+<script language="JavaScript">
+
+// http://www.mozilla.org/docs/dom/domref/dom_el_ref.html
+// http://www.quirksmode.org/js/events_properties.html
+// http://www.quirksmode.org/js/events_compinfo.html
+
+function statusupdate(p_string)
+{
+    //window.status = p_string + window.status.substring(0,160);
+    //document.title = p_string + document.title.substring(0,160);
+}
+
+
+var g_playing_array = null;
+var g_playing_index = 0;
+var g_playing_timer = null;
+var g_playing_speed = 100;
+
+function test_play_start(p_playing_array)
+{
+    g_playing_array = p_playing_array;
+    g_playing_index = 0;
+
+    if (g_playing_timer)
+    {
+        clearTimeout(g_playing_timer);
+        g_playing_timer = null;
+    }
+
+    g_playing_timer = setTimeout("test_play()",g_playing_speed);
+
+}
+
+function test_play()
+{
+    if (g_playing_timer)
+    {
+        clearTimeout(g_playing_timer);
+        g_playing_timer = null;
+    }
+
+    if (g_playing_index < g_playing_array.length)
+    {
+        trace("play " + g_playing_array[g_playing_index]);
+        var l_command = new String(g_playing_array[g_playing_index]);
+
+        var l_params = l_command.split(" ");
+
+        //0  beforeeditfocus l_type - "on"
+        //1  3641 l_time
+        //2  document.HTML.BODY.DIV[1].FORM.INPUT l_path
+        //3  0 l_button
+        //4  334 l_X
+        //5  293 l_Y
+        //6  0 l_key
+        //7  false l_alt
+        //8  false l_ctrl
+        //9  false l_shift
+
+        g_playing_index++;
+
+        var l_path = l_params[2];
+        var l_X = l_params[4];
+        var l_Y	= l_params[5];
+        var l_type = l_params[0];
+        var l_button = l_params[3];
+        var l_alt = l_params[7];
+        var l_ctrl = l_params[8];
+        var l_shift = l_params[9];
+        var l_key = l_params[6];
+
+        var l_event = MetaWrap.Page.Event(l_type,l_X,l_Y,l_ctrl,l_alt,l_shift,l_button,l_key);
+        MetaWrap.Page.Event.Simulate.simulate(l_event,l_type,l_path);
+
+        //l_type,l_path,l_button,l_X,l_Y,l_key,l_alt,l_ctrl,l_shift);
+
+
+        g_playing_timer = setTimeout("test_play()",g_playing_speed);
+    }
+}
+
+var g_global_monitor = true;
+
+if (g_global_monitor)
+{
+
+    var g_counter = 0;
+
+    function addcounter()
+    {
+        statusupdate(" " + g_counter + " -> ");
+        g_counter++;
+    }
+
+    function debug_event_location(p_event)
+    {
+	    // Get the event
+	    var l_event = null;
+
+	    if (!p_event)
+		    l_event = window.event;
+	    else
+		    l_event = p_event;
+
+	    // Get the target
+	    var l_target = (l_event.target) ? l_event.target : l_event.srcElement
+
+
+	    var l_target_location = MetaWrap.getDOMLocationFromElement(l_target);
+
+	    statusupdate(l_target_location);
+
+	    statusupdate(" ");
+
+	    statusupdate(MetaWrap.Page.Event.Dump(l_event,""));
+
+	    return l_event;
+    }
+
+    document.onblur = function(p_event)
+    {
+	    trace(" *BLUR* ");
+
+	    var l_event = debug_event_location(p_event);
+
+	    addcounter();
+
+	    return true;
+    }
+
+    document.onfocus = function(p_event)
+    {
+	    trace(" *FOCUS* ");
+
+	    var l_event = debug_event_location(p_event);
+
+	    addcounter();
+
+	    return true;
+    }
+
+    document.onfocusin = function(p_event)
+    {
+	    trace(" *FOCUSIN* ");
+
+	    var l_event = debug_event_location(p_event);
+
+	    addcounter();
+
+	    return true;
+    }
+
+    document.onbeforeeditfocus = function(p_event)
+    {
+	    trace(" *BEFOREEDITFOCUS* ");
+
+	    var l_event = debug_event_location(p_event);
+
+	    addcounter();
+
+	    return true;
+    }
+
+
+    document.onactivate = function(p_event)
+    {
+	    trace(" *ACTIVATE* ");
+
+	    addcounter()
+
+        var l_event = debug_event_location(p_event);
+
+
+	    // Get the event
+	    var l_event = null;
+
+	    if (!p_event)
+		    l_event = window.event;
+	    else
+		    l_event = p_event;
+
+	    // Get the target
+	    var l_target = (l_event.target) ? l_event.target : l_event.srcElement
+
+        //l_target.focus();
+
+        return true;
+    }
+
+   document.ondeactivate = function(p_event)
+    {
+	    trace(" *DEACTIVATE* ");
+
+	    addcounter()
+
+        var l_event = debug_event_location(p_event);
+
+
+	    // Get the event
+	    var l_event = null;
+
+	    if (!p_event)
+		    l_event = window.event;
+	    else
+		    l_event = p_event;
+
+	    // Get the target
+	    var l_target = (l_event.target) ? l_event.target : l_event.srcElement
+
+        //l_target.blur();
+
+        return true;
+    }
+
+    document.oncontextmenu = function(p_event)
+    {
+	    trace(" *CONTEXTMENU* ");
+
+	    addcounter();
+
+	    return true;
+    }
+
+
+    document.onresize = function(p_event)
+    {
+	    trace(" *RESIZE* ");
+
+	    addcounter();
+
+	    return true;
+    }
+
+
+    document.onscroll = function(p_event)
+    {
+	    trace(" *SCROLL* ");
+
+	    addcounter();
+
+	    return true;
+    }
+
+    document.ondblclick = function(p_event)
+    {
+	    trace(" *DOUBLECLICK* ");
+
+	    addcounter();
+
+        return true;
+    }
+    document.onclick = function(p_event)
+    {
+	    trace(" *CLICK* ");
+
+        var l_event = debug_event_location(p_event);
+
+	    // Get the target
+	    var l_target = (l_event.target) ? l_event.target : l_event.srcElement
+
+	    var l_target_location = MetaWrap.getDOMLocationFromElement(l_target);
+
+	    //statusupdate(l_target_location);
+
+	    var l_location_element = MetaWrap.getDOMElementFromLocation(l_target_location);
+
+	    if (l_location_element != l_target)
+	    {
+		    alert("(l_location_element != l_target) " + l_target_location);
+	    }
+	    else
+	    {
+		    //alert("onclick " + l_target_location);
+
+		    //statusupdate("(onclick " + l_target_location+")");
+
+		    // Dump the event?
+		    //alert(MetaWrap.Page.Event.Dump(l_event,l_target_location));
+	    }
+
+	    addcounter();
+
+	    return true;
+    }
+
+    document.onmouseover = function(p_event)
+    {
+        trace(" *MOUSEOVER* ");
+
+        var l_event = debug_event_location(p_event);
+
+        addcounter();
+
+        return true;
+    }
+
+    document.onmouseout = function(p_event)
+    {
+	    trace(" *MOUSEOUT* ");
+
+        var l_event = debug_event_location(p_event);
+
+        addcounter();
+
+        return true;
+    }
+
+    document.onmousemove = function(p_event)
+    {
+	    trace(" *MOUSEMOVE* ");
+
+        var l_event = debug_event_location(p_event);
+
+        addcounter();
+
+        return true;
+    }
+
+    document.onchange = function(p_event)
+    {
+	    trace(" *ONCHANGE* ");
+
+        var l_event = debug_event_location(p_event);
+
+	    addcounter();
+
+        return true;
+    }
+
+    document.onreset = function(p_event)
+    {
+	    trace(" *ONRESET* ");
+
+        var l_event = debug_event_location(p_event);
+
+	    addcounter();
+
+        return true;
+    }
+
+    document.onselect = function(p_event)
+    {
+	    trace(" *ONSELECT* ");
+
+        var l_event = debug_event_location(p_event);
+
+	    addcounter();
+
+        return true;
+    }
+
+    document.onsubmit = function(p_event)
+    {
+	    trace(" *ONSUBMIT* ");
+
+        var l_event = debug_event_location(p_event);
+
+	    addcounter();
+
+        return true;
+    }
+
+    document.onkeydown = function(p_event)
+    {
+	    trace(" *ONKEYDOWN* ");
+
+        var l_event = debug_event_location(p_event);
+
+	    addcounter();
+
+        return true;
+    }
+
+    document.onkeypress = function(p_event)
+    {
+	    trace(" *ONKEYPRESS* ");
+
+	    var l_event = debug_event_location(p_event);
+
+	    addcounter();
+
+	    return true;
+    }
+
+    document.onkeyup = function(p_event)
+    {
+	    trace(" *ONKEYUP* ");
+
+	    var l_event = debug_event_location(p_event);
+
+	    addcounter();
+
+	    return true;
+    }
+
+}
+
+var g_timer = null;
+
+function run_test(p_test,p_event)
+{
+    if (g_timer)
+    {
+        clearTimeout(g_timer);
+        g_timer = null;
+    }
+    g_timer = setTimeout(p_test,1000);
+}
+
+function test_event_onclick_test()
+{
+    // Create variables we need to define event
+    var l_path = "document.HTML.BODY.DIV[1].FORM.P[7].A";
+    var l_X = 35;
+    var l_Y	= 340;
+    var l_type = "click";
+    var l_button =0;
+    var l_alt = false;
+    var l_ctrl = false;
+    var l_shift = false;
+    var l_key = 0;
+
+
+	var l_event = MetaWrap.Page.Event(l_type,l_X,l_Y,l_ctrl,l_alt,l_shift,l_button,l_key);
+	MetaWrap.Page.Event.Simulate.simulate(l_event,l_type,l_path);
+
+    // Simulate the event
+    //MetaWrap.Page.Event.Simulate.simulate(l_type,l_path,l_button,l_X,l_Y,l_key,l_alt,l_ctrl,l_shift);
+    //simulate_event(l_type,l_path,l_X,l_Y);
+}
+
+
+function test_event_onmousemove()
+{
+/*
+    mousemove 6156 document.HTML.BODY.DIV[1].FORM.INPUT 0 314 292 0 false false false
+*/
+
+    // Create variables we need to define event
+    var l_path = "document.HTML.BODY.DIV[1].FORM.INPUT";
+    var l_X = 317;
+    var l_Y	= 293;
+    var l_type = "mousemove";
+    var l_button =0;
+    var l_alt = false;
+    var l_ctrl = false;
+    var l_shift = false;
+    var l_key = 0;
+
+    // Simulate the event
+    //MetaWrap.Page.Event.Simulate.simulate(l_type,l_path,l_button,l_X,l_Y,l_key,l_alt,l_ctrl,l_shift);
+
+	var l_event = MetaWrap.Page.Event(l_type,l_X,l_Y,l_ctrl,l_alt,l_shift,l_button,l_key);
+	MetaWrap.Page.Event.Simulate.simulate(l_event,l_type,l_path);
+
+}
+
+function test_event_onmousedown()
+{
+/*
+    mousedown 8812 document.HTML.BODY.DIV[1].FORM.INPUT 1 314 292 0 false false false
+*/
+
+    // Create variables we need to define event
+    var l_path = "document.HTML.BODY.DIV[1].FORM.INPUT";
+    var l_X = 317;
+    var l_Y	= 293;
+    var l_type = "mousedown";
+    var l_button =1;
+    var l_alt = false;
+    var l_ctrl = false;
+    var l_shift = false;
+    var l_key = 0;
+
+	var l_event = MetaWrap.Page.Event(l_type,l_X,l_Y,l_ctrl,l_alt,l_shift,l_button,l_key);
+	MetaWrap.Page.Event.Simulate.simulate(l_event,l_type,l_path);
+
+    // Simulate the event
+    //MetaWrap.Page.Event.Simulate.simulate(l_type,l_path,l_button,l_X,l_Y,l_key,l_alt,l_ctrl,l_shift);
+}
+
+function test_event_onmouseup()
+{
+/*
+    mouseup 9062 document.HTML.BODY.DIV[1].FORM.INPUT 1 314 292 0 false false false
+*/
+
+    // Create variables we need to define event
+    var l_path = "document.HTML.BODY.DIV[1].FORM.INPUT";
+    var l_X = 317;
+    var l_Y	= 293;
+    var l_type = "mouseup";
+    var l_button =1;
+    var l_alt = false;
+    var l_ctrl = false;
+    var l_shift = false;
+    var l_key = 0;
+
+	var l_event = MetaWrap.Page.Event(l_type,l_X,l_Y,l_ctrl,l_alt,l_shift,l_button,l_key);
+	MetaWrap.Page.Event.Simulate.simulate(l_event,l_type,l_path);
+
+    // Simulate the event
+    //MetaWrap.Page.Event.Simulate.simulate(l_type,l_path,l_button,l_X,l_Y,l_key,l_alt,l_ctrl,l_shift);
+}
+
+function test_event_onmouseover()
+{
+/*
+
+*/
+
+    // Create variables we need to define event
+    var l_path = "document.HTML.BODY.DIV[1].FORM.INPUT";
+    var l_X = 317;
+    var l_Y	= 293;
+    var l_type = "mouseover";
+    var l_button =1;
+    var l_alt = false;
+    var l_ctrl = false;
+    var l_shift = false;
+    var l_key = 0;
+
+	var l_event = MetaWrap.Page.Event(l_type,l_X,l_Y,l_ctrl,l_alt,l_shift,l_button,l_key);
+	MetaWrap.Page.Event.Simulate.simulate(l_event,l_type,l_path);
+
+    // Simulate the event
+    //MetaWrap.Page.Event.Simulate.simulate(l_type,l_path,l_button,l_X,l_Y,l_key,l_alt,l_ctrl,l_shift);
+}
+
+function test_event_onmouseout()
+{
+/*
+
+*/
+
+    // Create variables we need to define event
+    var l_path = "document.HTML.BODY.DIV[1].FORM.INPUT";
+    var l_X = 317;
+    var l_Y	= 293;
+    var l_type = "mouseout";
+    var l_button =1;
+    var l_alt = false;
+    var l_ctrl = false;
+    var l_shift = false;
+    var l_key = 0;
+
+    // Simulate the event
+    //MetaWrap.Page.Event.Simulate.simulate(l_type,l_path,l_button,l_X,l_Y,l_key,l_alt,l_ctrl,l_shift);
+
+	var l_event = MetaWrap.Page.Event(l_type,l_X,l_Y,l_ctrl,l_alt,l_shift,l_button,l_key);
+	MetaWrap.Page.Event.Simulate.simulate(l_event,l_type,l_path);
+
+}
+
+
+function test_event_onclick()
+{
+/*
+    click 9062 document.HTML.BODY.DIV[1].FORM.INPUT 0 314 292 0 false false false
+*/
+    // Create variables we need to define event
+    var l_path = "document.HTML.BODY.DIV[1].FORM.INPUT";
+    var l_X = 317;
+    var l_Y	= 293;
+    var l_type = "click";
+    var l_button =0;
+    var l_alt = false;
+    var l_ctrl = false;
+    var l_shift = false;
+    var l_key = 0;
+
+    // Simulate the event
+    //MetaWrap.Page.Event.Simulate.simulate(l_type,l_path,l_button,l_X,l_Y,l_key,l_alt,l_ctrl,l_shift);
+    //simulate_event(l_type,l_path,l_X,l_Y);
+
+	var l_event = MetaWrap.Page.Event(l_type,l_X,l_Y,l_ctrl,l_alt,l_shift,l_button,l_key);
+	MetaWrap.Page.Event.Simulate.simulate(l_event,l_type,l_path);
+
+}
+
+function test_event_onfocus()
+{
+/*
+    ???
+*/
+
+    // Create variables we need to define event
+    var l_path = "document.HTML.BODY.DIV[1].FORM.INPUT";
+    var l_X = 317;
+    var l_Y	= 293;
+    var l_type = "focus";
+    var l_button =0;
+    var l_alt = false;
+    var l_ctrl = false;
+    var l_shift = false;
+    var l_key = 0;
+
+    // Simulate the event
+    //MetaWrap.Page.Event.Simulate.simulate(l_type,l_path,l_button,l_X,l_Y,l_key,l_alt,l_ctrl,l_shift);
+
+	var l_event = MetaWrap.Page.Event(l_type,l_X,l_Y,l_ctrl,l_alt,l_shift,l_button,l_key);
+	MetaWrap.Page.Event.Simulate.simulate(l_event,l_type,l_path);
+
+}
+
+
+function test_event_onblur()
+{
+/*
+    ???
+*/
+
+    // Create variables we need to define event
+    var l_path = "document.HTML.BODY.DIV[1].FORM.INPUT";
+    var l_X = 317;
+    var l_Y	= 293;
+    var l_type = "blur";
+    var l_button =0;
+    var l_alt = false;
+    var l_ctrl = false;
+    var l_shift = false;
+    var l_key = 0;
+
+    // Simulate the event
+    //MetaWrap.Page.Event.Simulate.simulate(l_type,l_path,l_button,l_X,l_Y,l_key,l_alt,l_ctrl,l_shift);
+
+	var l_event = MetaWrap.Page.Event(l_type,l_X,l_Y,l_ctrl,l_alt,l_shift,l_button,l_key);
+	MetaWrap.Page.Event.Simulate.simulate(l_event,l_type,l_path);
+
+}
+
+function test_event_onfocusin()
+{
+/*
+    focusin 3641 document.HTML.BODY.DIV[1].FORM.INPUT 0 334 293 0 false false false
+*/
+
+    // Create variables we need to define event
+    var l_path = "document.HTML.BODY.DIV[1].FORM.INPUT";
+    var l_X = 317;
+    var l_Y	= 293;
+    var l_type = "focusin";
+    var l_button =0;
+    var l_alt = false;
+    var l_ctrl = false;
+    var l_shift = false;
+    var l_key = 0;
+
+    // Simulate the event
+    //MetaWrap.Page.Event.Simulate.simulate(l_type,l_path,l_button,l_X,l_Y,l_key,l_alt,l_ctrl,l_shift);
+
+	var l_event = MetaWrap.Page.Event(l_type,l_X,l_Y,l_ctrl,l_alt,l_shift,l_button,l_key);
+	MetaWrap.Page.Event.Simulate.simulate(l_event,l_type,l_path);
+
+}
+
+
+function test_event_onfocusout()
+{
+/*
+*/
+
+    // Create variables we need to define event
+    var l_path = "document.HTML.BODY.DIV[1].FORM.INPUT";
+    var l_X = 317;
+    var l_Y	= 293;
+    var l_type = "focusout";
+    var l_button =0;
+    var l_alt = false;
+    var l_ctrl = false;
+    var l_shift = false;
+    var l_key = 0;
+
+    // Simulate the event
+    //MetaWrap.Page.Event.Simulate.simulate(l_type,l_path,l_button,l_X,l_Y,l_key,l_alt,l_ctrl,l_shift);
+
+	var l_event = MetaWrap.Page.Event(l_type,l_X,l_Y,l_ctrl,l_alt,l_shift,l_button,l_key);
+	MetaWrap.Page.Event.Simulate.simulate(l_event,l_type,l_path);
+
+}
+
+
+
+function test_event_onactivate()
+{
+/*
+    activate 3641 document.HTML.BODY.DIV[1].FORM.INPUT 0 334 293 0 false false false
+*/
+
+    // Create variables we need to define event
+    var l_path = "document.HTML.BODY.DIV[1].FORM.INPUT";
+    var l_X = 317;
+    var l_Y	= 293;
+    var l_type = "activate";
+    var l_button =0;
+    var l_alt = false;
+    var l_ctrl = false;
+    var l_shift = false;
+    var l_key = 0;
+
+    // Simulate the event
+    //MetaWrap.Page.Event.Simulate.simulate(l_type,l_path,l_button,l_X,l_Y,l_key,l_alt,l_ctrl,l_shift);
+
+	var l_event = MetaWrap.Page.Event(l_type,l_X,l_Y,l_ctrl,l_alt,l_shift,l_button,l_key);
+	MetaWrap.Page.Event.Simulate.simulate(l_event,l_type,l_path);
+
+}
+
+
+function test_event_ondeactivate()
+{
+/*
+    activate 3641 document.HTML.BODY.DIV[1].FORM.INPUT 0 334 293 0 false false false
+*/
+
+    // Create variables we need to define event
+    var l_path = "document.HTML.BODY.DIV[1].FORM.INPUT";
+    var l_X = 317;
+    var l_Y	= 293;
+    var l_type = "deactivate";
+    var l_button =0;
+    var l_alt = false;
+    var l_ctrl = false;
+    var l_shift = false;
+    var l_key = 0;
+
+    // Simulate the event
+    //MetaWrap.Page.Event.Simulate.simulate(l_type,l_path,l_button,l_X,l_Y,l_key,l_alt,l_ctrl,l_shift);
+
+	var l_event = MetaWrap.Page.Event(l_type,l_X,l_Y,l_ctrl,l_alt,l_shift,l_button,l_key);
+	MetaWrap.Page.Event.Simulate.simulate(l_event,l_type,l_path);
+
+}
+
+function test_event_onbeforeeditfocus()
+{
+/*
+    activate 3641 document.HTML.BODY.DIV[1].FORM.INPUT 0 334 293 0 false false false
+*/
+
+    // Create variables we need to define event
+    var l_path = "document.HTML.BODY.DIV[1].FORM.INPUT";
+    var l_X = 317;
+    var l_Y	= 293;
+    var l_type = "beforeeditfocus";
+    var l_button =0;
+    var l_alt = false;
+    var l_ctrl = false;
+    var l_shift = false;
+    var l_key = 0;
+
+    // Simulate the event
+    //MetaWrap.Page.Event.Simulate.simulate(l_type,l_path,l_button,l_X,l_Y,l_key,l_alt,l_ctrl,l_shift);
+
+	var l_event = MetaWrap.Page.Event(l_type,l_X,l_Y,l_ctrl,l_alt,l_shift,l_button,l_key);
+	MetaWrap.Page.Event.Simulate.simulate(l_event,l_type,l_path);
+
+}
+
+
+function test_event_onkeydown()
+{
+/*
+    document.HTML.BODY.DIV[1].FORM.P[8].INPUT
+*/
+
+    // Create variables we need to define event
+    var l_path = "document.HTML.BODY.DIV[1].FORM.P[8].INPUT";
+    var l_X = 0;
+    var l_Y	= 0;
+    var l_type = "keydown";
+    var l_button =-1;
+    var l_alt = false;
+    var l_ctrl = false;
+    var l_shift = false;
+    var l_key = 72;
+
+    // Simulate the event
+    //MetaWrap.Page.Event.Simulate.simulate(l_type,l_path,l_button,l_X,l_Y,l_key,l_alt,l_ctrl,l_shift);
+
+	var l_event = MetaWrap.Page.Event(l_type,l_X,l_Y,l_ctrl,l_alt,l_shift,l_button,l_key);
+	MetaWrap.Page.Event.Simulate.simulate(l_event,l_type,l_path);
+
+}
+
+function test_event_onkeyup()
+{
+/*
+    document.HTML.BODY.DIV[1].FORM.P[8].INPUT
+*/
+
+    // Create variables we need to define event
+    var l_path = "document.HTML.BODY.DIV[1].FORM.P[8].INPUT";
+    var l_X = 0;
+    var l_Y	= 0;
+    var l_type = "keyup";
+    var l_button =-1;
+    var l_alt = false;
+    var l_ctrl = false;
+    var l_shift = false;
+    var l_key = 72;
+
+    // Simulate the event
+    //MetaWrap.Page.Event.Simulate.simulate(l_type,l_path,l_button,l_X,l_Y,l_key,l_alt,l_ctrl,l_shift);
+
+	var l_event = MetaWrap.Page.Event(l_type,l_X,l_Y,l_ctrl,l_alt,l_shift,l_button,l_key);
+	MetaWrap.Page.Event.Simulate.simulate(l_event,l_type,l_path);
+
+}
+
+var g_test_sequence_ie = [
+"mousemove 3407 document.HTML.BODY.DIV[1].FORM 0 324 301 0 false false false",
+"mouseout 3422 document.HTML.BODY.DIV[1].FORM 0 323 300 0 false false false",
+"mousemove 3422 document.HTML.BODY.DIV[1].FORM.INPUT 0 323 300 0 false false false",
+"mouseover 3422 document.HTML.BODY.DIV[1].FORM.INPUT 0 323 300 0 false false false",
+"mousemove 3422 document.HTML.BODY.DIV[1].FORM.INPUT 0 322 299 0 false false false",
+"mousemove 3438 document.HTML.BODY.DIV[1].FORM.INPUT 0 322 297 0 false false false",
+"mousemove 3453 document.HTML.BODY.DIV[1].FORM.INPUT 0 321 297 0 false false false",
+"mousemove 3469 document.HTML.BODY.DIV[1].FORM.INPUT 0 320 296 0 false false false",
+"mousemove 3578 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 295 0 false false false",
+"mousemove 3610 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 0 false false false",
+"mousedown 4047 document.HTML.BODY.DIV[1].FORM.INPUT 1 319 294 0 false false false",
+"beforedeactivate 4047 document.HTML.BODY.DIV[2] 0 319 294 0 false false false",
+"beforeeditfocus 4047 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 0 false false false",
+"selectionchange 4047  0 319 294 0 false false false",
+"beforeactivate 4047 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 0 false false false",
+"deactivate 4047 document.HTML.BODY.DIV[2] 0 319 294 0 false false false",
+"focusout 4047 document.HTML.BODY.DIV[2] 0 319 294 0 false false false",
+"activate 4063 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 0 false false false",
+"focusin 4063 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 0 false false false",
+"blur 4047 document.HTML.BODY.DIV[2] 0 319 294 0 false false false",
+"focus 4063 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 0 false false false",
+"beforeeditfocus 4063 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 0 false false false",
+"beforeeditfocus 4063 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 0 false false false",
+"selectionchange 4063  0 319 294 0 false false false",
+"propertychange 4063  0 319 294 0 false false false",
+"mouseup 4141 document.HTML.BODY.DIV[1].FORM.INPUT 1 319 294 0 false false false",
+"click 4157 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 0 false false false",
+"beforeeditfocus 4563 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 0 false false false",
+"keydown 4922 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 16 false false true",
+"mousemove 4922 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 0 false false true",
+"keydown 5110 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 72 false false true",
+"keypress 5110 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 72 false false true",
+"keyup 5157 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 16 false false false",
+"keyup 5188 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 72 false false false",
+"keydown 5266 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 69 false false false",
+"keypress 5266 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 101 false false false",
+"keyup 5344 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 69 false false false",
+"keydown 5532 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 76 false false false",
+"keypress 5532 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 108 false false false",
+"keyup 5563 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 76 false false false",
+"keydown 5641 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 76 false false false",
+"keypress 5641 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 108 false false false",
+"keyup 5719 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 76 false false false",
+"keydown 5828 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 79 false false false",
+"keypress 5828 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 111 false false false",
+"keyup 5907 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 79 false false false",
+"keydown 6172 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 32 false false false",
+"keypress 6172 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 32 false false false",
+"keyup 6250 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 32 false false false",
+"keydown 6328 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 16 false false true",
+"keydown 6516 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 67 false false true",
+"keypress 6516 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 67 false false true",
+"keyup 6578 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 67 false false true",
+"keyup 6657 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 16 false false false",
+"keydown 6813 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 82 false false false",
+"keypress 6813 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 114 false false false",
+"keyup 6891 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 82 false false false",
+"keydown 7110 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 85 false false false",
+"keypress 7110 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 117 false false false",
+"keyup 7188 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 85 false false false",
+"keydown 7297 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 69 false false false",
+"keypress 7297 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 101 false false false",
+"keyup 7422 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 69 false false false",
+"keydown 7453 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 76 false false false",
+"keypress 7453 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 108 false false false",
+"keyup 7532 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 76 false false false",
+"keydown 7563 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 32 false false false",
+"keypress 7578 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 32 false false false",
+"keyup 7688 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 32 false false false",
+"keydown 7688 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 16 false false true",
+"keydown 7797 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 87 false false true",
+"keypress 7797 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 87 false false true",
+"keyup 7844 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 16 false false false",
+"keydown 7875 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 79 false false false",
+"keypress 7875 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 111 false false false",
+"keyup 7875 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 87 false false false",
+"keyup 7953 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 79 false false false",
+"keydown 8032 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 82 false false false",
+"keypress 8032 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 114 false false false",
+"keyup 8110 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 82 false false false",
+"keydown 8110 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 76 false false false",
+"keypress 8110 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 108 false false false",
+"keyup 8188 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 76 false false false",
+"keydown 8219 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 68 false false false",
+"keypress 8219 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 100 false false false",
+"keyup 8344 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 294 68 false false false",
+"mousemove 9172 document.HTML.BODY.DIV[1].FORM.INPUT 0 320 298 0 false false false",
+"mouseout 9172 document.HTML.BODY.DIV[1].FORM.INPUT 0 317 306 0 false false false",
+"mousemove 9188 document.HTML.BODY.DIV[1].FORM 0 317 306 0 false false false",
+"mouseover 9188 document.HTML.BODY.DIV[1].FORM 0 317 306 0 false false false",
+"mousemove 9188 document.HTML.BODY.DIV[1].FORM 0 316 312 0 false false false",
+"mouseout 9188 document.HTML.BODY.DIV[1].FORM 0 315 321 0 false false false",
+"mousemove 9203 document.HTML.BODY.DIV[1].FORM.P.INPUT 0 315 321 0 false false false",
+"mouseover 9203 document.HTML.BODY.DIV[1].FORM.P.INPUT 0 315 321 0 false false false",
+"mousemove 9203 document.HTML.BODY.DIV[1].FORM.P.INPUT 0 314 330 0 false false false",
+"mousemove 9203 document.HTML.BODY.DIV[1].FORM.P.INPUT 0 313 336 0 false false false",
+"mouseout 9219 document.HTML.BODY.DIV[1].FORM.P.INPUT 0 312 345 0 false false false",
+"mousemove 9219 document.HTML.BODY.DIV[1].FORM 0 312 345 0 false false false",
+"mouseover 9219 document.HTML.BODY.DIV[1].FORM 0 312 345 0 false false false",
+"mousemove 9219 document.HTML.BODY.DIV[1].FORM 0 309 356 0 false false false",
+"mouseout 9235 document.HTML.BODY.DIV[1].FORM 0 306 367 0 false false false",
+"mousemove 9235 document.HTML.BODY.DIV[1].FORM.P[1].INPUT 0 306 367 0 false false false",
+"mouseover 9235 document.HTML.BODY.DIV[1].FORM.P[1].INPUT 0 306 367 0 false false false",
+"mousemove 9250 document.HTML.BODY.DIV[1].FORM.P[1].INPUT 0 304 377 0 false false false",
+"mouseout 9250 document.HTML.BODY.DIV[1].FORM.P[1].INPUT 0 301 386 0 false false false",
+"mousemove 9250 document.HTML.BODY.DIV[1].FORM.P[1] 0 301 386 0 false false false",
+"mouseover 9250 document.HTML.BODY.DIV[1].FORM.P[1] 0 301 386 0 false false false",
+"mouseout 9266 document.HTML.BODY.DIV[1].FORM.P[1] 0 301 394 0 false false false",
+"mousemove 9266 document.HTML.BODY.DIV[1].FORM 0 301 394 0 false false false",
+"mouseover 9266 document.HTML.BODY.DIV[1].FORM 0 301 394 0 false false false",
+"mousemove 9266 document.HTML.BODY.DIV[1].FORM 0 300 401 0 false false false",
+"mousemove 9282 document.HTML.BODY.DIV[1].FORM 0 300 406 0 false false false",
+"mouseout 9282 document.HTML.BODY.DIV[1].FORM 0 300 410 0 false false false",
+"mousemove 9282 document.HTML.BODY.DIV[1].FORM.P[2] 0 300 410 0 false false false",
+"mouseover 9282 document.HTML.BODY.DIV[1].FORM.P[2] 0 300 410 0 false false false",
+"mousemove 9297 document.HTML.BODY.DIV[1].FORM.P[2] 0 300 416 0 false false false",
+"mousemove 9297 document.HTML.BODY.DIV[1].FORM.P[2] 0 300 420 0 false false false",
+"mousemove 9313 document.HTML.BODY.DIV[1].FORM.P[2] 0 300 424 0 false false false",
+"mouseout 9313 document.HTML.BODY.DIV[1].FORM.P[2] 0 300 427 0 false false false",
+"mousemove 9313 document.HTML.BODY.DIV[1].FORM 0 300 427 0 false false false",
+"mouseover 9313 document.HTML.BODY.DIV[1].FORM 0 300 427 0 false false false",
+"mousemove 9328 document.HTML.BODY.DIV[1].FORM 0 300 433 0 false false false",
+"mousemove 9328 document.HTML.BODY.DIV[1].FORM 0 301 437 0 false false false",
+"mousemove 9344 document.HTML.BODY.DIV[1].FORM 0 303 442 0 false false false",
+"mouseout 9344 document.HTML.BODY.DIV[1].FORM 0 305 446 0 false false false",
+"mousemove 9344 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 305 446 0 false false false",
+"mouseover 9344 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 305 446 0 false false false",
+"mousemove 9360 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 306 449 0 false false false",
+"mousemove 9360 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 307 452 0 false false false",
+"mousemove 9375 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 309 454 0 false false false",
+"mousemove 9375 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 309 457 0 false false false",
+"mousemove 9391 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 309 460 0 false false false",
+"mousemove 9391 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 309 463 0 false false false",
+"mouseout 9407 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 310 468 0 false false false",
+"mousemove 9407 document.HTML.BODY.DIV[1].FORM 0 310 468 0 false false false",
+"mouseover 9407 document.HTML.BODY.DIV[1].FORM 0 310 468 0 false false false",
+"mousemove 9407 document.HTML.BODY.DIV[1].FORM 0 311 470 0 false false false",
+"mousemove 9422 document.HTML.BODY.DIV[1].FORM 0 312 473 0 false false false",
+"mousemove 9422 document.HTML.BODY.DIV[1].FORM 0 313 476 0 false false false",
+"mousemove 9438 document.HTML.BODY.DIV[1].FORM 0 315 479 0 false false false",
+"mousemove 9438 document.HTML.BODY.DIV[1].FORM 0 316 481 0 false false false",
+"mousemove 9453 document.HTML.BODY.DIV[1].FORM 0 317 481 0 false false false",
+"mousemove 9469 document.HTML.BODY.DIV[1].FORM 0 318 481 0 false false false",
+"mousemove 9485 document.HTML.BODY.DIV[1].FORM 0 319 481 0 false false false",
+"mousemove 9516 document.HTML.BODY.DIV[1].FORM 0 319 482 0 false false false",
+"mousemove 9516 document.HTML.BODY.DIV[1].FORM 0 319 483 0 false false false",
+"mousemove 9532 document.HTML.BODY.DIV[1].FORM 0 319 484 0 false false false",
+"mouseout 9547 document.HTML.BODY.DIV[1].FORM 0 319 485 0 false false false",
+"mousemove 9547 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 319 485 0 false false false",
+"mouseover 9547 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 319 485 0 false false false",
+"mousemove 9547 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 319 486 0 false false false",
+"mousemove 9563 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 319 488 0 false false false",
+"mousemove 9578 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 319 489 0 false false false",
+"mousemove 9594 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 319 490 0 false false false",
+"mousemove 9594 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 319 491 0 false false false",
+"mousemove 9610 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 319 493 0 false false false",
+"mousemove 9625 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 319 494 0 false false false",
+"mousedown 9766 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 1 319 494 0 false false false",
+"beforedeactivate 9766 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 494 0 false false false",
+"beforeactivate 9766 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 319 494 0 false false false",
+"selectionchange 9766  0 319 494 0 false false false",
+"deactivate 9766 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 494 0 false false false",
+"focusout 9766 document.HTML.BODY.DIV[1].FORM.INPUT 0 319 494 0 false false false",
+"activate 9782 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 319 494 0 false false false",
+"focusin 9782 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 319 494 0 false false false",
+"propertychange 9782  0 319 494 0 false false false",
+"mouseup 9844 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 1 319 494 0 false false false",
+"click 9860 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 319 494 0 false false false",
+"mousemove 9860 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 319 494 0 false false false",
+"mousemove 9953 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 319 497 0 false false false",
+"mousemove 9969 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 319 498 0 false false false",
+"mousemove 9985 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 318 496 0 false false false",
+"mousemove 10235 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 319 497 0 false false false",
+"mousemove 10250 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 322 503 0 false false false",
+"mouseout 10266 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 326 509 0 false false false",
+"mousemove 4344 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 321 413 0 false false false",
+"mousemove 4359 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 320 413 0 false false false",
+"mousemove 4375 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 319 413 0 false false false",
+"mousemove 4391 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 318 413 0 false false false",
+"mousemove 4422 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 317 413 0 false false false",
+"mousemove 4438 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 316 413 0 false false false",
+"mousemove 4453 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 315 413 0 false false false",
+"mousemove 4469 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 314 413 0 false false false",
+"mousedown 4625 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 1 314 413 0 false false false",
+"beforedeactivate 4625 document.HTML.BODY.DIV[2] 0 314 413 0 false false false",
+"beforeactivate 4625 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 314 413 0 false false false",
+"deactivate 4625 document.HTML.BODY.DIV[2] 0 314 413 0 false false false",
+"focusout 4625 document.HTML.BODY.DIV[2] 0 314 413 0 false false false",
+"activate 4625 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 314 413 0 false false false",
+"focusin 4625 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 314 413 0 false false false",
+"propertychange 4641  0 314 413 0 false false false",
+"mouseup 4750 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 1 314 413 0 false false false",
+"click 4750 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 314 413 0 false false false",
+"mousemove 4750 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 314 413 0 false false false",
+"mousemove 5047 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 314 414 0 false false false",
+"mousemove 5063 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 314 415 0 false false false",
+"mousemove 5078 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 314 416 0 false false false",
+"mousemove 5078 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 314 417 0 false false false",
+"mousemove 5094 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 314 418 0 false false false",
+"mousemove 5094 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 314 421 0 false false false",
+"mousemove 5109 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 314 423 0 false false false",
+"mousemove 5109 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 314 424 0 false false false",
+"mousemove 5125 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 314 425 0 false false false",
+"mouseout 5125 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 314 427 0 false false false",
+"mousemove 5141 document.HTML.BODY.DIV[1].FORM 0 314 427 0 false false false",
+"mouseover 5141 document.HTML.BODY.DIV[1].FORM 0 314 427 0 false false false",
+"mousemove 5141 document.HTML.BODY.DIV[1].FORM 0 314 428 0 false false false",
+"mousemove 5172 document.HTML.BODY.DIV[1].FORM 0 314 429 0 false false false",
+"mousemove 5188 document.HTML.BODY.DIV[1].FORM 0 314 431 0 false false false",
+"mousemove 5203 document.HTML.BODY.DIV[1].FORM 0 314 432 0 false false false",
+"mousemove 5219 document.HTML.BODY.DIV[1].FORM 0 314 434 0 false false false",
+"mousemove 5234 document.HTML.BODY.DIV[1].FORM 0 314 435 0 false false false",
+"mousemove 5250 document.HTML.BODY.DIV[1].FORM 0 314 436 0 false false false",
+"mousemove 5266 document.HTML.BODY.DIV[1].FORM 0 314 437 0 false false false",
+"mousemove 5281 document.HTML.BODY.DIV[1].FORM 0 314 438 0 false false false",
+"mousemove 5281 document.HTML.BODY.DIV[1].FORM 0 314 439 0 false false false",
+"mousemove 5297 document.HTML.BODY.DIV[1].FORM 0 314 440 0 false false false",
+"mousemove 5313 document.HTML.BODY.DIV[1].FORM 0 314 441 0 false false false",
+"mousemove 5313 document.HTML.BODY.DIV[1].FORM 0 314 442 0 false false false",
+"mousemove 5328 document.HTML.BODY.DIV[1].FORM 0 314 443 0 false false false",
+"mousemove 5328 document.HTML.BODY.DIV[1].FORM 0 314 444 0 false false false",
+"mousemove 5344 document.HTML.BODY.DIV[1].FORM 0 314 445 0 false false false",
+"mouseout 5359 document.HTML.BODY.DIV[1].FORM 0 314 446 0 false false false",
+"mousemove 5359 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 314 446 0 false false false",
+"mouseover 5359 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 314 446 0 false false false",
+"mousemove 5375 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 314 448 0 false false false",
+"mousemove 5375 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 314 449 0 false false false",
+"mousemove 5391 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 314 450 0 false false false",
+"mousemove 5406 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 314 451 0 false false false",
+"mousemove 5406 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 314 452 0 false false false",
+"mousemove 5422 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 313 453 0 false false false",
+"mousemove 5438 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 313 454 0 false false false",
+"mousemove 5453 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 312 455 0 false false false",
+"mousemove 5469 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 312 456 0 false false false",
+"mousemove 5484 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 312 457 0 false false false",
+"mousemove 5500 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 312 458 0 false false false",
+"mousedown 5719 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 1 312 458 0 false false false",
+"beforedeactivate 5719 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 312 458 0 false false false",
+"beforeactivate 5719 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 312 458 0 false false false",
+"deactivate 5719 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 312 458 0 false false false",
+"focusout 5719 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 312 458 0 false false false",
+"activate 5734 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 312 458 0 false false false",
+"focusin 5734 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 312 458 0 false false false",
+"propertychange 5734  0 312 458 0 false false false",
+"mouseup 5859 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 1 312 458 0 false false false",
+"click 5859 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 312 458 0 false false false",
+"mousemove 5859 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 312 458 0 false false false",
+"mousemove 5938 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 313 458 0 false false false",
+"mousemove 5953 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 314 458 0 false false false",
+"mousemove 5953 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 315 458 0 false false false",
+"mousemove 5969 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 317 456 0 false false false",
+"mousemove 5969 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 317 455 0 false false false",
+"mousemove 5984 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 322 452 0 false false false",
+"mouseout 6141 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 323 455 0 false false false",
+"mousemove 6156 document.HTML.BODY.DIV[1].FORM.P[3] 0 323 455 0 false false false",
+"mouseover 6156 document.HTML.BODY.DIV[1].FORM.P[3] 0 323 455 0 false false false",
+"mousemove 6156 document.HTML.BODY.DIV[1].FORM.P[3] 0 324 456 0 false false false",
+"mousemove 6156 document.HTML.BODY.DIV[1].FORM.P[3] 0 324 458 0 false false false",
+"mousemove 6172 document.HTML.BODY.DIV[1].FORM.P[3] 0 324 460 0 false false false",
+"mousemove 6172 document.HTML.BODY.DIV[1].FORM.P[3] 0 324 463 0 false false false",
+"mousemove 6188 document.HTML.BODY.DIV[1].FORM.P[3] 0 324 465 0 false false false",
+"mouseout 6188 document.HTML.BODY.DIV[1].FORM.P[3] 0 324 467 0 false false false",
+"mousemove 6203 document.HTML.BODY.DIV[1].FORM 0 324 467 0 false false false",
+"mouseover 6203 document.HTML.BODY.DIV[1].FORM 0 324 467 0 false false false",
+"mousemove 6203 document.HTML.BODY.DIV[1].FORM 0 324 470 0 false false false",
+"mousemove 6203 document.HTML.BODY.DIV[1].FORM 0 324 473 0 false false false",
+"mousemove 6219 document.HTML.BODY.DIV[1].FORM 0 324 477 0 false false false",
+"mousemove 6234 document.HTML.BODY.DIV[1].FORM 0 325 480 0 false false false",
+"mousemove 6234 document.HTML.BODY.DIV[1].FORM 0 326 483 0 false false false",
+"mouseout 6250 document.HTML.BODY.DIV[1].FORM 0 327 485 0 false false false",
+"mousemove 6250 document.HTML.BODY.DIV[1].FORM.P[4] 0 327 485 0 false false false",
+"mouseover 6250 document.HTML.BODY.DIV[1].FORM.P[4] 0 327 485 0 false false false",
+"mousemove 6250 document.HTML.BODY.DIV[1].FORM.P[4] 0 328 488 0 false false false",
+"mousemove 6266 document.HTML.BODY.DIV[1].FORM.P[4] 0 328 489 0 false false false",
+"mousemove 6297 document.HTML.BODY.DIV[1].FORM.P[4] 0 327 489 0 false false false",
+"mousemove 6313 document.HTML.BODY.DIV[1].FORM.P[4] 0 326 489 0 false false false",
+"mousemove 6328 document.HTML.BODY.DIV[1].FORM.P[4] 0 325 489 0 false false false",
+"mousemove 6359 document.HTML.BODY.DIV[1].FORM.P[4] 0 324 489 0 false false false",
+"mousemove 6375 document.HTML.BODY.DIV[1].FORM.P[4] 0 323 489 0 false false false",
+"mouseout 6375 document.HTML.BODY.DIV[1].FORM.P[4] 0 322 489 0 false false false",
+"mousemove 6375 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 322 489 0 false false false",
+"mouseover 6391 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 322 489 0 false false false",
+"mousemove 6391 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 321 489 0 false false false",
+"mousemove 6406 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 319 489 0 false false false",
+"mousemove 6422 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 318 489 0 false false false",
+"mousemove 6438 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 317 489 0 false false false",
+"mousemove 6469 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 316 489 0 false false false",
+"mousemove 6469 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 315 489 0 false false false",
+"mousemove 6500 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 314 489 0 false false false",
+"mousemove 6500 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 314 490 0 false false false",
+"mousemove 6531 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 313 490 0 false false false",
+"mousemove 6547 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 313 491 0 false false false",
+"mousemove 6594 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 312 492 0 false false false",
+"mousemove 6610 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 311 492 0 false false false",
+"mousemove 6641 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 311 493 0 false false false",
+"mousedown 6735 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 1 311 493 0 false false false",
+"beforedeactivate 6735 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 311 493 0 false false false",
+"beforeactivate 6750 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 311 493 0 false false false",
+"deactivate 6750 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 311 493 0 false false false",
+"focusout 6750 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 311 493 0 false false false",
+"activate 6750 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 311 493 0 false false false",
+"focusin 6750 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 311 493 0 false false false",
+"propertychange 6750  0 311 493 0 false false false",
+"mouseup 6860 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 1 311 493 0 false false false",
+"click 6875 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 311 493 0 false false false",
+"mousemove 6875 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 311 493 0 false false false",
+"mousemove 7000 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 311 494 0 false false false",
+"mousemove 7000 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 312 495 0 false false false",
+"mousemove 7016 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 313 496 0 false false false",
+"mousemove 7016 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 315 498 0 false false false",
+"mousemove 7031 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 318 499 0 false false false",
+"mousemove 7031 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 321 502 0 false false false",
+"mouseout 7047 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 323 503 0 false false false",
+"mousemove 7047 document.HTML.BODY.DIV[1].FORM.P[4] 0 323 503 0 false false false",
+"mouseover 7047 document.HTML.BODY.DIV[1].FORM.P[4] 0 323 503 0 false false false",
+"mousemove 7047 document.HTML.BODY.DIV[1].FORM.P[4] 0 324 504 0 false false false",
+"mousemove 7063 document.HTML.BODY.DIV[1].FORM.P[4] 0 325 504 0 false false false",
+"mousemove 7063 document.HTML.BODY.DIV[1].FORM.P[4] 0 328 503 0 false false false",
+"mousemove 7203 document.HTML.BODY.DIV[1].FORM.P[4] 0 329 503 0 false false false",
+"mousemove 7219 document.HTML.BODY.DIV[1].FORM.P[4] 0 330 504 0 false false false",
+"mouseout 7219 document.HTML.BODY.DIV[1].FORM.P[4] 0 332 505 0 false false false",
+"mousemove 7235 document.HTML.BODY.DIV[1].FORM 0 332 505 0 false false false",
+"mouseover 7235 document.HTML.BODY.DIV[1].FORM 0 332 505 0 false false false",
+"mousemove 7235 document.HTML.BODY.DIV[1].FORM 0 332 506 0 false false false",
+"mousemove 7250 document.HTML.BODY.DIV[1].FORM 0 330 508 0 false false false",
+"mousemove 7266 document.HTML.BODY.DIV[1].FORM 0 330 509 0 false false false",
+"mousemove 7266 document.HTML.BODY.DIV[1].FORM 0 328 511 0 false false false",
+"mousemove 7281 document.HTML.BODY.DIV[1].FORM 0 327 513 0 false false false",
+"mousemove 7281 document.HTML.BODY.DIV[1].FORM 0 326 515 0 false false false",
+"mousemove 7297 document.HTML.BODY.DIV[1].FORM 0 324 516 0 false false false",
+"mousemove 7297 document.HTML.BODY.DIV[1].FORM 0 324 519 0 false false false",
+"mousemove 7313 document.HTML.BODY.DIV[1].FORM 0 323 521 0 false false false",
+"mousemove 7313 document.HTML.BODY.DIV[1].FORM 0 323 522 0 false false false",
+"mouseout 7328 document.HTML.BODY.DIV[1].FORM 0 322 524 0 false false false",
+"mousemove 7328 document.HTML.BODY.DIV[1].FORM.P[5] 0 322 524 0 false false false",
+"mouseover 7328 document.HTML.BODY.DIV[1].FORM.P[5] 0 322 524 0 false false false",
+"mouseout 7328 document.HTML.BODY.DIV[1].FORM.P[5] 0 322 526 0 false false false",
+"mousemove 7344 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 322 526 0 false false false",
+"mouseover 7344 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 322 526 0 false false false",
+"mousemove 7344 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 322 527 0 false false false",
+"mousemove 7360 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 322 528 0 false false false",
+"mousemove 7375 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 321 529 0 false false false",
+"mousemove 7391 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 321 530 0 false false false",
+"mousemove 7391 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 320 530 0 false false false",
+"mousemove 7406 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 319 531 0 false false false",
+"mousemove 7422 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 319 532 0 false false false",
+"mousemove 7422 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 318 533 0 false false false",
+"mousemove 7438 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 318 534 0 false false false",
+"mousemove 7453 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 318 535 0 false false false",
+"mousemove 7453 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 317 535 0 false false false",
+"mousemove 7500 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 317 536 0 false false false",
+"mousemove 7516 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 317 537 0 false false false",
+"mousemove 7641 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 316 537 0 false false false",
+"mousedown 7672 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 1 316 537 0 false false false",
+"beforedeactivate 7672 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 316 537 0 false false false",
+"beforeeditfocus 7688 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 316 537 0 false false false",
+"selectionchange 7688  0 316 537 0 false false false",
+"beforeactivate 7688 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 316 537 0 false false false",
+"deactivate 7688 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 316 537 0 false false false",
+"focusout 7688 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 316 537 0 false false false",
+"activate 7688 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 316 537 0 false false false",
+"focusin 7688 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 316 537 0 false false false",
+"beforeeditfocus 7688 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 316 537 0 false false false",
+"beforeeditfocus 7703 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 316 537 0 false false false",
+"selectionchange 7703  0 316 537 0 false false false",
+"propertychange 7703  0 316 537 0 false false false",
+"mouseup 7813 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 1 316 537 0 false false false",
+"click 7813 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 316 537 0 false false false",
+"beforeeditfocus 8203 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 316 537 0 false false false",
+"mousemove 8422 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 316 538 0 false false false",
+"mousemove 8422 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 314 538 0 false false false",
+"mousemove 8438 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 312 536 0 false false false",
+"mousemove 8656 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 312 538 0 false false false",
+"mousemove 8656 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 323 546 0 false false false",
+"mouseout 8672 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 332 562 0 false false false",
+"mousemove 8672 document.HTML.BODY.DIV[1].FORM 0 332 562 0 false false false",
+"mouseover 8672 document.HTML.BODY.DIV[1].FORM 0 332 562 0 false false false",
+"mouseout 8672 document.HTML.BODY.DIV[1].FORM 0 338 574 0 false false false",
+"mousemove 8672 document.HTML.BODY.DIV[1].FORM.P[6].A 0 338 574 0 false false false",
+"mouseover 8688 document.HTML.BODY.DIV[1].FORM.P[6].A 0 338 574 0 false false false",
+"mouseout 8688 document.HTML.BODY.DIV[1].FORM.P[6].A 0 350 592 0 false false false",
+"mousemove 8688 document.HTML.BODY.DIV[1].FORM 0 350 592 0 false false false",
+"mouseover 8688 document.HTML.BODY.DIV[1].FORM 0 350 592 0 false false false",
+"mouseout 8688 document.HTML.BODY.DIV[1].FORM 0 368 616 0 false false false",
+"mousemove 8703 document.HTML.BODY.DIV[1].FORM.P[7] 0 368 616 0 false false false",
+"mouseover 8703 document.HTML.BODY.DIV[1].FORM.P[7] 0 368 616 0 false false false",
+"mouseout 8703 document.HTML.BODY.DIV[1].FORM.P[7] 0 390 649 0 false false false",
+"mousemove 8703 document.HTML.BODY.DIV[1].FORM.P[8].INPUT 0 390 649 0 false false false",
+"mouseover 8703 document.HTML.BODY.DIV[1].FORM.P[8].INPUT 0 390 649 0 false false false",
+"mouseout 8703 document.HTML.BODY.DIV[1].FORM.P[8].INPUT 0 415 677 0 false false false",
+"mousemove 8719 document.HTML.BODY.DIV[1].FORM.P[8].INPUT[4] 0 415 677 0 false false false",
+"mouseover 8719 document.HTML.BODY.DIV[1].FORM.P[8].INPUT[4] 0 415 677 0 false false false",
+"mouseout 8719 document.HTML.BODY.DIV[1].FORM.P[8].INPUT[4] 0 474 727 0 false false false",
+"mousemove 8719 document.HTML.BODY.DIV[1].FORM.P[8].INPUT[10] 0 474 727 0 false false false",
+"mouseover 8735 document.HTML.BODY.DIV[1].FORM.P[8].INPUT[10] 0 474 727 0 false false false",
+"mouseout 8735 document.HTML.BODY.DIV[1].FORM.P[8].INPUT[10] 0 499 747 0 false false false",
+"mousemove 8735 document.HTML.BODY.DIV[1] 0 499 747 0 false false false",
+"mouseover 8750 document.HTML.BODY.DIV[1] 0 499 747 0 false false false",
+"mousemove 8750 document.HTML.BODY.DIV[1] 0 512 755 0 false false false",
+"mousemove 8750 document.HTML.BODY.DIV[1] 0 515 755 0 false false false",
+"mousemove 8906 document.HTML.BODY.DIV[1] 0 514 757 0 false false false",
+"mousemove 8906 document.HTML.BODY.DIV[1] 0 512 771 0 false false false",
+"mousemove 8922 document.HTML.BODY.DIV[1] 0 510 780 0 false false false",
+"mousemove 8922 document.HTML.BODY.DIV[1] 0 504 788 0 false false false",
+"mouseout 8938 document.HTML.BODY.DIV[1] 0 499 797 0 false false false",
+"mousemove 8938 document.HTML.BODY 0 499 797 0 false false false",
+"mouseover 8938 document.HTML.BODY 0 499 797 0 false false false",
+"mouseout 8953 document.HTML.BODY 0 491 806 0 false false false",
+"mousemove 8953 document.HTML.BODY.DIV[2] 0 491 806 0 false false false",
+"mouseover 8953 document.HTML.BODY.DIV[2] 0 491 806 0 false false false",
+"mousemove 8953 document.HTML.BODY.DIV[2] 0 485 816 0 false false false",
+"mousemove 8969 document.HTML.BODY.DIV[2] 0 476 826 0 false false false",
+"mouseout 8969 document.HTML.BODY.DIV[2] 0 468 836 0 false false false",
+"mousemove 9000 document.HTML.BODY.DIV[2] 0 440 853 0 false false false",
+"mouseover 9000 document.HTML.BODY.DIV[2] 0 440 853 0 false false false",
+"mousemove 9000 document.HTML.BODY.DIV[2] 0 428 859 0 false false false",
+"mousemove 9016 document.HTML.BODY.DIV[2] 0 415 861 0 false false false",
+"mousemove 9016 document.HTML.BODY.DIV[2] 0 402 864 0 false false false",
+"mousemove 9031 document.HTML.BODY.DIV[2] 0 384 869 0 false false false",
+"mousemove 9031 document.HTML.BODY.DIV[2] 0 372 871 0 false false false",
+"mousemove 9047 document.HTML.BODY.DIV[2] 0 362 872 0 false false false",
+"mousemove 9047 document.HTML.BODY.DIV[2] 0 355 873 0 false false false",
+"mousemove 9063 document.HTML.BODY.DIV[2] 0 354 873 0 false false false",
+"mousemove 9219 document.HTML.BODY.DIV[2] 0 354 872 0 false false false",
+"mousemove 9235 document.HTML.BODY.DIV[2] 0 353 871 0 false false false",
+"mousemove 9235 document.HTML.BODY.DIV[2] 0 352 870 0 false false false",
+"mousemove 9250 document.HTML.BODY.DIV[2] 0 352 868 0 false false false",
+"mousemove 9266 document.HTML.BODY.DIV[2] 0 352 867 0 false false false",
+"mousemove 9282 document.HTML.BODY.DIV[2] 0 352 865 0 false false false",
+"mousemove 9297 document.HTML.BODY.DIV[2] 0 353 863 0 false false false",
+"mousemove 9313 document.HTML.BODY.DIV[2] 0 356 863 0 false false false",
+"mousemove 9313 document.HTML.BODY.DIV[2] 0 358 863 0 false false false",
+"mousemove 9328 document.HTML.BODY.DIV[2] 0 359 862 0 false false false",
+"mousemove 9328 document.HTML.BODY.DIV[2] 0 360 861 0 false false false",
+"mousemove 9344 document.HTML.BODY.DIV[2] 0 363 860 0 false false false",
+"mousemove 9360 document.HTML.BODY.DIV[2] 0 364 859 0 false false false",
+"mousemove 9360 document.HTML.BODY.DIV[2] 0 364 858 0 false false false",
+"mousemove 9375 document.HTML.BODY.DIV[2] 0 364 857 0 false false false",
+"mousemove 9375 document.HTML.BODY.DIV[2] 0 365 856 0 false false false",
+"mousemove 9391 document.HTML.BODY.DIV[2] 0 365 854 0 false false false",
+"mousemove 9407 document.HTML.BODY.DIV[2] 0 365 853 0 false false false",
+"mouseout 9485 document.HTML.BODY.DIV[2] 0 365 852 0 false false false",
+"beforedeactivate 9735 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 366 845 0 false false false",
+"beforeactivate 9735 document.HTML.BODY.DIV[2] 0 366 845 0 false false false",
+"selectionchange 9750  0 366 845 0 false false false",
+"deactivate 9750 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 366 845 0 false false false",
+"focusout 9750 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 366 845 0 false false false",
+"activate 9750 document.HTML.BODY.DIV[2] 0 366 845 0 false false false",
+"focusin 9750 document.HTML.BODY.DIV[2] 0 366 845 0 false false false",
+"propertychange 9750  0 366 845 0 false false false",
+"focusout 9860 document.HTML.BODY.DIV[2] 0 366 845 0 false false false",
+"focusin 10875 document.HTML.BODY.DIV[2] 0 802 524 0 false false false",
+"mousemove 5735 document.HTML.BODY.DIV[1].FORM.P[7].A 0 325 610 0 false false false",
+"mousedown 6031 document.HTML.BODY.DIV[1].FORM.P[7].A 1 325 610 0 false false false",
+"beforedeactivate 6031 document.HTML.BODY.DIV[2] 0 325 610 0 false false false",
+"beforeactivate 6031 document.HTML.BODY.DIV[1] 0 325 610 0 false false false",
+"deactivate 6031 document.HTML.BODY.DIV[2] 0 325 610 0 false false false",
+"focusout 6031 document.HTML.BODY.DIV[2] 0 325 610 0 false false false",
+"activate 6031 document.HTML.BODY.DIV[1] 0 325 610 0 false false false",
+"focusin 6031 document.HTML.BODY.DIV[1] 0 325 610 0 false false false",
+"propertychange 6047  0 325 610 0 false false false",
+"mouseup 6141 document.HTML.BODY.DIV[1].FORM.P[7].A 1 325 610 0 false false false",
+"focusout 6156 document.HTML.BODY.DIV[1] 0 325 610 0 false false false",
+"mouseout 6235 document.HTML.BODY.DIV[1].FORM.P[7].A 0 -1 -1 0 false false false",
+"focusin 7422 document.HTML.BODY.DIV[1] 0 325 610 0 false false false",
+"click 7422 document.HTML.BODY.DIV[1].FORM.P[7].A 0 325 610 0 false false false",
+"mouseover 7422 document.HTML.BODY.DIV[1].FORM.P[7].A 0 325 610 0 false false false",
+"mousemove 7422 document.HTML.BODY.DIV[1].FORM.P[7].A 0 325 610 0 false false false",
+"mousemove 9422 document.HTML.BODY.DIV[1].FORM.P[7].A 0 327 619 0 false false false",
+"mouseout 9422 document.HTML.BODY.DIV[1].FORM.P[7].A 0 335 629 0 false false false"
+];
+
+
+
+var g_test_sequence_firefox = [
+"blur 47 document 65535 0 0 0 true true false",
+"focus 1360 document 65535 0 0 0 false false false",
+"mouseover 1360 document.HTML.BODY.DIV[1].FORM 0 803 508 0 false false false",
+"mousemove 1375 document.HTML.BODY.DIV[1].FORM 0 803 508 0 false false false",
+"mousemove 1375 document.HTML.BODY.DIV[1].FORM 0 802 509 0 false false false",
+"mousemove 1906 document.HTML.BODY.DIV[1].FORM 0 800 508 0 false false false",
+"mousemove 1922 document.HTML.BODY.DIV[1].FORM 0 794 504 0 false false false",
+"mousemove 1938 document.HTML.BODY.DIV[1].FORM 0 787 500 0 false false false",
+"mouseout 1938 document.HTML.BODY.DIV[1].FORM 0 775 492 0 false false false",
+"mouseover 1938 document.HTML.BODY.DIV[1].FORM.P[6] 0 775 492 0 false false false",
+"mousemove 1938 document.HTML.BODY.DIV[1].FORM.P[6] 0 775 492 0 false false false",
+"mousemove 1953 document.HTML.BODY.DIV[1].FORM.P[6] 0 757 484 0 false false false",
+"mouseout 1953 document.HTML.BODY.DIV[1].FORM.P[6] 0 734 474 0 false false false",
+"mouseover 1953 document.HTML.BODY.DIV[1].FORM 0 734 474 0 false false false",
+"mousemove 1953 document.HTML.BODY.DIV[1].FORM 0 734 474 0 false false false",
+"mouseout 1969 document.HTML.BODY.DIV[1].FORM 0 701 461 0 false false false",
+"mouseover 1969 document.HTML.BODY.DIV[1].FORM.P[5] 0 701 461 0 false false false",
+"mousemove 1969 document.HTML.BODY.DIV[1].FORM.P[5] 0 701 461 0 false false false",
+"mouseout 1969 document.HTML.BODY.DIV[1].FORM.P[5] 0 669 446 0 false false false",
+"mouseover 1985 document.HTML.BODY.DIV[1].FORM 0 669 446 0 false false false",
+"mousemove 1985 document.HTML.BODY.DIV[1].FORM 0 669 446 0 false false false",
+"mouseout 1985 document.HTML.BODY.DIV[1].FORM 0 608 424 0 false false false",
+"mouseover 2000 document.HTML.BODY.DIV[1].FORM.P[4] 0 608 424 0 false false false",
+"mousemove 2000 document.HTML.BODY.DIV[1].FORM.P[4] 0 608 424 0 false false false",
+"mouseout 2000 document.HTML.BODY.DIV[1].FORM.P[4] 0 578 412 0 false false false",
+"mouseover 2000 document.HTML.BODY.DIV[1].FORM 0 578 412 0 false false false",
+"mousemove 2016 document.HTML.BODY.DIV[1].FORM 0 578 412 0 false false false",
+"mouseout 2016 document.HTML.BODY.DIV[1].FORM 0 537 400 0 false false false",
+"mouseover 2016 document.HTML.BODY.DIV[1].FORM.P[3] 0 537 400 0 false false false",
+"mousemove 2016 document.HTML.BODY.DIV[1].FORM.P[3] 0 537 400 0 false false false",
+"mousemove 2031 document.HTML.BODY.DIV[1].FORM.P[3] 0 523 398 0 false false false",
+"mousemove 2031 document.HTML.BODY.DIV[1].FORM.P[3] 0 513 397 0 false false false",
+"mousemove 2031 document.HTML.BODY.DIV[1].FORM.P[3] 0 507 397 0 false false false",
+"mousemove 2281 document.HTML.BODY.DIV[1].FORM.P[3] 0 506 395 0 false false false",
+"mouseout 2281 document.HTML.BODY.DIV[1].FORM.P[3] 0 500 381 0 false false false",
+"mouseover 2281 document.HTML.BODY.DIV[1].FORM 0 500 381 0 false false false",
+"mousemove 2281 document.HTML.BODY.DIV[1].FORM 0 500 381 0 false false false",
+"mouseout 2297 document.HTML.BODY.DIV[1].FORM 0 491 369 0 false false false",
+"mouseover 2297 document.HTML.BODY.DIV[1].FORM.P[2] 0 491 369 0 false false false",
+"mousemove 2297 document.HTML.BODY.DIV[1].FORM.P[2] 0 491 369 0 false false false",
+"mouseout 2297 document.HTML.BODY.DIV[1].FORM.P[2] 0 478 356 0 false false false",
+"mouseover 2313 document.HTML.BODY.DIV[1].FORM 0 478 356 0 false false false",
+"mousemove 2313 document.HTML.BODY.DIV[1].FORM 0 478 356 0 false false false",
+"mousemove 2313 document.HTML.BODY.DIV[1].FORM 0 440 321 0 false false false",
+"mouseout 2328 document.HTML.BODY.DIV[1].FORM 0 423 308 0 false false false",
+"mouseover 2328 document.HTML.BODY.DIV[1].FORM.P 0 423 308 0 false false false",
+"mousemove 2328 document.HTML.BODY.DIV[1].FORM.P 0 423 308 0 false false false",
+"mousemove 2328 document.HTML.BODY.DIV[1].FORM.P 0 406 295 0 false false false",
+"mouseout 2344 document.HTML.BODY.DIV[1].FORM.P 0 393 287 0 false false false",
+"mouseover 2344 document.HTML.BODY.DIV[1].FORM 0 393 287 0 false false false",
+"mousemove 2344 document.HTML.BODY.DIV[1].FORM 0 393 287 0 false false false",
+"mousemove 2344 document.HTML.BODY.DIV[1].FORM 0 382 282 0 false false false",
+"mousemove 2360 document.HTML.BODY.DIV[1].FORM 0 373 277 0 false false false",
+"mouseout 2360 document.HTML.BODY.DIV[1].FORM 0 365 273 0 false false false",
+"mouseover 2360 document.HTML.BODY.DIV[1].FORM.INPUT 0 365 273 0 false false false",
+"mousemove 2375 document.HTML.BODY.DIV[1].FORM.INPUT 0 365 273 0 false false false",
+"mouseout 2375 document.HTML.BODY.DIV[1].FORM.INPUT 0 357 270 0 false false false",
+"mouseover 2375 document.HTML.BODY.DIV[1].FORM.INPUT 0 357 270 0 false false false",
+"mousemove 2375 document.HTML.BODY.DIV[1].FORM.INPUT 0 357 270 0 false false false",
+"mousemove 2391 document.HTML.BODY.DIV[1].FORM.INPUT 0 355 267 0 false false false",
+"mousemove 2391 document.HTML.BODY.DIV[1].FORM.INPUT 0 352 266 0 false false false",
+"mousemove 2391 document.HTML.BODY.DIV[1].FORM.INPUT 0 349 265 0 false false false",
+"mousemove 2406 document.HTML.BODY.DIV[1].FORM.INPUT 0 347 264 0 false false false",
+"mousemove 2406 document.HTML.BODY.DIV[1].FORM.INPUT 0 344 264 0 false false false",
+"mousemove 2422 document.HTML.BODY.DIV[1].FORM.INPUT 0 342 263 0 false false false",
+"mousemove 2438 document.HTML.BODY.DIV[1].FORM.INPUT 0 341 263 0 false false false",
+"mousemove 2438 document.HTML.BODY.DIV[1].FORM.INPUT 0 340 263 0 false false false",
+"mousemove 2453 document.HTML.BODY.DIV[1].FORM.INPUT 0 340 264 0 false false false",
+"mousemove 2469 document.HTML.BODY.DIV[1].FORM.INPUT 0 338 265 0 false false false",
+"mousemove 2469 document.HTML.BODY.DIV[1].FORM.INPUT 0 337 266 0 false false false",
+"mousemove 2485 document.HTML.BODY.DIV[1].FORM.INPUT 0 337 268 0 false false false",
+"mousemove 2485 document.HTML.BODY.DIV[1].FORM.INPUT 0 336 268 0 false false false",
+"mousemove 2500 document.HTML.BODY.DIV[1].FORM.INPUT 0 336 269 0 false false false",
+"mousemove 2500 document.HTML.BODY.DIV[1].FORM.INPUT 0 335 269 0 false false false",
+"mousemove 2703 document.HTML.BODY.DIV[1].FORM.INPUT 0 335 268 0 false false false",
+"mousemove 2703 document.HTML.BODY.DIV[1].FORM.INPUT 0 334 267 0 false false false",
+"mousemove 2719 document.HTML.BODY.DIV[1].FORM.INPUT 0 334 266 0 false false false",
+"mousemove 2735 document.HTML.BODY.DIV[1].FORM.INPUT 0 333 265 0 false false false",
+"mousemove 2750 document.HTML.BODY.DIV[1].FORM.INPUT 0 333 264 0 false false false",
+"mousemove 2750 document.HTML.BODY.DIV[1].FORM.INPUT 0 332 264 0 false false false",
+"mousemove 2766 document.HTML.BODY.DIV[1].FORM.INPUT 0 332 263 0 false false false",
+"mousemove 2781 document.HTML.BODY.DIV[1].FORM.INPUT 0 332 262 0 false false false",
+"mousedown 3078 document.HTML.BODY.DIV[1].FORM.INPUT 0 332 262 0 false false false",
+"mouseup 3188 document.HTML.BODY.DIV[1].FORM.INPUT 0 332 262 0 false false false",
+"click 3203 document.HTML.BODY.DIV[1].FORM.INPUT 0 332 262 0 false false false",
+
+/*
+"keydown 4766 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 70 false false true",
+"keypress 4781 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 0 false false true",
+"keyup 4860 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 70 false false false",
+
+"keydown 4969 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 70 false false false",
+"keypress 4969 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 0 false false false",
+"keyup 5047 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 70 false false false",
+
+"keydown 5235 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 70 false false false",
+"keypress 5235 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 0 false false false",
+"keyup 5281 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 70 false false false",
+
+"keydown 5391 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 70 false false false",
+"keypress 5391 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 0 false false false",
+"keyup 5469 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 70 false false false",
+
+"keydown 5610 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 70 false false false",
+"keypress 5610 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 0 false false false",
+"keyup 5688 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 70 false false false",
+*/
+
+"keydown 4516 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 16 false false true",
+"keydown 4766 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 72 false false true",
+"keypress 4781 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 0 false false true",
+"keyup 4813 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 16 false false false",
+"keyup 4860 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 72 false false false",
+"keydown 4969 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 69 false false false",
+"keypress 4969 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 0 false false false",
+"keyup 5047 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 69 false false false",
+"keydown 5235 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 76 false false false",
+"keypress 5235 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 0 false false false",
+"keyup 5281 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 76 false false false",
+"keydown 5391 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 76 false false false",
+"keypress 5391 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 0 false false false",
+"keyup 5469 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 76 false false false",
+"keydown 5610 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 79 false false false",
+"keypress 5610 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 0 false false false",
+"keyup 5688 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 79 false false false",
+
+
+"mouseout 7344 document.HTML.BODY.DIV[1].FORM.INPUT 0 332 282 0 false false false",
+"mouseover 7344 document.HTML.BODY.DIV[1].FORM 0 332 282 0 false false false",
+"mousemove 7344 document.HTML.BODY.DIV[1].FORM 0 332 282 0 false false false",
+"mouseout 7344 document.HTML.BODY.DIV[1].FORM 0 332 295 0 false false false",
+"mouseover 7360 document.HTML.BODY.DIV[1].FORM.P.INPUT 0 332 295 0 false false false",
+"mousemove 7360 document.HTML.BODY.DIV[1].FORM.P.INPUT 0 332 295 0 false false false",
+"mouseout 7360 document.HTML.BODY.DIV[1].FORM.P.INPUT 0 332 326 0 false false false",
+"mouseover 7360 document.HTML.BODY.DIV[1].FORM.P[1].INPUT 0 332 326 0 false false false",
+"mousemove 7375 document.HTML.BODY.DIV[1].FORM.P[1].INPUT 0 332 326 0 false false false",
+"mousemove 7375 document.HTML.BODY.DIV[1].FORM.P[1].INPUT 0 332 340 0 false false false",
+"mouseout 7375 document.HTML.BODY.DIV[1].FORM.P[1].INPUT 0 330 355 0 false false false",
+"mouseover 7391 document.HTML.BODY.DIV[1].FORM 0 330 355 0 false false false",
+"mousemove 7391 document.HTML.BODY.DIV[1].FORM 0 330 355 0 false false false",
+"mousemove 7391 document.HTML.BODY.DIV[1].FORM 0 326 383 0 false false false",
+"mouseout 7406 document.HTML.BODY.DIV[1].FORM 0 323 393 0 false false false",
+"mouseover 7406 document.HTML.BODY.DIV[1].FORM.P[3] 0 323 393 0 false false false",
+"mousemove 7406 document.HTML.BODY.DIV[1].FORM.P[3] 0 323 393 0 false false false",
+"mouseout 7406 document.HTML.BODY.DIV[1].FORM.P[3] 0 321 400 0 false false false",
+"mouseover 7422 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 321 400 0 false false false",
+"mousemove 7422 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 321 400 0 false false false",
+"mouseout 7422 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 317 410 0 false false false",
+"mouseover 7438 document.HTML.BODY.DIV[1].FORM 0 317 410 0 false false false",
+"mousemove 7438 document.HTML.BODY.DIV[1].FORM 0 317 410 0 false false false",
+"mousemove 7438 document.HTML.BODY.DIV[1].FORM 0 317 413 0 false false false",
+"mouseout 7438 document.HTML.BODY.DIV[1].FORM 0 317 416 0 false false false",
+"mouseover 7453 document.HTML.BODY.DIV[1].FORM.P[4] 0 317 416 0 false false false",
+"mousemove 7453 document.HTML.BODY.DIV[1].FORM.P[4] 0 317 416 0 false false false",
+"mouseout 7453 document.HTML.BODY.DIV[1].FORM.P[4] 0 316 418 0 false false false",
+"mouseover 7453 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 316 418 0 false false false",
+"mousemove 7469 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 316 418 0 false false false",
+"mousemove 7469 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 316 424 0 false false false",
+"mousemove 7469 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 316 426 0 false false false",
+"mousemove 7531 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 316 425 0 false false false",
+"mousemove 7547 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 316 424 0 false false false",
+"mousemove 7594 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 316 422 0 false false false",
+"mousemove 7610 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 316 420 0 false false false",
+"mousemove 7610 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 316 418 0 false false false",
+"mouseout 7625 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 317 416 0 false false false",
+"mouseover 7625 document.HTML.BODY.DIV[1].FORM.P[4] 0 317 416 0 false false false",
+"mousemove 7625 document.HTML.BODY.DIV[1].FORM.P[4] 0 317 416 0 false false false",
+"mouseout 7641 document.HTML.BODY.DIV[1].FORM.P[4] 0 318 414 0 false false false",
+"mouseover 7641 document.HTML.BODY.DIV[1].FORM 0 318 414 0 false false false",
+"mousemove 7641 document.HTML.BODY.DIV[1].FORM 0 318 414 0 false false false",
+"mousemove 7656 document.HTML.BODY.DIV[1].FORM 0 318 410 0 false false false",
+"mousemove 7656 document.HTML.BODY.DIV[1].FORM 0 318 407 0 false false false",
+"mousemove 7672 document.HTML.BODY.DIV[1].FORM 0 318 405 0 false false false",
+"mousemove 7672 document.HTML.BODY.DIV[1].FORM 0 318 402 0 false false false",
+"mouseout 7688 document.HTML.BODY.DIV[1].FORM 0 318 399 0 false false false",
+"mouseover 7688 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 318 399 0 false false false",
+"mousemove 7688 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 318 399 0 false false false",
+"mousemove 7688 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 318 394 0 false false false",
+"mousemove 7703 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 318 390 0 false false false",
+"mouseout 7703 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 318 386 0 false false false",
+"mouseover 7703 document.HTML.BODY.DIV[1].FORM.P[3] 0 318 386 0 false false false",
+"mousemove 7719 document.HTML.BODY.DIV[1].FORM.P[3] 0 318 386 0 false false false",
+"mouseout 7719 document.HTML.BODY.DIV[1].FORM.P[3] 0 319 383 0 false false false",
+"mouseover 7719 document.HTML.BODY.DIV[1].FORM 0 319 383 0 false false false",
+"mousemove 7719 document.HTML.BODY.DIV[1].FORM 0 319 383 0 false false false",
+"mousemove 7735 document.HTML.BODY.DIV[1].FORM 0 319 376 0 false false false",
+"mousemove 7735 document.HTML.BODY.DIV[1].FORM 0 319 375 0 false false false",
+"mousemove 7750 document.HTML.BODY.DIV[1].FORM 0 319 374 0 false false false",
+"mousemove 7750 document.HTML.BODY.DIV[1].FORM 0 318 373 0 false false false",
+"mouseout 7906 document.HTML.BODY.DIV[1].FORM 0 318 372 0 false false false",
+"mouseover 7906 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 318 372 0 false false false",
+"mousemove 7906 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 318 372 0 false false false",
+"mousemove 7922 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 317 371 0 false false false",
+"mousemove 7922 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 316 370 0 false false false",
+"mousemove 7922 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 316 369 0 false false false",
+"mousemove 7938 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 316 368 0 false false false",
+"mousemove 7953 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 315 368 0 false false false",
+"mousemove 7969 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 315 367 0 false false false",
+"mousedown 8063 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 315 367 0 false false false",
+"change 8078 document.HTML.BODY.DIV[1].FORM.INPUT 65535 0 0 0 false false false",
+"focus 8078 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 65535 0 0 0 true true true",
+"mouseup 8141 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 315 367 0 false false false",
+"click 8156 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 315 367 0 false false false",
+"change 8156 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 65535 0 0 0 true true true",
+"mousemove 8156 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 315 368 0 false false false",
+"mousemove 8172 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 315 370 0 false false false",
+"mousemove 8172 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 316 372 0 false false false",
+"mouseout 8188 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 0 317 375 0 false false false",
+"mouseover 8219 document.HTML.BODY.DIV[1].FORM 0 317 375 0 false false false",
+"mousemove 8219 document.HTML.BODY.DIV[1].FORM 0 317 375 0 false false false",
+"mousemove 8219 document.HTML.BODY.DIV[1].FORM 0 320 383 0 false false false",
+"mousemove 8219 document.HTML.BODY.DIV[1].FORM 0 320 384 0 false false false",
+"mousemove 8235 document.HTML.BODY.DIV[1].FORM 0 320 385 0 false false false",
+"mouseout 8344 document.HTML.BODY.DIV[1].FORM 0 320 386 0 false false false",
+"mouseover 8344 document.HTML.BODY.DIV[1].FORM.P[3] 0 320 386 0 false false false",
+"mousemove 8344 document.HTML.BODY.DIV[1].FORM.P[3] 0 320 386 0 false false false",
+"mousemove 8360 document.HTML.BODY.DIV[1].FORM.P[3] 0 320 387 0 false false false",
+"mousedown 8438 document.HTML.BODY.DIV[1].FORM.P[3] 0 320 387 0 false false false",
+"blur 8453 document.HTML.BODY.DIV[1].FORM.P[2].INPUT 65535 0 0 0 true true true",
+"focus 8453 document 65535 0 0 0 true true true",
+"mouseup 8516 document.HTML.BODY.DIV[1].FORM.P[3] 0 320 387 0 false false false",
+"click 8516 document.HTML.BODY.DIV[1].FORM.P[3] 0 320 387 0 false false false",
+"mousemove 8531 document.HTML.BODY.DIV[1].FORM.P[3] 0 320 388 0 false false false",
+"mouseout 8547 document.HTML.BODY.DIV[1].FORM.P[3] 0 319 389 0 false false false",
+"mouseover 8547 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 319 389 0 false false false",
+"mousemove 8547 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 319 389 0 false false false",
+"mousemove 8563 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 319 391 0 false false false",
+"mousemove 8563 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 319 393 0 false false false",
+"mousemove 8563 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 319 395 0 false false false",
+"mousemove 8578 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 319 398 0 false false false",
+"mousemove 8578 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 319 400 0 false false false",
+"mouseout 8594 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 319 402 0 false false false",
+"mouseover 8594 document.HTML.BODY.DIV[1].FORM 0 319 402 0 false false false",
+"mousemove 8594 document.HTML.BODY.DIV[1].FORM 0 319 402 0 false false false",
+"mousemove 8610 document.HTML.BODY.DIV[1].FORM 0 319 404 0 false false false",
+"mousemove 8610 document.HTML.BODY.DIV[1].FORM 0 319 405 0 false false false",
+"mousemove 8610 document.HTML.BODY.DIV[1].FORM 0 319 407 0 false false false",
+"mousemove 8625 document.HTML.BODY.DIV[1].FORM 0 319 408 0 false false false",
+"mousemove 8625 document.HTML.BODY.DIV[1].FORM 0 319 410 0 false false false",
+"mousemove 8641 document.HTML.BODY.DIV[1].FORM 0 318 410 0 false false false",
+"mousemove 8641 document.HTML.BODY.DIV[1].FORM 0 317 412 0 false false false",
+"mousemove 8656 document.HTML.BODY.DIV[1].FORM 0 317 413 0 false false false",
+"mousemove 8656 document.HTML.BODY.DIV[1].FORM 0 316 414 0 false false false",
+"mouseout 8672 document.HTML.BODY.DIV[1].FORM 0 316 416 0 false false false",
+"mouseover 8672 document.HTML.BODY.DIV[1].FORM.P[4] 0 316 416 0 false false false",
+"mousemove 8672 document.HTML.BODY.DIV[1].FORM.P[4] 0 316 416 0 false false false",
+"mousemove 8688 document.HTML.BODY.DIV[1].FORM.P[4] 0 315 417 0 false false false",
+"mouseout 8688 document.HTML.BODY.DIV[1].FORM.P[4] 0 315 419 0 false false false",
+"mouseover 8688 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 315 419 0 false false false",
+"mousemove 8703 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 315 419 0 false false false",
+"mousemove 8703 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 315 420 0 false false false",
+"mousemove 8703 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 314 420 0 false false false",
+"mousemove 8860 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 314 419 0 false false false",
+"mousemove 8860 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 314 418 0 false false false",
+"mouseout 8891 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 315 417 0 false false false",
+"mouseover 8891 document.HTML.BODY.DIV[1].FORM.P[4] 0 315 417 0 false false false",
+"mousemove 8891 document.HTML.BODY.DIV[1].FORM.P[4] 0 315 417 0 false false false",
+"mousemove 8906 document.HTML.BODY.DIV[1].FORM.P[4] 0 315 416 0 false false false",
+"mousemove 8922 document.HTML.BODY.DIV[1].FORM.P[4] 0 316 415 0 false false false",
+"mouseout 8938 document.HTML.BODY.DIV[1].FORM.P[4] 0 317 413 0 false false false",
+"mouseover 8953 document.HTML.BODY.DIV[1].FORM 0 317 413 0 false false false",
+"mousemove 8953 document.HTML.BODY.DIV[1].FORM 0 317 413 0 false false false",
+"mousemove 8953 document.HTML.BODY.DIV[1].FORM 0 318 413 0 false false false",
+"mousemove 8953 document.HTML.BODY.DIV[1].FORM 0 319 412 0 false false false",
+"mousemove 8969 document.HTML.BODY.DIV[1].FORM 0 319 411 0 false false false",
+"mousemove 8985 document.HTML.BODY.DIV[1].FORM 0 319 410 0 false false false",
+"mousemove 8985 document.HTML.BODY.DIV[1].FORM 0 319 409 0 false false false",
+"mousemove 9000 document.HTML.BODY.DIV[1].FORM 0 319 407 0 false false false",
+"mousemove 9016 document.HTML.BODY.DIV[1].FORM 0 318 406 0 false false false",
+"mousemove 9031 document.HTML.BODY.DIV[1].FORM 0 318 405 0 false false false",
+"mousemove 9031 document.HTML.BODY.DIV[1].FORM 0 317 403 0 false false false",
+"mousemove 9047 document.HTML.BODY.DIV[1].FORM 0 317 402 0 false false false",
+"mousemove 9047 document.HTML.BODY.DIV[1].FORM 0 316 402 0 false false false",
+"mouseout 9063 document.HTML.BODY.DIV[1].FORM 0 316 400 0 false false false",
+"mouseover 9063 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 316 400 0 false false false",
+"mousemove 9063 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 316 400 0 false false false",
+"mousemove 9078 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 316 399 0 false false false",
+"mousemove 9078 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 315 399 0 false false false",
+"mousemove 9094 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 315 398 0 false false false",
+"mousemove 9094 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 314 398 0 false false false",
+"mousemove 9110 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 314 397 0 false false false",
+"mousemove 9125 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 314 396 0 false false false",
+"mousemove 9125 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 313 396 0 false false false",
+"mousedown 9172 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 313 396 0 false false false",
+"focus 9188 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 65535 0 0 0 true true true",
+"mouseup 9250 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 313 396 0 false false false",
+"click 9250 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 313 396 0 false false false",
+"change 9250 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 65535 0 0 0 true true true",
+"mousemove 9281 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 314 397 0 false false false",
+"mousemove 9281 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 315 398 0 false false false",
+"mousemove 9297 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 316 399 0 false false false",
+"mouseout 9297 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 0 317 402 0 false false false",
+"mouseover 9313 document.HTML.BODY.DIV[1].FORM 0 317 402 0 false false false",
+"mousemove 9313 document.HTML.BODY.DIV[1].FORM 0 317 402 0 false false false",
+"mousemove 9313 document.HTML.BODY.DIV[1].FORM 0 318 403 0 false false false",
+"mousemove 9313 document.HTML.BODY.DIV[1].FORM 0 319 404 0 false false false",
+"mousemove 9328 document.HTML.BODY.DIV[1].FORM 0 320 406 0 false false false",
+"mousemove 9328 document.HTML.BODY.DIV[1].FORM 0 320 407 0 false false false",
+"mousemove 9344 document.HTML.BODY.DIV[1].FORM 0 320 408 0 false false false",
+"mousemove 9360 document.HTML.BODY.DIV[1].FORM 0 320 410 0 false false false",
+"mousemove 9360 document.HTML.BODY.DIV[1].FORM 0 320 411 0 false false false",
+"mousemove 9375 document.HTML.BODY.DIV[1].FORM 0 320 412 0 false false false",
+"mousemove 9375 document.HTML.BODY.DIV[1].FORM 0 320 413 0 false false false",
+"mouseout 9391 document.HTML.BODY.DIV[1].FORM 0 320 415 0 false false false",
+"mouseover 9391 document.HTML.BODY.DIV[1].FORM.P[4] 0 320 415 0 false false false",
+"mousemove 9391 document.HTML.BODY.DIV[1].FORM.P[4] 0 320 415 0 false false false",
+"mousemove 9406 document.HTML.BODY.DIV[1].FORM.P[4] 0 320 416 0 false false false",
+"mousemove 9422 document.HTML.BODY.DIV[1].FORM.P[4] 0 319 417 0 false false false",
+"mouseout 9422 document.HTML.BODY.DIV[1].FORM.P[4] 0 319 418 0 false false false",
+"mouseover 9422 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 319 418 0 false false false",
+"mousemove 9438 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 319 418 0 false false false",
+"mousemove 9438 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 319 419 0 false false false",
+"mousemove 9453 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 319 420 0 false false false",
+"mousemove 9469 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 318 420 0 false false false",
+"mousedown 9610 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 318 420 0 false false false",
+"blur 9610 document.HTML.BODY.DIV[1].FORM.P[3].INPUT 65535 0 0 0 true true true",
+"focus 9625 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 65535 0 0 0 true true true",
+"mouseup 9688 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 318 420 0 false false false",
+"click 9688 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 318 420 0 false false false",
+"change 9688 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 65535 0 0 0 true true true",
+"mousemove 9735 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 319 421 0 false false false",
+"mousemove 9750 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 320 423 0 false false false",
+"mouseout 9750 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 0 322 424 0 false false false",
+"mouseover 9766 document.HTML.BODY.DIV[1].FORM.P[4] 0 322 424 0 false false false",
+"mousemove 9766 document.HTML.BODY.DIV[1].FORM.P[4] 0 322 424 0 false false false",
+"mousemove 9766 document.HTML.BODY.DIV[1].FORM.P[4] 0 323 427 0 false false false",
+"mousemove 9766 document.HTML.BODY.DIV[1].FORM.P[4] 0 324 428 0 false false false",
+"mousemove 9781 document.HTML.BODY.DIV[1].FORM.P[4] 0 325 429 0 false false false",
+"mousemove 9781 document.HTML.BODY.DIV[1].FORM.P[4] 0 325 430 0 false false false",
+"mousemove 9828 document.HTML.BODY.DIV[1].FORM.P[4] 0 326 432 0 false false false",
+"mouseout 9828 document.HTML.BODY.DIV[1].FORM.P[4] 0 326 434 0 false false false",
+"mouseover 9828 document.HTML.BODY.DIV[1].FORM 0 326 434 0 false false false",
+"mousemove 9844 document.HTML.BODY.DIV[1].FORM 0 326 434 0 false false false",
+"mousemove 9844 document.HTML.BODY.DIV[1].FORM 0 326 437 0 false false false",
+"mousemove 9844 document.HTML.BODY.DIV[1].FORM 0 328 440 0 false false false",
+"mousemove 9860 document.HTML.BODY.DIV[1].FORM 0 330 444 0 false false false",
+"mouseout 9860 document.HTML.BODY.DIV[1].FORM 0 331 448 0 false false false",
+"mouseover 9875 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 331 448 0 false false false",
+"mousemove 9875 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 331 448 0 false false false",
+"mouseout 9875 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 333 451 0 false false false",
+"mouseover 9875 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 333 451 0 false false false",
+"mousemove 9891 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 333 451 0 false false false",
+"mousemove 9891 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 335 456 0 false false false",
+"mousemove 9891 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 335 457 0 false false false",
+"mousemove 9906 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 335 458 0 false false false",
+"mousemove 9906 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 335 459 0 false false false",
+"mousemove 9938 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 335 460 0 false false false",
+"mousedown 10078 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 335 460 0 false false false",
+"blur 10078 document.HTML.BODY.DIV[1].FORM.P[4].INPUT 65535 0 0 0 true true true",
+"mouseup 10172 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 335 460 0 false false false",
+"click 10172 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 335 460 0 false false false",
+"mousemove 10188 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 338 460 0 false false false",
+"mousemove 10188 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 341 461 0 false false false",
+"mousemove 10203 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 348 463 0 false false false",
+"mouseout 10203 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 356 467 0 false false false",
+"mouseover 10219 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 356 467 0 false false false",
+"mousemove 10219 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 356 467 0 false false false",
+"mouseout 10219 document.HTML.BODY.DIV[1].FORM.P[5].INPUT 0 366 470 0 false false false",
+"mouseover 10219 document.HTML.BODY.DIV[1].FORM 0 366 470 0 false false false",
+"mousemove 10235 document.HTML.BODY.DIV[1].FORM 0 366 470 0 false false false",
+"mousemove 10235 document.HTML.BODY.DIV[1].FORM 0 381 480 0 false false false",
+"mouseout 10235 document.HTML.BODY.DIV[1].FORM 0 385 482 0 false false false",
+"mouseover 10250 document.HTML.BODY.DIV[1].FORM.P[6].A 0 385 482 0 false false false",
+"mousemove 10250 document.HTML.BODY.DIV[1].FORM.P[6].A 0 385 482 0 false false false",
+"mousemove 10250 document.HTML.BODY.DIV[1].FORM.P[6].A 0 388 482 0 false false false",
+"mousemove 10250 document.HTML.BODY.DIV[1].FORM.P[6].A 0 389 483 0 false false false",
+"mousemove 10266 document.HTML.BODY.DIV[1].FORM.P[6].A 0 388 483 0 false false false",
+"mousemove 10406 document.HTML.BODY.DIV[1].FORM.P[6].A 0 389 483 0 false false false",
+"mousemove 10422 document.HTML.BODY.DIV[1].FORM.P[6].A 0 392 485 0 false false false",
+"mouseout 10422 document.HTML.BODY.DIV[1].FORM.P[6].A 0 397 489 0 false false false",
+"mouseover 10422 document.HTML.BODY.DIV[1].FORM.P[6] 0 397 489 0 false false false",
+"mousemove 10438 document.HTML.BODY.DIV[1].FORM.P[6] 0 397 489 0 false false false",
+"mousemove 10438 document.HTML.BODY.DIV[1].FORM.P[6] 0 402 499 0 false false false",
+"mouseout 10438 document.HTML.BODY.DIV[1].FORM.P[6] 0 414 514 0 false false false",
+"mouseover 10438 document.HTML.BODY.DIV[1].FORM.P[7] 0 414 514 0 false false false",
+"mousemove 10453 document.HTML.BODY.DIV[1].FORM.P[7] 0 414 514 0 false false false",
+"mouseout 10453 document.HTML.BODY.DIV[1].FORM.P[7] 0 426 531 0 false false false",
+"mouseover 10453 document.HTML.BODY.DIV[1].FORM 0 426 531 0 false false false",
+"mousemove 10453 document.HTML.BODY.DIV[1].FORM 0 426 531 0 false false false",
+"mouseout 10469 document.HTML.BODY.DIV[1].FORM 0 466 588 0 false false false",
+"mouseover 10485 document.HTML.BODY.DIV[1].FORM.P[9].INPUT 0 514 645 0 false false false",
+"mousemove 10485 document.HTML.BODY.DIV[1].FORM.P[9].INPUT 0 514 645 0 false false false",
+"mouseout 10500 document.HTML.BODY.DIV[1].FORM.P[9].INPUT 0 550 688 0 false false false",
+"mouseover 10500 document.HTML.BODY.DIV[1] 0 550 688 0 false false false",
+"mousemove 10500 document.HTML.BODY.DIV[1] 0 550 688 0 false false false",
+"mousemove 10516 document.HTML.BODY.DIV[1] 0 556 695 0 false false false",
+"mousemove 10516 document.HTML.BODY.DIV[1] 0 558 696 0 false false false",
+"mousemove 10656 document.HTML.BODY.DIV[1] 0 562 696 0 false false false",
+"mousemove 10656 document.HTML.BODY.DIV[1] 0 566 696 0 false false false",
+"mousemove 10672 document.HTML.BODY.DIV[1] 0 567 697 0 false false false",
+"mousemove 10672 document.HTML.BODY.DIV[1] 0 566 703 0 false false false",
+"mousemove 10688 document.HTML.BODY.DIV[1] 0 564 711 0 false false false",
+"mouseout 10688 document.HTML.BODY.DIV[1] 0 560 720 0 false false false",
+"mouseover 10703 document.HTML.BODY 0 560 720 0 false false false",
+"mousemove 10703 document.HTML.BODY 0 560 720 0 false false false",
+"mouseout 10703 document.HTML.BODY 0 556 728 0 false false false",
+"mouseover 10703 document.HTML.BODY.DIV[2] 0 556 728 0 false false false",
+"mousemove 10703 document.HTML.BODY.DIV[2] 0 556 728 0 false false false",
+"mousemove 10719 document.HTML.BODY.DIV[2] 0 552 737 0 false false false",
+"mousemove 10719 document.HTML.BODY.DIV[2] 0 548 747 0 false false false",
+"mousemove 10735 document.HTML.BODY.DIV[2] 0 542 761 0 false false false",
+"mousemove 10735 document.HTML.BODY.DIV[2] 0 536 772 0 false false false",
+"mousemove 10750 document.HTML.BODY.DIV[2] 0 532 784 0 false false false",
+"mousemove 10750 document.HTML.BODY.DIV[2] 0 527 794 0 false false false",
+"mousemove 10766 document.HTML.BODY.DIV[2] 0 523 800 0 false false false",
+"mousemove 10766 document.HTML.BODY.DIV[2] 0 519 805 0 false false false",
+"mousemove 10781 document.HTML.BODY.DIV[2] 0 516 807 0 false false false",
+"mouseout 10781 document.HTML.BODY.DIV[2] 0 513 809 0 false false false",
+"mouseover 10781 document.HTML 0 513 809 0 false false false",
+"mousemove 10781 document.HTML 0 513 809 0 false false false",
+"mousemove 10797 document.HTML 0 510 810 0 false false false",
+"mousemove 10797 document.HTML 0 509 810 0 false false false",
+"mousemove 10813 document.HTML 0 507 810 0 false false false",
+"mousemove 10813 document.HTML 0 506 810 0 false false false",
+"mousemove 10828 document.HTML 0 504 809 0 false false false",
+"mousemove 10828 document.HTML 0 503 808 0 false false false",
+"mouseout 10844 document.HTML 0 502 807 0 false false false",
+"mouseover 10844 document.HTML.BODY.DIV[2] 0 502 807 0 false false false",
+"mousemove 10844 document.HTML.BODY.DIV[2] 0 502 807 0 false false false",
+"mousemove 10844 document.HTML.BODY.DIV[2] 0 500 807 0 false false false",
+"mousemove 10860 document.HTML.BODY.DIV[2] 0 500 806 0 false false false",
+"mousemove 10875 document.HTML.BODY.DIV[2] 0 500 804 0 false false false",
+"mousemove 10891 document.HTML.BODY.DIV[2] 0 502 803 0 false false false",
+"mousemove 10906 document.HTML.BODY.DIV[2] 0 503 803 0 false false false",
+"mousemove 11063 document.HTML.BODY.DIV[2] 0 501 803 0 false false false",
+"mousemove 11063 document.HTML.BODY.DIV[2] 0 497 801 0 false false false",
+"mousemove 11078 document.HTML.BODY.DIV[2] 0 489 799 0 false false false",
+"mousemove 11078 document.HTML.BODY.DIV[2] 0 483 796 0 false false false",
+"mousemove 11094 document.HTML.BODY.DIV[2] 0 475 794 0 false false false",
+"mousemove 11094 document.HTML.BODY.DIV[2] 0 466 792 0 false false false",
+"mousemove 11110 document.HTML.BODY.DIV[2] 0 458 788 0 false false false",
+"mousemove 11110 document.HTML.BODY.DIV[2] 0 448 786 0 false false false",
+"mousemove 11141 document.HTML.BODY.DIV[2] 0 426 779 0 false false false",
+"mousemove 11141 document.HTML.BODY.DIV[2] 0 419 779 0 false false false",
+"mousemove 11156 document.HTML.BODY.DIV[2] 0 417 778 0 false false false",
+"mousemove 11156 document.HTML.BODY.DIV[2] 0 414 778 0 false false false",
+"mousemove 11172 document.HTML.BODY.DIV[2] 0 413 778 0 false false false",
+"mousemove 11172 document.HTML.BODY.DIV[2] 0 411 778 0 false false false",
+"mousemove 11188 document.HTML.BODY.DIV[2] 0 410 778 0 false false false",
+"mousemove 11203 document.HTML.BODY.DIV[2] 0 409 778 0 false false false",
+"mousemove 11219 document.HTML.BODY.DIV[2] 0 407 778 0 false false false",
+"mousemove 11235 document.HTML.BODY.DIV[2] 0 406 778 0 false false false",
+"mousemove 11250 document.HTML.BODY.DIV[2] 0 404 778 0 false false false",
+"mousemove 11266 document.HTML.BODY.DIV[2] 0 403 778 0 false false false",
+"mousemove 11281 document.HTML.BODY.DIV[2] 0 403 777 0 false false false",
+"mousemove 11313 document.HTML.BODY.DIV[2] 0 404 776 0 false false false",
+"mousemove 11328 document.HTML.BODY.DIV[2] 0 405 776 0 false false false",
+"mousemove 11344 document.HTML.BODY.DIV[2] 0 405 775 0 false false false",
+"mouseout 11344 document.HTML.BODY.DIV[2] 0 405 774 0 false false false",
+"focus 11672 document 65535 0 0 0 true true true",
+"blur 11766 document 65535 0 0 0 true true false",
+"focus 12578 document 65535 0 0 0 false false false"
+];
+
+</script>
+
+<form>
+	<input name="A" type="text" onkeydown="alert(event.keyCode)" onfocus="statusupdate('A.onfocus');" onblur="statusupdate('A.onblur');" onactivate="statusupdate('A.onactivate');" />
+	<p/>
+	<input name="B" type="button" value="yes" />
+	<p/>
+	<input name="C" type="button" value="no" />
+	<p/>
+	<input name="D" type="radio" value="true" />
+	<p/>
+	<input name="D" type="radio" value="false" />
+	<p/>
+	<input name="E" type="checkbox" />
+	<p/>
+	<input name="F" type="password" />
+	<p/>
+	<a onmouseover="statusupdate('v'); return true;">a.onmouseover</a>
+	<p/>
+	<a onclick="alert('a.onclick')">a.onclick</a>
+	<p/>
+	<input name="G" type="text" xonkeydown="alert(event.keyCode)"/>
+	<p/>
+
+	<input type="button" value="test_event_onclick"  onclick="run_test('test_event_onclick()',this)"/>
+	<input type="button" value="test_event_onclick_test"  onclick="run_test('test_event_onclick_test()',this)"/>
+	<input type="button" value="test_event_onmousemove"  onclick="run_test('test_event_onmousemove()',this)"/>
+	<input type="button" value="test_event_onmousedown"  onclick="run_test('test_event_onmousedown()',this)"/>
+	<input type="button" value="test_event_onmouseup"  onclick="run_test('test_event_onmouseup()',this)"/>
+	<input type="button" value="test_event_onmouseover"  onclick="run_test('test_event_onmouseover()',this)"/>
+	<input type="button" value="test_event_onmouseout"  onclick="run_test('test_event_onmouseout()',this)"/>
+
+	<br>
+
+	<input type="button" value="test_event_onfocus"  onclick="run_test('test_event_onfocus()',this)"/>
+	<input type="button" value="test_event_onfocusin"  onclick="run_test('test_event_onfocusin()',this)" />
+	<input type="button" value="test_event_onfocusout"  onclick="run_test('test_event_onfocusout()',this)"/>
+	<input type="button" value="test_event_onblur"  onclick="run_test('test_event_onblur()',this)"/>
+	<input type="button" value="test_event_onactivate"  onclick="run_test('test_event_onactivate()',this)"/>
+	<input type="button" value="test_event_ondeactivate"  onclick="run_test('test_event_ondeactivate()',this)"/>
+	<input type="button" value="test_event_onbeforeeditfocus"  onclick="run_test('test_event_onbeforeeditfocus()',this)"/>
+	<br>
+	<input type="button" value="test_event_onkeydown"  onclick="run_test('test_event_onkeydown()',this)"/>
+	<input type="button" value="test_event_onkeyup"  onclick="run_test('test_event_onkeyup()',this)"/>
+	<p/>
+
+	<input type="button" value="test_play_start(g_test_sequence_ie)"  onclick="test_play_start(g_test_sequence_ie)"/>
+	<input type="button" value="test_play_start(g_test_sequence_firefox)"  onclick="test_play_start(g_test_sequence_firefox)"/>
+</form>
+</div>
+
+<script type="text/javascript">
+// Render the Macro Controller
+MetaWrap.Macro.render();
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,211 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<title>ThumbWhere.com</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
+	</head>
+	<body>
+		<div class="page">
+
+			<div class="blurb">
+				<h1>Welcome to ThumbWhere</h1>
+				<h3>Sharing your life through your mobile device.</h3>
+			</div>
+			 
+			 <div class="apps_group">
+					<h2>Applications You Can Add</h2>
+					
+					<div>
+						<span class="aspect" name="applications">
+							<div id="apps_container" class="bindonload apps_container" >Hello
+								<!--
+								<div class="small_app apps_app" >
+									<div id="twitter_name">Name</div>
+									<div id="twitter_description">description</div>							
+								</div>
+								
+								<div class="small_app apps_app" >
+									<div id="twitter_name">Name</div>
+									<div id="twitter_description">description</div>							
+								</div>
+
+								<div class="small_app apps_app" >
+									<div id="twitter_name">Name</div>
+									<div id="twitter_description">description</div>							
+								</div>
+
+								<div class="small_app apps_app" >
+									<div id="twitter_name">Name</div>
+									<div id="twitter_description">description</div>							
+								</div>
+								
+								<div class="small_app apps_app" >
+									<div id="twitter_name">Name</div>
+									<div id="twitter_description">description</div>							
+								</div>
+
+								<div class="small_app apps_app" >
+									<div id="twitter_name">Name</div>
+									<div id="twitter_description">description</div>							
+								</div>
+								-->
+							</div>
+						</span>
+					</div>			
+			 
+			</div>
+			<div class="invite">
+				<div>
+					<span class="aspect" name="loggedout">
+						<h2>Get an invite!</h2>
+						<p>If you don't have an invite, enter your email below to get on the waiting list, or find a nice friend who can get you in. (Once you're in, so are your friends.)</p>
+						
+						<label for="INVITEEMAIL">
+						Username:
+
+						<input type="TEXT" value="" id="INVITEEMAIL" name="INVITEEMAIL" onkeyup="MetaWrap.State.determineState();" /><br/>
+						</label>
+						<div>
+							<span class="aspect" name="invite_sent">
+								Thanks for requesting a beta invite. We'll let you know when the time has come.
+							</span>
+						</div>
+
+						<div>
+							<span class="aspect" name="invite_error">
+								There was an error trying to submit your invite. Please try again later. If pain persists, hassle <a href="mailto:james@thumbwhere.com">james@thumbwhere.com</a> , he can fix it.
+							</span>
+						</div>
+
+
+						<div>
+							<span class="aspect" name="invite_ready">
+								<input type="BUTTON" value="Get an invite" id="INVITEBUTTON" name="INVITEBUTTON" onclick="doInvite();" /><br/>
+							</span>
+						</div>
+					</span>
+				</div>
+			</div>
+			<div class="login">
+				<div>
+					<span class="aspect" name="loggedin">
+						Logged In As James
+					</span>
+				</div>
+				
+				<div>
+					<span class="aspect" name="loggedin">
+						<input type="BUTTON" value="LOGOUT" id="LOGOUT" name="LOGOUT" onclick="doLogout();" /><br/>
+					</span>
+				</div>
+
+				<div>
+					<span class="aspect" name="loggedout">
+
+						<div>
+							<span class="aspect" name="mobile_login">
+
+								<div>
+									<span class="aspect" name="generating_code">
+											Requesting SMS Code.
+									</span>
+								</div>
+
+								<div>
+									<span class="aspect" name="generating_code_error">
+											There was an error requesting the SMS Code..
+											<input type="BUTTON" value="Try Again" id="SMSTRYGAIN" name="SMSTRYGAIN" onclick="MetaWrap.State.affirmState('/main/loggedOut/mobileLogin/generatingCode'); return false;" />
+									</span>
+								</div>
+
+
+								<div >
+									<span class="aspect" name="waiting_for_sms">											
+											<h3>SMS <span id="waiting_for_sms_code">CODE</span> to <span id="waiting_for_sms_number">NUMBER</span></h3>
+											
+											<p>We need to link up your mobile device to your ThumbWhere account.</p>
+									</span>
+								</div>
+
+								<div>
+									<span class="aspect" name="waiting_for_sms_expired">
+											Your request expired.
+											<input type="BUTTON" value="Try Again" id="SMSTRYGAIN" name="SMSTRYGAIN" onclick="MetaWrap.State.affirmState('/main/loggedOut/mobileLogin/generatingCode'); return false;" />
+									</span>
+								</div>
+
+								<div>
+									<span class="aspect" name="waiting_for_sms_error">
+											There was an error requesting validation from the server....
+											<input type="BUTTON" value="Try Again" id="SMSTRYGAIN" name="SMSTRYGAIN" onclick="MetaWrap.State.affirmState('/main/loggedOut/mobileLogin/waitingForSMS'); return false;" />
+									</span>
+								</div>
+
+
+
+								<input type="BUTTON" value="Login With Username And Password" id="NORMALLOGIN" name="NORMALLOGIN" onclick="MetaWrap.State.affirmState('/main/loggedOut/normalLogin'); return false;" />
+						</span>
+					</div>
+
+					<div>
+						<span class="aspect" name="normal_login">
+							<h2>Login</h2>
+					
+							<div>
+								<label for="LOGINUSERNAME">
+								Username:
+									<input type="TEXT" value="" id="LOGINUSERNAME" name="LOGINUSERNAME" onkeyup="MetaWrap.State.determineState();" />
+								</label>
+							</div>
+							<div>
+								<label for="LOGINPASSWORD">
+								Password:									
+									<input type="PASSWORD" value="" id="LOGINPASSWORD" name="LOGINPASSWORD" onkeyup="MetaWrap.State.determineState();" />
+								</label>
+							</div>
+							<div>
+								<span class="aspect" name="loginbutton">
+									<input type="BUTTON" value="Login" id="LOGIN" name="LOGIN" onclick="doLogin();" />
+								</span>
+							</div>
+							<label for="REMEMBERME">
+							<input type="CHECKBOX" checked="{$l_remember_me}" id="REMEMBERME" name="REMEMBERME" onclick="doRememberMe();" />
+								Remember Me
+							</label><br/>
+							<a href="/forgot" onclick="MetaWrap.State.affirmState('forgot'); return false;" >Forgot Password</a>
+
+							<input type="BUTTON" value="Join" id="MOBILELOGIN" name="MOBILELOGIN" onclick="MetaWrap.State.affirmState('/main/loggedOut/mobileLogin/mobileLogin'); return false;" />
+					</span>
+				</div>
+
+					</span>
+				</div>
+			</div>
+
+
+			<div>
+				<span class="aspect" name="anyone_can_join">
+					<input type="BUTTON" value="Join, Its Free" id="JOIN" name="JOIN" onclick="doJoin();" /><br/>
+				</span>
+			</div>
+
+            <div>
+                <span class="aspect" name="joining">
+                    <h1>Joining</h1>
+					<input type="BUTTON" value="CANCELJOIN" id="CANCELJOIN" name="CANCELJOIN" onclick="doCancelJoin();" /><br/>
+                </span>
+            </div>
+
+			<p/>
+
+			<div class="footer_holder">
+				<div class="footer">
+					<div class="footer_links">
+						&#xa9; 2008 ThumbWhere <a href="/api">API</a>  <a href="http://twitter.com/ThumbWhere">Contact Us</a> <a href="http://blog.thumbwhere.com/">Blog</a> <a href="http://feedback.thumbwhere.com">Feeback</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

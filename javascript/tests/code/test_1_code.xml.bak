@@ -1,0 +1,211 @@
+<?xml version="1.0"?>
+<!--
+    $Id: test_1_code.xml,v 1.1 2006/02/13 10:54:26 james Exp $
+
+    $Log: test_1_code.xml,v $
+    Revision 1.1  2006/02/13 10:54:26  james
+    Attempting to share code XSLT between state and action
+
+    Revision 1.5  2006/01/31 13:21:50  james
+    Added state exclusion and state mutex.
+
+    Revision 1.4  2006/01/30 21:33:01  james
+    *** empty log message ***
+
+    Revision 1.3  2006/01/30 21:28:41  james
+    Latest state fields
+
+    Revision 1.2  2006/01/29 11:43:12  james
+    re-enabled transition xml - not currently processing it
+
+    Revision 1.1  2006/01/29 11:28:16  james
+    new test for basic state functions
+
+    Revision 1.11  2006/01/29 11:26:57  james
+    Added testcases for mw_lib_state.js
+
+    Revision 1.10  2006/01/26 11:14:21  james
+    Getting JavaScript version of object model up and running.
+
+    Revision 1.9  2006/01/24 10:58:19  james
+    Completed initial instructions and framework - can now start coding library
+    Attempting to deal with formatting.
+
+    Revision 1.8  2006/01/23 12:32:56  james
+    More work on state
+
+    Revision 1.7  2006/01/19 13:36:59  james
+    A few steps closer in the state instruction stylesheet
+
+    Revision 1.6  2006/01/18 11:34:40  james
+    Added simple structire for state transformation
+
+    Revision 1.5  2006/01/16 11:49:12  james
+    Decided on minimal state
+
+    Revision 1.4  2006/01/15 13:16:40  james
+    Working on state schema
+
+    Revision 1.3  2006/01/15 12:33:33  james
+    Latest updates
+
+    
+    @brief Example XML for state evaluator
+    
+    processing
+        sequence
+        flow
+                
+        switch?
+        case?
+        while?
+        pick?        
+    
+    execution
+        invoke? 
+        recieve?
+        reply?
+        return
+    
+    manipulation
+        compare
+			Equal - A comparison for equality. 
+			GreaterThan - A comparison for greater than. 
+			GreaterThanEqual - A comparison for greater than or equal to. 
+			LessThan - A comparison for less than. 
+			LessThanEqual - A comparison for less than or equal to. 
+			NotEqual - A comparison for inequality
+        copy
+
+    FROM BPEL
+
+    The token "activity" can be any of the following:
+     <receive>
+     <reply>
+     <invoke>
+     <assign>
+     <throw>
+     <terminate>
+     <wait>
+     <empty>
+     <sequence>
+     <switch>
+     <while>
+     <pick>
+     <flow>
+     <scope>
+     <compensate>        
+    
+    
+    code needs to have a pattern that follows exceptions
+ -->
+<?xml-stylesheet type="text/xsl" href="E:\metawrap\javascript\tests\code\code.xsl"?>
+<metawrap xmlns="../metawrap/metawrap.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="../metawrap/metawrap.xsd ../metawrap/metawrap.xsd">
+	<code>
+	<body>
+		<!-- declare a variable called 'A'-->
+		<var name="A"/>
+		
+		<!-- declare a variable called 'B'-->
+		<var name="B"/>
+	
+		<!-- declare a variable called 'B'-->
+		<var name="C"/>
+	
+		<!-- test that we can copy a string constant delimited by ' into a var -->
+		<copy from="'hello'" to="B"/>
+	
+		<!-- test that we can copy a string constant delimited by " into a var -->
+		<copy from='"hello"' to="B"/>
+	
+		<!-- test that we can copy a boolean constant into a var -->
+		<copy from="true" to="B"/>
+	
+		<!-- test that we can copy a boolean constant into a var -->
+		<copy from="false" to="B"/>
+	
+		<!-- test that we can copy a numerical constant into a var -->
+		<copy from="0.1" to="B"/>
+		
+		<!-- test that we can copy null into a var -->
+		<copy from="null" to="B"/>
+	
+		<!-- test that we can copy undefined into a var -->
+		<copy from="undefined" to="B"/>
+		
+		<!-- test that we can a var into a var -->
+		<copy from="true" to="X.Y"/>
+		
+		<!-- Read the A into the local variable -->
+		<copy from="X.Y" to="B"/>
+		
+		
+	
+		<!-- Compare the value of A to null -->
+		<compare op="notequal" with="A" to="B" result="C"/>
+	
+		<!-- Compare the value of A to null -->
+		<compare op="notequal" with="A" to="B" result="X.Z"/>
+	
+		<!-- Compare the value of A to null -->
+		<compare op="notequal" with="A" to="true" result="C"/>
+	
+		<!-- Compare the value of A to null -->
+		<compare op="notequal" with="A" to="true" result="X.Z"/>
+	
+	
+		<!-- Compare the value of A to null -->
+		<compare op="notequal" with="true" to="B" result="C"/>
+	
+		<!-- Compare the value of A to null -->
+		<compare op="notequal" with="true" to="B" result="X.Z"/>
+	
+		<!-- Compare the value of A to null -->
+		<compare op="notequal" with="X.X" to="B" result="C"/>
+	
+		<!-- Compare the value of A to null -->
+		<compare op="notequal" with="X.X" to="B" result="X.Z"/>
+	
+	
+	
+		<!-- Compare the value of A to null -->						
+		<compare op="notequal" with="true" to="true" result="C"/>
+	
+		<!-- Compare the value of A to null -->						
+		<compare op="notequal" with="true" to="X.Y" result="C"/>
+	
+		<!-- Compare the value of A to null -->						
+		<compare op="notequal" with="X.X" to="true" result="C"/>
+	
+		<!-- Compare the value of A to null -->						
+		<compare op="notequal" with="X.X" to="X.Y" result="C"/>
+		
+		
+		<!-- Compare the value of A to null -->						
+		<compare op="notequal" with="X.X" to="X.Y" result="X.Z"/>
+	
+		<!-- Compare the value of A to null -->						
+		<compare op="notequal" with="X.X" to="true" result="X.Z"/>
+	
+		<!-- Compare the value of A to null -->						
+		<compare op="notequal" with="true" to="X.Y" result="X.Z"/>
+		
+		<!-- Compare the value of A to null -->						
+		<compare op="notequal" with="true" to="true" result="X.Z"/>
+		
+		
+		<!-- declare a variable called 'B'-->
+		<var name="cookie"/>
+		
+		<!-- If the cookie is not true then we are not logged in -->
+		<compare op="notequal" with="Client.Cookies['Test2']" to="true" result="cookie"/>
+		
+		<!-- Return the value of B -->
+		<return with="cookie"/>
+	</body>
+	<fault>
+		<!-- if anything bad happens - then we err on the side of security - we allow this state, which is logged out -->
+		<return with="true"/>
+	</fault>
+</code>
+</metawrap>

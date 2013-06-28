@@ -1,0 +1,6 @@
+
+<fo:block space-before.optimum="20pt" font-size="20pt">From:
+<fo:inline font-style="italic">(Customer Reference)
+<fo:inline font-weight="bold">cust123</fo:inline>
+</fo:inline>
+</fo:block>

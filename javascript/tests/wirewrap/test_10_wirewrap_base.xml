@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!--
+    $Id: test_10_wirewrap_base.xml,v 1.1 2007/08/14 07:56:34 james Exp $
+
+    $Log: test_10_wirewrap_base.xml,v $
+    Revision 1.1  2007/08/14 07:56:34  james
+    *** empty log message ***
+
+    Revision 1.3  2007/08/13 09:53:41  james
+    New behaviors
+
+    Revision 1.2  2007/08/10 08:24:21  james
+    Added bahavior lib
+
+    Revision 1.1  2007/08/07 10:23:50  james
+    WireWrap prototype example working with Adobe Fireworks CS3
+    
+    @brief Example XML for css selector applied HTML/JavaScript behaviors
+ -->
+<wirewrap xmlns="http://xsd.metawrap.com/wirewrap/1.0/wirewrap.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xsd.metawrap.com/wirewrap/1.0/ http://xsd.metawrap.com/wirewrap/1.0/wirewrap.xsd" >
+   <selector css="#watch">
+      <constructor>
+        MetaWrap.Behavior.Navigation.g_focus = p_e.id;      
+        MetaWrap.Behavior.Navigation.addNav(p_e,"read","listen","watch.htm","watch.htm","watch.htm");
+      </constructor>       
+   
+      <onclick>new Effect2.DropOut(this);</onclick>
+   </selector>
+
+   <selector css="#listen">   
+      <constructor>MetaWrap.Behavior.Navigation.addNav(p_e,"watch","play",null,null,"listen.htm");</constructor>             
+    </selector>
+
+   <selector css="#play">   
+      <constructor>MetaWrap.Behavior.Navigation.addNav(p_e,"listen","read",null,null,"play.htm");</constructor>             
+    </selector>
+
+   <selector css="#read">   
+      <constructor>MetaWrap.Behavior.Navigation.addNav(p_e,"play","watch",null,null,"read.htm");</constructor>             
+    </selector>
+   
+</wirewrap>
+

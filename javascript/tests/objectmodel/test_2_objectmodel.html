@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<title>
+		Javascript ObjectModel #2 - MetaWrap JavaScript Library - $Id: test_2_objectmodel.html,v 1.3 2007/09/27 08:24:06 james Exp $
+	</title>
+
+	<script language="JavaScript" src="../fundamental/test.js" ></script>
+
+	<style>
+.wrap{
+    width: 67%;
+    margin: 0 0 1em 14%;
+    padding: 2% 3% 2% 5%;
+    BACKGROUND: white;
+    border-style: solid;
+    border-width: 1px;
+    top: -1px;
+}
+h1,h2,h3,h4{
+    position: relative;
+    left: -1em;
+    clear: both;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: orange;
+    font: 0.8em trebuchet ms;
+}
+em{
+    background: #ffc;
+}
+pre{
+    font-size: 1.1em;
+    background: #f0f0f0;
+    -moz-border-radius: 10px;
+    padding: 1em;
+}
+pre span{
+    font-weight: bold;
+}
+.selector, pre b{
+    color: red;
+}
+.beh{
+    color: blue;
+}
+.event{
+    color: green;
+}
+
+#sortable-list li{
+    cursor:move;
+    -moz-user-select: none;
+    width: 100%;
+}
+
+.dropout li{
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    float: left;
+    margin: 5px;
+    border: 1px solid #ccc;
+    list-style: none;
+    background: red;
+}
+
+.dropout li.hover{
+    background: yellow;
+}
+	</style>
+
+<script language="JavaScript">
+
+function error(p_msg)
+{
+    alert(p_msg);
+}
+
+function debug(p_msg)
+{
+    alert(p_msg);
+}
+
+function trace(p_msg)
+{
+    window.status = p_msg;
+}
+
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+
+        throw(p_msg);
+    }
+
+
+}
+
+</script>
+<script language="JavaScript" type="text/javascript" src="..\base\mw_lib.js"></script>
+<script language="JavaScript" type="text/javascript" src="..\cookie\mw_lib_cookie.js"></script>
+<script language="JavaScript" type="text/javascript" src="..\objectmodel\mw_lib_objectmodel.js"></script>
+<script language="JavaScript" type="text/javascript" src="..\objectmodel\mw_lib_objectmodel_node.js"></script>
+<script language="JavaScript" type="text/javascript" src="..\objectmodel\mw_lib_objectmodel_node_cookie.js"></script>
+</head>
+<body>
+<div class="wrap">
+<table width="100%" ID="Table1">
+	<tr align="middle" >
+		<td>
+			<h2>
+				Javascript ObjectModel #2 - Schema
+			</h2>
+		</td>
+		<td>
+			<a href="http://www.metawrap.com"><img border="0" src="../images/metawrap_logo_sm.png" align="right" /></a>
+		</td>
+	</tr>
+</table>
+<pre>$Id: test_2_objectmodel.html,v 1.3 2007/09/27 08:24:06 james Exp $</pre>
+</div>
+
+
+
+<script language="JavaScript">
+
+	// Declare a class in
+	l_maillog = function()
+	{
+		//alert("Construct log item");
+		this.m_email;
+		this.m_date = "Now";
+	};
+
+	var l_name = 'importClass';
+	var l_test = 'MetaWrap.ObjectModel.importClass("MailLog",l_maillog);';
+	var l_valid = 'MetaWrap.ObjectModel.m_root.MailLog != null;';
+	var l_display = 'MetaWrap.ObjectModel.m_root.MailLog.m_class';
+
+	passFail(l_name,l_test,l_valid,l_display);
+
+	l_name = 'construct array';
+	l_test = 'MetaWrap.ObjectModel.create("Test1.Log","","MailLog[]");';
+	l_valid = 'MetaWrap.ObjectModel.m_root.Test1.Log != null;';
+	l_display = 'MetaWrap.ObjectModel.m_root.Test1.Log.m_class';
+
+	passFail(l_name,l_test,l_valid,l_display);
+
+
+	l_name = 'create array item';
+	l_test = 'MetaWrap.ObjectModel.addChild("Test1.Log");';
+	l_valid = 'MetaWrap.ObjectModel.m_root.Test1.Log.m_value[0].m_date == "Now";';
+	l_display = 'MetaWrap.ObjectModel.m_root.Test1.Log.m_value[0].m_date';
+
+	passFail(l_name,l_test,l_valid,l_display);
+
+
+	var l_modified = false;
+
+	function Modified(p_id)
+	{
+		alert("modified ( id " + p_id + " )");
+
+		l_modified = true;
+	}
+
+	l_name = 'Subscribe array';
+	l_test = 'MetaWrap.ObjectModel.m_root.Test1.Log.subscribe(Modified,"test_id");MetaWrap.ObjectModel.m_root.Test1.Log.write("xyz");';
+	l_valid = 'l_modified == true';
+	l_display = 'l_modified';
+
+	passFail(l_name,l_test,l_valid,l_display);
+
+
+//x.y.x;
+
+</script>
+</body>
+</html>

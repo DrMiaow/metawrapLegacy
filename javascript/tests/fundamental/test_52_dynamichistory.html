@@ -1,0 +1,39 @@
+<html>
+
+<head>
+<script language="JavaScript" type="text/JavaScript">
+
+alert("loading");
+function makeHistory(newHash)
+{
+  window.location.hash = newHash;
+}
+
+function reportOptionValue()
+{
+  var myForm = document.make_history;
+  var mySelect = myForm.change_year;
+  return mySelect.options[mySelect.selectedIndex].value;
+}
+
+function setOptionValue(value)
+{
+  var myForm = document.make_history;
+  var mySelect = myForm.change_year;
+  mySelect.options[value-1].selected = true;
+}
+</script>
+</head>
+
+<body onload="alert('onload')">
+<form name=make_history>
+  <select name=change_year
+    onchange=
+      "return makeHistory(reportOptionValue())">
+    <option value="year_1">Year 1</option>
+    <option value="year_2">Year 2</option>
+  </select>
+</form>
+</body>
+
+</html>

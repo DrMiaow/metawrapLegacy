@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<title>
+		CSS TestCase #1 - MetaWrap JavaScript Library - $Id: test_2_create_css.html,v 1.4 2005/11/09 05:04:39 james Exp $
+	</title>
+	
+	<style type="text/css">
+	li { }
+	</style>	
+	<script type="text/javascript" src="../../lib/mw_lib.js"></script>
+	<script type="text/javascript" src="../page/mw_lib_page.js"></script>
+	<script type="text/javascript" src="mw_lib_css.js"></script>
+</head>
+<body>
+<div class="wrap">
+<table width="100%">
+	<tr align="middle" >
+		<td>
+			<h2>
+				CSS TestCases #1 - Creating New CSS Rules
+			</h2>
+		</td>
+		<td>
+			<a href="http://www.metawrap.com"><img border="0" src="../images/metawrap_logo_sm.png" align="right" /></a>
+		</td>
+	</tr>
+</table>
+
+<pre>$Id: test_2_create_css.html,v 1.4 2005/11/09 05:04:39 james Exp $</pre>
+
+
+
+</div>
+
+<div class="wrap">
+
+<body>
+<p>
+<input type="button" value="li"
+        onclick="MetaWrap.CSS.CreateRule('li', 'border: 2px solid green;');">
+<input type="button" value="input"
+        onclick="MetaWrap.CSS.CreateRule('input', 'font-size: 110%;');">
+
+<input type="button" value=".wrap"
+        onclick="MetaWrap.CSS.CreateRule('.wrap', 'width: 67%; margin: 0 0 1em 14%; padding: 2% 3% 2% 5%; BACKGROUND: white; border-style: solid; border-width: 1px;    top: -1px;');">
+
+<input type="button" value="h1,h2,h3,h4"
+        onclick="MetaWrap.CSS.CreateRule('h1,h2,h3,h4','position: relative;  left: -1em;  clear: both;');">
+
+<input type="button" value="body"
+        onclick="MetaWrap.CSS.CreateRule('body','margin: 0;padding: 0;background: orange;font: 0.8em trebuchet ms;');">
+
+<input type="button" value="em"
+        onclick="MetaWrap.CSS.CreateRule('em','background: #ffc;');">
+
+<input type="button" value="pre"
+        onclick="MetaWrap.CSS.CreateRule('pre','font-size: 1.1em;background: #f0f0f0;-moz-border-radius: 10px;padding: 1em;');">
+
+<input type="button" value="pre span"
+        onclick="MetaWrap.CSS.CreateRule('pre span','font-weight: bold;');">
+
+<input type="button" value=".selector, pre b"
+        onclick="MetaWrap.CSS.CreateRule('.selector, pre b','color: red;');">
+
+<input type="button" value=".beh"
+        onclick="MetaWrap.CSS.CreateRule('.beh','color: blue;');">
+
+<input type="button" value=".event"
+        onclick="MetaWrap.CSS.CreateRule('.event','color: green;');">
+
+<input type="button" value="#sortable-list li"
+        onclick="MetaWrap.CSS.CreateRule('#sortable-list li','cursor:move;-moz-user-select: none;width: 100%;');">
+
+<input type="button" value=".dropout li"
+        onclick="MetaWrap.CSS.CreateRule('.dropout li','width: 100px;line-height: 100px;text-align: center;float: left;margin: 5px;border: 1px solid #ccc;list-style: none;background: red;');">
+
+<input type="button" value=".dropout li.hover"
+        onclick="MetaWrap.CSS.CreateRule('.dropout li.hover','background: yellow;');">
+
+
+<ul>
+<li>Kibo</li>
+<li>Xibo</li>
+</ul>
+
+
+</div>
+</body>
+</html>
+
+

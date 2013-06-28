@@ -1,0 +1,20 @@
+<promo_page>
+   <title>SEASON 2004 REVIEW</title>
+
+   <subtitle>Best of the best</subtitle>
+
+   <notifications>
+      <notification>
+         <title>Shock resignation of leading driver. Exclusive interview</title>
+
+         <link>http://www.example.com</link>
+      </notification>
+
+      <notification>
+         <title>Unsuprising resignation of loosing driver. Un-Exclusive interview</title>
+
+         <link>http://www.example.com&amp;amp;x=1/</link>
+      </notification>
+   </notifications>
+</promo_page>
+

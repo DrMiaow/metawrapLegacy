@@ -1,0 +1,427 @@
+<script language="JavaScript">
+
+function error(p_msg)
+{
+    alert(p_msg);
+}
+
+function debug(p_msg)
+{
+    alert(p_msg);
+}
+
+function trace(p_msg)
+{
+    window.status = p_msg;
+}
+
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+
+</script>
+<script language="JavaScript" src="../base/mw_lib.js"></script>
+<script language="JavaScript" src="../xml/mw_lib_xml.js"></script>
+<script language="JavaScript" src="../network/mw_lib_network.js"></script>
+<script language="JavaScript">
+
+//Mozilla won't let you get XML from off different server - violates security model
+var g_server_root = ""; // http://v8supercars.example.com/
+
+document.write("<hr><h2>Spec Check Tests</h2>");
+// tell the world our browser type
+document.write("Browser Version Signature: " + navigator.userAgent + " => Browser ID = " + g_bid + " Browser VER = " + g_bver + "<br/>");
+document.write("<hr/>");
+if (true)
+{
+// Create a HTTP Request object
+var l_xml_request = new MetaWrap.Network.Client.HTTP();
+ASSERT(l_xml_request,"l_xml_request is null");
+if (l_xml_request != null)
+{
+     document.write("'MetaWrap.Network.Client.HTTP' Object OK<br/>");
+}
+
+// Create a XML DOM Object
+var l_xml_document = new MetaWrap.XML.Document();
+ASSERT(l_xml_document,"l_xml_document is null");
+if (l_xml_document != null)
+{
+     document.write("'MetaWrap.XML.Document' Object OK<br/>");
+}
+
+
+if (MetaWrap.XML.Document.Request(l_xml_document,l_xml_request,g_server_root+"config/node_whitespace_config.xml","GET",false,false))
+{
+    document.write("'MetaWrap.XML.Document.Request' OK<br/>");
+}
+
+document.write("Requested XML is " + l_xml_document.xml.length + " bytes long.");
+
+var l_expected_length = 46526;
+
+if (l_expected_length == l_xml_document.xml.length)
+{
+    document.write(" OK");
+}
+else
+{
+    document.write(" FAIL (expected " + l_expected_length + ")");
+}
+
+document.write("<br/>");
+
+
+l_rounds = l_xml_document.selectNodes("//rounds/round");
+if (l_rounds.length == 14)
+{
+    document.write("selectNodes");
+    if (g_bid == "Mozilla")
+    {
+        document.write(" (emulated under Mozilla)");
+    }
+
+    document.write(" OK<br/>");
+
+
+
+}
+
+
+var l_xml_as_objects = MetaWrap.XML.ToObject(l_xml_document);
+if ((l_xml_as_objects != null) && (l_xml_as_objects.config.rounds.round.length == 14))
+{
+    document.write("'MetaWrap.XML.ToObject l_xml_as_objects' OK<br/>");
+}
+
+document.write("<hr><h2>Access Loaded XML</h2>");
+document.write("Have " + l_rounds.length + " rounds to process (Via Xpath)<br/>");
+document.write("Have " + l_xml_as_objects.config.rounds.round.length + " rounds to process (Via XML.ToObject)<br/>");
+document.write("Current UTC time on server is " + l_xml_as_objects.config.params.now + "<br/>");
+document.write("UTC Time-offset for current round is " + l_xml_as_objects.config.params.gmt + "<br/>");
+
+
+// Create a HTTP Request object
+var l_xml_promo_page_request = new MetaWrap.Network.Client.HTTP();
+ASSERT(l_xml_request,"l_xml_promo_page_request is null");
+if (l_xml_promo_page_request != null)
+{
+    document.write("'MetaWrap.Network.Client.HTTP' Object OK<br/>");
+}
+
+// Create a XML DOM Object
+var l_xml_promo_page_document = new MetaWrap.XML.Document();
+ASSERT(l_xml_promo_page_document,"l_xml_promo_page_document is null");
+if (l_xml_document != null)
+{
+    document.write("'MetaWrap.XML.Document' Object OK<br/>");
+}
+
+if (MetaWrap.XML.Document.Request(l_xml_promo_page_document,l_xml_promo_page_request,g_server_root+"promo_page/promo_page.xml","GET",false,true))
+{
+    document.write("'MetaWrap.XML.Document.Request' OK<br/>");
+}
+
+document.write("Requested XML is " + l_xml_promo_page_document.xml.length + " bytes long.");
+
+var l_xml_promo_page_as_objects = MetaWrap.XML.ToObject(l_xml_promo_page_document);
+if (l_xml_promo_page_as_objects != null)
+{
+    document.write("'MetaWrap.XML.ToObject l_xml_promo_page_as_objects' OK<br/>");
+}
+
+document.write("Title = " + l_xml_promo_page_as_objects.promo_page.title + "<br/>");
+document.write("Sub Title = " + l_xml_promo_page_as_objects.promo_page.subtitle + "<br/>");
+document.write("l_xml_promo_page_as_objects.promo_page.notifications.notification.length = " + l_xml_promo_page_as_objects.promo_page.notifications.notification.length + "<br/>");
+
+
+for (var n = 0;n < l_xml_promo_page_as_objects.promo_page.notifications.notification.length;n++)
+{
+	var l_notification = l_xml_promo_page_as_objects.promo_page.notifications.notification[n];
+	document.write("title = " + l_notification.title + "<br/>");
+	document.write("title = " + l_notification.link + "<br/>");
+}
+
+
+function DateTimeString2DateUTC(p_time)
+{
+    // 0000000000111111111
+    // 0123456789012345678
+    // 2005-02-18 01:13:14
+
+	return Date.UTC(p_time.substr(0,4),p_time.substr(5,2)-1,p_time.substr(8,2),p_time.substr(11,2),p_time.substr(14,2),p_time.substr(17,2),0);
+}
+
+
+
+
+function TimeOffsetString2Date(p_time)
+{
+    //012345678
+    //+11:00:00
+	return Date.UTC(1970,0,1,p_time.substr(1,2),p_time.substr(4,2),p_time.substr(7,2),0);
+}
+
+
+var l_config_gmt = l_xml_as_objects.config.params.gmt;
+var l_config_now = l_xml_as_objects.config.params.now;
+
+var offset_hrs = l_config_gmt.substr(1,2)*1000*60*60;
+var offset_min = l_config_gmt.substr(4,2)*1000*60;
+var offset_sec = l_config_gmt.substr(7,2)*1000;
+
+
+document.write("<hr><h2>Round Information</h2>");
+
+var l_tzo = TimeOffsetString2Date(l_config_gmt);
+var l_now = DateTimeString2DateUTC(l_config_now);
+
+document.write("l_config_gmt = " + l_config_gmt + "<br/>");
+document.write("l_config_now = " + l_config_now + "<br/>");
+document.write("l_now = " + l_now + "<br/>");
+document.write("l_tzo = " + l_tzo + "<br/>");
+
+var l_current_round = 0;
+
+for(var i = 0;i < l_xml_as_objects.config.rounds.round.length;i++)
+{
+    document.write("<hr/>");
+    document.write(l_xml_as_objects.config.rounds.round[i].rl + "<br/>");
+
+    var l_rs = l_xml_as_objects.config.rounds.round[i].rs;
+    var l_re = l_xml_as_objects.config.rounds.round[i].re;
+    var l_rn = l_xml_as_objects.config.rounds.round[i].rn;
+
+    if (l_rn != null)
+    {
+        document.write(l_rn + "<br/>");
+    }
+
+    document.write("From " + l_xml_as_objects.config.rounds.round[i].rs + " to " + l_xml_as_objects.config.rounds.round[i].re + "<br/>");
+    //0123456789
+    //2004-12-01
+    var round_date_s = Date.UTC(l_rs.substr(0,4),l_rs.substr(5,2)-1,l_rs.substr(8,2),0,0,0,0);
+    var round_date_e = Date.UTC(l_re.substr(0,4),l_re.substr(5,2)-1,l_re.substr(8,2),23,59,59,0);
+
+
+    document.write("round_date_s = " + round_date_s + "<br/>");
+    document.write("round_date_e = " + round_date_e + "<br/>");
+
+
+    if ((l_now  >= (round_date_s - l_tzo)) && (l_now <= (round_date_e - l_tzo)))
+    {
+        // in round
+        trace("in round");
+        l_current_round = i;
+        break;
+    }
+    else
+    if (l_now  < (round_date_e - l_tzo))
+    {
+        alert("after round");
+        break;
+    }
+
+    l_current_round = i;
+
+}
+
+document.write("l_current_round = " + l_current_round);
+document.write("<hr/>");
+
+
+// now walk through the round sessions
+
+var l_sessions = l_xml_as_objects.config.sessions.session;
+var l_current_session = 0;
+
+for(var i = 0;i < l_sessions.length;i++)
+{
+	var l_sd = l_sessions[i].sd;
+	var l_ss = l_sessions[i].ss;
+	var l_se = l_sessions[i].se;
+
+    var l_ss_time = Date.UTC(l_sd.substr(0,4),l_sd.substr(5,2)-1,l_sd.substr(8,2),l_ss.substr(0,2),l_ss.substr(3,4),0,0);
+    var l_se_time = Date.UTC(l_sd.substr(0,4),l_sd.substr(5,2)-1,l_sd.substr(8,2),l_se.substr(0,2),l_se.substr(3,4),0,0);
+
+    document.write("<hr/>");
+
+    document.write("sn = " + l_sessions[i].sn + "<br/>");
+    document.write("sd = " + l_sessions[i].sd + "<br/>");
+    document.write("ss = " + l_sessions[i].se + "<br/>");
+    document.write("sm = " + l_sessions[i].sm + "<br/>");
+
+    if ((l_now  >= (l_ss_time - l_tzo)) && (l_now <= (l_se_time - l_tzo)))
+    {
+        // in round
+        trace("in sesson");
+        l_current_session = i;
+        break;
+    }
+    else
+    if (l_now  < (l_se_time - l_tzo))
+    {
+        //alert("after session");
+        break;
+    }
+}
+
+document.write("Current session is " + l_sessions[l_current_session].sn + "<br/>");
+document.write("Current session mask " + l_sessions[l_current_session].sm + "<br/>");
+
+
+var g_SessionMask = l_sessions[l_current_session].sm.toUpperCase();
+
+document.write("<hr/>");
+
+// now work backwards till we have some videos
+
+var l_xml_video_as_objects = null;
+
+while(l_current_round >= 0)
+{
+    document.write("<hr>");
+    var l_video_key = l_xml_as_objects.config.rounds.round[l_current_round].rv;
+
+    document.write("Load video key = " + l_video_key + "<br>");
+
+    var l_video_key
+
+    // Create a HTTP Request object
+    var l_xml_video_request = new MetaWrap.Network.Client.HTTP();
+    ASSERT(l_xml_request,"l_xml_video_request is null");
+    if (l_xml_video_request != null)
+    {
+        document.write("'MetaWrap.Network.Client.HTTP' Object OK<br/>");
+    }
+
+    // Create a XML DOM Object
+    var l_xml_video_document = new MetaWrap.XML.Document();
+    ASSERT(l_xml_video_document,"l_xml_video_document is null");
+    if (l_xml_document != null)
+    {
+        document.write("'MetaWrap.XML.Document' Object OK<br/>");
+    }
+
+    if (MetaWrap.XML.Document.Request(l_xml_video_document,l_xml_video_request,g_server_root+"vodlibs/" + l_video_key + "/vod.xml","GET",false,true))
+    {
+        document.write("'MetaWrap.XML.Document.Request' OK<br/>");
+    }
+
+	if (l_xml_video_document.xml.length != 0)
+	{
+
+		document.write("Requested VIDEO XML is " + l_xml_video_document.xml.length + " bytes long.<br>");
+
+		l_xml_video_as_objects = MetaWrap.XML.ToObject(l_xml_video_document);
+		if (l_xml_video_as_objects != null)
+		{
+			document.write("'MetaWrap.XML.ToObject l_xml_video_as_objects' OK<br/>");
+		}
+
+		break;
+	}
+
+    l_current_round--;
+}
+
+
+
+if (l_xml_video_as_objects != null)
+{
+	for (var v = 0;((v < l_xml_video_as_objects.vodlib.vod.length) && (v < 3));v++)
+	{
+		var l_vod = l_xml_video_as_objects.vodlib.vod[v];
+		document.write("vn = " + l_vod.vn + "<br/>");
+		document.write("vu = " + l_vod.vu + "<br/>");
+		document.write("vs = " + l_vod.vs + "<br/>");
+		document.write("vt = " + l_vod.vt + "<br/>");
+
+		/*
+<xsl:variable name="ascii"> !&quot;#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}</xsl:variable>
+    <xsl:variable name="hex" >CB89D4E7AF120563</xsl:variable>
+
+
+		*/
+	}
+}
+
+document.write("</hr>");
+
+
+
+//alert(l_xml_document.xml.length);
+
+}
+</script>
+<script language="JavaScript">
+
+function ms_xmldom_object_test(p_obj_name)
+{
+try{
+    var domDoc = new ActiveXObject(p_obj_name);
+    domDoc.async=false;
+    	  if (domDoc.loadXML("<?xml version=\"1.0\"?><root>root</root>"))
+    	  	document.write("<INPUT TYPE=CHECKBOX disabled='true' readonly='true' CHECKED>" + p_obj_name + "</INPUT></BR>");
+   }
+   catch (e){
+    	    document.write("<INPUT TYPE=CHECKBOX disabled='true' readonly='true'>" + p_obj_name + "</INPUT> | "+ e.description +"</BR>");
+    }
+}
+
+document.write("<hr/>");
+
+document.write("<h2>Have " + l_xml_as_objects.config.timezones.timezone.length + " timezones to process (Via XML.ToObject)</h2>");
+
+var l_timezones = l_xml_as_objects.config.timezones.timezone;
+
+var l_timezone = new Array();
+var l_timezone_decode = new Array();
+
+for(var i = 0;i<l_timezones.length;i++)
+{
+	document.write("tzn = " + l_timezones[i].tzn + "<br/>");
+	document.write("tzo = " + l_timezones[i].tzo + "<br/>");
+	document.write("tzstate = " + l_timezones[i].tzstate + "<br/>");
+	document.write("<hr/>");
+}
+
+document.write("<hr/>");
+
+document.write("<h1>Have " + l_xml_as_objects.config.streams.str.length + " streams to process (Via XML.ToObject)</h1>");
+
+var l_streams = l_xml_as_objects.config.streams.str;
+for(var i = 0;i<l_streams.length;i++)
+{
+	if (l_streams[i].su != null)
+	{
+		document.write("su = " + l_streams[i].su + "<br/>");
+		document.write("ss = " + l_streams[i].ss + "<br/>");
+		document.write("sr = " + l_streams[i].sr + "<br/>");
+		document.write("sm = " + l_streams[i].sm + "<br/>");
+		document.write("st = " + l_streams[i].st + "<br/>");
+
+		var l_stream_type = l_streams[i].st.toUpperCase();
+
+		if (g_SessionMask.indexOf(l_stream_type) != -1)
+		{
+			document.write("** ELIGBLE **<br/>");
+		}
+
+		document.write("<hr/>");
+	}
+}
+
+document.write("<hr/>");
+ms_xmldom_object_test("Microsoft.XMLDOM");
+ms_xmldom_object_test("Msxml2.DOMDocument");
+ms_xmldom_object_test("Msxml2.DOMDocument.2.6");
+ms_xmldom_object_test("Msxml2.DOMDocument.3.0");
+ms_xmldom_object_test("Msxml2.DOMDocument.4.0");
+ms_xmldom_object_test("Msxml2.DOMDocument.5.0");
+
+</script>

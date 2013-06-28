@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<title>
+		Javascript Fundamentals TestCase #24 - MetaWrap JavaScript Library - $Id: test_24_call.html,v 1.3 2005/09/23 04:46:53 james Exp $
+	</title>
+
+	<script language="JavaScript" src="test.js" ></script>
+
+	<style>
+.wrap{
+    width: 67%;
+    margin: 0 0 1em 14%;
+    padding: 2% 3% 2% 5%;
+    BACKGROUND: white;
+    border-style: solid;
+    border-width: 1px;
+    top: -1px;
+}
+h1,h2,h3,h4{
+    position: relative;
+    left: -1em;
+    clear: both;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: orange;
+    font: 0.8em trebuchet ms;
+}
+em{
+    background: #ffc;
+}
+pre{
+    font-size: 1.1em;
+    background: #f0f0f0;
+    -moz-border-radius: 10px;
+    padding: 1em;
+}
+pre span{
+    font-weight: bold;
+}
+.selector, pre b{
+    color: red;
+}
+.beh{
+    color: blue;
+}
+.event{
+    color: green;
+}
+
+foo{
+    color: green;
+}
+
+
+#sortable-list li{
+    cursor:move;
+    -moz-user-select: none;
+    width: 100%;
+}
+
+.dropout li{
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    float: left;
+    margin: 5px;
+    border: 1px solid #ccc;
+    list-style: none;
+    background: red;
+}
+
+.dropout li.hover{
+    background: yellow;
+}
+	</style>
+
+<script language="JavaScript">
+
+function error(p_msg)
+{
+    alert(p_msg);
+}
+
+function debug(p_msg)
+{
+    alert(p_msg);
+}
+
+function trace(p_msg)
+{
+    window.status = p_msg;
+}
+
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+
+</script>
+</head>
+<body onload="start()">
+<div class="wrap">
+<table width="100%">
+	<tr align="middle" >
+		<td>
+			<h2>
+				Javascript Fundamentals TestCase #24 - JavaScript String Escaping
+			</h2>
+		</td>
+		<td>
+			<a href="http://www.metawrap.com"><img border="0" src="../images/metawrap_logo_sm.png" align="right" /></a>
+		</td>
+	</tr>
+</table>
+<pre>$Id: test_24_call.html,v 1.3 2005/09/23 04:46:53 james Exp $</pre>
+</div>
+
+<div id="bar" class="wrap">
+<script language="JavaScript">
+
+
+function f1()
+{
+	alert("f1");
+	this.m_prize = "money";
+}
+
+
+function f2(p_arg)
+{
+	alert("this = " + this.m_prize + " arg = " + p_arg);
+}
+
+function f3(e)
+{
+	var e_target;
+	if (!e) e = window.event;
+	if (e.target) e_target = e.target;
+	else if (e.srcElement) e_target = e.srcElement;
+	if (e_target.nodeType == 3) // defeat Safari bug
+		e_target = e_target.parentNode
+
+
+
+	alert("this = " + this.id + " arg = " + e_target.id);
+}
+
+function f4(p_event)
+{
+	FakeCall(f3,this,p_event);
+}
+
+var l_obj = new f1();
+
+
+if (f1.call)
+{
+	document.write("function.call(this,arg) exists");
+	f2.call(l_obj,"w00t!");
+}
+
+function FakeCall(p_function,p_this,p_arg)
+{
+	alert("FakeCall");
+
+	p_this['myfunc'] = p_function;
+
+	p_this['myfunc'](p_arg);
+
+}
+
+FakeCall(f2,l_obj,"even better!")
+
+
+
+</script>
+
+<p id="yay1">Click Me1</p>
+
+<p id="yay2">Click Me2</p>
+
+<script language="JavaScript">
+function start()
+{
+	alert("start");
+	l_yay1 =  document.getElementById("yay1");
+	l_yay2 =  document.getElementById("yay2");
+
+	l_yay1.onclick = f3;
+	l_yay2.onclick = f4;
+}
+
+
+
+
+</script>
+
+</div>
+
+
+</body>
+</html>

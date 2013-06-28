@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/css" href="client_side_css3.css"?>
+<catalog xmlns:html="http://www.w3.org/TR/REC-html40" >
+<book>
+<cover xml:link="simple" show="replace"  href="http://www.amazon.com/exec/obidos/ISBN=007212220X/"><html:img src="http://images.amazon.com/images/P/007212220X.01.MZZZZZZZ.jpg" /></cover>
+<author>Simon St.Laurent</author>
+<title xml:link="simple" show="replace"  href="http://www.amazon.com/exec/obidos/ISBN=007212220X/">XML Elements of Style</title>
+<pubyear>2000</pubyear>
+<publisher>McGraw-Hill</publisher>
+<isbn>0-07-212220-X</isbn>
+<price>$29.99</price>
+</book>
+<book>
+<cover xml:link="simple" show="replace"  href="http://www.amazon.com/exec/obidos/ISBN=0764532367/"><html:img src="http://images.amazon.com/images/P/0764532367.01.MZZZZZZZ.jpg" /></cover>
+<author>Elliotte Rusty Harold</author>
+<title xml:link="simple" show="replace"  href="http://www.amazon.com/exec/obidos/ISBN=0764532367/">XML Bible</title>
+<pubyear>1999</pubyear>
+<publisher>IDG Books</publisher>
+<isbn>0764532367</isbn>
+<price>$49.99</price>
+</book>
+<book>
+<cover xml:link="simple" show="replace"  href="http://www.amazon.com/exec/obidos/ISBN=1565927095/"><html:img src="http://images.amazon.com/images/P/1565927095.01.MZZZZZZZ.jpg" /></cover>
+<author>Robert Eckstein</author>
+<title xml:link="simple" show="replace"  href="http://www.amazon.com/exec/obidos/ISBN=1565927095/">XML Pocket Reference</title>
+<pubyear>1999</pubyear>
+<publisher>O'Reilly and Associates</publisher>
+<isbn>1-56592-709-5</isbn>
+<price>$8.95</price>
+</book>
+<book>
+<cover xml:link="simple" show="replace"  href="http://www.amazon.com/exec/obidos/ISBN=0201433354/"><html:img src="http://images.amazon.com/images/P/0201433354.01.MZZZZZZZ.jpg" /></cover>
+<author>Kevin Dick</author>
+<title xml:link="simple" show="replace"  href="http://www.amazon.com/exec/obidos/ISBN=0201433354/">XML: A Manager's Guide</title>
+<pubyear>1999</pubyear>
+<publisher>Addison-Wesley</publisher>
+<isbn>0201433354</isbn>
+<price>$29.95</price>
+</book>
+<book>
+<cover xml:link="simple" show="replace"  href="http://www.amazon.com/exec/obidos/ISBN=076453310X"><html:img src="http://images.amazon.com/images/P/076453310X.01.MZZZZZZZ.gif" /></cover>
+
+<author>Simon St.Laurent</author>
+<title xml:link="simple" show="replace"  href="http://www.amazon.com/exec/obidos/ISBN=076453310X/">XML: A Primer, 2nd Ed.</title>
+<pubyear>1999</pubyear>
+<publisher>IDG Books</publisher>
+<isbn>0-7645-3310-X</isbn>
+<price>$19.99</price>
+</book>
+<book>
+<cover xml:link="simple" show="replace"  href="http://www.amazon.com/exec/obidos/ISBN=0071341161/"><html:img src="http://images.amazon.com/images/P/0071341161.01.MZZZZZZZ.gif" /></cover>
+<author>Simon St.Laurent</author>
+<title xml:link="simple" show="replace"  href="http://www.amazon.com/exec/obidos/ISBN=0071341161/">Building XML Applications</title>
+<pubyear>1999</pubyear>
+<publisher>McGraw-Hill</publisher>
+<isbn>0-07-134116-1</isbn>
+<price>$49.99</price>
+</book>
+</catalog>

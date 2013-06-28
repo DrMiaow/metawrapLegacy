@@ -1,0 +1,35 @@
+<project name="metawrap.javascript.lib" default="publish" basedir=".">
+
+	<property file="../../../secret.project.properties" />
+
+	<!-- Deploy all the sub files -->
+	<target name="publish" description="packages up all the javascript files into a deployable library">
+		
+	    <input message="Please enter ftp USERNAME for js.metawrap.com" addproperty="metawrap.javascript.lib.ftp.username" />
+
+	    <input message="Please enter ftp PASSWORD for js.metawrap.com" addproperty="metawrap.javascript.lib.ftp.password" />
+		
+		  <ftp server="js.metawrap.com"
+		       port="21"
+		       remotedir="metawrap/javascript/lib/"
+		       userid="${metawrap.javascript.lib.ftp.username}"
+		       password="${metawrap.javascript.lib.ftp.password}"
+		       depends="yes"
+		       passive="yes"
+		       binary="yes"
+		  	   verbose="true"
+		  	   
+		  >
+		  	<!-- timediffauto="true" -->		  	
+		  	
+		    <fileset dir=".">
+		      <include name="*.js"/>
+		      <include name="images/*.gif"/>
+		      <include name="*.swf"/>
+		      <include name="*.xsl"/>
+<!-- <modified/> -->
+		    </fileset>
+		  </ftp>
+	</target>
+</project>
+

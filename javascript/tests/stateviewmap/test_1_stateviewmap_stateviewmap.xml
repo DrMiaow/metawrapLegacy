@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="stateviewmap.xsl" type="text/xsl" ?>
+<metawrap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="../metawrap/metawrap.xsd ..\metawrap\metawrap.xsd">
+    <stateviews>
+		<state name="loggedIn">
+			<page name="loggedIn" />
+			<aspect name="loggedin" />	
+			<aspect name="adds" />			
+		</state>
+
+		<state name="loggedOut">
+			<page name="loggedOut" />
+			<aspect name="loggedout" />			
+		</state>
+		
+		<state name="loggedOut/joining">
+			<aspect name="joining" />			
+		</state>		
+		
+    </stateviews>
+</metawrap>

@@ -1,0 +1,8 @@
+<project name="metawrap.javascript.tests" default="publish" basedir=".">
+	<!-- Deploy all the sub files -->
+	<target name="publish" description="ftp up to library">
+		<ant antfile="deploy.xml" />
+		<ant dir="lib" antfile="publish.xml" />
+	</target>
+</project>
+

@@ -1,0 +1,11 @@
+<project name="metawrap.javascript.tests" default="deploy" basedir=".">
+	<!-- Deploy all the sub files -->
+	<target name="deploy" description="packages up all the javascript files into a deployable library">
+		<ant dir="tests" antfile="deploy.xml" />
+		<ant dir="lib" antfile="deploy.xml" />
+		<exec dir="tests/packages" executable="cmd">
+		  <arg line="/C shrink.bat"/>
+		</exec>		
+	</target>
+</project>
+

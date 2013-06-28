@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<title>
+		Tester TestCase #2 - MetaWrap JavaScript Library - $Id: test_2_tester_jump_start.html,v 1.2 2006/05/09 13:44:20 james Exp $
+	</title>
+
+<script language="JavaScript">
+
+function error(p_msg)
+{
+    alert(p_msg);
+}
+
+function debug(p_msg)
+{
+    //alert(p_msg);
+}
+
+function trace(p_msg)
+{
+    // Ensure that firefox status window changes are enabled
+    window.status = p_msg;
+}
+
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+
+</script>
+	<script type="text/javascript" src="../base/mw_lib.js"></script>
+	
+	<script type="text/javascript">
+	MwPath("../xml/");
+	MwPath("../page/");
+	MwPath("../tester/");
+	MwPath("../macrorecorder/");
+	</script>
+	
+	<script type="text/javascript" src="../cookie/mw_lib_cookie.js"></script>
+	<script type="text/javascript" src="../page/mw_lib_page.js"></script>
+	<script type="text/javascript" src="../page/mw_lib_page_element.js"></script>
+	<script type="text/javascript" src="../page/mw_lib_page_element_addhandler.js"></script>
+	<script type="text/javascript" src="../xml/mw_lib_xml.js"></script>
+	<script type="text/javascript" src="../xml/mw_lib_xml_serialise.js"></script>
+	<script type="text/javascript" src="../tester/mw_lib_tester.js"></script>
+	<script type="text/javascript" src="../logging/mw_lib_logger.js"></script>
+
+	<style>
+.wrap{
+    width: 67%;
+    margin: 0 0 1em 14%;
+    padding: 2% 3% 2% 5%;
+    BACKGROUND: white;
+    border-style: solid;
+    border-width: 1px;
+    top: -1px;
+}
+h1,h2,h3,h4{
+    position: relative;
+    left: -1em;
+    clear: both;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: orange;
+    font: 0.8em trebuchet ms;
+}
+em{
+    background: #ffc;
+}
+pre{
+    font-size: 1.1em;
+    background: #f0f0f0;
+    -moz-border-radius: 10px;
+    padding: 1em;
+}
+pre span{
+    font-weight: bold;
+}
+.selector, pre b{
+    color: red;
+}
+.beh{
+    color: blue;
+}
+.event{
+    color: green;
+}
+
+#sortable-list li{
+    cursor:move;
+    -moz-user-select: none;
+    width: 100%;
+}
+
+.dropout li{
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    float: left;
+    margin: 5px;
+    border: 1px solid #ccc;
+    list-style: none;
+    background: red;
+}
+
+.dropout li.hover{
+    background: yellow;
+}
+	</style>
+</head>
+<body>
+<div class="wrap">
+<table width="100%">
+	<tr align="middle" >
+		<td>
+			<h2>
+				Tester TestCases #2 - Jump Start
+			</h2>
+		</td>
+		<td>
+			<a href="http://www.metawrap.com"><img border="0" src="../images/metawrap_logo_sm.png" align="right" /></a>
+		</td>
+	</tr>
+</table>
+
+<pre>$Id: test_2_tester_jump_start.html,v 1.2 2006/05/09 13:44:20 james Exp $</pre>
+
+
+
+</div>
+
+<div class="wrap">
+<script language="JavaScript">
+
+
+	//MetaWrap.Cookie.Set("X","1");
+
+	MetaWrap.Tester.createSuite("Macro Test");
+
+	var l_page = MetaWrap.Tester.g_current_suite.addPage("test_3_tester_jump_end.html");
+
+	l_page.addTest("Blah Blah Blah");
+
+    //MetaWrap.Tester.g_current_suite.start();
+
+
+</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<style>
+.wrap{
+    width: 67%;
+    margin: 0 0 1em 14%;
+    padding: 2% 3% 2% 5%;
+    BACKGROUND: white;
+    border-style: solid;
+    border-width: 1px;
+    top: -1px;
+}
+h1,h2,h3,h4{
+    position: relative;
+    left: -1em;
+    clear: both;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: orange;
+    font: 0.8em trebuchet ms;
+}
+em{
+    background: #ffc;
+}
+pre{
+    font-size: 1.1em;
+    background: #f0f0f0;
+    -moz-border-radius: 10px;
+    padding: 1em;
+}
+pre span{
+    font-weight: bold;
+}
+.selector, pre b{
+    color: red;
+}
+.beh{
+    color: blue;
+}
+.event{
+    color: green;
+}
+
+#sortable-list li{
+    cursor:move;
+    -moz-user-select: none;
+    width: 100%;
+}
+
+.dropout li{
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    float: left;
+    margin: 5px;
+    border: 1px solid #ccc;
+    list-style: none;
+    background: red;
+}
+
+.dropout li.hover{
+    background: yellow;
+}
+	</style>
+
+
+	<title>
+		Page - AddHandler - TestCase #22 - MetaWrap JavaScript Library - $Id: test_22_cancel_listener.html,v 1.1 2005/10/23 07:57:32 james Exp $
+	</title>
+	<script language="JavaScript" src="../base/mw_lib.js"></script>
+	<script language="JavaScript" src="../page/mw_lib_page.js"></script>
+	<script language="JavaScript" src="../page/mw_lib_page_element.js"></script>
+	<script language="JavaScript" src="../page/mw_lib_page_event.js"></script>
+	<script language="JavaScript" src="../page/mw_lib_page_element_addhandler.js"></script>
+
+<script language="JavaScript">
+
+function error(p_msg)
+{
+    alert(p_msg);
+}
+
+function debug(p_msg)
+{
+    alert(p_msg);
+}
+
+function trace(p_msg)
+{
+    window.status = p_msg;
+    document.title = p_msg;
+}
+
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+
+</script>
+</head>
+<body onload="start()">
+<div class="wrap">
+<table width="100%">
+	<tr align="middle" >
+		<td>
+			<h2>
+				Page - AddHandler - TestCases #22 - Event Cancelation
+			</h2>
+		</td>
+		<td>
+			<a href="http://www.metawrap.com"><img border="0" src="../images/metawrap_logo_sm.png" align="right" /></a>
+		</td>
+	</tr>
+</table>
+
+<pre>$Id: test_22_cancel_listener.html,v 1.1 2005/10/23 07:57:32 james Exp $</pre>
+</div>
+
+<div class="wrap">
+
+<h3>Instructions</h3>
+Click on some of text between square brackets. You will see a series of 
+alerts, the sequence of letters the alert spells out should match the sequence
+of letters in the square bracketm if not, something is broken.
+
+<h2>Bubble - No Cancel</h2>
+<div id="a1_1">[A]<a id="a1">[B,C,D,A]<i id="a1_2">[E,B,C,D,A]</i></a></div>
+<hr/>
+
+<h2>Capture - No Cancel</h2>
+<div id="a2_1">[A]<a id="a2">[A,B,C,D]<i id="a2_2">[A,B,C,D,E]</i></a></div>
+<hr/>
+
+<h2>Bubble - Cancel On Event 'X'</h2>
+<div id="a3_1">[A]<a id="a3">[B,X,D]<i id="a3_2">[E,B,X,D]</i></a></div>
+<hr/>
+
+<h2>Capture - Cancel On Event 'X'</h2>
+<div id="a4_1">[A]<a id="a4">[A,B,X,D]<i id="a4_2">[A,B,X,D]</i></a></div>
+<hr/>
+
+<script language="JavaScript" type="text/javascript" >
+
+var l_a1_1 = document.getElementById("a1_1");
+var l_a2_1 = document.getElementById("a2_1");
+var l_a3_1 = document.getElementById("a3_1");
+var l_a4_1 = document.getElementById("a4_1");
+
+var l_a1_2 = document.getElementById("a1_2");
+var l_a2_2 = document.getElementById("a2_2");
+var l_a3_2 = document.getElementById("a3_2");
+var l_a4_2 = document.getElementById("a4_2");
+
+var l_a1 = document.getElementById("a1");
+var l_a2 = document.getElementById("a2");
+var l_a3 = document.getElementById("a3");
+var l_a4 = document.getElementById("a4");
+
+
+function onclick0(p_event)
+{
+   alert("A");
+}
+
+function onclick1(p_event)
+{
+   alert("B");
+}
+
+function onclick2(p_event)
+{
+   alert("C");   
+}
+
+function onclick3(p_event)
+{
+   alert("D");
+}
+
+function onclick4(p_event)
+{
+   alert("E");
+}
+
+
+function onclickstopPropagation(p_event)
+{
+   //alert("before stopPropagation");
+   alert("X");
+   MetaWrap.Page.Event.stopPropagation(p_event);
+   //alert("after stopPropagation");
+}
+
+function start()
+{
+	MetaWrap.Page.Element.addEventListener(l_a1_1,"click",onclick0,false);	
+    MetaWrap.Page.Element.addEventListener(l_a1,"click",onclick1,false);
+    MetaWrap.Page.Element.addEventListener(l_a1,"click",onclick2,false);
+    MetaWrap.Page.Element.addEventListener(l_a1,"click",onclick3,false);
+    MetaWrap.Page.Element.addEventListener(l_a1_2,"click",onclick4,false);
+
+	MetaWrap.Page.Element.addEventListener(l_a2_1,"click",onclick0,true);	
+    MetaWrap.Page.Element.addEventListener(l_a2,"click",onclick1,true);
+    MetaWrap.Page.Element.addEventListener(l_a2,"click",onclick2,true);
+    MetaWrap.Page.Element.addEventListener(l_a2,"click",onclick3,true);
+    MetaWrap.Page.Element.addEventListener(l_a2_2,"click",onclick4,true);
+
+	MetaWrap.Page.Element.addEventListener(l_a3_1,"click",onclick0,false);	
+    MetaWrap.Page.Element.addEventListener(l_a3,"click",onclick1,false);
+    MetaWrap.Page.Element.addEventListener(l_a3,"click",onclickstopPropagation,false);
+    MetaWrap.Page.Element.addEventListener(l_a3,"click",onclick3,false);
+    MetaWrap.Page.Element.addEventListener(l_a3_2,"click",onclick4,false);
+    
+	MetaWrap.Page.Element.addEventListener(l_a4_1,"click",onclick0,true);	    
+    MetaWrap.Page.Element.addEventListener(l_a4,"click",onclick1,true);    
+    MetaWrap.Page.Element.addEventListener(l_a4,"click",onclickstopPropagation,true);   
+    MetaWrap.Page.Element.addEventListener(l_a4,"click",onclick3,true);   
+    MetaWrap.Page.Element.addEventListener(l_a4_2,"click",onclick4,true);
+    
+}
+
+
+</script>
+</div>
+</body>
+</html>

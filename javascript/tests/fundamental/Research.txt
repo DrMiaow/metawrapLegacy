@@ -1,0 +1,18 @@
+
+http://www.w3.org/TR/xml-stylesheet/
+
+http://www.w3schools.com/xsl/xsl_browsers.asp
+
+http://www.xml.com/pub/a/2000/03/29/tutorial/
+
+http://www.w3.org/TR/REC-html40/present/styles.html
+
+http://www.mozilla.org/projects/xslt/
+
+client_side_css1.xml - IE and Firefox slightly different
+client_side_css2.xml - IE and Firefox different
+client_side_css3.xml - IE and Firefox different
+
+
+Can we load different stylesheets at runtime by javascript?
+

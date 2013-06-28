@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<title>
+		Javascript Fundamentals TestCase #15 - MetaWrap JavaScript Library - $Id: test_15_function_speed_namespaces_extreme.html,v 1.2 2005/08/24 12:40:56 james Exp $
+	</title>
+<script language=JavaScript src="../base/mw_lib.js"></script>
+<script language=JavaScript src="../page/mw_lib_page.js"></script>
+<script language=JavaScript src="../page/mw_lib_page_output.js"></script>
+<!--<script language=JavaScript src="../widget/mw_lib_widget.js"></script>-->
+<script language=JavaScript>
+// @brief Create MetaWrap.Widget Namespace
+ MetaWrap.Widget = new Object();
+</script>
+<script language=JavaScript src="../widget/mw_lib_widget_graph.js"></script>
+<script type="text/javascript" src="../external/wz_jsgraphics.js"></script>
+<script type="text/javascript" src="speedtrial.js"></script>
+<script language=JavaScript>
+/// Test parameters
+g_title = 'Function Call Frequency By Depth And Size Of Namespaces';
+g_xcaption = 'Depth Of Namespaces';
+g_ycaption = 'Function Calls Per Second';
+g_test_name = "Measure the speed of simple root level function calls with varying depth of namespaces.";
+g_test_domain = "depth of the namepaces";
+g_test_domain_units = "characters";
+js = 1;
+j = js;
+t = 150;
+divs = 15;
+inc = Math.floor(t/divs);
+tt = 500000;
+g_nsavg = 10;
+g_rfns = 1;
+l_count = 0;
+g_timer = null;
+g_whitespace = " ";
+g_comment_size = 64;
+g_use_namespaces = true;
+g_use_rootfunctions = false;
+g_use_functionlength = false;
+g_use_whitespace = false;
+g_use_comment = false;
+</script>
+<style>
+.wrap{
+    width: 67%;
+    margin: 0 0 1em 14%;
+    padding: 2% 3% 2% 5%;
+    BACKGROUND: white;
+    border-style: solid;
+    border-width: 1px;
+    top: -1px;
+}
+h1,h2,h3,h4{
+    position: relative;
+    left: -1em;
+    clear: both;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: orange;
+    font: 0.8em trebuchet ms;
+}
+em{
+    background: #ffc;
+}
+pre{
+    font-size: 1.1em;
+    background: #f0f0f0;
+    -moz-border-radius: 10px;
+    padding: 1em;
+}
+pre span{
+    font-weight: bold;
+}
+.selector, pre b{
+    color: red;
+}
+.beh{
+    color: blue;
+}
+.event{
+    color: green;
+}
+
+#sortable-list li{
+    cursor:move;
+    -moz-user-select: none;
+    width: 100%;
+}
+
+.dropout li{
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    float: left;
+    margin: 5px;
+    border: 1px solid #ccc;
+    list-style: none;
+    background: red;
+}
+
+.dropout li.hover{
+    background: yellow;
+}
+</style>
+
+<style>
+	.graph { font-family: Arial; }
+	.ycaption { font-weight:bolder; font-size: 10pt; writing-mode:tb-rl; }
+	.xcaption { font-weight:bolder; font-size: 10pt; }
+
+	.yvalue_h { font-size: 8pt; position=absolute; top=8; }
+	.yvalue_v { font-size: 8pt; top=8; }
+
+	.xvalue_h { font-size: 8pt; }
+	.xvalue_v { font-size: 8pt; writing-mode:tb-rl; }
+
+	.xyvalue { font-size: 8pt; }
+	.bar
+	{
+		background-color: orange;
+		BORDER-RIGHT: 2px outset dark-orange;
+		BORDER-LEFT: 1px outset light-orange;
+		BORDER-TOP: 2px outset light-orange;
+		BORDER-BOTTOM: 0px outset dark-orange;
+	}
+	.gridleft { border-right:1px solid gray; border-top:1px solid gray; }
+	.grid { background-color: #d0d0d0; border-top:1px solid gray; }
+	.gridright { background-color: #d0d0d0; border-right:1px solid gray; border-top:1px solid gray; }
+	.gridbottom { border-right:1px solid gray; border-top:1px solid gray; }
+	.datatable { position=absolute; top=5; left=0; }
+	.gridtable { position=absolute; top=6; left=0; }
+</style>
+
+</head>
+<body onload="TestOnLoad()">
+<div class="wrap">
+<table width="100%">
+	<tr align="middle" >
+		<td>
+			<h2>
+				Javascript Fundamentals TestCase #15 - <script language="JavaScript" >document.write(g_title);</script>
+			</h2>
+		</td>
+		<td>
+			<a href="http://www.metawrap.com"><img border="0" src="../images/metawrap_logo_sm.png" align="right" /></a>
+		</td>
+	</tr>
+</table>
+<pre>$Id: test_15_function_speed_namespaces_extreme.html,v 1.2 2005/08/24 12:40:56 james Exp $</pre>
+</div>
+<div class="wrap" id="aims" ></div>
+<div class="wrap" id="method" ></div>
+<div class="wrap" id="mygraph" ><h1>Graph</h1></div>
+<div class="wrap" id="rawdata" ><h1>Raw Data</h1></div>
+<div class="wrap" id="samplecode" ><h1>Sample Code</h1></div>
+</body>
+</html>

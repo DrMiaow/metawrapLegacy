@@ -1,0 +1,12 @@
+<project name="metawrap.javascript.tests.presentation" default="deploy" basedir=".">
+	<!-- Deploy all the sub files -->
+	<target name="deploy" description="package up all the javascript files into a deployable library">
+		<copy todir="../../lib/" verbose="yes" >
+			<fileset dir="." casesensitive="yes" >
+			  <include name="mw_lib*.js"/>
+			  <modified/>
+			</fileset>
+		</copy>
+	</target>
+</project>
+

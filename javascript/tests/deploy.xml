@@ -1,0 +1,42 @@
+<project name="metawrap.javascript.tests" default="deploy" basedir=".">
+	
+	<!-- Deploy all the sub files -->
+	<target name="deploy" description="Deploy all the test/development files into the library">
+		<echo>Deploy all the test/development files into the library</echo>
+		<ant dir="action" antfile="deploy.xml" />		
+		<ant dir="api" antfile="deploy.xml" />		
+		<ant dir="base" antfile="deploy.xml" />
+		<ant dir="behavior" antfile="deploy.xml" />		
+		<ant dir="cipher" antfile="deploy.xml" />
+		<ant dir="code" antfile="deploy.xml" />
+		<ant dir="cookie" antfile="deploy.xml" />
+		<ant dir="css" antfile="deploy.xml" />				
+		<ant dir="datetime" antfile="deploy.xml" />
+		<ant dir="encoding" antfile="deploy.xml" />		
+		<ant dir="hash" antfile="deploy.xml" />		
+		<ant dir="init" antfile="deploy.xml" />		
+
+		<ant dir="link" antfile="deploy.xml" />
+		<ant dir="logger" antfile="deploy.xml" />				
+		
+		
+		
+		
+		
+		<ant dir="macrorecorder" antfile="deploy.xml" />		
+		<ant dir="network" antfile="deploy.xml" />		
+		<ant dir="pipeline" antfile="deploy.xml" />		
+		<ant dir="page" antfile="deploy.xml" />		
+		<ant dir="presentation" antfile="deploy.xml" />				
+		<ant dir="random" antfile="deploy.xml" />				
+		<ant dir="semaphore" antfile="deploy.xml" />
+		<ant dir="state" antfile="deploy.xml" />		
+		<ant dir="stateviewmap" antfile="deploy.xml" />		
+		<ant dir="tester" antfile="deploy.xml" />
+		<ant dir="view" antfile="deploy.xml" />		
+		<ant dir="wirewrap" antfile="deploy.xml" />				
+		<ant dir="xml" antfile="deploy.xml" />
+		<ant dir="xslt" antfile="deploy.xml" />		
+	</target>   
+</project>
+

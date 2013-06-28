@@ -1,0 +1,6 @@
+H1, H2, H3
+		{
+			font-family: arial, trebuchet ms;
+			text-decoration: underline;
+			color: &red; ;
+		}

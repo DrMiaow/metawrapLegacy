@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<!--
+
+    #################################################
+
+                http://www.xmlvault.com
+
+                      Comming Soon
+
+          (Yes you should be seeing this file)
+
+     Not so much a stealth launch, more a naked one :)
+
+	 You can tell what it does if you read the API
+	 definition below.
+
+    #################################################
+
+    ChangeLog:
+
+	$Id: test_2_action.xml,v 1.6 2006/06/20 13:41:15 james Exp $
+
+    $Log: test_2_action.xml,v $
+    Revision 1.6  2006/06/20 13:41:15  james
+    Improved Action AJAX so that it can be executed asyncronously, either serially or in parallel
+
+    Revision 1.5  2006/05/18 12:18:45  james
+    Tidied some stuff up
+
+    Revision 1.4  2006/05/18 08:17:53  james
+    Schema update to a single global schema
+
+    Revision 1.2  2006/05/17 08:17:04  james
+    XML Schema changes
+
+    Revision 1.1  2006/05/16 04:58:35  james
+    Created base document
+
+    @brief XML that defines the actions that ate the the xmlvault.com API
+
+ -->
+<!--<?xml-stylesheet type="text/xsl" href="../action/action.xsl"?>-->
+<metawrap xmlns="../metawrap/metawrap.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="../metawrap/metawrap.xsd ../metawrap/metawrap.xsd">
+	<actions>
+		<action name="put" runat="server">
+			<doc>
+				Stores the specified XML file and content on the server.
+			</doc>
+			<param name="data">
+				<doc>
+					The data to store on the server.
+					Must be valid XML.
+					Non XML will be rejected.
+				</doc>
+			</param>
+			<param name="in">
+				<doc>
+					This is the filename to associate with this saved XML.
+					Must end with ".xml".
+				</doc>
+			</param>
+
+			<param name="failonexists" optional="true">
+				<doc>
+					This is an optional parameter.
+					If this is true then this action will fail if the file already exists.
+				</doc>
+			</param>
+		</action>
+		<action name="get" runat="server">
+			<doc>
+				Retrieves the specified XML file from the server.
+			</doc>
+			<url>/put/</url>
+			<param name="from">
+				<doc>
+					The filename that identifies the file you want to load
+				</doc>
+			</param>
+			<param name="as">
+				<doc>
+					How you want the XML returned.
+					CDATA - Will return the XML in a standard MetaWrap action wrapper with a CDATA directive wrapping the XML.
+					ESCAPE - Will return the XML in a standard MetaWrap action wrapper with with SGML escaping.
+					RAW - Will return the XML file raw, as if you were loading it directly via a HTTP GET.
+				</doc>
+			</param>
+            <response>
+				<param name="data">
+					<doc>
+						The data returned from the server
+					</doc>
+				</param>
+            </response>
+		</action>
+		<action name="destroy" runat="server">
+			<doc>
+				Deletes the specified XML file from the server.
+			</doc>
+			<param name="this">
+				<doc>
+					The filename that identifies the file you want to destroy
+				</doc>
+			</param>
+		</action>
+		<action name="apikey" runat="server">
+			<doc>
+				Requests a new API key on the server
+			</doc>
+            <response>
+				<param name="apikey">
+					<doc>
+						The GUID apikey returned from the server. eg. c448251f-e71a-4ea5-af16-bd93d3caac2a
+					</doc>
+				</param>
+            </response>			
+		</action>
+	</actions>
+</metawrap>

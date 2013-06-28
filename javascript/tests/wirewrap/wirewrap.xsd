@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    $Id: wirewrap.xsd,v 1.4 2007/11/07 02:03:50 james Exp $
+
+    $Log: wirewrap.xsd,v $
+    Revision 1.4  2007/11/07 02:03:50  james
+    Support for new wirewrap operations
+
+    Revision 1.3  2005/11/02 20:55:58  james
+    Changed wirewrap to allow window event handlers to be added
+
+    Revision 1.2  2005/08/29 07:51:41  james
+    Latest wirewrap test
+
+    Revision 1.1  2005/08/25 12:23:15  james
+    Moved code
+
+    Revision 1.3  2005/07/02 13:23:10  james
+    Getting schema definition w3 compliant
+
+    
+    @brief Schema definition for the MetaWrap WireWrap XML Schema
+ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xsd.metawrap.com/wirewrap/1.0/"
+	xmlns:wr="http://xsd.metawrap.com/wirewrap/1.0/" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation xml:lang="en">
+            Schema definition for MetaWrap WireWrap
+            Copyright 2005 The MetaWrap Projet
+        </xs:documentation>
+	</xs:annotation>
+	<xs:element name="wirewrap">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="onload" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+				<xs:element name="onunload" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+							
+				<xs:element name="selector" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="constructor" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+							<xs:element name="destructor" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+							<xs:element name="onabort" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+							<xs:element name="onblur" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+							<xs:element name="onchange" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+							<xs:element name="onclick" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+							<xs:element name="ondblClick" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+							<xs:element name="onerror" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+							<xs:element name="onfocus" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+							<xs:element name="onkeydown" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+							<xs:element name="onkeypress" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+							<xs:element name="onkeyup" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+							<xs:element name="onload" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+							<xs:element name="onmousedown" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+							<xs:element name="onmouseout" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+							<xs:element name="onmouseover" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+							<xs:element name="onmouseup" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+							<xs:element name="onreset" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+							<xs:element name="onresize" type="xs:string" minOccurs="0" maxOccurs="1" />
+							<xs:element name="onsubmit" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+							<xs:element name="onunload" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+							<xs:element name="style" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+							<xs:element name="before" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+							<xs:element name="after" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+							<xs:element name="add" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+							<xs:element name="replace" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+							<xs:element name="remove" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+							<xs:element name="swap" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+							<xs:element name="prefix" type="xs:string" minOccurs="0" maxOccurs="unbounded" />																					
+							<xs:element name="suffix" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

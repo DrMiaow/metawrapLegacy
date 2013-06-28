@@ -1,0 +1,6 @@
+<application
+    url=".\keycodes.html"
+    name="Test - keyCodes"
+    startImage=".\images\Test_Video_1_ProgramImage.png"
+    thumbnailImage=".\images\Test_Video_1_ThumbnailImage.png"    
+/>

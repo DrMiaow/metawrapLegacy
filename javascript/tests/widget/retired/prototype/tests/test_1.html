@@ -1,0 +1,376 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="cache-control" content="no-cache">
+		<title>Widget Test #1</title> 
+		<!-- Include the widget library -->
+		<script language="javascript" src="../widget.js"></script>
+		<style type="text/css">
+			<!--
+			@media screen, tv {
+				
+				body {overflow: hidden;}
+				
+				td.floater
+				{
+					text-align:center;
+					vertical-align: middle;
+				}
+				
+				div.MainMenu
+				{
+					z-index:10000;
+					visibility:hidden;					
+					opacity:.8;
+				}
+
+				div.Guide
+				{
+					z-index:10000;
+					visibility:hidden;					
+					opacity:.8;
+				}
+
+			}
+			--></style>
+		<script language="javascript">
+			debugtext("* starting Widget Text #1");			
+
+			var g_WidgetList = new Class_WidgetList("VOD");
+		</script>
+	</head>
+	<body onload="start()" onunload="end()">
+		<script language="javascript">
+
+
+
+		/************************************************************************/
+		/*                                                                      */
+		/*                     Define MainMenu Class                            */
+
+
+		/*!
+			@fn			function MainMenu_Open(p_wWidget)
+			@brief		This opens our main menu
+			@return	    void
+			@param	    p_wWidget A reference to our widget
+			@author		James Mc Parlane
+			@date		24 September 2004
+
+			We want to overide f_Open for MainMenu so we can insert some 
+			text into our main menu when it is created.
+		*/
+		function MainMenu_Open(p_wWidget)
+		{
+			debugtext("* MainMenu_Open '" + p_wWidget.m_sName + "'");			
+		
+			/* get a handle to our div*/			
+			var l_eDiv = Widget_Common_GetDIV(p_wWidget); 
+		
+			/* add some text to it....*/
+			l_eDiv.appendChild(document.createTextNode("This text was added by MainMenu.vft.f_Open"));
+
+					
+			/* call the parents version of f_Open via the virtual function table*/
+			p_wWidget.vft.parent.f_Open(p_wWidget);
+		}
+
+		/*!
+			@fn			function MainMenu_Activate(p_wWidget)
+			@brief		This opens our main menu
+			@return	    void
+			@param	    p_wWidget A reference to our widget
+			@author		James Mc Parlane
+			@date		24 September 2004
+
+			We want to overide f_Open for MainMenu so we can make our custom 
+			focusable element "Guide" button focusable.
+		*/
+		function MainMenu_Activate(p_wWidget)
+		{
+			debugtext("* MainMenu_Activate '" + p_wWidget.m_sName + "'");			
+
+			/* make the guide button focusable */
+			var l_eGuideButton = Widget_Common_GetELEMENT(p_wWidget,"td","Guide");
+			l_eGuideButton.focusable = true;
+					
+			/* call the parents version of f_Activate via the virtual function table*/
+			p_wWidget.vft.parent.f_Activate(p_wWidget);
+		}
+
+	
+	
+
+		/*!
+			@fn			function MainMenu_Element_OnClick(p_wWidget,p_eElement)
+			@brief		This is out MainMenu base class's implementation of f_Element_OnClick
+			@return	    void
+			@param	    p_wWidget A reference to our widget
+			@author		James Mc Parlane
+			@date		24 September 2004
+
+			We want to overide f_Open for MainMenu so we can capture clicks for our custom 
+			focusable element button"Guide" button, which should open the guide when clicked.
+		*/
+		function MainMenu_Element_OnClick(p_wWidget,p_eElement)
+		{
+			debugtext("* MainMenu_Element_OnClick '" + p_wWidget.m_sName + "' element '" + p_eElement.id + "'");
+
+
+			/* did someone click on the "Guide" button?*/
+			if (p_eElement.id == ("td" + p_wWidget.m_sName + "_Guide"))
+			{
+				debugtext("* Open The Guide " + p_wWidget.m_sName);
+
+				/* Add Guide to g_WidgetList */
+				WidgetList_Add(g_WidgetList,g_widgetGuide,p_wWidget.m_iDepth+1);
+				
+				/* Walk g_WidgetList */
+				WidgetList_Walk(g_WidgetList);				
+			
+				/* Make the main menu visible*/
+				g_widgetGuide.vft.f_Open(g_widgetGuide);
+				
+				/* Make it so we can focus the main menu*/
+				g_widgetGuide.vft.f_Activate(g_widgetGuide);
+
+
+			}
+			else
+			{
+				/*  bubble the call down to the parents version of MainMenu_Element_OnClick 
+					via the virtual function table*/
+
+				debugtext("* try the parent to see if it responds to any of these");
+				p_wWidget.vft.parent.f_Element_OnClick(p_wWidget,p_eElement);
+			}
+
+		}
+		
+		
+
+		/*!
+			@fn			function Class_MainMenu_VFTBL()
+			@brief		This function populates our virtual function table
+			@return	    void
+			@author		James Mc Parlane
+			@date		24 September 2004
+		*/
+		function Class_MainMenu_VFTBL()
+		{
+			debugtext("+ creating virtual function table for MainMenu");
+
+			/* we inherit from widget*/
+			this.parent = g_Class_Widget_VFTBL;
+
+			/* inherit functions from our parent*/
+			Class_Widget_Inherit(this);
+
+			/* register functions that MainMenu implements*/	
+			this.f_Open = MainMenu_Open;
+			this.f_Activate = MainMenu_Activate;
+			this.f_Element_OnClick = MainMenu_Element_OnClick;
+		}
+
+
+		/* Create the virtual function table for our MainMenu Class*/
+		debugtext("* creating g_Class_MainMenu_VFTBL");
+		var g_Class_MainMenu_VFTBL = new Class_MainMenu_VFTBL();
+
+
+		/*!
+			@fn			function Class_MainMenu(p_sName,p_iDepth)
+			@brief		This is our MainMenu base class
+			@return	    void
+			@param	    p_sName The name of our widget.
+			@author		James Mc Parlane
+			@date		24 September 2004
+		*/
+		function Class_MainMenu(p_sName)
+		{		
+			/* Initalise all our members by inheriting from Widget*/			
+			this.base = Class_Widget;
+			this.base(p_sName);
+
+			/* Point to MainMenu's virtual function pointer table */
+			this.vft = g_Class_MainMenu_VFTBL;
+
+		}
+
+		/*                                                                      */
+		/*                                                                      */
+		/************************************************************************/
+
+		
+
+		/************************************************************************/
+		/*                                                                      */
+		/*                     Define Guide Class                            */
+
+
+		/*!
+			@fn			function Class_Guide(p_sName)
+			@brief		The Guide Widget
+			@return	    void
+			@param	    p_sName The name of our widget.
+			@author		James Mc Parlane
+			@date		24 September 2004
+		*/
+		function Class_Guide(p_sName)
+		{
+			/* set up all out default behavior functions*/								
+			
+			this.parent = g_Class_Widget_VFTBL;
+					
+			/* we inerit our functions from*/			
+			this.base = Class_Widget;
+			this.base(p_sName);
+									
+			/* which we then overide */
+			this.f_Open = Guide_Open;																		
+		}
+
+
+		/*!
+			@fn			function Class_Guide_VFTBL()
+			@brief		This function populates our virtual function table
+			@return	    void
+			@author		James Mc Parlane
+			@date		24 September 2004
+		*/
+		function Class_Guide_VFTBL()
+		{
+			debugtext("+ creating virtual function table for Guide");
+
+			/* we inherit from widget*/
+			this.parent = g_Class_Widget_VFTBL;
+
+			/* inherit functions from our parent*/
+			Class_Widget_Inherit(this);
+		}
+
+
+		/* Create the virtual function table for our Guide Class*/
+		debugtext("* creating g_Class_Guide_VFTBL");
+		var g_Class_Guide_VFTBL = new Class_Guide_VFTBL();
+
+
+		/*!
+			@fn			function Class_Guide(p_sName,p_iDepth)
+			@brief		This is our Guide base class
+			@return	    void
+			@param	    p_sName The name of our widget.
+			@author		James Mc Parlane
+			@date		24 September 2004
+		*/
+		function Class_Guide(p_sName)
+		{		
+			/* Initalise all our members*/			
+			this.base = Class_Widget;
+			this.base(p_sName);
+
+			/* Inherit from Guide */
+			this.vft = g_Class_Guide_VFTBL;
+
+		}
+
+		/*                                                                      */
+		/*                                                                      */
+		/************************************************************************/
+		
+		/*!
+			@fn			function start()
+			@brief		Our Main Function
+			@return	    void
+			@author		James Mc Parlane
+			@date		24 September 2004
+		*/			
+		function start()
+		{	
+			debugtext("+ start()");
+
+			debugtext("* Add MainMenu to g_WidgetList");
+			WidgetList_Add(g_WidgetList,g_widgetMainMenu,0);
+			debugtext("* Added MainMenu to g_WidgetList");
+
+			debugtext("* Walk g_WidgetList");
+			WidgetList_Walk(g_WidgetList);
+			debugtext("* Walked g_WidgetList");
+		
+			/* Make the main menu visible*/
+			g_widgetMainMenu.vft.f_Open(g_widgetMainMenu);
+			
+			/* Make it so we can focus the main menu*/
+			g_widgetMainMenu.vft.f_Activate(g_widgetMainMenu);
+			
+			
+			
+			
+			
+			debugtext("- start()");	
+		}
+
+
+		/*!
+			@fn			function end()
+			@brief		Our Main Function
+			@return	    void
+			@author		James Mc Parlane
+			@date		24 September 2004
+		*/			
+		function end()
+		{	
+			debugtext("+ end()");
+			
+			debugtext("- end()");
+		}
+		
+		</script>
+		<div id="divMainMenu" class="MainMenu">
+			<script language="javascript">			
+				/* create a new MainMenu Widget */
+
+				debugtext("* create instance of MainMenu");
+								
+				var g_widgetMainMenu = new Class_MainMenu("MainMenu");
+				debugtext("* created Widget '" + g_widgetMainMenu.m_sName + "'");
+			</script>
+			<p>I Am The Main Menu</p>
+			<table>
+				<tr>
+					<td id="tdMainMenu_Close" onclick="g_widgetMainMenu.vft.f_Element_OnClick(g_widgetMainMenu,this);" onfocus="g_widgetMainMenu.vft.f_Element_OnFocus(g_widgetMainMenu,this);" onblur="g_widgetMainMenu.vft.f_Element_OnBlur(g_widgetMainMenu,this);" onmouseover="g_widgetMainMenu.vft.f_Element_OnMouseOver(g_widgetMainMenu,this);" onmouseout="g_widgetMainMenu.vft.f_Element_OnMouseOut(g_widgetMainMenu,this);">Close</td>
+				</tr>
+				<tr>
+					<td id="tdMainMenu_PopUp" onclick="g_widgetMainMenu.vft.f_Element_OnClick(g_widgetMainMenu,this);" onfocus="g_widgetMainMenu.vft.f_Element_OnFocus(g_widgetMainMenu,this);" onblur="g_widgetMainMenu.vft.f_Element_OnBlur(g_widgetMainMenu,this);" onmouseover="g_widgetMainMenu.vft.f_Element_OnMouseOver(g_widgetMainMenu,this);" onmouseout="g_widgetMainMenu.vft.f_Element_OnMouseOut(g_widgetMainMenu,this);">PopUp</td>
+				</tr>
+				<tr>
+					<td id="tdMainMenu_Guide" onclick="g_widgetMainMenu.vft.f_Element_OnClick(g_widgetMainMenu,this);" onfocus="g_widgetMainMenu.vft.f_Element_OnFocus(g_widgetMainMenu,this);" onblur="g_widgetMainMenu.vft.f_Element_OnBlur(g_widgetMainMenu,this);" onmouseover="g_widgetMainMenu.vft.f_Element_OnMouseOver(g_widgetMainMenu,this);" onmouseout="g_widgetMainMenu.vft.f_Element_OnMouseOut(g_widgetMainMenu,this);">Guide</td>
+				</tr>
+				<tr>
+					<td>Element1</td>
+					<td>Element2</td>
+				</tr>
+			</table>
+		</div>
+		<div id="divGuide" class="Guide">
+			<script language="javascript">			
+				/* create a new object */
+
+				debugtext("* create instance of Guide");
+				var g_widgetGuide = new Class_Guide("Guide");
+				debugtext("* created Widget '" + g_widgetGuide.m_sName + "'");
+
+			</script>
+			<p>I Am The Guide</p>
+			<table>
+				<tr>
+					<td id="tdGuide_Close" onclick="g_widgetGuide.vft.f_Element_OnClick(g_widgetGuide,this);" onfocus="g_widgetGuide.vft.f_Element_OnFocus(g_widgetGuide,this);" onblur="g_widgetGuide.vft.f_Element_OnBlur(g_widgetGuide,this);" onmouseover="g_widgetGuide.vft.f_Element_OnMouseOver(g_widgetGuide,this);" onmouseout="g_widgetGuide.vft.f_Element_OnMouseOut(g_widgetGuide,this);">Close</td>
+				</tr>
+				<tr>
+					<td>Element1</td>
+					<td>Element2</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<title>
+		Macro Recorder TestCase #1 - MetaWrap JavaScript Library - $Id: test_2_macro_dev.html,v 1.1 2007/04/03 11:37:12 james Exp $
+	</title>
+	<script language="JavaScript" type="text/javascript" src="../base/mw_lib.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../macrorecorder/mw_pkg_macrorecorder_dev.js"></script>
+<style>
+.wrap{
+    width: 67%;
+    margin: 0 0 1em 14%;
+    padding: 2% 3% 2% 5%;
+    BACKGROUND: white;
+    border-style: solid;
+    border-width: 1px;
+    top: -1px;
+}
+h1,h2,h3,h4{
+    position: relative;
+    left: -1em;
+    clear: both;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: orange;
+    font: 0.8em trebuchet ms;
+}
+em{
+    background: #ffc;
+}
+pre{
+    font-size: 1.1em;
+    background: #f0f0f0;
+    -moz-border-radius: 10px;
+    padding: 1em;
+}
+pre span{
+    font-weight: bold;
+}
+.selector, pre b{
+    color: red;
+}
+.beh{
+    color: blue;
+}
+.event{
+    color: green;
+}
+
+#sortable-list li{
+    cursor:move;
+    -moz-user-select: none;
+    width: 100%;
+}
+
+.dropout li{
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    float: left;
+    margin: 5px;
+    border: 1px solid #ccc;
+    list-style: none;
+    background: red;
+}
+
+.dropout li.hover{
+    background: yellow;
+}
+</style>
+
+<script language="JavaScript">
+
+
+function error(p_msg)
+{
+    alert(p_msg);
+}
+
+function debug(p_msg)
+{
+    alert(p_msg);
+}
+
+function trace(p_msg)
+{
+    window.status = p_msg;
+    window.title = p_msg;
+}
+
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+
+var l_pushes = 0;
+
+</script>
+</head>
+<body>
+<div class="wrap">
+<table width="100%">
+	<tr align="middle" >
+		<td>
+			<h2>
+				Macro Recorder TestCases #1 - Simple Test Cases
+			</h2>
+		</td>
+		<td>
+			<a href="http://www.metawrap.com"><img border="0" src="../images/metawrap_logo_sm.png" align="right" /></a>
+		</td>
+	</tr>
+</table>
+<pre>$Id: test_2_macro_dev.html,v 1.1 2007/04/03 11:37:12 james Exp $</pre>
+</div>
+
+<div class="wrap">
+<p>
+<input type="text" >
+</p>
+<p>
+<textarea rows="5">
+qualis Thesea iacuit cedente carina
+languida desertis Gnosia litoribus,
+qualis et accubuit primo Cepheia somno
+libera iam duris cotibus Andromede,
+nec minus assiduis Edonis fessa choreis
+qualis in herboso concidit Apidano:
+talis visa mihi mollem spirare quietem
+Cynthia non certis nixa caput manibus,
+ebria cum multo traherem vestigia Baccho
+et quaterent sera nocte facem pueri.
+hanc ego, nondum etiam sensus deperditus omnes,
+molliter inpresso conor adire toro.
+et quamvis duplici correptum ardore iuberent
+hac Amor hac Liber, durus uterque deus,
+subiecto leviter positam temptare lacerto,
+osculaque admota sumere et arma manu,
+non tamen ausus eram dominae turbare quietem
+expertae metuens iurgia saevitiae;
+sed sic intentis haerebam fixus ocellis,
+Argus ut ignotis cornibus Inachidos.
+</textarea>
+</p>
+<p>
+<input type="checkbox"  > <!-- put this id back id="cb" -->
+</p>
+<p>
+<input type="radio" name="x"><input type="radio" name="x">
+</p>
+<p>
+<select ID="Select1" NAME="Select1">
+  <option value ="volvo">Volvo</option>
+  <option value ="saab">Saab</option>
+  <option value ="opel">Opel</option>
+  <option value ="audi">Audi</option>
+</select>
+</p>
+<p>
+<select ID="Select2" NAME="Select1" multiple="true" >
+  <option value ="air">Air Con</option>
+  <option value ="rad">Radio</option>
+  <option value ="gps">GPS</option>
+  <option value ="abs">ABS</option>
+  <option value ="mis">Missiles</option>
+  <option value ="fla">Flame Thrower</option>
+</select>
+</p>
+<p>
+<input type="button" value="push me" onclick="this.value = 'push me #' + l_pushes++" >
+</p>
+
+<p>Inter haec Alexander ad conducendum ex Peloponneso militem
+Cleandro cum pecunia misso Lyciae Pamphyliaeque rebus conpositis ad urbem
+Celaenas exercitum admovit. Media illa tempestate moenia interfluebat
+Marsyas amnis, fabulosis Graecorum carminibus inclitus. Fons eius ex summo
+montis cacumine excurrens in subiectam petram magno strepitu aquarum cadit:
+inde diffusus circumiectos rigat campos, liquidus et suas dumtaxat undas
+trahens. Itaque color eius placido mari similis locum poetarum mendacio
+fecit: quippe traditum est nymphas amore amnis retentas in illa rupe
+considere. Ceterum quamdiu intra muros fluit, nomen suum retinet: at cum
+extra munimenta se evolvit, maiore vi ac mole agentem undas Lycum appellant.
+Alexander quidem urbem destitutam ab suis intrat, arcem vero, in quam
+confugerant, oppugnare adortus caduceatorem praemisit, qui denuntiaret, ni
+dederent, ipsos ultima esse passuros. Illi caduceatorem in turrem et situ et
+opere multum editam perductum, quanta esset altitudo, intueri iubent ac
+nuntiare Alexandro, non eadem ipsum et incolas aestimatione munimenta
+metiri: se scire inexpugnabiles esse, ad ultimum pro fide morituros. Ceterum
+ut circumsideri arcem et omnia sibi in dies artiora esse viderunt, sexaginta
+dierum inducias pacti, ut, nisi intra eos auxilium Dareus ipsis mississet,
+dederent urbem, postquam nihil inde praesidii mittebatur, ad praestitutam
+diem permisere se regi.</p>
+
+<p>qualis Thesea iacuit cedente carina
+languida desertis Gnosia litoribus,
+qualis et accubuit primo Cepheia somno
+libera iam duris cotibus Andromede,
+nec minus assiduis Edonis fessa choreis
+qualis in herboso concidit Apidano:
+talis visa mihi mollem spirare quietem
+Cynthia non certis nixa caput manibus,
+ebria cum multo traherem vestigia Baccho
+et quaterent sera nocte facem pueri.
+hanc ego, nondum etiam sensus deperditus omnes,
+molliter inpresso conor adire toro.
+et quamvis duplici correptum ardore iuberent
+hac Amor hac Liber, durus uterque deus,
+subiecto leviter positam temptare lacerto,
+osculaque admota sumere et arma manu,
+non tamen ausus eram dominae turbare quietem
+expertae metuens iurgia saevitiae;
+sed sic intentis haerebam fixus ocellis,
+Argus ut ignotis cornibus Inachidos. </p>
+
+<p>et modo solvebam nostra de fronte corollas
+ponebamque tuis, Cynthia, temporibus,
+et modo gaudebam lapsos formare capillos,
+nunc furtiva cavis poma dabam manibus,
+omniaque ingrato largibar munera somno,
+munera de prono saepe voluta sinu.
+et quotiens raro duxti suspiria motu,
+obstupui vano credulus auspicio,
+ne qua tibi insolitos portarent visa timores,
+neve quis invitam cogeret esse suam:
+donec diversas praecurrens luna fenestras,
+luna moraturis sedula luminibus,
+compositos levibus radiis patefecit ocellos.
+sic ait in molli fixa toro cubitum:
+"tandem te nostro referens iniuria lecto
+alterius clausis expulit e foribus?
+namque ubi longa meae consumpsti tempora noctis
+languidus exactis, ei mihi sideribus?
+o utinam tales perducas, inprobe, noctes,
+me miseram quales semper habere iubes!
+nam modo purpureo fallebam stamine somnum,
+rursus et Orpheae carmine fessa lyrae;
+interdum leviter mecum deserta querebar
+externo longas saepe in amore moras:
+dum me iocundis lapsam Sopor inpulit alis.
+illa fuit lacrimis ultima cura meis.".</p>
+
+</div>
+
+</body>
+</html>

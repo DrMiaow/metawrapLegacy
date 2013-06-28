@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    $Id: stateviewmap.xsd,v 1.1 2008/07/20 07:10:07 james Exp $
+
+    $Log: stateviewmap.xsd,v $
+    Revision 1.1  2008/07/20 07:10:07  james
+    *** empty log message ***
+
+
+	<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="../metawrap/metawrap.xsd" targetNamespace="../metawrap/metawrap.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    @brief Schema definition for the MetaWrap WireWrap XML Schema
+ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="../metawrap/metawrap.xsd" targetNamespace="../metawrap/metawrap.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:annotation>
+		<xs:documentation xml:lang="en">
+            Schema definition for MetaWrap WireWrap
+            Copyright 2006 The MetaWrap Projet
+        </xs:documentation>
+	</xs:annotation>
+	
+	<!-- Main structure -->
+	<!--xs:element name="stateviews" type="stateviews"/-->
+	<!-- Instructions -->
+	<xs:complexType name="stateviews">
+		<xs:sequence>
+			<xs:element name="state" type="stateviewstate" minOccurs="0" maxOccurs="unbounded"/>			
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="stateviewstate">
+		<xs:sequence>
+			<xs:element name="page" type="stateviewstatepage" minOccurs="0" maxOccurs="1"/>
+
+			<xs:element name="aspect" type="stateviewstateaspect" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<!-- State -->
+	<xs:complexType name="stateviewstatepage">		
+		<xs:attribute name="state" type="xs:string" use="required"/>
+		<xs:attribute name="page" type="xs:string" use="optional"/>						
+	</xs:complexType>
+	
+	<xs:complexType name="stateviewstateaspect">	
+		<xs:attribute name="state" type="xs:string" use="required"/>
+		<xs:attribute name="aspect" type="xs:string" use="optional"/>						
+	</xs:complexType>
+	
+</xs:schema>

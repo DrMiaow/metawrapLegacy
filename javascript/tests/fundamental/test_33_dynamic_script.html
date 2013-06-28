@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<style>
+.wrap{
+    width: 67%;
+    margin: 0 0 1em 14%;
+    padding: 2% 3% 2% 5%;
+    BACKGROUND: white;
+    border-style: solid;
+    border-width: 1px;
+    top: -1px;
+}
+h1,h2,h3,h4{
+    position: relative;
+    left: -1em;
+    clear: both;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: orange;
+    font: 0.8em trebuchet ms;
+}
+em{
+    background: #ffc;
+}
+pre{
+    font-size: 1.1em;
+    background: #f0f0f0;
+    -moz-border-radius: 10px;
+    padding: 1em;
+}
+pre span{
+    font-weight: bold;
+}
+.selector, pre b{
+    color: red;
+}
+.beh{
+    color: blue;
+}
+.event{
+    color: green;
+}
+
+#sortable-list li{
+    cursor:move;
+    -moz-user-select: none;
+    width: 100%;
+}
+
+.dropout li{
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    float: left;
+    margin: 5px;
+    border: 1px solid #ccc;
+    list-style: none;
+    background: red;
+}
+
+.dropout li.hover{
+    background: yellow;
+}
+	</style>
+
+
+	<title>
+		Dynamic Script Insertion - TestCase #33 - MetaWrap JavaScript Library - $Id: test_33_dynamic_script.html,v 1.2 2005/10/11 07:12:02 james Exp $
+	</title>
+	<script language="JavaScript" type="text/javascript" src="../base/mw_lib.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../page/mw_lib_page.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../page/mw_lib_page_element.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../page/mw_lib_page_element_addhandler.js"></script>
+
+<script language="JavaScript">
+
+function error(p_msg)
+{
+    alert(p_msg);
+}
+
+function debug(p_msg)
+{
+    alert(p_msg);
+}
+
+function trace(p_msg)
+{
+    window.status = p_msg;
+    document.title = p_msg;
+}
+
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+
+</script>
+</head>
+<body onload="start()" >
+<div class="wrap">
+<table width="100%">
+	<tr align="middle" >
+		<td>
+			<h2>
+				Dynamic Script Insertion - TestCases #33
+			</h2>
+		</td>
+		<td>
+			<a href="http://www.metawrap.com"><img border="0" src="../images/metawrap_logo_sm.png" align="right" /></a>
+		</td>
+	</tr>
+</table>
+
+<pre>$Id: test_33_dynamic_script.html,v 1.2 2005/10/11 07:12:02 james Exp $</pre>
+</div>
+
+<div class="wrap">
+
+<h3>JavaScript And VBScript via inline, document.write and innerHTML</h3>
+
+<p>If you are using IE, if the innerHTML method of dynamic script insertion works, you should see 6 alerts (for IE) instead of 4. Clearly it does not work.
+
+<p>If you *not* using IE,  If the innerHTML method of dynamic script insertion works, you should see 4 alerts instead of 2. Clearly it does not work.
+
+<script language="vbscript">MsgBox "This VBscript was inline in the document"</script>
+<script language="javascript">alert("This JavaScript was inline in the document");</script>
+
+<div id="useinnerhtml">useinnerhtml</div>
+<div id="useinnerhtml2">useinnerhtml2</div>
+<div id="useinnerhtmlonload">useinnerhtmlonload</div>
+<div id="useinnerhtml2onload">useinnerhtml2onload</div>
+
+<script language="JavaScript" type="text/javascript" >
+
+var l_div_useinnerhtml = document.getElementById("useinnerhtml");
+l_div_useinnerhtml.innerHTML = "<sc" + "ript language=\"vbscript\">MsgBox \"This VBscript was added by innerHTML while loading the document\"</sc" + "ript>";
+
+document.write("<sc" + "ript language=\"vbscript\">MsgBox \"This VBscript was added by document.write while loading the document\"</sc" + "ript>");
+
+var l_div_useinnerhtml2 = document.getElementById("useinnerhtml2");
+l_div_useinnerhtml2.innerHTML = "<sc" + "ript language=\"JavaScript\">alert(\"This JavaScript was added by innerHTML while loading the document\")</sc" + "ript>";
+
+document.write("<sc" + "ript language=\"JavaScript\">alert(\"This JavaScript was added by document.write while loading the document\");</sc" + "ript>");
+
+function start()
+{
+	var l_div_useinnerhtmlonload = document.getElementById("useinnerhtmlonload");
+	l_div_useinnerhtmlonload.innerHTML = "<sc" + "ript language=\"vbscript\">MsgBox \"This VBscript was added innerHTML on the document.onload event\"</sc" + "ript>";
+
+	var l_div_useinnerhtml2onload = document.getElementById("useinnerhtml2onload");
+	l_div_useinnerhtml2onload.innerHTML = "<sc" + "ript language=\"JavaScript\">alert(\"This Javascript was added innerHTML on the document.onload event\");</sc" + "ript>";
+
+}
+
+</script>
+</div>
+</body>
+</html>

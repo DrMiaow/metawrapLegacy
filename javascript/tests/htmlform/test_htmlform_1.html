@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<title>
+	</title>
+	<script type="text/javascript" src="../base/mw_lib.js"></script>
+	<script type="text/javascript" src="../cookie/mw_lib_cookie.js"></script>
+	<script type="text/javascript" src="../xml/mw_lib_xml.js"></script>
+	<script type="text/javascript" src="../xml/mw_lib_xml_serialise.js"></script>
+	<script type="text/javascript" src="../page/mw_lib_page.js"></script>
+	<script type="text/javascript" src="../page/mw_lib_page_output.js"></script>
+	<script type="text/javascript" src="config.js"></script>
+	<script type="text/javascript" src="../link/mw_lib_link.js"></script>
+	<script type="text/javascript" src="../htmlform/mw_lib_htmlform.js"></script>
+
+
+<style>
+	body, .ul, .li, h4, input {
+		margin: 0; padding: 0; border: 0;
+		font: 14px/16px Tahoma;
+	}
+
+	.ul { background: #CCCCCC; /*width: 500px;*/ }
+
+	.li { background: #EEEEEE; }
+
+	.ul .ul { margin-left: 50px; background: #AAAAAA; /*width: 450px;*/ }
+
+	.li .li { background: #999999; }
+
+	.ul { clear: both; list-style: none; }
+
+	.li label { float: left; width: 100px; text-align: right; height: 30px; display: block; }
+	
+	.li input { float: left;  }
+	
+	.li { width: 400px; overflow: hidden; }
+
+
+/*
+
+	ul { margin-left: 50px; list-style: none; }
+
+	li div { width: 250px; }
+	
+	li label { float: left; width: 100px; text-align: right; padding: 3px; }
+	
+	li input { float: left; width: 150px; padding: 3px; }
+
+*/
+</style>
+
+
+</head>
+<body>
+<script language="JavaScript">
+
+function create_setup()
+{
+	g_config.create();
+}
+
+function change_setup()
+{
+	g_config.disable("ent");
+}
+
+function show_setup()
+{
+	alert(g_config.string());
+}
+
+function save_setup()
+{
+	g_config.save();
+}
+
+function generate_form()
+{
+	var l_string = MetaWrap.HtmlForm(g_config.m_config);
+
+	var l_output = MetaWrap.Page.Output("generated_form");
+	l_output.clear();
+	l_output.write(l_string);
+	l_output.flush();
+
+	alert(l_string);
+}
+
+</script>
+
+<p onclick="show_setup()" >show_setup();</p>
+<p onclick="save_setup()" >save_setup();</p>
+<p onclick="create_setup()" >create_setup();</p>
+<p onclick="change_setup()" >change_setup();</p>
+<p onclick="generate_form()" >generate_form();</p>
+
+<div id="generated_form" id="generated_form">
+</div>
+
+</body>
+</html>

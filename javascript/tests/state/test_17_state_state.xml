@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metawrap>
+    <states mutex="true">
+        <state name="init" value="true"/>
+        <state name="home"/>
+        <state name="about"/>
+        <state name="recognition"/>
+        <state name="more"/>
+        <state name="projects" reinitialise="true" >
+            <states mutex="true">
+                <state name="project_list" value="true" />
+                <state name="project_detail" />
+            </states>
+        </state>
+    </states>
+</metawrap>

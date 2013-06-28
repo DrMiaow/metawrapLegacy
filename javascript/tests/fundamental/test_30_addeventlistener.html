@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<style>
+.wrap{
+    width: 67%;
+    margin: 0 0 1em 14%;
+    padding: 2% 3% 2% 5%;
+    BACKGROUND: white;
+    border-style: solid;
+    border-width: 1px;
+    top: -1px;
+}
+h1,h2,h3,h4{
+    position: relative;
+    left: -1em;
+    clear: both;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: orange;
+    font: 0.8em trebuchet ms;
+}
+em{
+    background: #ffc;
+}
+pre{
+    font-size: 1.1em;
+    background: #f0f0f0;
+    -moz-border-radius: 10px;
+    padding: 1em;
+}
+pre span{
+    font-weight: bold;
+}
+.selector, pre b{
+    color: red;
+}
+.beh{
+    color: blue;
+}
+.event{
+    color: green;
+}
+
+#sortable-list li{
+    cursor:move;
+    -moz-user-select: none;
+    width: 100%;
+}
+
+.dropout li{
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    float: left;
+    margin: 5px;
+    border: 1px solid #ccc;
+    list-style: none;
+    background: red;
+}
+
+.dropout li.hover{
+    background: yellow;
+}
+	</style>
+
+
+	<title>
+		event.addEventListener - TestCase #30 - MetaWrap JavaScript Library - $Id: test_30_addeventlistener.html,v 1.6 2005/10/23 07:57:32 james Exp $
+	</title>
+	<script language="JavaScript" type="text/javascript" src="../base/mw_lib.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../page/mw_lib_page.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../page/mw_lib_page_element.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../page/mw_lib_page_element_addhandler.js"></script>
+
+<script language="JavaScript">
+
+function error(p_msg)
+{
+    alert(p_msg);
+}
+
+function debug(p_msg)
+{
+    alert(p_msg);
+}
+
+function trace(p_msg)
+{
+    window.status = p_msg;
+    document.title = p_msg;
+}
+
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+
+</script>
+</head>
+<body onload="start()" onunload="end()" >
+<div class="wrap">
+<table width="100%">
+	<tr align="middle" >
+		<td>
+			<h2>
+				event.addEventListener - TestCases #30
+			</h2>
+		</td>
+		<td>
+			<a href="http://www.metawrap.com"><img border="0" src="../images/metawrap_logo_sm.png" align="right" /></a>
+		</td>
+	</tr>
+</table>
+
+<pre>$Id: test_30_addeventlistener.html,v 1.6 2005/10/23 07:57:32 james Exp $</pre>
+</div>
+
+<div class="wrap">
+<h1>Quirks -  (Will Not Work In IE or Opera)</h1>
+
+
+<h2>Active Quirk</h2>
+<p>Click on the link below.</p>
+<p>On Firefox and Safari the events fire in the order f1,f2,f4</p>
+<p>For IE6 and Opera I get just f4.</p>
+<pre>
+		l_a1.addEventListener("click",f1,true);
+		l_a1.addEventListener("click",f2,true);
+		l_a1.onclick = f3;
+		l_a1.onclick = f4;
+</pre>
+
+<i id="a1">
+    [CLICK ME]
+</i>
+
+<hr>
+
+<h2>Cured Quirk</h2>
+<p>Click on the link below.</p>
+<p>On Firefox the events fire in the order f4,f1,f2</p>
+<p>For IE6, Opera and Safari I used to get f1,f2 but now that addEventListener deals with existing inline and assigned handlers (Trial tweak) I get f4,f1,f2.</p>
+
+<pre>
+		l_a2.onclick = f3;
+		l_a2.onclick = f4;
+		l_a2.addEventListener("click",f1,true);
+		l_a2.addEventListener("click",f2,true);
+</pre>
+
+<i id="a2">
+    [CLICK ME]
+</i>
+
+<hr>
+
+<h2>Active Quirk</h2>
+<p>Click on the link below.</p>
+<p>On Firefox and Safari the events fire in the order f1,f4,f2</p>
+<p>For IE6 and Opera I get F4.</p>
+<pre>
+		l_a3.addEventListener("click",f1,true);
+		l_a3.onclick = f3;
+		l_a3.onclick = f4;
+		l_a3.addEventListener("click",f2,true);
+</pre>
+
+<i id="a3">
+    [CLICK ME]
+</i>
+
+<hr>
+
+<h2>Active Quirk</h2>
+<p>Click on the link below.</p>
+<p>On Firefox and Opera and Netscape and IE the events fire in the order f1,f2</p>
+<p>Safari they fire in the order f2,f1</p>
+<pre>
+		l_a4.onclick = f1;
+		l_a4.addEventListener("click",f2,true);
+</pre>
+
+<i id="a4">
+    [CLICK ME]
+</i>
+
+<hr>
+
+<h2>Test</h2>
+<p>Click on the link below.</p>
+<p>On Safari the events fire in the order f2,f1</p>
+<p>Firefox and Netscape just f2 fires</p>
+<pre>
+        l_a5.onclick = f1;
+        l_a5.onclick = null;
+        l_a5.addEventListener("click",f2,true);
+</pre>
+
+<i id="a5">
+    [CLICK ME]
+</i>
+
+<script language="JavaScript" type="text/javascript" >
+
+var l_a1 = document.getElementById("a1");
+var l_a2 = document.getElementById("a2");
+var l_a3 = document.getElementById("a3");
+var l_a4 = document.getElementById("a4");
+var l_a5 = document.getElementById("a5");
+
+function f1(p_event)
+{
+    alert("f1");
+}
+
+function f2(p_event)
+{
+    alert("f2");
+}
+
+function f3(p_event)
+{
+    alert("f3");
+}
+
+function f4(p_event)
+{
+    alert("f4");
+}
+
+
+function start()
+{
+    try
+    {
+
+		l_a1.addEventListener("click",f1,true);
+		l_a1.addEventListener("click",f2,true);
+		l_a1.onclick = f3;
+		l_a1.onclick = f4;
+
+		l_a2.onclick = f3;
+		l_a2.onclick = f4;
+		l_a2.addEventListener("click",f1,true);
+		l_a2.addEventListener("click",f2,true);
+
+		l_a3.addEventListener("click",f1,true);
+		l_a3.onclick = f3;
+		l_a3.onclick = f4;
+		l_a3.addEventListener("click",f2,true);
+
+		l_a4.onclick = f1;
+		l_a4.addEventListener("click",f2,true);
+
+        l_a5.onclick = f1;
+        l_a5.onclick = null;
+        l_a5.addEventListener("click",f2,true);
+    }
+    catch(l_e)
+    {
+    }
+
+
+}
+
+function end()
+{
+    //MetaWrap.Page.deleteListeners();
+}
+
+</script>
+</div>
+</body>
+</html>

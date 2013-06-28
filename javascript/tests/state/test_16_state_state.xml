@@ -1,0 +1,241 @@
+<?xml version="1.0"?>
+<!--
+        <metawrap xmlns="../metawrap/metawrap.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="../metawrap/metawrap.xsd ../metawrap/metawrap.xsd" >
+    XSLT WILL NOT WORK IF xmlns is included
+-->
+<!--<?xml-stylesheet type="text/xsl" href="E:\metawrap\javascript\tests\state\state.xsl"?>-->
+<metawrap>
+    <states>
+	
+        <state name="candidate_tile11" >
+			<group name="tiles" />							
+			<exit call="hideTile('tile11')" />	
+        </state>
+
+        <state name="candidate_tile12" >
+			<group name="tiles" />			
+			<exit call="hideTile('tile12')" />
+        </state>
+
+        <state name="candidate_tile13" >
+			<group name="tiles" />
+			<exit call="hideTile('tile13')" />
+        </state>
+
+        <state name="candidate_tile21" >
+			<group name="tiles" />
+			<exit call="hideTile('tile21')" />
+        </state>
+
+        <state name="candidate_tile22" >
+			<group name="tiles" />
+			<exit call="hideTile('tile22')" />
+        </state>
+
+        <state name="candidate_tile23" >
+			<group name="tiles" />
+			<exit call="hideTile('tile23')" />
+        </state>
+
+        <state name="candidate_tile31" >
+			<group name="tiles" />
+			<exit call="hideTile('tile31')" />
+        </state>
+
+        <state name="candidate_tile32" >
+			<group name="tiles" />
+			<exit call="hideTile('tile32')" />
+        </state>
+
+        <state name="candidate_tile33" >
+			<group name="tiles" />
+			<exit call="hideTile('tile33')" />
+        </state>
+
+        <state name="candidate_tile41" >		
+			<group name="tiles" />
+			<exit call="hideTile('tile41')" />
+        </state>
+
+        <state name="candidate_tile42" >
+			<group name="tiles" />
+			<exit call="hideTile('tile42')" />
+        </state>
+
+        <state name="candidate_tile43" >
+			<group name="tiles" />
+			<exit call="hideTile('tile43')" />
+        </state>
+		
+        <state name="flipped_tile11" >
+			<group name="flipped" />
+			<enter call="flipTile('tile11')" />	
+        </state>
+
+        <state name="flipped_tile12" >
+			<group name="flipped" />
+			<enter call="flipTile('tile12')" />	
+        </state>
+
+        <state name="flipped_tile13" >
+			<group name="flipped" />
+			<enter call="flipTile('tile13')" />	
+        </state>
+
+        <state name="flipped_tile21" >
+			<group name="flipped" />
+			<enter call="flipTile('tile21')" />	
+        </state>
+
+        <state name="flipped_tile22" >
+			<group name="flipped" />
+			<enter call="flipTile('tile22')" />	
+        </state>
+
+        <state name="flipped_tile23" >
+			<group name="flipped" />
+			<enter call="flipTile('tile23')" />	
+        </state>
+
+        <state name="flipped_tile31" >
+			<group name="flipped" />
+			<enter call="flipTile('tile31')" />	
+        </state>
+
+        <state name="flipped_tile32" >
+			<group name="flipped" />
+			<enter call="flipTile('tile32')" />	
+        </state>
+
+        <state name="flipped_tile33" >
+			<group name="flipped" />
+			<enter call="flipTile('tile33')" />	
+        </state>
+
+        <state name="flipped_tile41" >
+			<group name="flipped" />
+			<enter call="flipTile('tile41')" />	
+        </state>
+
+        <state name="flipped_tile42" >
+			<group name="flipped" />
+			<enter call="flipTile('tile42')" />	
+        </state>
+
+        <state name="flipped_tile43" >
+			<group name="flipped" />
+			<enter call="flipTile('tile43')" />	
+        </state>		
+		
+		
+        <state name="none_selected" >
+			<active group="tiles" count="0" />
+        </state>		
+		
+        <state name="one_selected" >
+			<active group="tiles" count="1" />
+        </state>
+
+		<state name="two_selected" >
+			<active group="tiles" count="2" />
+        </state>
+
+		<state name="completed" >
+			<active group="flipped" count="12" />
+			<enter call="gameOver()" />	
+        </state>
+		
+        <state name="canflip" >
+			<active state="/none_selected|/one_selected" />
+			<inactive state="/completed" />
+        </state>
+		
+		<state name="badmatch" >
+			<active state="/two_selected" />
+			<active group="matches" count="0" />	
+			<unpulse group="tiles" />			
+        </state>			
+
+        <state name="match1" >
+			<group name="matches" />
+		
+			<active state="/candidate_tile11" />
+			<active state="/candidate_tile12" />
+			
+			<pulse state="/flipped_tile11" />
+			<pulse state="/flipped_tile12" />
+			
+			<unpulse state="/candidate_tile11" />
+			<unpulse state="/candidate_tile12" />
+						
+        </state>
+		
+        <state name="match2" >
+			<group name="matches" />		
+			<active state="/candidate_tile13" />
+			<active state="/candidate_tile21" />
+			
+			<pulse state="/flipped_tile13" />
+			<pulse state="/flipped_tile21" />
+			
+			<unpulse state="/candidate_tile13" />
+			<unpulse state="/candidate_tile21" />			
+			
+        </state>
+
+        <state name="match3" >
+			<group name="matches" />		
+			<active state="/candidate_tile22" />
+			<active state="/candidate_tile23" />
+			
+			<pulse state="/flipped_tile22" />
+			<pulse state="/flipped_tile23" />
+			
+			<unpulse state="/candidate_tile22" />
+			<unpulse state="/candidate_tile23" />				
+			
+        </state>
+		
+        <state name="match4" >
+			<group name="matches" />
+			<active state="/candidate_tile31" />
+			<active state="/candidate_tile32" />
+			
+			<pulse state="/flipped_tile31" />
+			<pulse state="/flipped_tile32" />
+			
+			<unpulse state="/candidate_tile31" />
+			<unpulse state="/candidate_tile32" />				
+			
+        </state>
+
+		<state name="match5" >
+			<group name="matches" />
+			<active state="/candidate_tile33" />
+			<active state="/candidate_tile41" />
+			
+			<pulse state="/flipped_tile33" />
+			<pulse state="/flipped_tile41" />
+			
+			<unpulse state="/candidate_tile33" />
+			<unpulse state="/candidate_tile41" />	
+			
+        </state>
+
+		<state name="match6" >
+			<group name="matches" />
+			<active state="/candidate_tile42" />
+			<active state="/candidate_tile43" />
+			
+			<pulse state="/flipped_tile42" />
+			<pulse state="/flipped_tile43" />
+			
+			<unpulse state="/candidate_tile42" />
+			<unpulse state="/candidate_tile43" />	
+			
+        </state>
+	
+		
+        
+    </states>
+</metawrap>

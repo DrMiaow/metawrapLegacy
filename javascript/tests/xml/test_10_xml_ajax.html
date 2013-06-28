@@ -1,0 +1,555 @@
+﻿<html>
+</head>
+<script language="JavaScript">
+
+function error(p_msg)
+{
+//    alert(p_msg);
+}
+
+function warn(p_msg)
+{
+//    alert(p_msg);
+}
+
+function debug(p_msg)
+{
+//    alert(p_msg);
+}
+
+function trace(p_msg)
+{
+//    window.status = p_msg;
+}
+
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+//        alert(p_msg);
+    }
+}
+
+</script>
+<script type="text/javascript" src="../base/mw_lib.js"></script>
+<script type="text/javascript" src="../logger/mw_lib_logger.js"></script>
+<script type="text/javascript" src="../xml/mw_lib_xml.js"></script>
+<script type="text/javascript" src="../xml/mw_lib_xml_serialise.js"></script>
+<script type="text/javascript" src="../page/mw_lib_page.js"></script>
+<script type="text/javascript" src="../page/mw_lib_page_output.js"></script>
+<script type="text/javascript" src="../network/mw_lib_network.js"></script>
+<script type="text/javascript" src="../xml/mw_lib_xml_action.js"></script>
+<script type="text/javascript" src="../xml/mw_lib_xml_action_xmlvault.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/gallery.css" />
+</head>
+<body onload="start()">
+
+<script language="JavaScript">
+
+var l_images = null;
+var l_mediaitems = null;
+var l_servers = [];
+var l_page = 0;
+var l_count = 9;
+var l_campaign_key = "08598A53E46B200ED8028908D15EDF1F-1";
+
+// Master campaign object
+var l_campaign = null;
+
+// Object for the currently selected media item
+var l_mediaitem = null;
+
+//Mozilla won't let you get XML from off different server - violates security model
+var g_server_root = "";
+
+// Create a HTTP Request object
+var l_xml_request = new MetaWrap.Network.Client.HTTP();
+ASSERT(l_xml_request,"l_xml_request is null");
+if (l_xml_request != null)
+{
+     debug("Loading JavaScript objects...");
+}
+
+function filename(p_string)
+{
+	var l_result = "";
+
+	if (p_string == null) return l_result;
+
+	var l_total = 0;
+
+    var l_length = p_string.length;
+
+	for(var i = 0;i<l_length;i++)
+	{
+		switch(p_string.charCodeAt(i))
+		{
+			case 10:
+			case 32:
+			case 13:
+			case 7:
+				l_result += "_";
+			break;
+
+			default:
+				l_result += p_string.charAt(i);
+			break;
+		}
+	}
+
+	return l_result.toLowerCase();
+}
+
+
+
+function start()
+{
+	// Create reference to DIV for main canvas
+	l_images = MetaWrap.Page.Output("images");
+	
+	// Create reference to DIV for pager display
+	l_pager = MetaWrap.Page.Output("pager");
+	
+	// View the image chooser
+	refresh();
+}
+
+function nextpage()
+{
+	l_page++;
+	refresh();
+
+	return false;
+}
+
+function prevpage()
+{
+	l_page--;
+	refresh();
+
+	return false;
+}
+
+function chooseimage(p_image)
+{
+	trace("choose image " + p_image);
+	
+	// Create a XML DOM Object
+	var l_xml_mediaitem = new MetaWrap.XML.Document();
+	ASSERT(l_xml_mediaitem,"l_xml_campaign is null");
+	if (l_xml_mediaitem == null)
+	{
+	     error("ERROR creating XML document");	
+	}
+	
+	if (!MetaWrap.XML.Document.Request(l_xml_mediaitem,l_xml_request,g_server_root+"ajax_testdata/" + l_campaign_key + "_" + l_mediaitems[p_image].m_id + ".xml","GET",false,false))
+	{
+	    error("ERROR Loading XML file....");
+	}
+	
+	trace(l_xml_mediaitem.xml.length + " bytes loaded.");
+	
+	// Deserialise it
+	l_mediaitem = new MetaWrap.MediaStore.Campaign();
+	l_mediaitem = MetaWrap.XML.Deserialise(l_xml_mediaitem.xml,l_mediaitem);
+	
+	refresh_manufacturers(p_image);
+	
+	return false;
+}
+
+function choosemanufacturer(p_image,p_manufacturer)
+{
+	trace("choose manufacturer " + p_image + "," + p_manufacturer);
+	
+	refresh_phones(p_image,p_manufacturer);
+	
+	return false;
+}
+
+function choosephone(p_image,p_manufacturer,p_phone)
+{
+	trace("choose phone " +  p_image + "," + p_manufacturer + "," + p_phone);
+	
+	refresh_titems(p_image,p_manufacturer,p_phone);
+	
+	return false;
+}
+
+function refresh_titems(p_image,p_manufacturer,p_phone)
+{
+	l_images.clear();
+
+	var l_titems = l_mediaitem.m_manufacturers[p_manufacturer].m_phones[p_phone].m_titems;
+	
+	l_images.write('<h2 id="gallery">Gallery</h2>');	
+   	l_images.write('<h3>Step 3 = Text code to your phone</h3>');
+	l_images.write('<h3>Media for ' + l_mediaitem.m_manufacturers[p_manufacturer].m_name + ' ' + l_mediaitem.m_manufacturers[p_manufacturer].m_phones[p_phone].m_name + '</h3>');
+
+	for(l_t in l_titems)
+	{
+		var l_titem = l_titems[l_t];
+		
+		l_images.write('<div id="imageHolder">');
+		l_images.write('<img src="' + l_servers[l_mediaitems[p_image].m_server] + l_mediaitems[p_image].m_thumb + '" alt="Text code ' + l_titem.m_tcode + ' to ' + l_mediaitem.m_phonenumber + '" title="MY X2-2" width="120" height="80"></img>');
+		l_images.write('<br />' + l_titem.m_tcode + '</div>');
+		
+		l_images.write("<p id='callToAction'>Text image code <b>" + l_titem.m_tcode + "</b> to <strong>" + l_mediaitem.m_phonenumber + "</strong></p>" );
+	}
+	
+	l_images.flush();
+
+	l_pager.clear();
+	l_pager.write('<p class="return" id="backToStart">Return to <a href="javascript:refresh()" onclick="return refresh();">gallery start</a></p>');			
+	l_pager.flush();	
+}
+
+function refresh_phones(p_image,p_manufacturer)
+{
+	l_images.clear();
+	
+	var l_phones = l_mediaitem.m_manufacturers[p_manufacturer].m_phones;
+
+	l_images.write('<div  id="model">');
+  	l_images.write('<h2 id="gallery">Gallery</h2>');
+   	l_images.write('<h3>Step 2 = Select your phone</h3>');
+	l_images.write('<div class="center">');		
+  	l_images.write('<ul>');
+	for(l_p in l_phones)
+	{
+		var l_phone = l_phones[l_p];
+		l_images.write("<li> <a href='javascript:choosephone(" + p_image + "," + p_manufacturer + "," + l_p + ")' onclick='return choosephone(" + p_image + "," + p_manufacturer + "," + l_p + ");'>" + l_phone.m_name + "</a> </li>");
+	}	
+	l_images.write('</ul>');
+	l_images.write('</div>');
+	l_images.write('</div>');				
+	
+	l_images.flush();
+
+	l_pager.clear();
+	
+	l_pager.write("<p class='return' ><a href='javascript:refresh_manufacturers(" + p_image + ")' onclick='return refresh_manufacturers(" + p_image + ");'>" + "Choose another manufacturer"  + "</a></p>");
+		
+	l_pager.flush();	
+}
+
+function refresh_manufacturers(p_image)
+{
+	l_images.clear();
+	
+	l_images.write('<div id="manufacturer">');	
+	l_images.write('<h2 id="gallery">Gallery</h2>');
+   	l_images.write('<h3>Step 1 = Select Manufacturer</h3>');
+
+	l_images.write('<div class="center">');		
+	l_images.write('<ul id="manufacturer">');
+          	
+	for(l_m in l_mediaitem.m_manufacturers)
+	{
+		var l_manufacturer = l_mediaitem.m_manufacturers[l_m];
+		l_images.write("<li><a href='javascript:choosemanufacturer(" + p_image + "," + l_m + ")' onclick='return choosemanufacturer(" + p_image + "," + l_m + ");'>");
+		l_images.write("<img src='images/manufacturer/" + filename(l_manufacturer.m_name) + ".gif' width='140' height='55' alt='" + l_manufacturer.m_name + "'/>");
+		l_images.write("</a></li>");
+		
+	}
+	l_images.write('</ul>');
+	l_images.write('</div>');			
+	l_images.write('</div>');	
+	
+	l_images.flush();
+
+	l_pager.clear();
+	
+	l_pager.write('<p class="return" id="backToStart">Return to <a href="javascript:refresh()" onclick="return refresh();">gallery start</a></p>');			
+
+		
+	l_pager.flush();
+}
+
+
+function refresh()
+{
+	trace("l_mediaitems.count" + l_mediaitems.length + " when refresh()");
+
+	l_images.clear();
+
+	var l_from = l_page*l_count;
+	var l_to = (l_page+1)*l_count;
+
+	if (l_to > l_mediaitems.length)
+	{
+		l_to = l_mediaitems.length;
+	}
+
+	l_images.write("<h2 id='gallery'>Gallery " + l_from + " to " + l_to + "</h2>");
+		
+	l_images.write('<div class="center">');		
+	l_images.write('<ul id="thumbnails">');
+	for(var i = l_from; i < l_to;i++)
+	{
+		l_images.write("<li>");
+		l_images.write("<img onclick='chooseimage(" + i + ")' width='120' height='80' src='" + l_servers[l_mediaitems[i].m_server] + l_mediaitems[i].m_thumb + "'/>");
+		l_images.write("<a class='selectimage' href='javascript:chooseimage(" + i + ")' onclick='return chooseimage(" + i + ")'>Select phone</a>");
+		l_images.write("</li>");		
+	}
+	
+	l_images.write("</ul>");
+	l_images.write('<div>');		
+
+	l_images.flush();
+
+	l_pager.clear();
+
+	var l_total_pages = (Math.ceil(l_mediaitems.length/l_count));
+
+	l_pager.write('<p class="return">');
+	if (l_page != 0)
+	{
+		l_pager.write("<a href='javascript:prevpage()' onclick='return prevpage()'>PREV</a>&nbsp;");
+	}		
+	l_pager.write("Page " + (l_page+1) + " of " + l_total_pages);
+	if (l_page < l_total_pages)
+	{
+		l_pager.write("&nbsp;<a chref='javascript:nextpage()' onclick='return nextpage()'>NEXT</a>");
+	}
+	
+	l_pager.write('</p>');
+	
+	l_pager.flush();
+
+}
+
+
+MetaWrap.MediaStore = {};
+
+
+/*!
+    @class      MetaWrap.MediaStore.Campaign = function()
+    @brief
+    @author     James Mc Parlane
+    @date       6 December 2006
+*/
+MetaWrap.MediaStore.Campaign = function()
+{
+    this.m_phonenumber = "";
+    this.m_tags = [];
+    this.m_items = [];
+    this.m_servers = [];
+    this.m_manufacturers = [];
+    return this;
+}
+
+/*!
+    @fn         MetaWrap.MediaStore.Campaign.prototype.m_items_create = function()
+    @return
+    @brief
+    @author     James Mc Parlane
+    @date       6 September 2004
+*/
+MetaWrap.MediaStore.Campaign.prototype.m_items_create = function()
+{
+    var l_object = new MetaWrap.MediaStore.Campaign.MediaItem();
+    this.m_items[this.m_items.length] = l_object;
+    return l_object;
+}
+
+
+/*!
+    @class      MetaWrap.Massive.example.V8.Telemetry = function()
+    @brief      Declare class for the Master XML File
+    @author     James Mc Parlane
+    @date       6 December 2006
+*/
+MetaWrap.MediaStore.Campaign.MediaItem = function()
+{
+    this.m_id = "";
+    this.m_media = "";
+    this.m_title = "";
+    this.m_thumb = "";
+    this.m_server = "";
+    return this;
+}
+
+
+/*!
+    @fn         MetaWrap.MediaStore.Campaign.prototype.m_items_create = function()
+    @return
+    @brief
+    @author     James Mc Parlane
+    @date       6 September 2004
+*/
+MetaWrap.MediaStore.Campaign.prototype.m_servers_create = function()
+{
+    var l_object = new MetaWrap.MediaStore.Campaign.Server();
+    this.m_servers[this.m_servers.length] = l_object;
+    return l_object;
+}
+
+
+/*!
+    @class      MetaWrap.MediaStore.Campaign.Server = function()
+    @brief      Declare class for the Master XML File
+    @author     James Mc Parlane
+    @date       6 December 2006
+*/
+MetaWrap.MediaStore.Campaign.Server = function()
+{
+    this.m_id = "";
+    this.m_root = "";
+    return this;
+}
+
+
+/*!
+    @fn         MetaWrap.MediaStore.Campaign.prototype.m_phones_create = function()
+    @return
+    @brief
+    @author     James Mc Parlane
+    @date       6 September 2004
+*/
+MetaWrap.MediaStore.Campaign.prototype.m_manufacturers_create = function()
+{
+    var l_object = new MetaWrap.MediaStore.Campaign.Manufacturer();
+    this.m_manufacturers[this.m_manufacturers.length] = l_object;
+    return l_object;
+}
+
+
+/*!
+    @class      MetaWrap.Massive.example.V8.Telemetry = function()
+    @brief      Declare class for the Master XML File
+    @author     James Mc Parlane
+    @date       6 December 2006
+*/
+MetaWrap.MediaStore.Campaign.Manufacturer = function()
+{
+    this.m_names = "";
+    this.m_phones = [];
+    return this;
+}
+
+
+
+/*!
+    @fn         MetaWrap.MediaStore.Campaign.prototype.m_phones_create = function()
+    @return
+    @brief
+    @author     James Mc Parlane
+    @date       6 September 2004
+*/
+MetaWrap.MediaStore.Campaign.Manufacturer.prototype.m_phones_create = function()
+{
+    var l_object = new MetaWrap.MediaStore.Campaign.Manufacturer.Phone();
+    this.m_phones[this.m_phones.length] = l_object;
+    return l_object;
+}
+
+/*!
+    @class      MetaWrap.Massive.example.V8.Telemetry = function()
+    @brief      Declare class for the Master XML File
+    @author     James Mc Parlane
+    @date       6 December 2006
+*/
+MetaWrap.MediaStore.Campaign.Manufacturer.Phone = function()
+{
+    this.m_id = "";
+    this.m_name = "";
+    this.m_thumb = "";
+    this.m_titems = [];
+    return this;
+}
+
+
+/*!
+    @fn         MetaWrap.MediaStore.Campaign.prototype.m_phones_create = function()
+    @return
+    @brief
+    @author     James Mc Parlane
+    @date       6 September 2004
+*/
+MetaWrap.MediaStore.Campaign.Manufacturer.Phone.prototype.m_titems_create = function()
+{
+    var l_object = new MetaWrap.MediaStore.Campaign.Manufacturer.Phone.TranscodedMediaItem();
+    this.m_titems[this.m_titems.length] = l_object;
+    return l_object;
+}
+
+/*!
+    @class      MetaWrap.Massive.example.V8.Telemetry = function()
+    @brief      Declare class for the Master XML File
+    @author     James Mc Parlane
+    @date       6 December 2006
+*/
+MetaWrap.MediaStore.Campaign.Manufacturer.Phone.TranscodedMediaItem = function()
+{
+    this.m_iid = "";
+    this.m_tid = "";
+    this.m_tcode = "";
+    return this;
+}
+
+
+
+// Create a XML DOM Object
+var l_xml_campaign = new MetaWrap.XML.Document();
+ASSERT(l_xml_campaign,"l_xml_campaign is null");
+if (l_xml_campaign != null)
+{
+     trace("Creating XML document");
+}
+else
+{
+	error("ERROR creating XML document");	
+}
+
+
+if (MetaWrap.XML.Document.Request(l_xml_campaign,l_xml_request,g_server_root+"ajax_testdata/" + l_campaign_key + "-mediaitems.xml","GET",false,false))
+{
+    trace("Loading XML file....");
+}
+else
+{
+	error("ERROR Loading XML file...");	
+}
+
+trace(l_xml_campaign.xml.length + " bytes loaded.");
+
+// Deserialise it
+l_campaign = new MetaWrap.MediaStore.Campaign();
+l_campaign = MetaWrap.XML.Deserialise(l_xml_campaign.xml,l_campaign);
+
+// Shortcut to media items
+l_mediaitems = l_campaign.m_items;
+
+trace(l_mediaitems.length + " images available.");
+
+// total number of servers
+var l_server_count = 0;
+
+// load the servers
+for(var l_server in l_campaign.m_servers)
+{
+	var l_server_reference = l_campaign.m_servers[l_server];
+
+	l_server_count++;
+
+	l_servers[l_server_reference.m_id] = l_server_reference.m_root;
+}
+
+trace(l_count + " images per page.");
+
+trace(l_server_count + " media server located.");
+
+</script>
+
+
+<div id="images">
+</div>
+
+<div id="pager">
+</div>
+
+
+</body>
+</html>

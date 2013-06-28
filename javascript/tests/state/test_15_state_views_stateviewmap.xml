@@ -1,0 +1,375 @@
+<?xml version="1.0"?>
+<!--?xml-stylesheet href="stateviewmap.xsl" type="text/xsl" ?-->
+<metawrap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="../metawrap/metawrap.xsd ..\metawrap\metawrap.xsd">
+    <stateviews>
+	
+		<state name="main/loaded/loggedIn">
+			<aspect name="loggedin" />	
+		</state>
+
+		<state name="main/loaded/loggedOut">
+			<aspect name="loggedout" />			
+		</state>
+
+		<state name="main/loaded/loggedIn/memberSummaryLoaded">
+			<aspect name="applications" onstate="onShow_renderApplications()" />			
+		</state>
+
+		<state name="main/loaded">
+			<aspect name="applications" onstate="onShow_renderApplications()" />			
+		</state>
+		
+		<state name="main/loaded/loggedOut/joining">		
+			<aspect name="joining" />			
+		</state>		
+
+		<state name="main/loaded/loggedOut/inviteReady">			
+			<aspect name="invite_ready" />			
+		</state>	
+
+		<state name="main/loaded/loggedOut/inviteSent">
+			<aspect name="invite_sent" />			
+		</state>	
+
+		<state name="main/loaded/loggedOut/inviteError">
+			<aspect name="invite_error" />			
+		</state>	
+		
+		<state name="main/loaded/loggedOut/readyToLogin">
+			<aspect name="loginbutton" />			
+		</state>	
+
+		<state name="main/loaded/loggedOut/normalLogin">
+			<aspect name="normal_login" />			
+		</state>	
+
+		<state name="main/loaded/loggedOut/mobileLogin">
+			<aspect name="mobile_login" />			
+		</state>	
+
+		<state name="main/loaded/loggedOut/mobileLogin/generatingCode">
+			<aspect name="generating_code" />			
+		</state>
+
+		<state name="main/loaded/loggedOut/mobileLogin/generatingCodeError">
+			<aspect name="generating_code_error" />			
+		</state>
+				
+		<state name="main/loaded/loggedOut/mobileLogin/waitingForSMS">
+			<aspect name="waiting_for_sms" onshow="onShow_waitingForSMS()" />			
+		</state>	
+
+		<state name="main/loaded/loggedOut/mobileLogin/waitingForSMSError">
+			<aspect name="waiting_for_sms_error" />			
+		</state>	
+		
+		<state name="main/loaded/loggedOut/mobileLogin/waitingForSMSExpired">
+			<aspect name="waiting_for_sms_expired" />			
+		</state>		
+
+		<state name="application">
+			<page name="application" />
+		</state>		
+
+		<state name="application/loading">
+			<aspect name="loading" />
+		</state>		
+
+		<state name="application/loaded">
+			<aspect name="loaded" />
+		</state>		
+		
+		<state name="application/loaded/registerOrLogin">
+			<aspect name="register_or_login" />		
+			<aspect name="not_ready_for_sms_not_loggedin" />
+		</state>		
+
+		<state name="application/loaded/loggedIn">
+			<aspect name="logged_in" />			
+		</state>		
+		
+		<state name="application/loaded/loggedIn/readyToAcceptSMSorMMS">
+			<aspect name="ready_for_sms_or_mms" />			
+		</state>	
+
+		<state name="application/loaded/loggedIn/notReadyToAcceptSMSorMMS">
+			<aspect name="not_ready_for_sms_or_mms_loggedin_but_no_app" />			
+		</state>	
+		
+		
+		<state name="application/loaded/loggedIn/completeRegistration">
+			<aspect name="complete_registration" />			
+		</state>		
+		
+		<state name="application/loaded/loggedIn/accountCreated">
+			<aspect name="account_created" />			
+		</state>		
+
+		<state name="application/loaded/loggedIn/completeRegistration/canInputUsername/usernameChecking">
+			<aspect name="completeregistration_username_checking" />			
+		</state>		
+
+		<state name="application/loaded/loggedIn/completeRegistration/canInputUsername/usernameAvailable">
+			<aspect name="completeregistration_username_available" />			
+		</state>		
+
+		<state name="application/loaded/loggedIn/completeRegistration/canInputUsername/usernameTaken">
+			<aspect name="completeregistration_username_taken" />			
+		</state>		
+
+		<state name="application/loaded/loggedIn/completeRegistration/canInputUsername/usernameInvalid">
+			<aspect name="completeregistration_username_invalid" />			
+		</state>		
+
+		<state name="application/loaded/loggedIn/completeRegistration/canInputUsername/usernameCurrent">
+			<aspect name="completeregistration_username_current" />			
+		</state>		
+		
+		<state name="application/loaded/loggedIn/completeRegistration/canInputPassword/passwordInvalid">
+			<aspect name="completeregistration_password_invalid" />				
+		</state>		
+		
+		<state name="application/loaded/loggedIn/completeRegistration/canInputPassword/passwordPoor">
+			<aspect name="completeregistration_password_poor" />							
+		</state>		
+		
+		<state name="application/loaded/loggedIn/completeRegistration/canInputPassword/passwordWeak">
+			<aspect name="completeregistration_password_weak" />						
+		</state>		
+
+		<state name="application/loaded/loggedIn/completeRegistration/canInputPassword/passwordGood">
+			<aspect name="completeregistration_password_good" />						
+		</state>		
+		
+		<state name="application/loaded/loggedIn/completeRegistration/canInputPassword/passwordStrong">
+			<aspect name="completeregistration_password_strong" />						
+		</state>		
+		
+		<state name="application/loaded/loggedIn/completeRegistration/canInputPasswordVerify">
+			<aspect name="completeregistration_ask_for_verification_password" />				
+		</state>		
+		
+		<state name="application/loaded/loggedIn/completeRegistration/canInputPasswordVerify/passwordVerifyIsBlank">
+			<aspect name="completeregistration_passwordverify_blank" />				
+		</state>		
+		
+		<state name="application/loaded/loggedIn/completeRegistration/canInputPasswordVerify/passwordVerifyDoesNotMatch">
+			<aspect name="completeregistration_passwordverify_doesnotmatch" />				
+		</state>		
+
+		<state name="application/loaded/loggedIn/completeRegistration/canInputPasswordVerify/passwordVerifyMatches">
+			<aspect name="completeregistration_passwordverify_matches" />				
+		</state>	
+
+		<state name="application/loaded/loggedIn/completeRegistration/canCreateAccount">
+			<aspect name="completeregistration_can_complete" />				
+		</state>		
+
+		<state name="application/loaded/loggedIn/completeRegistration/canNotCreateAccount">
+			<aspect name="completeregistration_can_not_complete" />				
+		</state>	
+		
+		
+		
+		<state name="application/loaded/loggedIn/updateRegistration">
+			<aspect name="update_registration" />			
+		</state>		
+
+		<state name="application/loaded/loggedIn/updateRegistration/needCurrentPassword">
+			<aspect name="ask_for_current_password" />				
+		</state>		
+		
+		<state name="application/loaded/loggedIn/updateRegistration/accountUpdated">
+			<aspect name="account_updated" />			
+		</state>	
+
+		<state name="application/loaded/loggedIn/updateRegistration/accountUpdated">
+			<aspect name="update_registration" />			
+		</state>	
+
+		<state name="application/loaded/loggedIn/updateRegistration/needCurrentPassword/currentPasswordRejected">
+			<aspect name="current_password_rejected" />				
+		</state>		
+		
+		<state name="application/loaded/loggedIn/updateRegistration/needCurrentPassword/currentPasswordReady">
+			<aspect name="current_password_ok" />				
+		</state>		
+
+		<state name="application/loaded/loggedIn/updateRegistration/needCurrentPassword/currentPasswordNotReady">
+			<aspect name="current_password_empty" />				
+		</state>		
+		
+		<state name="application/loaded/loggedIn/updateRegistration/canInputUsername/usernameInvalid">
+			<aspect name="username_invalid" />				
+		</state>		
+		
+		<state name="application/loaded/loggedIn/updateRegistration/canInputUsername/usernameCurrent">
+			<aspect name="username_current" />				
+		</state>		
+
+		<state name="application/loaded/loggedIn/updateRegistration/canInputUsername/usernameChecking">
+			<aspect name="username_checking" />				
+		</state>		
+		
+		<state name="application/loaded/loggedIn/updateRegistration/canInputUsername/usernameAvailable">
+			<aspect name="username_available" />				
+		</state>		
+		
+		<state name="application/loaded/loggedIn/updateRegistration/canInputUsername/usernameTaken">
+			<aspect name="username_taken" />				
+		</state>	
+		
+		<state name="application/loaded/loggedIn/updateRegistration/canUpdateAccount">
+			<aspect name="can_update_account" />				
+		</state>		
+
+		<state name="application/loaded/loggedIn/updateRegistration/canNotUpdateAccount">
+			<aspect name="can_not_update_account" />				
+		</state>		
+
+		<state name="application/loaded/loggedIn/updateRegistration/canInputPasswordVerify">
+			<aspect name="ask_for_verification_password" />				
+		</state>		
+		
+		<state name="application/loaded/loggedIn/updateRegistration/canInputPasswordVerify/passwordVerifyIsBlank">
+			<aspect name="passwordverify_blank" />				
+		</state>		
+		
+		<state name="application/loaded/loggedIn/updateRegistration/canInputPasswordVerify/passwordVerifyDoesNotMatch">
+			<aspect name="passwordverify_doesnotmatch" />				
+		</state>		
+
+		<state name="application/loaded/loggedIn/updateRegistration/canInputPasswordVerify/passwordVerifyMatches">
+			<aspect name="passwordverify_matches" />				
+		</state>		
+		
+		<state name="application/loaded/loggedIn/updateRegistration/canInputPassword/passwordInvalid">
+			<aspect name="password_invalid" />				
+		</state>		
+		
+		<state name="application/loaded/loggedIn/updateRegistration/canInputPassword/passwordPoor">
+			<aspect name="password_poor" />							
+		</state>		
+		
+		<state name="application/loaded/loggedIn/updateRegistration/canInputPassword/passwordWeak">
+			<aspect name="password_weak" />						
+		</state>		
+
+		<state name="application/loaded/loggedIn/updateRegistration/canInputPassword/passwordGood">
+			<aspect name="password_good" />						
+		</state>		
+		
+		<state name="application/loaded/loggedIn/updateRegistration/canInputPassword/passwordStrong">
+			<aspect name="password_strong" />						
+		</state>		
+
+		<state name="application/loaded/loggedIn/applicationAccountValid">
+			<aspect name="application_account_valid" />			
+		</state>		
+
+		<state name="application/loaded/loggedIn/applicationAccountInvalid">
+			<aspect name="application_account_invalid" />			
+		</state>		
+		
+		<state name="application/loaded/loggedIn/addApplication">
+			<aspect name="add_application" />			
+		</state>		
+
+		<state name="application/loaded/loggedIn/addApplication/applicationAddError">
+			<aspect name="application_add_error" />			
+		</state>		
+
+		<state name="application/loaded/loggedIn/addApplication/applicationAdding">
+			<aspect name="application_adding" />			
+		</state>		
+		
+		<state name="application/loaded/loggedIn/addApplication/applicationAddTesting">
+			<aspect name="application_add_testing" />			
+		</state>		
+		
+		<state name="application/loaded/loggedIn/addApplication/canAddApplication">
+			<aspect name="can_add_application" />			
+		</state>		
+
+		<state name="application/loaded/loggedIn/addApplication/canNotAddApplication">
+			<aspect name="can_not_add_application" />			
+		</state>		
+
+		<state name="application/loaded/loggedIn/updateApplication">
+			<aspect name="update_application" />			
+		</state>	
+
+
+		
+		<state name="application/loaded/loggedIn/updateApplication/canUpdateApplication">
+			<aspect name="can_update_application" />			
+		</state>		
+
+		<state name="application/loaded/loggedIn/updateApplication/canNotUpdateApplication">
+			<aspect name="can_not_update_application" />			
+		</state>		
+
+		<state name="application/loaded/loggedIn/updateApplication/applicationUpdating">
+			<aspect name="application_updating" />			
+		</state>		
+
+		
+		<state name="application/loaded/loggedIn/updateApplication/applicationUpdateError">
+			<aspect name="application_update_error" />			
+		</state>		
+
+		<state name="application/loaded/loggedIn/updateApplication/applicationUpdateTesting">
+			<aspect name="application_update_testing" />			
+		</state>		
+		
+		<state name="application/loaded/registerOrLogin/loggingIn">
+			<aspect name="normal_login" />			
+		</state>		
+
+		<state name="application/loaded/registerOrLogin/readyToLogin">
+			<aspect name="login_button" />			
+		</state>		
+
+		<state name="application/loaded/registerOrLogin/notReadyToLogin">
+			<aspect name="login_button_off" />			
+		</state>		
+
+		<state name="application/loaded/registerOrLogin/loginFailed">
+			<aspect name="login_failed" />			
+		</state>		
+		
+		<state name="application/loaded/registerOrLogin/mobileRegistration">
+			<aspect name="mobile_login" />			
+		</state>	
+
+		<state name="application/loaded/registerOrLogin/mobileRegistration/generatingCode">
+			<aspect name="generating_code" />			
+		</state>
+
+		<state name="application/loaded/registerOrLogin/mobileRegistration/generatingCodeError">
+			<aspect name="generating_code_error" />			
+		</state>
+				
+		<state name="application/loaded/registerOrLogin/mobileRegistration/waitingForSMS">
+			<aspect name="waiting_for_sms" onshow="onShow_waitingForSMSApplication()" />			
+		</state>	
+
+		<state name="application/loaded/registerOrLogin/mobileRegistration/waitingForSMSError">
+			<aspect name="waiting_for_sms_error" />			
+		</state>	
+		
+		<state name="application/loaded/registerOrLogin/mobileRegistration/waitingForSMSExpired">
+			<aspect name="waiting_for_sms_expired" />			
+		</state>	
+		
+		
+		<state name="main">
+			<aspect name="applications" />			
+			<page name="twitter" onshow="onShow_renderApplications()" onhide="onHide_renderApplications()" />
+		</state>		
+
+		<state name="api">
+			<page name="api" />			
+		</state>	
+    </stateviews>
+</metawrap>

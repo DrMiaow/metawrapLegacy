@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)./index.html -->
+<html lang="en">
+  <head>
+    <meta name="generator"
+    content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+    <title>Introduction - ThumbWhere API</title>
+    <meta name="author" content="ThumbWhere api" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />    
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Le styles -->
+    <link href="./assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./assets/themes/twitter/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="./assets/themes/twitter/bootstrap/css/bootstrap-custom.css" rel="stylesheet" />
+    <link href="./assets/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="./assets/pygments.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+  <div class="page">
+    <header class="site-header">
+      <nav class="api-thumbwhere-header">
+        <a href="http://www.thumbwhere.com/" class="thumbwhere-logo" target="_blank">
+          <img src="./assets/thumbwhere-logo-100.png" alt="ThumbWhere" />
+        </a>
+      </nav>
+      <nav class="api-header api-stripes">
+        <a href="http://www.thumbwhere.com/" class="header-logo" target="_blank">
+          <img src="./assets/api-logo.png" alt="ThumbWhere Social Media Server" />
+        </a>
+        <h1 class="api-page-title">
+          <a class="brand" href="./">ThumbWhere API</a>
+        </h1>
+        <img class="api-color-line-header" src="./assets/api-color-line.png" />
+      </nav>
+    </header>
+    <div class="container content-container">
+      <div class="row">
+        <div class="span3 api-navigation well" data-role="api-navigation" style="position: static; top: 20px;">
+          <ul class="nav nav-list">
+            <li class="active">
+              <a href="#introduction-anchor">Introduction</a>
+            </li>
+            <li>
+              <a href="#overview-anchor">How ThumbWhere Works</a>
+            </li>
+            <li>
+              <a href="#gettingstarted-anchor">Getting Started</a>
+            </li>
+            <li>
+              <a href="#coreconcepts-anchor">Core Concepts</a>
+            </li>
+          </ul>
+          <ul class="nav nav-list" data-role="api-nav">
+            <li class="nav-header">API</li>
+			
+			
+			<!-- Set the li below to active if it somsone clicks on the a below.-->
+            <li class="active" >
+              <a href="#service-admin-anchor">1. Admin API</a>
+			  
+              <ul data-role="sub-nav" data-position="1">
+
+			  <h5>Actions</h5>
+                <li>
+                  <a href="#service-admin-get_all_lights">Create A New Account</a>
+                </li>
+                <li>
+                  <a href="#service-admin-get_new_lights">Account Exists</a>
+                </li>
+                <li>
+                  <a href="#service-admin-search_for_new_lights">Search for new lights</a>
+                </li>
+                <li>
+                  <a href="#service-admin-get_light_attributes_and_state">Get light attributes and state</a>
+                </li>
+                <li>
+                  <a href="#service-admin-set_light_attributes_rename">Set light attributes (rename)</a>
+                </li>
+                <li>
+                  <a href="#service-admin-set_light_state">Set light state</a>
+                </li>
+				
+			  <h5>Resources</h5>				
+			  
+                <li>
+                  <a href="#service-admin-set_light_state">Campaign</a>
+                </li>
+			  
+              </ul>
+
+			  
+			  
+              
+			  
+            </li>
+			
+            <li>
+              <a href="#glossaryterms-anchor">Glossary terms</a>
+            </li>
+            <li>
+              <a href="#messagestructure-anchor">Message structure and response</a>
+            </li>
+            <li>
+              <a href="#errormessages-anchor">Error messages</a>
+            </li>
+            <li>
+              <a href="#datatypes-anchor">Datatypes</a>
+            </li>
+          </ul>
+          <ul class="nav nav-list">
+            <li class="nav-header">Other resources</li>
+            <li>
+              <a href="https://github.com/ThumbWhere/ThumbWhere-JavaScript-WebServiceLibrary" target="_blank">JavaScript API</a>
+            </li>			
+            <li>
+              <a href="https://github.com/ThumbWhere/ThumbWhere-dotNET-WebServiceLibrary" target="_blank">.NET API</a>
+            </li>						
+            <li>
+              <a href="https://github.com/ThumbWhere/ThumbWhere-PHP5-WebServiceLibrary" target="_blank">PHP API</a>
+            </li>
+            <li>
+              <a href="https://github.com/ThumbWhere/ThumbWhere-Drupal7-Module" target="_blank">Drupal Module</a>
+            </li>			
+            <li>
+              <a href="https://getsatisfaction.com/thumbwhere" target="_blank">Forums</a>
+            </li>
+            <li>
+              <a href="http://wiki.thumbwhere.com/" target="_blank">Wiki</a>
+            </li>						
+            <li>
+              <a href="http://twitter.com/thumbwhere" target="_blank">Twitter</a>
+            </li>			
+            <li>
+              <a href="http://blog.thumbwhere.com" target="_blank">Blog</a>
+            </li>
+			
+          </ul>
+        </div>
+        
+		<div class="span9 api-main-content" data-role="main-content">
+		  <!--Body content-->
+		  <a id="introduction-anchor"></a>
+          <h1>Introduction 
+          <small>to ThumbWhere API</small></h1>
+		  
+          <h3 id="see_what_you_can_do">ThumbWhere</h3>
+		  <p>ThumbWhere is software as a services (<a href="http://en.wikipedia.org/wiki/Software_as_a_service" target="_blank">SaaS</a>) that provides a ready made set of back end services.</a> 
+		  <p>We host your workflow and data and do all the heavy lifting for your application, leaving you to concentrate on what you do best, making compelling applications..</a> 
+		  <br/>
+          <p>ThumbWhere provides a comprehensive and advanced API for your applications to interact with the ThumbWhere Services, so that with minimal effort your application to interact in incredible ways with the rest of the internet.</a> 
+		  <br/>
+          <p><img src="./assets/ThumbWhere-Webservices-Conversation.png" alt="The ThumbWhere WebServices Spectrum" /></p>
+		  <br/>
+		  <p>The API interface supports a continum of Workflow, Action and Resource based web services.</p>
+          <p><img src="./assets/thumbwhere-webservices-spectrum.png" alt="The ThumbWhere WebServices Spectrum" /></p>
+
+          <h3 id="getting_started">Getting Started</h3>
+          <p>We’ve started off by publicly releasing only the core parts of our API along with some easy to follow examples for how to use them. This should be enough to get you up and running.</p>
+          <ul>
+            <li>Learn 
+            <a href="#howapiworks-anchor">how ThumbWhere works</a>.</li>
+            <li>Easy step by step guide to 
+            <a href="#gettingstarted-anchor">get you started</a>.</li>
+            <li>Core concepts of 
+            <a href="#coreconcepts">the ThumbWhere API</a>.</li>
+            <li>Questions? Ideas? Post them on our 
+            <a href="http://feedback.thumbwhere.com" target="_blank">developer forum</a>.</li>
+            <li>Want More? Try our
+            <a href="http://wiki.thumbwhere.com/" target="_blank">Wiki</a>
+			
+			<a href="http://twitter.com/thumbwhere" target="_blank">Twitter account</a>
+			or our
+			<a href="http://blog.thumbwhere.com" target="_blank">Blog</a>.
+			
+			</li>
+			
+          </ul>
+          <h3 id="free_to_publish">But First, Some Ground Rules</h3>
+          <p>ThumbWhere thinks it should be YOU who profits from your work. What you create you own and are free to give away or
+          sell. That also means that everything connected with use of your creation is your responsibility. ThumbWhere will not
+          accept liability if your creation causes harm. It is also entirely up to you whether and on what terms to commercialize
+          your creation.</p>
+          <p>Just as “what is yours is yours”, “what is ours is ours”. The software, trademarks documentation, and any
+          other materials we provide to help you develop apps, including especially the interface specifications “API”
+          belong to ThumbWhere. It may happen that working on an app suggests an idea to you for an improvement in the API or our
+          materials. If you suggest any improvements to us and we adopt them, they become part of the platform used by everyone,
+          and belong to us.</p>
+          <p>The interface between your apps and the ThumbWhere platform will evolve over time, but we will do our best to maintain
+          backwards compatibility through versioned APIs.</p>          
+          <p>There will be documentation covering more of our features soon. We’re even working on an iOS and Android SDK for
+          later this year to provide libraries which make linking api to your apps a breeze.</p>
+          <p>Feel free to post on the 
+          <a href="http://www.thumbwhere.com" target="_blank">developer forum</a> to share what you are doing with api,
+          or to ask for information/support.</p>
+        </div>
+
+		
+		<div class="span9 api-main-content" data-role="main-content">
+          <!--Body content-->
+		  <a id="overview-anchor"></a>
+          <h1>How ThumbWhere works</h1>
+          <h2 id="overview">Overview</h2>		  
+          <p>ThumbWhere is a system of 4 components:</p>
+          <ol>
+            <li>
+            <strong>Apps</strong> – These are programs that do things for people. Apps you develop could do anything from simply
+            posting photos to Twitter, turning your lights on at night or all the way up to, well anything you can imagine. They are not limited to smartphone apps. 
+			It’s basically everything that makes use of the ThumbWhere system APIs.</li>
+            <li>
+            <strong>Workflow</strong> – These are small programs using our visual tool that you have entered into the ThumbWhere portal. These perform a series of instructions that you want ThumbWhere to perform in response to something that has happened to the world.</li>
+            <li>
+            <strong>Actions</strong> – These are commands that you can invoke via the web services. You can trigger inbuilt workflow or you can be workflow that you have defined.</li>
+            <li>
+            <strong>Resources</strong> – This is your data. It could be photos, it could be stiock market prices, it could be a list of users, mp3 files, videos, anthing. Through the web services you can create, read, update, delete and query this data.
+            </li>
+          </ol>          
+          <p>All requests and responses and new values are sent and returned in XML with UTF8 encoding so it’s easy to generate or parse.</p>
+        </div>
+      	  
+	    <div class="span9 api-main-content" data-role="main-content">
+          <!--Body content-->
+		  <a id="gettingstarted-anchor"></a>
+          <h1>Getting started</h1>
+		  
+          <p>First make sure you have an API Key. 
+          <a href="http://www.thumbwhere.com/getstarted" target="_blank">here</a> or if you still need to buy a kit go 
+          <a href="http://www.thumbwhere.com/buy" target="_blank">here</a>.</p>
+          <p>The fastest way to learn how to build apps which control the api system is to use the simple test web app built into
+          every bridge. This lets you directly input commands and send them to the lights. You can look at the source HTML and
+          JavaScript code for some directions on how to do something different.</p>
+          <h3 id="step_1">Step 1</h3>
+          <p>First make sure your bridge is connected to your network and is functioning properly. Test that the smartphone app can
+          control the lights on the same network.</p>
+          <h3 id="step_2">Step 2</h3>
+          <p>Then you need to discover the IP address of the bridge on your network. You can do this in a few ways.</p>
+          <ol>
+            <li>Use a UPnP discovery app to find ThumbWhere api in your network.</li>
+            <li>Use our broker server discover process by visiting 
+            <a href="http://www.thumbwhere.com/api/nupnp" target="_blank">www.thumbwhere.com/api/nupnp</a></li>
+            <li>Log into your wireless router and look ThumbWhere api up in the DHCP table.</li>
+          </ol>
+          <h3 id="step_3">Step 3</h3>
+          <p>Once you have the address load the test app by visiting the following address in your web browser.</p>
+          <p>
+            <code>http://&lt;bridge ip address&gt;/debug/clip.html</code>
+          </p>
+          <p>You should see an interface like this.</p>
+          <p>
+            <img src="./assets/clip-api-debugger-empty.png" alt="CLIP API debugger" />
+          </p>
+          <p>Using this debugger utility you can populate the components of an HTTP call – the basis of all web traffic and of
+          the api RESTful interface.</p>
+          <ol>
+            <li>
+              <p>
+              <strong>URL</strong>: this is actually the local address of a specific resource (thing) inside the api system. It
+              could be light, a group of lights or many more things. This is the object you’ll be interacting with in this
+              command.</p>
+            </li>
+            <li>
+              <p>
+              <strong>A body</strong>: this is the part of the message which describes what you want to change and how. Here you
+              enter, in JSON format, the resource name and value you’d like to change/add.</p>
+            </li>
+            <li>
+              <p>
+              <strong>A method</strong>: here you have a choice of the 4 HTTP methods the api call can use.</p>
+              <ul>
+                <li>
+                <strong>GET</strong>: this is the command to fetch all information about the addressed resource</li>
+                <li>
+                <strong>PUT</strong>: this is the command to modify an addressed resource</li>
+                <li>
+                <strong>POST</strong>: this is the command to create a new resource inside the addressed resource</li>
+                <li>
+                <strong>DELETE</strong>: this is the command to deleted the addressed resource</li>
+              </ul>
+            </li>
+            <li>
+              <p>
+              <strong>Response</strong>: In this area you’ll see the response to your command. Also in JSON format.</p>
+            </li>
+          </ol>
+          <h3 id="so_lets_get_started">So let’s get started…</h3>
+          <p>First let’s do a very simple command and get information about your api system.</p>
+          <p>Fill in the details below leaving the body box empty and press the 
+          <code>GET</code> button.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Address</th>
+                <th>
+                  <code>http://&lt;bridge ip address&gt;/api/newdeveloper</code>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left;">Body</td>
+                <td style="text-align: left;"></td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Method</td>
+                <td style="text-align: left;">
+                  <code>GET</code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p>You should see a response like below:</p>
+          <p>
+            <img src="./assets/clip-api-debugger-newdeveloper3.png" alt="CLIP API debugger" />
+          </p>
+          <p>Congratulations you’ve just sent you first CLIP command!</p>
+          <p>Now this is the command to fetch all information in the bridge. You didn’t get much back and that’s because
+          you’re using an unauthorized username “newdeveloper”.</p>
+          <p>So let’s authorize “newdeveloper” for full access we do this by requesting a new username.</p>
+          <p>Fill in the info below and press the 
+          <code>POST</code> button.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Address</th>
+                <th>
+                  <code>http://&lt;bridge ip address&gt;/api</code>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left;">Body</td>
+                <td style="text-align: left;">
+                  <code>{&quot;devicetype&quot;:&quot;test user&quot;,&quot;username&quot;:&quot;newdeveloper&quot;}</code>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Method</td>
+                <td style="text-align: left;">
+                  <code>POST</code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p>This command is basically saying please create a new resource inside 
+          <code>/api</code> (where usernames sit) with the following properties.</p>
+          <p>When you press the 
+          <code>POST</code> button you should get back an error message letting you know that you have to press the link button.
+          This is our security step so that only apps you want to control your lights can. By pressing the button we prove that the
+          user has physical access to the bridge.</p>
+          <p>
+            <img src="./assets/clip-api-debugger-newdeveloper2.png" alt="CLIP API debugger" />
+          </p>
+          <p>Go and press the button on the bridge and then press the 
+          <code>POST</code> button again and you should get a success response like below.</p>
+          <p>
+            <img src="./assets/clip-api-debugger-newdeveloper.png" alt="CLIP API debugger" />
+          </p>
+          <p>Congratulations you’ve just created an authorized user, which we’ll use from now on! Now if you do the first 
+          <code>GET</code> command again you should get a whole lot more information about what lights you have and their states.
+          This data is all in JSON format so can be easily processed by your applications.</p>
+          <h3 id="turning_a_light_on_and_off">Turning a light on and off</h3>
+          <p>Okay now that we have a username with permission to use the system lets start having some fun with it.</p>
+          <p>Each light has its own URL. You can see what lights you have with the following command:</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Address</th>
+                <th>
+                  <code>http://&lt;bridge ip address&gt;/api/newdeveloper/lights</code>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left;">Body</td>
+                <td style="text-align: left;"></td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Method</td>
+                <td style="text-align: left;">
+                  <code>GET</code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p>You should get a JSON response with all the lights in your system and their names.</p>
+          <p>Now let’s get information about a specific light. The light with id 1.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Address</th>
+                <th>
+                  <code>http://&lt;bridge ip address&gt;/api/newdeveloper/lights/1</code>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left;">Body</td>
+                <td style="text-align: left;"></td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Method</td>
+                <td style="text-align: left;">
+                  <code>GET</code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p>In this response you can see all of the resources this light has. The most interesting ones are inside the state
+          object as these are the ones we’ll have to interact with to control the light.</p>
+          <p>Lets’ start with the “on” attribute. This is a very simple attribute that can have 2 values: true and false. So
+          let’s try turning the light off.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Address</th>
+                <th>
+                  <code>http://&lt;bridge ip address&gt;/api/newdeveloper/lights/1/state</code>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left;">Body</td>
+                <td style="text-align: left;">
+                  <code>{&quot;on&quot;:false}</code>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Method</td>
+                <td style="text-align: left;">
+                  <code>PUT</code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p>Looking at the command you are sending we’re addressing the “state” object of light one and telling it to modify
+          the “on” value inside it to false (or off). When you press the 
+          <code>PUT</code> button the light should turn off. Change the value in the body to true and the light will turn on
+          again.</p>
+          <p>Now let’s do something a bit more fun and start changing some colours. Enter the command below.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Address</th>
+                <th>
+                  <code>http://&lt;bridge ip address&gt;/api/newdeveloper/lights/1/state</code>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left;">Body</td>
+                <td style="text-align: left;">
+                  <code>{&quot;on&quot;:true, &quot;sat&quot;:255, &quot;bri&quot;:255,&quot;api&quot;:10000}</code>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Method</td>
+                <td style="text-align: left;">
+                  <code>PUT</code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p>We’re interacting with the same “state” attributes here but now we’re modifying a couple more attributes.
+          We’re making sure the light is on by setting the “on” resource to true. We’re also making sure the saturation
+          (intensity) of the colours and the brightness is at its maximum by setting the “sat” and “bri” resources to 255.
+          Finally we’re telling the system to set the “api” (a measure of color) to 10000 points (api runs from 0 to 65535).
+          Try changing the api value and keep pressing the PUT button and see the colour of your light changing running through
+          different colors.</p>
+          <p>
+          <strong>Now you understand the basics of the</strong> commands you can send to api through this tool – but we can also
+          send the commands as part of an app.</p>
+        </div>
+	  
+	    <div class="span9 api-main-content" data-role="main-content">
+		  <a id="coreconcepts-anchor" ></a>
+          <!--Body content-->
+          <h1>Core concepts</h1>
+		  
+          <p>The api system is built around the idea of everything in your system having a unique URL served by the bridge.
+          Interacting with these URLs lets you modify them or find out their current state as explained above.</p>
+          <h4 id="api_web_addresses">Hue web addresses</h4>
+          <p>A api resource web address will always start with the following.</p>
+          <p>
+            <code>http://&lt;bridge IP address&gt;/api</code>
+          </p>
+          <p>This is the RESTful root and is how your app or controller talks to the api bridge interface.</p>
+          <h4 id="the_api_username">The api username</h4>
+          <p>In most of the commands (the exception is creating a username) you’ll also include a username after this:</p>
+          <p>
+            <code>http://&lt;bridge IP address&gt;/api/&lt;username&gt;</code>
+          </p>
+          <p>This username determines which resources you have access to. If you provide a username that isn’t known to the
+          bridge then most resources won’t be available to you. Using one that is authorized, as shown in the 
+          <a href="./gettingstarted.html">getting started</a> section, will allow you to interact with pretty much everything
+          interesting.</p>
+          <p>Each new instance of an app should use a unique username which you generate using the 
+          <a href="./4_configurationapi.html#41_create_user">Create New User command</a>.</p>
+          <h4 id="lightsgroups_and_more">Lights/groups and more</h4>
+          <p>There are different kinds of resources to interact with and we’ve clustered them together with similar objects. The
+          four available currently are:</p>
+          <ul>
+            <li>
+            <code>/lights</code> resource which contains all the light resources</li>
+            <li>
+            <code>/groups</code> resource which contains all the groups</li>
+            <li>
+            <code>/config</code> resource which contains all the configuration items</li>
+            <li>
+            <code>/schedules</code> which contains all the schedules</li>
+          </ul>
+          <p>We’ll be adding more as we add features to the system</p>
+          <p>You can query resources available in your bridge by doing a 
+          <code>GET</code> on its local URL. For example the following returns all configuration items in your bridge.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Address</th>
+                <th>
+                  <code>http://&lt;bridge ip address&gt;/api/newdeveloper/config</code>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left;">Body</td>
+                <td style="text-align: left;"></td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Method</td>
+                <td style="text-align: left;">
+                  <code>GET</code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h4 id="changing_a_setting_or_resource">Changing a setting or resource</h4>
+          <p>The principle for changing a setting, attribute or other ‘resource’ on the device is to send a 
+          <code>PUT</code> request to the URL of its parent. The desired new value is attached to the request in the ‘message
+          body’ in JSON format.</p>
+          <p>For example to change the name of the bridge (
+          <code>/config/name</code>) we address the parent of this setting (
+          <code>/config</code>) and send the new name with the request in the message body.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Address</th>
+                <th>
+                  <code>http://&lt;bridge ip address&gt;/api/newdeveloper/config</code>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left;">Body</td>
+                <td style="text-align: left;">
+                  <code>{&quot;name&quot;:&quot;Developer Bridge&quot;}</code>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Method</td>
+                <td style="text-align: left;">
+                  <code>PUT</code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p>If you’re doing something that isn’t allowed, maybe setting a value out of range or typo in the resource name,
+          then you’ll get an error message letting you know what’s wrong. For much more information see the 
+          <a href="./8_errormessages.html">error section</a>.</p>
+          <p>Sometimes, when you do a 
+          <code>GET</code>, the JSON response will have attributes that contain an object for a value – in other words a resource
+          has a set of child resources.</p>
+          <p>For example:</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Address</th>
+                <th>
+                  <code>http://&lt;bridge ip address&gt;/api/newdeveloper/lights/1</code>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left;">Method</td>
+                <td style="text-align: left;">
+                  <code>GET</code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p>gives a JSON response with an attribute called “state”. The value of state is an object which in turn contains a
+          whole bunch of other attributes! To modify these we would need to address 
+          <code>/lights/1/state</code>.</p>
+          <h4 id="representations">Representations</h4>
+          <p>The api system is built on the principle of representations. Each object in the api system has a corresponding
+          resource in the api interface (a representation of the real object). If you interact directly with these representations
+          and afterwards the necessary Zigbee commands are sent out to lights to effect the change.</p>
+          <p>This lets us do things fast without worrying about the wireless messages bouncing between the lights, but it can mean
+          that things are temporarily inconsistent. By this we mean the state of the lights and the state of their representation
+          are not the same for a short period. It corrects itself after a while, but for example if you set all your lights to red
+          and then power cycle a light so that it goes to white, it could take a few minutes for the bridge to update its
+          representation.</p>
+          <p>The same thing is true for our portal with a representation there, which may be temporarily inconsistent with the
+          bridge representation. This all lets us do things fast and deal with lots of concurrent users.</p>
+          <h4 id="controlling_light">Controlling light</h4>
+          <p>There are many properties that can be controlled with api – more than you might expect. All of these properties are
+          in the 
+          <code>/state</code> resource of a light. Let’s go through them and explain.</p>
+          <h4 id="the_easy_ones">The easy ones</h4>
+          <p>
+          <strong>“on”</strong> – This is the easiest example. A light can be on or off. So setting this resource to true
+          turns a light on to its last setting. Setting the resource to false turns the light off.</p>
+          <p>
+          <strong>“bri</strong> – This is the brightness of a light from its minimum brightness 0 to its maximum brightness 255
+          (note minimum brightness is not off). This range has been calibrated so there a perceptually similar steps in brightness
+          over the range. You can set the “bri” resource to a specific value e.g. the following commands sets the lights to
+          42/255 of their maximum brightness.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Address</th>
+                <th>
+                  <code>http://&lt;bridge ip address&gt;/api/newdeveloper/lights/1/state</code>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left;">Body</td>
+                <td style="text-align: left;">
+                  <code>{&quot;bri&quot;:42}</code>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Method</td>
+                <td style="text-align: left;">
+                  <code>PUT</code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h4 id="color_gets_more_complicated">Color gets more complicated</h4>
+          <p>The color point of light has lots of ways of being quantified. The diagram below shows a plot of what is known as the
+          CIE color space – a green triangle outlines the colors which api can address.</p>
+          <p>
+            <img src="./assets/cie-colorspace.png" alt="CIE color space" />
+          </p>
+          <p>All points on this plot have unique xy coordinates that can be used when setting the color of a api bulb. If an xy
+          value outside of the green triangle is chosen, it will produce the closest color it can make. To control lights with xy
+          use the “xy” resource which takes the value of an array of two values between 0 and 1 e.g. 
+          <code>&quot;xy&quot;:[0.675,0.322]</code> is 
+          <span class="text-red">red</span>.</p>
+          <p>We can also choose to address the color point of light in a different way, using colors on the black curved line in
+          the center of the diagram. This is the line that follows white colors from a warm white to a cold white. api supports
+          color temperatures from 2000K (warm) to 6500K (cold) with great white light. To set the light to a white value you need
+          to interact with the “ct” (color temperature) resource, which takes values in a scale called “reciprocal
+          megakelvin” or “mirek”. Using this scale, the warmest color 2000K is 500 mirek (
+          <code>&quot;ct&quot;:500</code>) and the coldest color 6500K is 153 mirek (
+          <code>&quot;ct&quot;:153</code>). As with xy, the light will go to the closest value it can produce if the specified
+          color temperature is outside of the achievable range.</p>
+          <p>The final way to choose the color of your lights is with api and saturation. These values will depend on the color
+          capabilities of the bulb you are using, but since all api bulbs are the same that’s not a problem. The api property at
+          maximum saturation basically goes around all points on the edge of the green triangle (all the most saturated
+          colors).</p>
+          <p>Reducing the saturation takes this api and moves it in a straight line towards the white point. So 
+          <code>&quot;sat&quot;:255</code> always gives the most saturated colors and reducing it to 
+          <code>&quot;sat&quot;:200</code> makes them less intense and more white.</p>
+          <p>Below are some common api values and the corresponding xy values.</p>
+          <table class="colored-table">
+            <thead>
+              <tr>
+                <th>Hue</th>
+                <th>Final-x</th>
+                <th>Final-y</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-red">
+                <td>0</td>
+                <td>6.7500E-01</td>
+                <td>3.2200E-01</td>
+              </tr>
+              <tr class="row-yellow">
+                <td>12750</td>
+                <td>5.4200E-01</td>
+                <td>4.2000E-01</td>
+              </tr>
+              <tr class="row-lightgreen">
+                <td>25500</td>
+                <td>4.0900E-01</td>
+                <td>5.1800E-01</td>
+              </tr>
+              <tr class="row-green">
+                <td>36210</td>
+                <td>2.8800E-01</td>
+                <td>2.7900E-01</td>
+              </tr>
+              <tr class="row-blue">
+                <td>46920</td>
+                <td>1.6700E-01</td>
+                <td>4.0000E-02</td>
+              </tr>
+              <tr class="row-magenta">
+                <td>56100</td>
+                <td>4.2100E-01</td>
+                <td>1.8100E-01</td>
+              </tr>
+              <tr class="row-red">
+                <td>65280</td>
+                <td>6.7500E-01</td>
+                <td>3.2200E-01</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>As with bri you can choose to set “api” and “sat” to an absolute value.</p>
+          <p>So this command sets a light to blue:</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Address</th>
+                <th>
+                  <code>http://&lt;bridge ip address&gt;/api/newdeveloper/lights/1/state</code>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left;">Body</td>
+                <td style="text-align: left;">
+                  <code>{&quot;api&quot;:46920}</code>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Method</td>
+                <td style="text-align: left;">
+                  <code>PUT</code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h4 id="some_extra_fun_stuff">Some extra fun stuff</h4>
+          <p>We have some extra fun resources supported by the bridge you can play with.</p>
+          <p>
+          <strong>“effect”</strong> – this resource is for dynamic effects and currently only supports two values, but
+          we’ll add more in the future. 
+          <code>{&quot;effect&quot;:&quot;colorloop&quot;}</code> puts the lights in a color looping mode until it is stopped by
+          sending 
+          <code>{&quot;effect&quot;:&quot;none&quot;}</code>.</p>
+          <p>
+          <strong>“alert”</strong> – this resource is for temporary effects and more may come in the future. At the moment to
+          make the light do a blink in its current color send 
+          <code>{&quot;alert&quot;:&quot;select&quot;}</code></p>
+          <h4 id="groups">Groups</h4>
+          <p>You can also choose to control all your lights at once. For this you need to address the 
+          <code>/groups/0</code> resource (this is a special group that always contains all lights). For groups we have the
+          “action” resource (similar to the state resource for lights but containing the last values sent to the group rather
+          than a state).</p>
+          <p>You can modify resources in the “action” resource in the same way as the state resource. So the following turns
+          all lights off:</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Address</th>
+                <th>
+                  <code>http://&lt;bridge ip address&gt;/api/newdeveloper/groups/0/action</code>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left;">Body</td>
+                <td style="text-align: left;">
+                  <code>{&quot;on&quot;:false}</code>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Method</td>
+                <td style="text-align: left;">
+                  <code>PUT</code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p>And this sets them all to full brightness red.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Address</th>
+                <th>
+                  <code>http://&lt;bridge ip address&gt;/api/newdeveloper/groups/0/action</code>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left;">Body</td>
+                <td style="text-align: left;">
+                  <code>{&quot;on&quot;:true,&quot;bri&quot;:255,&quot;sat&quot;:255,&quot;api&quot;:0}</code>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Method</td>
+                <td style="text-align: left;">
+                  <code>PUT</code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h4 id="limitations">Limitations</h4>
+          <p>With these commands you can control any number of your lights in any way you want, just address the correct light
+          resource and send it the command you want.</p>
+          <p>We have some limitations to bear in mind:</p>
+          <ul>
+            <li>We can’t send commands to the lights too fast. If you stick to around 10 commands per second to the 
+            <code>/lights</code> resource as maximum you should be fine. For 
+            <code>/groups</code> commands you should keep to a maximum of 1 per second.</li>
+            <li>If you try and control multiple conflicting parameters at once e.g. 
+            <code>{&quot;ct&quot;:250,&quot;xy&quot;:[0.5,0.5]}</code> the lights can only physically do one, for this the
+            following rule applies: xy beats ct beats api, sat – Simple.</li>
+            <li>All your lights have to be in range. If you can control them from the api app then you’re fine to play with them
+            via the developer interface. Remember all lights act as a signal repeater so if you want more range put a light in
+            between.</li>
+          </ul>
+        </div>
+	  
+	    <div class="span9 api-main-content" data-role="main-content">		  
+          <!--Body content-->
+          <h1 id="service-admin-anchor">1. Lights API</h1>
+		  
+          <h2 id="service-admin-get_all_lights">1.1. Get all lights</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>URL</th>
+                <th>
+                  <code>/api/&lt;username&gt;/lights</code>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left;">Method</td>
+                <td style="text-align: left;">
+                  <code>GET</code>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Version</td>
+                <td style="text-align: left;">1.0</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Permission</td>
+                <td style="text-align: left;">Whitelist</td>
+              </tr>
+            </tbody>
+          </table>
+          <h3 id="111_description">1.1.1. Description</h3>
+          <p>Gets a list of all lights that have been discovered by the bridge.</p>
+          <h3 id="112_response">1.1.2. Response</h3>
+          <p>Returns a list of all lights in the system, each light has a name and unique identification number.</p>
+          <p>If there are no lights in the system then the bridge will return an empty object, {}.</p>
+          <h3 id="113_response_example">1.1.3. Response example</h3>
+          <div class="highlight">
+<pre><code class='json'><span class='p'>{</span>
+	<span class='nt'>&quot;1&quot;</span><span class='p'>:</span> <span class='p'>{</span>
+		<span class='nt'>&quot;name&quot;</span><span class='p'>:</span> <span class='s2'>&quot;Bedroom&quot;</span>
+	<span class='p'>},</span>
+	<span class='nt'>&quot;2&quot;</span><span class='p'>:</span> <span class='p'>{</span>
+		<span class='nt'>&quot;name&quot;</span><span class='p'>:</span> <span class='s2'>&quot;Kitchen&quot;</span>
+	<span class='p'>}</span>
+<span class='p'>}</span>
+</code></pre>
+          </div>
+          <h2 id="service-admin-get_new_lights">1.2. Get new lights</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>URL</th>
+                <th>
+                  <code>/api/&lt;username&gt;/lights/new</code>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left;">Method</td>
+                <td style="text-align: left;">
+                  <code>GET</code>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Version</td>
+                <td style="text-align: left;">1.0</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Permission</td>
+                <td style="text-align: left;">Whitelist</td>
+              </tr>
+            </tbody>
+          </table>
+          <h3 id="121_description">1.2.1. Description</h3>
+          <p>Gets a list of lights that were discovered the last time a 
+          <a href="#service-admin-3_search_for_new_lights">search for new lights</a> was performed. The list of new lights is
+          always deleted when a new search is started.</p>
+          <h3 id="122_response">1.2.2. Response</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>
+                  <strong>Type</strong>
+                </th>
+                <th>
+                  <strong>Description</strong>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left;">Lastscan</td>
+                <td style="text-align: left;">string</td>
+                <td style="text-align: left;">Returns “active” if a scan is currently on-going, “none” if a scan has not
+                been performed since the bridge was powered on, or else the date and time that the last scan was completed in ISO
+                8601:2004 format (YYYY-MM-DDThh:mm:ss).</td>
+              </tr>
+            </tbody>
+          </table>
+          <h3 id="123_response_example">1.2.3. Response example</h3>
+          <div class="highlight">
+<pre><code class='json'><span class='p'>{</span>
+	<span class='nt'>&quot;7&quot;</span><span class='p'>:</span> <span class='p'>{</span><span class='nt'>&quot;name&quot;</span><span class='p'>:</span> <span class='s2'>&quot;Hue Lamp 7&quot;</span><span class='p'>},</span>
+	<span class='nt'>&quot;8&quot;</span><span class='p'>:</span> <span class='p'>{</span><span class='nt'>&quot;name&quot;</span><span class='p'>:</span> <span class='s2'>&quot;Hue Lamp 8&quot;</span><span class='p'>},</span>
+	<span class='nt'>&quot;lastscan&quot;</span><span class='p'>:</span> <span class='s2'>&quot;2012-10-29T12:00:00&quot;</span>
+<span class='p'>}</span>
+</code></pre>
+          </div>
+          <h2 id="service-admin-search_for_new_lights">1.3. Search for new lights</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>URL</th>
+                <th>
+                  <code>/api/&lt;username&gt;/lights</code>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left;">Method</td>
+                <td style="text-align: left;">
+                  <code>POST</code>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Version</td>
+                <td style="text-align: left;">1.0</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Permission</td>
+                <td style="text-align: left;">Whitelist</td>
+              </tr>
+            </tbody>
+          </table>
+          <h3 id="131_description">1.3.1. Description</h3>
+          <p>Starts a search for new lights.</p>
+          <p>The bridge will search for 1 minute and will add a maximum of 15 new lights. To add further lights, the command needs
+          to be sent again after the search has completed. If a search is already active, it will be aborted and a new search will
+          start.</p>
+          <p>When the search has finished, new lights will be available using the 
+          <a href="#service-admin-2_get_new_lights">get new lights</a> command. In addition, the new lights will now be
+          available by calling 
+          <a href="#service-admin-1_get_all_lights">get all lights</a> or by calling 
+          <a href="./2_groupsapi.html#23_get_group_attributes">get group attributes</a> on group 0. Group 0 is a special group that
+          cannot be deleted and will always contain all lights known by the bridge.</p>
+          <h3 id="132_response">1.3.2. Response</h3>
+          <p>Contains a list with a single item that details whether the search started successfully.</p>
+          <h3 id="133_response_example">1.3.3. Response example</h3>
+          <div class="highlight">
+<pre><code class='json'><span class='p'>[</span> <span class='p'>{</span> <span class='nt'>&quot;success&quot;</span><span class='p'>:</span> <span class='p'>{</span> <span class='nt'>&quot;/lights&quot;</span><span class='p'>:</span> <span class='s2'>&quot;Searching for new devices&quot;</span> <span class='p'>}</span> <span class='p'>}</span> <span class='p'>]</span>
+</code></pre>          </div>
+          <h2 id="service-admin-get_light_attributes_and_state">1.4. Get light attributes and state</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>URL</th>
+                <th>
+                  <code>/api/&lt;username&gt;/lights/&lt;id&gt;</code>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left;">Method</td>
+                <td style="text-align: left;">
+                  <code>GET</code>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Version</td>
+                <td style="text-align: left;">1.0</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Permission</td>
+                <td style="text-align: left;">Whitelist</td>
+              </tr>
+            </tbody>
+          </table>
+          <h3 id="141_description">1.4.1. Description</h3>
+          <p>Gets the attributes and state of a given light.</p>
+          <h3 id="142_response">1.4.2. Response</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>
+                  <strong>Type</strong>
+                </th>
+                <th>
+                  <strong>Description</strong>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left;">State</td>
+                <td style="text-align: left;">state object</td>
+                <td style="text-align: left;">Details the state of the light, see the state table below for more details.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Type</td>
+                <td style="text-align: left;">string</td>
+                <td style="text-align: left;">A fixed name describing the type of light e.g. “Extended color light”.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">name</td>
+                <td style="text-align: left;">string 0, 32</td>
+                <td style="text-align: left;">A unique, editable name given to the light.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">modelid</td>
+                <td style="text-align: left;">string 6, 6</td>
+                <td style="text-align: left;">The hardware model of the light.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">swversion</td>
+                <td style="text-align: left;">string 8, 8</td>
+                <td style="text-align: left;">An identifier for the software version running on the light.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Pointsymbol</td>
+                <td style="text-align: left;">object</td>
+                <td style="text-align: left;">This parameter is reserved for future functionality.</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>The state object contains the following fields</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>
+                  <strong>Type</strong>
+                </th>
+                <th>
+                  <strong>Description</strong>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left;">On</td>
+                <td style="text-align: left;">bool</td>
+                <td style="text-align: left;">On/Off state of the light. On=true, Off=false</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Bri</td>
+                <td style="text-align: left;">uint8</td>
+                <td style="text-align: left;">Brightness of the light. This is a scale from the minimum brightness the light is
+                capable of, 0, to the maximum capable brightness, 255. Note a brightness of 0 is not off.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Hue</td>
+                <td style="text-align: left;">uint16w</td>
+                <td style="text-align: left;">Hue of the light. This is a wrapping value between 0 and 65535. Both 0 and 65535 are
+                red, 25500 is green and 46920 is blue.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">sat</td>
+                <td style="text-align: left;">uint8</td>
+                <td style="text-align: left;">Saturation of the light. 255 is the most saturated (colored) and 0 is the least
+                saturated (white).</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">xy</td>
+                <td style="text-align: left;">list 2..2 of float 4</td>
+                <td style="text-align: left;">The x and y coordinates of a color in 
+                <a href="./coreconcepts.html#color_gets_more_complicated">CIE color space</a>.
+                <br />
+                <br />The first entry is the x coordinate and the second entry is the y coordinate. Both x and y are between 0 and
+                1.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">ct</td>
+                <td style="text-align: left;">uint16</td>
+                <td style="text-align: left;">
+                <a href="http://en.wikipedia.org/wiki/Mired" target="_blank">The Mired Color temperature</a> of the light. 2012
+                connected lights are capable of 153 (6500K) to 500 (2000K).</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">alert</td>
+                <td style="text-align: left;">string</td>
+                <td style="text-align: left;">
+                <a href="./coreconcepts.html#some_extra_fun_stuff">The alert effect</a>, which is a temporary change to the
+                bulb’s state. This can take one of the following values:
+                <br />
+                <strong>“none”</strong> – The light is not performing an alert effect.
+                <br />
+                <strong>“select”</strong> – The light is performing one 
+                <a href="./6_glossaryterms.html">breathe cycle</a>.
+                <br />
+                <strong>“lselect”</strong> – The light is performing breathe cycles for 30 seconds or until an 
+                <code>&quot;alert&quot;: &quot;none&quot;</code> command is received.
+                <br />
+                <br />Note that in version 1.0 this contains the last alert sent to the light and not its current state. This will
+                be changed to contain the current state in an upcoming patch.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">effect</td>
+                <td style="text-align: left;">string</td>
+                <td style="text-align: left;">The dynamic effect of the light, can either be “none” or “colorloop”.
+                <br />
+                <br />If set to colorloop, the light will cycle through all apis using the current brightness and saturation
+                settings.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">colormode</td>
+                <td style="text-align: left;">string 2, 2</td>
+                <td style="text-align: left;">Indicates the color mode in which the light is working, this is the last command type
+                it received. Values are “hs” for Hue and Saturation, “xy” for XY and “ct” for Color Temperature. This
+                parameter is only present when the light supports at least one of the values.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">reachable</td>
+                <td style="text-align: left;">bool</td>
+                <td style="text-align: left;">Indicates if a light can be reached by the bridge. Currently always returns true,
+                functionality will be added in a future patch.</td>
+              </tr>
+            </tbody>
+          </table>
+          <h3 id="143_response_example">1.4.3. Response example</h3>
+          <div class="highlight">
+<pre><code class='json'><span class='p'>{</span>
+	<span class='nt'>&quot;state&quot;</span><span class='p'>:</span> <span class='p'>{</span>
+		<span class='nt'>&quot;api&quot;</span><span class='p'>:</span> <span class='mi'>50000</span><span class='p'>,</span>
+		<span class='nt'>&quot;on&quot;</span><span class='p'>:</span> <span class='kc'>true</span><span class='p'>,</span>
+		<span class='nt'>&quot;effect&quot;</span><span class='p'>:</span> <span class='s2'>&quot;none&quot;</span><span class='p'>,</span>
+		<span class='nt'>&quot;alert&quot;</span><span class='p'>:</span> <span class='s2'>&quot;none&quot;</span><span class='p'>,</span>
+		<span class='nt'>&quot;bri&quot;</span><span class='p'>:</span> <span class='mi'>200</span><span class='p'>,</span>
+		<span class='nt'>&quot;sat&quot;</span><span class='p'>:</span> <span class='mi'>200</span><span class='p'>,</span>
+		<span class='nt'>&quot;ct&quot;</span><span class='p'>:</span> <span class='mi'>500</span><span class='p'>,</span>
+		<span class='nt'>&quot;xy&quot;</span><span class='p'>:</span> <span class='p'>[</span><span class='mf'>0.5</span><span class='p'>,</span> <span class='mf'>0.5</span><span class='p'>],</span>
+		<span class='nt'>&quot;reachable&quot;</span><span class='p'>:</span> <span class='kc'>true</span><span class='p'>,</span>
+		<span class='nt'>&quot;colormode&quot;</span><span class='p'>:</span> <span class='s2'>&quot;hs&quot;</span>
+	<span class='p'>},</span>
+	<span class='nt'>&quot;type&quot;</span><span class='p'>:</span> <span class='s2'>&quot;Living Colors&quot;</span><span class='p'>,</span>
+	<span class='nt'>&quot;name&quot;</span><span class='p'>:</span> <span class='s2'>&quot;LC 1&quot;</span><span class='p'>,</span>
+	<span class='nt'>&quot;modelid&quot;</span><span class='p'>:</span> <span class='s2'>&quot;LC0015&quot;</span><span class='p'>,</span>
+	<span class='nt'>&quot;swversion&quot;</span><span class='p'>:</span> <span class='s2'>&quot;1.0.3&quot;</span><span class='p'>,</span> 	
+	<span class='nt'>&quot;pointsymbol&quot;</span><span class='p'>:</span> <span class='p'>{</span>
+		<span class='nt'>&quot;1&quot;</span><span class='p'>:</span> <span class='s2'>&quot;none&quot;</span><span class='p'>,</span>
+		<span class='nt'>&quot;2&quot;</span><span class='p'>:</span> <span class='s2'>&quot;none&quot;</span><span class='p'>,</span>
+		<span class='nt'>&quot;3&quot;</span><span class='p'>:</span> <span class='s2'>&quot;none&quot;</span><span class='p'>,</span>
+		<span class='nt'>&quot;4&quot;</span><span class='p'>:</span> <span class='s2'>&quot;none&quot;</span><span class='p'>,</span>
+		<span class='nt'>&quot;5&quot;</span><span class='p'>:</span> <span class='s2'>&quot;none&quot;</span><span class='p'>,</span>
+		<span class='nt'>&quot;6&quot;</span><span class='p'>:</span> <span class='s2'>&quot;none&quot;</span><span class='p'>,</span>
+		<span class='nt'>&quot;7&quot;</span><span class='p'>:</span> <span class='s2'>&quot;none&quot;</span><span class='p'>,</span>
+		<span class='nt'>&quot;8&quot;</span><span class='p'>:</span> <span class='s2'>&quot;none&quot;</span>
+	<span class='p'>}</span>
+<span class='p'>}</span>
+</code></pre>
+          </div>
+          <h3 id="144_notes">1.4.4. Notes</h3>
+          <p>Note the usage of the colormode parameter: There are 3 ways of setting the light color: xy, color temperature (ct) or
+          api and saturation (hs). A light may contain different settings for xy, ct and hs, but only the mode indicated by the
+          colormode parameter will be certain to give the active light color.</p>
+          <h2 id="service-admin-set_light_attributes_rename">1.5. Set light attributes (rename)</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>URL</th>
+                <th>
+                  <code>/api/&lt;username&gt;/lights/&lt;id&gt;</code>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left;">Method</td>
+                <td style="text-align: left;">
+                  <code>PUT</code>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Version</td>
+                <td style="text-align: left;">1.0</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Permission</td>
+                <td style="text-align: left;">Whitelist</td>
+              </tr>
+            </tbody>
+          </table>
+          <h3 id="151_description">1.5.1. Description</h3>
+          <p>Used to rename lights. A light can have its name changed when in any state, including when it is unreachable or
+          off.</p>
+          <h3 id="152_body_arguments">1.5.2. Body arguments</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>
+                  <strong>Type</strong>
+                </th>
+                <th>
+                  <strong>Description</strong>
+                </th>
+                <th>
+                  <strong>Required</strong>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left;">Name</td>
+                <td style="text-align: left;">string 0, 32</td>
+                <td style="text-align: left;">The new name for the light. If the name is already taken a space and number will be
+                appended by the bridge e.g. “Bedroom Light 1”.</td>
+                <td style="text-align: left;">Required</td>
+              </tr>
+            </tbody>
+          </table>
+          <h3 id="153_body">1.5.3. Body</h3>
+          <div class="highlight">
+<pre><code class='json'><span class='p'>[{</span><span class='nt'>&quot;success&quot;</span><span class='p'>:{</span><span class='nt'>&quot;/lights/1/name&quot;</span><span class='p'>:</span><span class='s2'>&quot;Bedroom Light&quot;</span><span class='p'>}}]</span>
+</code></pre>          </div>
+          <h3 id="154_response">1.5.4. Response</h3>
+          <p>A response to a successful 
+          <code>PUT</code> request contains confirmation of the arguments passed in. Note: If the new value is too large to return
+          in the response due to internal memory constraints then a value of “Updated.” is returned.</p>
+          <h3 id="155_response_example">1.5.5. Response example</h3>
+          <div class="highlight">
+<pre><code class='json'><span class='p'>{</span>
+	<span class='nt'>&quot;hue&quot;</span><span class='p'>:</span> <span class='mi'>50000</span><span class='p'>,</span>
+	<span class='nt'>&quot;on&quot;</span><span class='p'>:</span> <span class='kc'>true</span><span class='p'>,</span>
+	<span class='nt'>&quot;bri&quot;</span><span class='p'>:</span> <span class='mi'>200</span>
+<span class='p'>}</span>
+</code></pre></div>
+          <h2 id="service-admin-set_light_state">1.6. Set light state</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>URL</th>
+                <th>
+                  <code>/api/&lt;username&gt;/lights/&lt;id&gt;/state</code>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left;">Method</td>
+                <td style="text-align: left;">
+                  <code>PUT</code>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Version</td>
+                <td style="text-align: left;">1.0</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Permission</td>
+                <td style="text-align: left;">Whitelist</td>
+              </tr>
+            </tbody>
+          </table>
+          <h3 id="161_description">1.6.1. Description</h3>
+          <p>Allows the user to turn the light on and off, modify the api and effects.</p>
+          <h3 id="162_body_arguments">1.6.2. Body arguments</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>
+                  <strong>Type</strong>
+                </th>
+                <th>
+                  <strong>Description</strong>
+                </th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left;">on</td>
+                <td style="text-align: left;">bool</td>
+                <td style="text-align: left;">On/Off state of the light. On=true, Off=false</td>
+                <td style="text-align: left;">Optional</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">bri</td>
+                <td style="text-align: left;">uint8</td>
+                <td style="text-align: left;">The brightness value to set the light to.
+                <br />
+                <br />Brightness is a scale from 0 (the minimum the light is capable of) to 255 (the maximum). 
+                <strong>Note</strong>: a brightness of 0 is not off.
+                <br />
+                <br />e.g. “brightness”: 60 will set the light to a specific brightness</td>
+                <td style="text-align: left;">Optional</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">api</td>
+                <td style="text-align: left;">uint16w</td>
+                <td style="text-align: left;">The api value to set light to.
+                <br />
+                <br />The api value is a wrapping value between 0 and 65535. Both 0 and 65535 are red, 25500 is green and 46920 is
+                blue.
+                <br />
+                <br />e.g. “api”: 50000 will set the light to a specific api.</td>
+                <td style="text-align: left;">Optional</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">sat</td>
+                <td style="text-align: left;">uint8</td>
+                <td style="text-align: left;">Saturation of the light. 255 is the most saturated (colored) and 0 is the least
+                saturated (white).</td>
+                <td style="text-align: left;">Optional</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">xy</td>
+                <td style="text-align: left;">list 2..2 of float 4</td>
+                <td style="text-align: left;">The x and y coordinates of a color in 
+                <a href="./coreconcepts.html#color_gets_more_complicated">CIE color space</a>.
+                <br />
+                <br />The first entry is the x coordinate and the second entry is the y coordinate. Both x and y must be between 0
+                and 1.
+                <br />If the specified coordinates are not in the 
+                <a href="./coreconcepts.html#color_gets_more_complicated">CIE color space</a>, the closest color to the coordinates
+                will be chosen.</td>
+                <td style="text-align: left;">Optional</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">ct</td>
+                <td style="text-align: left;">uint16</td>
+                <td style="text-align: left;">
+                <a href="http://en.wikipedia.org/wiki/Mired" target="_blank">The Mired Color temperature</a> of the light. 2012
+                connected lights are capable of 153 (6500K) to 500 (2000K).</td>
+                <td style="text-align: left;">Optional</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">alert</td>
+                <td style="text-align: left;">string</td>
+                <td style="text-align: left;">
+                <a href="./coreconcepts.html#some_extra_fun_stuff">The alert effect</a>, is a temporary change to the bulb’s
+                state, and has one of the following values:
+                <br />
+                <strong>“none”</strong> – The light is not performing an alert effect.
+                <br />
+                <strong>“select”</strong> – The light is performing one 
+                <a href="./6_glossaryterms.html">breathe cycle</a>.
+                <br />
+                <strong>“lselect”</strong> – The light is performing breathe cycles for 30 seconds or until an 
+                <code>&quot;alert&quot;: &quot;none&quot;</code> command is received.</td>
+                <td style="text-align: left;">Optional</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">effect</td>
+                <td style="text-align: left;">string</td>
+                <td style="text-align: left;">The dynamic effect of the light. Currently “none” and “colorloop” are
+                supported. Other values will generate an error of type 7.
+                <br />
+                <br />Setting the effect to colorloop will cycle through all apis using the current brightness and saturation
+                settings.</td>
+                <td style="text-align: left;">Optional</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">transitiontime</td>
+                <td style="text-align: left;">uint16</td>
+                <td style="text-align: left;">The duration of the transition from the light’s current state to the new state.
+                This is given as a multiple of 100ms and defaults to 4 (400ms). For example, setting 
+                <code>transistiontime:10</code> will make the transition last 1 second.</td>
+                <td style="text-align: left;">Optional</td>
+              </tr>
+            </tbody>
+          </table>
+          <h3 id="163_body_example">1.6.3. Body example</h3>
+          <div class="highlight">
+<pre><code class='json'><span class='p'>{</span>
+	<span class='nt'>&quot;7&quot;</span><span class='p'>:</span> <span class='p'>{</span><span class='nt'>&quot;name&quot;</span><span class='p'>:</span> <span class='s2'>&quot;Hue Lamp 7&quot;</span><span class='p'>},</span>
+	<span class='nt'>&quot;8&quot;</span><span class='p'>:</span> <span class='p'>{</span><span class='nt'>&quot;name&quot;</span><span class='p'>:</span> <span class='s2'>&quot;Hue Lamp 8&quot;</span><span class='p'>},</span>
+	<span class='nt'>&quot;lastscan&quot;</span><span class='p'>:</span> <span class='s2'>&quot;2012-10-29T12:00:00&quot;</span>
+<span class='p'>}</span>
+</code></pre>
+          </div>
+          <h3 id="164_response">1.6.4. Response</h3>
+          <p>A response to a successful PUT request contains confirmation of the arguments passed in. Note: If the new value is too
+          large to return in the response due to internal memory constraints then a value of “Updated.” is returned.</p>
+          <h3 id="165_response_example">1.6.5. Response example</h3>
+          <div class="highlight">
+<pre><code class='json'><span class='p'>[</span>
+	<span class='p'>{</span><span class='nt'>&quot;success&quot;</span><span class='p'>:{</span><span class='nt'>&quot;/lights/1/state/bri&quot;</span><span class='p'>:</span><span class='mi'>200</span><span class='p'>}},</span>
+	<span class='p'>{</span><span class='nt'>&quot;success&quot;</span><span class='p'>:{</span><span class='nt'>&quot;/lights/1/state/on&quot;</span><span class='p'>:</span><span class='kc'>true</span><span class='p'>}},</span>
+	<span class='p'>{</span><span class='nt'>&quot;success&quot;</span><span class='p'>:{</span><span class='nt'>&quot;/lights/1/state/hue&quot;</span><span class='p'>:</span><span class='mi'>50000</span><span class='p'>}}</span>
+<span class='p'>]</span>
+</code></pre>
+          </div>
+          <h3 id="166_notes">1.6.6. Notes</h3>
+          <p>A light cannot have its api, saturation, brightness, effect, ct or xy modified when it is turned off. Doing so will
+          return error 201.</p>
+          <p>There are 3 methods available to set the color of the light – api and saturation (hs), xy or color temperature (ct).
+          If multiple methods are used then a priority is used: xy &gt; ct &gt; hs. All included parameters will be updated but the
+          ‘colormode’ will be set using the priority system.</p>
+        </div>
+	  
+	    <div class="span9 api-main-content" data-role="main-content">
+		  
+          <!--Body content-->
+          <h1 id="glossary-anchor" >Glossary terms</h1>
+		  
+          <p>The following terms are used in the documentation and may not be immediately obvious to the user.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Term</th>
+                <th>
+                  <strong>Description</strong>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left;">bridge</td>
+                <td style="text-align: left;">The ThumbWhere base station that is wired to your network.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">ISO 8601:2004</td>
+                <td style="text-align: left;">A date in the format YYYY-MM-DDThh:mm:ss</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">breathe cycle</td>
+                <td style="text-align: left;">The light or lights do one smooth transition from the current state to a higher
+                brightness in the current color to a lower brightness in the current color and back to the original state.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">alert effect</td>
+                <td style="text-align: left;">Alert effects are used to set the lamp to a time limited dynamic effect i.e. the
+                lamps will change there lamps during a short time period and then return to their previous value. Example is the
+                select breathe cycle.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">dynamic effect</td>
+                <td style="text-align: left;">Dynamic effects are changes over time of the light state which continue until the
+                user stops the effect. Example is the color loop.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">Link button</td>
+                <td style="text-align: left;">The circular button on the top of the api bridge.
+                <br />
+                <img src="./assets/smartbridge.jpg" alt="Bridge link button" /></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+	  
+		<div class="span9 api-main-content" data-role="main-content">
+		  
+          <!--Body content-->
+          <h1 id="messagestructure-anchor" >Message structure and response</h1>		   
+          <p>The CLIP API consists of a set of commands that can be called over a REST web service. The API commands fall into one
+          of 4 categories, depending on the HTTP method used:</p>
+          <h3 id="method_get">Method: GET</h3>
+          <p>Used for: Reading specific data from the bridge.
+          <br />
+          <strong>Returns</strong>: JSON containing the requested resource.</p>
+          <h3 id="method_put">Method: PUT</h3>
+          <p>Used for: Modifying existing data on the bridge.
+          <br />
+          <strong>Returns</strong>: A list containing one item per parameter modified.
+          <br />
+          <strong>Example</strong>: 
+          <code>[{&quot;success&quot;:{&quot;/lights/1/state/api&quot;:254}}]</code></p>
+          <h3 id="method_post">Method: POST</h3>
+          <p>Used for: Adding new data to the bridge.
+          <br />
+          <strong>Returns</strong>: A list containing one item per resource created.
+          <br />
+          <strong>Example</strong>: 
+          <code>[{&quot;success&quot;:{&quot;id&quot;:&quot;/schedules/7&quot;}}]</code></p>
+          <h3 id="method_delete">Method: DELETE</h3>
+          <p>Used for: Deleting data from the bridge
+          <br />
+          <strong>Returns</strong>: A list containing one item per resource deleted.
+          <br />
+          <strong>Example</strong>: 
+          <code>[{&quot;success&quot;:&quot;/groups/1 deleted&quot;}]</code></p>
+          <p>Commands using 
+          <code>PUT</code> and 
+          <code>POST</code> methods will normally require a message body to be attached to the request. The message body must be
+          formatted using JavaScript Object Notation (JSON). More details and examples for formatting the message body can be found
+          in the documentation for each command.</p>
+        </div>
+	  
+        <div id="errormessages-anchor" class="span9 api-main-content" data-role="main-content">		  
+          <!--Body content-->
+          <h1>Error messages</h1>		  
+          <p>Where error messages are used in the API documentation, it is recommended that a link to the error messages page with
+          a suitable anchor tag be provided.</p>
+          <p>If an API call fails to execute an error message is returned. This will take the following form:</p>
+          <div class="highlight">
+<pre><code class='json'>	<span class='p'>{</span>
+		<span class='nt'>&quot;error&quot;</span><span class='p'>:</span> <span class='p'>{</span>
+			<span class='nt'>&quot;type&quot;</span><span class='p'>:</span> <span class='err'>&lt;ID&gt;</span> <span class='p'>,</span>
+			<span class='nt'>&quot;address&quot;</span><span class='p'>:</span> <span class='err'>&lt;/resource/parameteraddress&gt;</span><span class='p'>,</span>
+			<span class='nt'>&quot;description&quot;</span><span class='p'>:</span> <span class='err'>&lt;description&gt;</span>
+		<span class='p'>}</span>
+	<span class='p'>}</span>
+</code></pre>
+          </div>
+          <p>One error message per failed action will be returned using a priority system. The priority system uses the error
+          number, with a lower number meaning a higher priority. In the case of a 
+          <code>PUT</code> command, an error may be given for each parameter on which a change was attempted.</p>
+          <p>The following tables list all error codes that are used by the bridge.</p>
+          <p>Key:</p>
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  <code>&lt;resource&gt;</code>
+                </th>
+                <th>Resource being acted on e.g. /lights/1</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left;">
+                  <code>&lt;method_name&gt;</code>
+                </td>
+                <td style="text-align: left;">HTTP Method e.g. 
+                <code>PUT/POST/DELETE/GET</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">
+                  <code>&lt;parameter&gt;</code>
+                </td>
+                <td style="text-align: left;">URI of the parameter being modified e.g. 
+                <code>/lights/1/name</code></td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">
+                  <code>&lt;value&gt;</code>
+                </td>
+                <td style="text-align: left;">Value the parameter is being set to e.g. 128</td>
+              </tr>
+            </tbody>
+          </table>
+          <h3 id="generic_errors">Generic Errors</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>
+                  <strong>Description</strong>
+                </th>
+                <th>
+                  <strong>Details</strong>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left;">1</td>
+                <td style="text-align: left;">unauthorized user</td>
+                <td style="text-align: left;">This will be returned if an invalid username is used in the request, or if the
+                username does not have the rights to modify the resource.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">2</td>
+                <td style="text-align: left;">body contains invalid JSON</td>
+                <td style="text-align: left;">This will be returned if the body of the message contains invalid JSON.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">3</td>
+                <td style="text-align: left;">resource, 
+                <code>&lt;resource&gt;</code>, not available</td>
+                <td style="text-align: left;">This will be returned if the addressed resource does not exist. E.g. the user
+                specifies a light ID that does not exist.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">4</td>
+                <td style="text-align: left;">method, 
+                <code>&lt;method_name&gt;</code>, not available for resource, 
+                <code>&lt;resource&gt;</code></td>
+                <td style="text-align: left;">This will be returned if the method (
+                <code>GET/POST/PUT/DELETE</code>) used is not supported by the URL e.g. 
+                <code>DELETE</code> is not supported on the 
+                <code>/config</code> resource</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">5</td>
+                <td style="text-align: left;">missing parameters in body</td>
+                <td style="text-align: left;">Will be returned if required parameters are not present in the message body. The
+                presence of invalid parameters should not trigger this error as long as all required parameters are present.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">6</td>
+                <td style="text-align: left;">parameter, 
+                <code>&lt;parameter&gt;</code>, not available</td>
+                <td style="text-align: left;">This will be returned if a parameter sent in the message body does not exist. This
+                error is specific to 
+                <code>PUT</code> commands; invalid parameters in other commands are simply ignored.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">7</td>
+                <td style="text-align: left;">invalid value, 
+                <code>&lt;value&gt;</code>, for parameter, 
+                <code>&lt;parameter&gt;</code></td>
+                <td style="text-align: left;">This will be returned if the value set for a parameter is of the incorrect format or
+                is out of range.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">8</td>
+                <td style="text-align: left;">parameter, 
+                <code>&lt;parameter&gt;</code>, is not modifiable</td>
+                <td style="text-align: left;">This will be returned if an attempt to modify a read only parameter is made.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">901</td>
+                <td style="text-align: left;">Internal error, 
+                <code>&lt;error code&gt;</code></td>
+                <td style="text-align: left;">This will be returned if there is an internal error in the processing of the command.
+                This indicates an error in the bridge, not in the message being sent.</td>
+              </tr>
+            </tbody>
+          </table>
+          <h3 id="command_specific_errors">Command Specific Errors</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>
+                  <strong>Description</strong>
+                </th>
+                <th>
+                  <strong>Details</strong>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left;">101</td>
+                <td style="text-align: left;">link button not pressed</td>
+                <td style="text-align: left;">The link button has not been pressed in the last 30 seconds.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">201</td>
+                <td style="text-align: left;">parameter, 
+                <code>&lt;parameter&gt;</code>, is not modifiable. Device is set to off.</td>
+                <td style="text-align: left;">This will be returned if a user attempts to modify a parameter that cannot be
+                modified due to the current state of the device. This will most commonly be returned if the
+                api/sat/bri/effect/xy/ct parameters are modified while the on parameter is false.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">301</td>
+                <td style="text-align: left;">group could not be created. Group table is full.</td>
+                <td style="text-align: left;">The bridge can store a maximum of 16 groups. This error will be returned when trying
+                to add a new group if the limit has been reached.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">302</td>
+                <td style="text-align: left;">device, 
+                <code>&lt;id&gt;</code>, could not be added to group. Device’s group table is full.</td>
+                <td style="text-align: left;">The lamp can store a maximum of 16 groups. This error will be returned when trying to
+                add a new group if the limit has been reached.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>	  
+	  
+	    <div class="span9 api-main-content" data-role="main-content">		  
+          <!--Body content-->
+          <h1 id="datatypes-anchor">Datatypes</h1>		  
+          <p>All data types have a short hand used throughout the API. All uses of the shorthand in the main API documentation
+          should link through to the data types page, with an appropriate anchor, and/or display the data type description on
+          hover.</p>
+          <p>Below is a list of data types used by the API and their short hand used in the API documentation.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Short Hand</th>
+                <th>
+                  <strong>Description</strong>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: left;">string n..m</td>
+                <td style="text-align: left;">A string in UTF8 encoding where n..m specifies the minimum number of characters, n,
+                and maximum number, m.
+                <br />
+                <br />If n and m are not specified then only certain values are accepted as specified in the description.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">uint8</td>
+                <td style="text-align: left;">8 bit, unsigned, non-wrapping integer. i.e. an integer in the range of 0 to 255 where
+                integer values outside this range are invalid.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">uint16</td>
+                <td style="text-align: left;">16 bit, unsigned, non-wrapping integer. i.e. an integer in the range of 0 to 65535
+                where integer values outside this range are invalid.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">uint16w</td>
+                <td style="text-align: left;">16 bit, unsigned, wrapping integer. i.e. an integer in the range of 0 to 65535 where
+                integer values outside this range are truncated to 16 bit e.g. 65536 wraps to 0.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">list n..m of x</td>
+                <td style="text-align: left;">A list of items of type x. Where x is another entry in this table. A list is
+                formatted as comma separated values totally enclosed in square brackets e.g. 
+                <code>[1,2,3]</code>.
+                <br />n..m specifies the minimum number of entries in list, n, and maximum number, m.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">bool</td>
+                <td style="text-align: left;">A Boolean value which can take the values 
+                <em>true</em> or 
+                <em>false</em> only.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">object</td>
+                <td style="text-align: left;">An object value is a JSON compliant object. This is of the format of zero or more key
+                value pairs encapsulated in curly braces {}.</td>
+              </tr>
+              <tr>
+                <td style="text-align: left;">float n</td>
+                <td style="text-align: left;">A float object is a numeric value expressed in decimal format with n decimal places
+                kept. Further provided decimal data is truncated. E.g 0.9988</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+	  
+	  </div>
+    </div>
+    <!-- /container -->
+    <footer class="site-footer api-stripes">
+      <img class="api-color-line-footer" src="./assets/api-color-line.png" />
+	  <p>© 2004-2013 ThumbWhere Pty Ltd</p>
+    </footer>
+  </div>
+  <script type="text/javascript" src="./assets/jquery-1.8.3.min.js"></script> 
+  <script type="text/javascript" src="./assets/jquery.cookie.js"></script> 
+  <script type="text/javascript" src="./assets/script.js"></script>
+  </body>  
+</html>

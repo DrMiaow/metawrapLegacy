@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!--
+	
+    #################################################
+    
+          Yes you should be seeing this file.
+    
+     Not so much a stealth launch, more a naked one :)
+
+                http://www.xmlvault.com
+
+                      Comming Soon
+
+    #################################################
+
+    $Id: test_2_action.xml,v 1.2 2006/05/17 08:17:04 james Exp $
+
+    $Log: test_2_action.xml,v $
+    Revision 1.2  2006/05/17 08:17:04  james
+    XML Schema changes
+
+    Revision 1.1  2006/05/16 04:58:35  james
+    Created base document
+    
+    @brief XML that defines the actions that ate the the xmlvault.com API
+
+ -->
+<!--<?xml-stylesheet type="text/xsl" href="../action/action.xsl"?>-->
+<metawrap xmlns="../metawrap/metawrap.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="../metawrap/metawrap.xsd ../metawrap/metawrap.xsd">
+	<actions>
+		<action name="put" runat="server">
+			<doc>
+				This is a request to SAVE some XML on the server
+			</doc>
+			<param name="data">
+				<doc>
+					The data to store on the server. 
+					Must be valid XML. 
+					Non XML will be rejected.
+				</doc>
+			</param>
+			<param name="in">
+				<doc>
+					This is the filename to associate with this saved XML.
+					Must end with ".xml".
+				</doc>
+			</param>
+
+			<param name="failonexists" optional="true">
+				<doc>
+					This is an optional parameter.
+					If this is true then this action will fail if the file already exists.										
+				</doc>
+			</param>
+		</action>
+		<action name="get" runat="server">
+			<doc>
+				This is a request to LOAD some XML from the server.
+			</doc>
+			<param name="from">
+				<doc>
+					The filename that identifies the file you want to load
+				</doc>
+			</param>
+			<param name="as">
+				<doc>
+					How you want the XML returned.
+					CDATA - Will return the XML in a standard MetaWrap action wrapper with a CDATA directive wrapping the XML.
+					ESCAPE - Will return the XML in a standard MetaWrap action wrapper with with SGML escaping.
+					RAW - Will return the XML file raw, as if you were loading it directly via a HTTP GET.
+				</doc>
+			</param>
+		</action>
+		<action name="destroy" runat="server">
+			<doc>
+				This is a request to DELETE some XML from the server.
+			</doc>
+			<param name="this">
+				<doc>
+					The filename that identifies the file you want to destroy
+				</doc>
+			</param>
+		</action>		
+	</actions>
+</metawrap>

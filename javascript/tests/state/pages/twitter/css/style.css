@@ -1,0 +1,191 @@
+body
+{
+
+	background: lightgrey;
+    margin: 0; 
+    padding: 0;    
+    font: 0.8em trebuchet ms;
+	font-size:12px;
+	font-size-adjust:none;
+	font-stretch:normal;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal;
+	line-height:18px;	
+	text-align:center; 
+}
+
+div.page
+{
+text-align: left;
+	width: 910px;
+	margin: 0 auto;
+	position: relative;	
+}
+
+
+div
+{
+	text-align: left;
+}
+
+
+div.invite{
+	clear: left;
+	margin: 10px 0px 0px 0px;	
+	padding: 5px 5px 5px 5px;		
+	background: #AAAAAA;
+	width: 445px;
+	height: 200px;
+	float: left;
+}
+
+
+div.login{
+	margin: 10px 0px 0px 0px;	
+	padding: 5px 5px 5px 5px;	
+	background: #BBBBBB;
+	width: 445px;
+	height: 200px;
+	float: right;	
+}
+
+div.media_group{
+	padding: 0px 0px 0px 0px;
+	width: 910px;
+}
+
+div.blurb{
+	padding: 0px 5px 5px 5px;	
+}
+
+
+div.apps_group{
+	padding: 0px 0px 0px 0px;
+	width: 910px;
+}
+
+div.apps_container
+{
+	clear: left;
+}
+
+div.apps_app
+{
+    background: red;
+    float: left;	
+}
+
+
+div.small_app
+{
+    width: 283px;
+    height: 96px;
+    margin: 0px 14px 5px 0px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;	
+}
+
+
+
+
+
+div.media_section{
+     padding: 0px 0px 0px 0px;	
+	/*clear: left;	 */
+	width: 300px;
+	float: left;
+	/*background: blue;*/
+}
+
+div.small_thumbnail
+{
+    width: 64px;
+	height: 48px;
+	margin: 0px 5px 5px 0px;
+    border-style: solid;
+    border-width: 2px;
+	border-color: white;	
+}
+
+div.media_thumbnail
+{
+    background: skyblue;
+	float: left;	
+}
+
+div.media_thumbnail_last
+{
+    background: blue;
+	float: left;	
+}
+
+div.media_thumbnail_container
+{
+	clear: left;
+}
+
+div.member_thumbnail
+{
+    background: lightgreen;
+	float: left;
+}
+
+div.member_thumbnail_last
+{
+    background: green;
+	float: left;
+}
+
+
+div.member_thumbnail_container
+{
+	clear: left;
+}
+
+div.location_thumbnail{
+    background: lightyellow;
+	float: left;
+	
+}
+
+div.location_thumbnail_last{
+    background: yellow;
+	float: left;
+	
+}
+
+div.location_thumbnail_container
+{
+	clear: left;
+}
+
+
+div.footer_holder
+{	
+	background: #AAAAAA;
+	padding: 5px 5px 5px 5px;
+	margin: 10px 0px 0px 0px;
+	clear: left;
+}
+
+div.footer
+{
+	
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+
+
+div.footer_language
+{	
+	float: left;
+}
+
+
+div.footer_links
+{				
+	height: 24px;
+	text-align: right;
+}

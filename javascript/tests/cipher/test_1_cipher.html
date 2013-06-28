@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<title>
+		Javascript Cipher #1 - MetaWrap JavaScript Library - $Id: test_1_cipher.html,v 1.1 2006/05/16 04:56:31 james Exp $
+	</title>
+
+	<script language="JavaScript" src="../fundamental/test.js" ></script>
+
+	<style>
+.wrap{
+    width: 67%;
+    margin: 0 0 1em 14%;
+    padding: 2% 3% 2% 5%;
+    BACKGROUND: white;
+    border-style: solid;
+    border-width: 1px;
+    top: -1px;
+}
+h1,h2,h3,h4{
+    position: relative;
+    left: -1em;
+    clear: both;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: orange;
+    font: 0.8em trebuchet ms;
+}
+em{
+    background: #ffc;
+}
+pre{
+    font-size: 1.1em;
+    background: #f0f0f0;
+    -moz-border-radius: 10px;
+    padding: 1em;
+}
+pre span{
+    font-weight: bold;
+}
+.selector, pre b{
+    color: red;
+}
+.beh{
+    color: blue;
+}
+.event{
+    color: green;
+}
+
+#sortable-list li{
+    cursor:move;
+    -moz-user-select: none;
+    width: 100%;
+}
+
+.dropout li{
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    float: left;
+    margin: 5px;
+    border: 1px solid #ccc;
+    list-style: none;
+    background: red;
+}
+
+.dropout li.hover{
+    background: yellow;
+}
+	</style>
+
+<script language="JavaScript">
+
+function error(p_msg)
+{
+    alert(p_msg);
+}
+
+function debug(p_msg)
+{
+    alert(p_msg);
+}
+
+function trace(p_msg)
+{
+    window.status = p_msg;
+}
+
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+
+</script>
+<script language="JavaScript" type="text/javascript" src="..\base\mw_lib.js"></script>
+<script language="JavaScript" type="text/javascript" src="..\cookie\mw_lib_cookie.js"></script>
+<script language="JavaScript" type="text/javascript" src="..\cipher\mw_lib_cipher.js"></script>
+</head>
+<body>
+<div class="wrap">
+<table width="100%" ID="Table1">
+	<tr align="middle" >
+		<td>
+			<h2>
+				Cipher #1 - "encrypt and decrypt"
+			</h2>
+		</td>
+		<td>
+			<a href="http://www.metawrap.com"><img border="0" src="../images/metawrap_logo_sm.png" align="right" /></a>
+		</td>
+	</tr>
+</table>
+<pre>$Id: test_1_cipher.html,v 1.1 2006/05/16 04:56:31 james Exp $</pre>
+</div>
+
+
+
+<script language="JavaScript">
+
+
+	var l_name = 'Cipher Generate #1';
+	var l_test = 'var l_cipher = new MetaWrap.Cipher();\n\r\
+var l_cipher = l_cipher.generate();\n\r';
+	var l_valid = 'l_cipher != ""';
+	var l_display = 'l_cipher';
+	passFail(l_name,l_test,l_valid,l_display);
+	
+	
+	l_name = 'Cipher Loading #1';
+	l_test = 'var l_cipher = new MetaWrap.Cipher("f18d0b12f04cd75997a2711deca883c3a758fac87335d5c4ccae414f038991c790f7be075f080072ca3eeb3d14151f1922c1de80cd551be84e2745985d53df17237956542ff2ed66b3214702f828e00de7bcb0b5327c62689d31522a495b6e6184ace1e32bb1b9f643a5752511a44af96c1a1c7005f357fe674494e27e829edbdc2ef44bbf3085515ed39cdd4d8833e5a68fcf9fbbfd9af5ab93af3aea04a30e46fc06eed08aadc28ba918d12401d63934ef0f7778fb7d8e2938da657f6dd42c37b7c05c766f966364d80c7bff60b8d29950363bd91e7409137a6a2d48e4405ac616108c202687ba42b495863f920aceb669a1bd3ce69bc56b81aae9b2cbc9a0");\n\r\
+var l_key = l_cipher.getKey();';
+	l_valid = 'l_key == l_cipher.m_key';	
+	l_display = 'l_key';
+	passFail(l_name,l_test,l_valid,l_display);	
+
+
+	l_name = 'Cipher EncodeDecode #1';
+	l_test = 'var l_cipher = new MetaWrap.Cipher("f18d0b12f04cd75997a2711deca883c3a758fac87335d5c4ccae414f038991c790f7be075f080072ca3eeb3d14151f1922c1de80cd551be84e2745985d53df17237956542ff2ed66b3214702f828e00de7bcb0b5327c62689d31522a495b6e6184ace1e32bb1b9f643a5752511a44af96c1a1c7005f357fe674494e27e829edbdc2ef44bbf3085515ed39cdd4d8833e5a68fcf9fbbfd9af5ab93af3aea04a30e46fc06eed08aadc28ba918d12401d63934ef0f7778fb7d8e2938da657f6dd42c37b7c05c766f966364d80c7bff60b8d29950363bd91e7409137a6a2d48e4405ac616108c202687ba42b495863f920aceb669a1bd3ce69bc56b81aae9b2cbc9a0");\n\r\
+var l_message = "HelloWorld";\n\r\
+var l_encrypted = l_cipher.encrypt(l_message);\n\r\
+var l_decrypted = l_cipher.decrypt(l_encrypted);';	
+	l_valid = 'l_decrypted == l_message';	
+	l_display = 'l_encrypted';
+	passFail(l_name,l_test,l_valid,l_display);	
+
+
+	l_name = 'Cipher EncodeDecode #2';
+	l_test = 'var l_cipher = new MetaWrap.Cipher("f18d0b12f04cd75997a2711deca883c3a758fac87335d5c4ccae414f038991c790f7be075f080072ca3eeb3d14151f1922c1de80cd551be84e2745985d53df17237956542ff2ed66b3214702f828e00de7bcb0b5327c62689d31522a495b6e6184ace1e32bb1b9f643a5752511a44af96c1a1c7005f357fe674494e27e829edbdc2ef44bbf3085515ed39cdd4d8833e5a68fcf9fbbfd9af5ab93af3aea04a30e46fc06eed08aadc28ba918d12401d63934ef0f7778fb7d8e2938da657f6dd42c37b7c05c766f966364d80c7bff60b8d29950363bd91e7409137a6a2d48e4405ac616108c202687ba42b495863f920aceb669a1bd3ce69bc56b81aae9b2cbc9a0");\n\r\
+var l_message = "mms://xxx.yyy.zzz.com/uploadedsongs//110/b_5917485_s.wma";\n\r\
+var l_encrypted = l_cipher.encrypt(l_message);\n\r\
+var l_decrypted = l_cipher.decrypt(l_encrypted);';	
+	l_valid = 'l_decrypted == l_message';	
+	l_display = 'l_encrypted';
+	passFail(l_name,l_test,l_valid,l_display);	
+
+
+</script>
+
+
+</body>
+</html>

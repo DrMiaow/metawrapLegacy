@@ -1,0 +1,196 @@
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<title>
+		Wirewrap TestCases #1 - MetaWrap JavaScript Library - $Id: test_1_wirewrap.html,v 1.8 2005/10/05 14:10:06 james Exp $
+	</title>
+	<style type="text/css">
+		@import url(style.css);
+	</style>
+
+<script language="JavaScript">
+/*!
+    @fn         function debug(p_msg)
+	@param		p_msg Message to display
+    @brief      Debugging routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function debug(p_msg)
+{
+    alert(p_msg);
+}
+
+/*!
+    @fn         function error(p_msg)
+	@param		p_msg Message to display
+    @brief      Error routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function error(p_msg)
+{
+    alert(p_msg);
+}
+
+/*!
+    @fn         function trace(p_msg)
+	@param		p_msg Message to display
+    @brief      Trace routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function trace(p_msg)
+{
+    //window.status = p_msg;
+}
+
+/*!
+    @fn         function ASSERT(p_cond,p_msg)
+	@param		p_cond The flag that determines if we don't display p_msg
+	@param		p_msg Message to display
+    @brief      If p_cond is not true then display p_msg
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+</script>
+	<script language="javascript" type="text/javascript" src="../base/mw_lib.js"></script>
+	<script language="javascript" type="text/javascript">MwPath("../page/");</script>
+	<script language="javascript" type="text/javascript" src="../page/mw_lib_page.js"></script>
+	<script language="javascript" type="text/javascript" src="../page/mw_lib_page_element.js"></script>
+	<script language="javascript" type="text/javascript" src="../page/mw_lib_page_element_addhandler.js"></script>
+	
+	<script language="javascript" type="text/javascript" src="prototype.js"></script>
+	<script language="javascript" type="text/javascript" src="effects2.js"></script>
+	<script language="javascript" type="text/javascript" src="dragdrop.js"></script>
+	
+	<script language="javascript" type="text/javascript" src="../wirewrap/mw_lib_wirewrap.js"></script>
+	
+	<script language="javascript" type="text/javascript" src="behavior.js"></script>
+	
+	<script language="javascript" type="text/javascript" src="../init/mw_lib_init.js"></script>
+</head>
+<body>
+<div class="wrap">
+<table width="100%">
+	<tr align="middle" >
+		<td>
+			<h2>
+				Wirewrap TestCases #1 - Hand Generated JavaScript and CSS - Baseline Test
+			</h2>
+		</td>
+		<td>
+			<a href="http://www.metawrap.com"><img border="0" src="../images/metawrap_logo_sm.png" align="right" /></a>
+		</td>
+	</tr>
+</table>
+
+<pre>$Id: test_1_wirewrap.html,v 1.8 2005/10/05 14:10:06 james Exp $</pre>
+
+
+
+</div>
+
+<div class="wrap">
+
+<h2>
+	Fading lists
+</h2>
+
+<ul id="fading-list">
+	<li>
+		<a>Click me to delete me 1</a>
+	</li>
+	<li>
+		<a>Click me to delete me 2</a>
+	</li>
+	<li>
+		<a>Click me to delete me 3</a>
+	</li>
+	<li>
+		<a>Click me to delete me 4</a>
+	</li>
+	<li>
+		<a>Click me to delete me 5</a>
+	</li>
+</ul>
+
+<h2>
+	Sortable lists
+</h2>
+
+<ul id="sortable-list">
+	<li>
+		Click me to drag me 1
+	</li>
+	<li>
+		Click me to drag me 2
+	</li>
+	<li>
+		Click me to drag me 3
+	</li>
+	<li>
+		Click me to drag me 4
+	</li>
+	<li>
+		Click me to drag me 5
+	</li>
+</ul>
+
+<h2>
+	Dropout boxen
+</h2>
+
+<ul class="dropout">
+	<li>
+		Clickme!
+	</li>
+	<li>
+		Clickme!
+	</li>
+	<li>
+		Clickme!
+	</li>
+	<li>
+		Clickme!
+	</li>
+	<li>
+		Clickme!
+	</li>
+</ul>
+
+<h2>
+	Shaky lists
+</h2>
+
+<ul id="shaky">
+	<li>
+		Click me to shake me 1
+	</li>
+	<li>
+		Click me to shake me 2
+	</li>
+	<li>
+		Click me to shake me 3
+	</li>
+	<li>
+		Click me to shake me 4
+	</li>
+	<li>
+		Click me to shake me 5
+	</li>
+</ul>
+
+
+</div>
+</body>
+</html>

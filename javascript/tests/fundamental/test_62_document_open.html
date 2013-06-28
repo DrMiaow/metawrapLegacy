@@ -1,0 +1,26 @@
+<html>
+<body>
+<script language="JavaScript">
+
+
+function popup(url, name, w, h)
+{
+	h = (h < 1 ? h = 200 : h);
+	w = (w < 1 ? w = 200 : w);
+	return window.open(url, name, 'scrollbars=0,overflow=auto,toolbar=no,location=no,status=no,menubar=no,resizable=no,width=' + w + ',height=' + h);
+}
+
+
+function openwindow()
+{
+	var my_new_window=popup("","",640,480);
+	my_new_window.document.write("<html><body><div id='wmp'></div></body></html>");
+	my_new_window.document.close();
+}
+
+</script>
+
+<p onclick="openwindow()">openwindow</p>
+
+</body>
+</html>

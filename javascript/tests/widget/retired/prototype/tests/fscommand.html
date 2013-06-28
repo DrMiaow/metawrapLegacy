@@ -1,0 +1,30 @@
+
+
+<EMBED
+ID=navmovie
+SRC="../../../flash/wmc_telemetry.swf"
+PLAY=false
+QUALITY=high
+base="../../../flash/"
+pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"
+>
+
+
+
+
+<script language="vbscript">
+Sub navmovie_FSCommand(ByVal command, ByVal args)
+	call navmovie_DoFSCommand(command, args)
+end sub
+</script>
+
+
+<SCRIPT LANGUAGE="JavaScript">
+function navmovie_DoFSCommand(command, args)
+{
+	alert(command);
+}
+</SCRIPT>
+
+
+

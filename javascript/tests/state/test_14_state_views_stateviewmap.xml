@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!--?xml-stylesheet href="stateviewmap.xsl" type="text/xsl" ?-->
+<metawrap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="../metawrap/metawrap.xsd ..\metawrap\metawrap.xsd">
+    <stateviews>
+	
+		<state name="main/loggedIn">
+			<aspect name="loggedin" />	
+		</state>
+
+		<state name="main/loggedOut">
+			<aspect name="loggedout" />			
+		</state>
+		
+		<state name="main/loggedOut/joining">		
+			<aspect name="joining" />			
+		</state>		
+
+		<state name="main/loggedOut/inviteReady">			
+			<aspect name="invite_ready" />			
+		</state>	
+
+		<state name="main/loggedOut/inviteSent">
+			<aspect name="invite_sent" />			
+		</state>	
+
+		<state name="main/loggedOut/inviteError">
+			<aspect name="invite_error" />			
+		</state>	
+		
+		<state name="main/loggedOut/readyToLogin">
+			<aspect name="loginbutton" />			
+		</state>	
+
+		<state name="main/loggedOut/normalLogin">
+			<aspect name="normal_login" />			
+		</state>	
+
+		<state name="main/loggedOut/mobileLogin">
+			<aspect name="mobile_login" />			
+		</state>	
+
+
+		<state name="main/loggedOut/mobileLogin/generatingCode">
+			<aspect name="generating_code" />			
+		</state>
+
+		<state name="main/loggedOut/mobileLogin/generatingCodeError">
+			<aspect name="generating_code_error" />			
+		</state>
+		
+		
+		<state name="main/loggedOut/mobileLogin/waitingForSMS">
+			<aspect name="waiting_for_sms" onshow="onShow_waitingForSMS()" />			
+		</state>	
+
+		<state name="main/loggedOut/mobileLogin/waitingForSMSError">
+			<aspect name="waiting_for_sms_error" />			
+		</state>	
+		
+		<state name="main/loggedOut/mobileLogin/waitingForSMSExpired">
+			<aspect name="waiting_for_sms_expired" />			
+		</state>		
+		
+		<state name="main">
+			<page name="main" />
+		</state>		
+
+		<state name="api">
+			<page name="api" />			
+		</state>	
+    </stateviews>
+</metawrap>

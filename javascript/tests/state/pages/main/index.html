@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<title>ThumbWhere.com</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	</head>
+	<body>
+		<div class="page">
+			<div class="invite aspect" name="loggedout">
+			
+			
+
+			<h2>Get an invite!!!</h2>
+			<p>If you don't have an invite, enter your email below to get on the waiting list, or find a nice friend who can get you in. (Once you're in, so are your friends.)</p>
+			<input type="TEXT" value="" id="INVITEEMAIL" name="INVITEEMAIL" onkeyup="MetaWrap.State.determineState();" /><br/>
+			
+				<div class="aspect" name="invite_sent">
+					Thanks for requesting a beta invite. We'll let you know when the time has come.
+				</div>
+			
+
+			
+				<div class="aspect" name="invite_error">
+					There was an error trying to submit your invite. Please try again later. If pain persists, hassle <a href="mailto:james@thumbwhere.com">james@thumbwhere.com</a> , he can fix it.
+				</div>
+			
+
+
+			
+				<span class="aspect" name="invite_ready">
+					<input type="BUTTON" value="Get an invite" id="INVITEBUTTON" name="INVITEBUTTON" onclick="doInvite();" /><br/>
+				</span>										
+			</div>
+			
+			<div class="login">
+				<div class="aspect" name="loggedin">					
+					Logged In As James					
+				</div>
+				
+				<div class="aspect" name="loggedin">					
+					<input type="BUTTON" value="LOGOUT" id="LOGOUT" name="LOGOUT" onclick="doLogout();" /><br/>					
+				</div>
+
+				<div class="aspect" name="loggedin">
+						<div class="aspect" name="mobile_login">
+						
+							<input type="BUTTON" value="Start Mobile Login" id="MOBILELOGIN" name="MOBILELOGIN" onclick="MetaWrap.State.affirmState('mobileLogin'); return false;" />
+
+							<div class="aspect" name="generating_code">								
+									Requesting SMS Code...								
+							</div>
+
+							<div class="aspect" name="generating_code_error">								
+								There was an error requesting the SMS Code..
+								<input type="BUTTON" value="Try Again" id="SMSTRYGAIN" name="SMSTRYGAIN" onclick="MetaWrap.State.affirmState('generatingCode'); return false;" />								
+							</div>
+
+							<div class="aspect" name="waiting_for_sms">
+								
+								<h3>SMS <span id="waiting_for_sms_code">CODE</span> to <span id="waiting_for_sms_number">NUMBER</span></h3>
+
+								<input type="BUTTON" value="TEST EXPIRE" id="EXPIRE" name="EXPIRE" onclick=" l_test_expired = true;return false;" />
+								<input type="BUTTON" value="TEST READY" id="READY" name="READY" onclick=" l_test_ready = true;return false;" />
+								<input type="BUTTON" value="TEST ERROR" id="ERROR" name="ERROR" onclick=" l_test_error = true;return false;" />
+								
+							</div>
+
+							<div class="aspect" name="waiting_for_sms_expired">								
+										Your request expired.
+										<input type="BUTTON" value="Try Again" id="SMSTRYGAIN" name="SMSTRYGAIN" onclick="MetaWrap.State.affirmState('generatingCode'); return false;" />								
+							</div>
+
+							<div class="aspect" name="waiting_for_sms_error">								
+								There was an error requesting validation from the server....
+								<input type="BUTTON" value="Try Again" id="SMSTRYGAIN" name="SMSTRYGAIN" onclick="MetaWrap.State.affirmState('waitingForSMS'); return false;" />								
+							</div>
+
+
+
+							<input type="BUTTON" value="Login With Username And Password" id="NORMALLOGIN" name="NORMALLOGIN" onclick="MetaWrap.State.affirmState('normalLogin'); return false;" />
+						
+					</div>
+
+					<div class="aspect" name="normal_login">						
+						<h2>Login</h2>
+						<div>
+							<input type="TEXT" value="" id="LOGINUSERNAME" name="LOGINUSERNAME" onkeyup="MetaWrap.State.determineState();" />
+						</div>
+						<div>
+							<input type="PASSWORD" value="" id="LOGINPASSWORD" name="LOGINPASSWORD" onkeyup="MetaWrap.State.determineState();" />
+						</div>
+						<div>
+							<span class="aspect" name="loginbutton">
+								<input type="BUTTON" value="Login" id="LOGIN" name="LOGIN" onclick="doLogin();" />
+							</span>
+						</div>
+						<label for="REMEMBERME">
+						<input type="CHECKBOX" value="checked" id="REMEMBERME" name="REMEMBERME" onclick="MetaWrap.State.determineState();" />
+							Remember Me
+						</label><br/>
+						<a href="/forgot" onclick="MetaWrap.State.affirmState('forgot'); return false;" >Forgot Password</a>
+				</div>
+					
+				</div>
+			</div>
+			<div class="footer_holder">
+				<div class="footer">
+					<div class="footer_language">
+						<form>
+							<select name="language" onchange="MetaWrap.State.affirmState('translate');">
+								<option value="en" selected="selected">English</option>
+								<option value="fr" >Français</option>
+								<option value="help">Help us translate ThumbWhere!</option>
+							</select>
+						</form>
+					</div>
+					<div class="footer_links">
+						&#xa9; copyright 2008 <a href="/api" onclick="MetaWrap.State.affirmState('api'); return false;" >API</a>  <a href="/faq" onclick="MetaWrap.State.affirmState('faq'); return false;">FAQ</a> <a href="/contact" onclick="MetaWrap.State.affirmState('contact'); return false;">Contact Us</a> <a href="/aboutUs" onclick="MetaWrap.State.affirmState('about'); return false;">About ThumbWhere</a> <a href="http://blog.thumbwhere.com/" onclick="MetaWrap.State.affirmState('blog'); return false;">Blog</a> <a href="/press" onclick="MetaWrap.State.affirmState('press'); return false;">Press</a> <a href="/terms" onclick="MetaWrap.State.affirmState('terms'); return false;" >Terms</a> <a href="/privacy" onclick="MetaWrap.State.affirmState('privacy'); return false;">Privacy</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</body>
+</html>

@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="metawrap_application.xsl" ?>
+<session>
+	<user>
+		<id>1</id>
+		<name>James</name>
+	</user>
+	<application>
+		<metadata>
+			<title>Test MetaWrap Application #1</title>
+		</metadata>
+		<body>
+		
+			<!-- Directly from the WHATWG Web Applications 1.0 Spec -->
+			<cite>http://www.whatwg.org/specs/web-apps/current-work/#the-blockquote</cite>
+		    <blockquote>
+				The blockquote element represents a section that is quoted from another source. 
+				Content inside a blockquote must be quoted from another source, whose URI, if it has one, 
+				should be cited in the cite attribute. 
+				If the cite attribute is present, it must be a URI (or IRI). 
+				User agents should allow users to follow such citation links. 
+				Each blockquote element potentially has a heading. 
+				See the section on headings and sections for further details. 
+				The cite DOM attribute reflects the element's cite content attribte.
+			</blockquote>
+			
+			<article>
+				The article element represents a section of a page that consists of a composition that forms an independent part of a document, page, or site. This could be a forum post, a magazine or newspaper article, a Web log entry, a user-submitted comment, or any other independent item of content. 
+				An article element is "independent" in that its contents could stand alone, for example in syndication. However, the element is still associated with its ancestors; for instance, contact information that applies to a parent body element still covers the article as well. 
+				When article elements are nested, the inner article elements represent articles that are in principle related to the contents of the outer article. For instance, a Web log entry on a site that accepts user-submitted comments could represent the comments as article elements nested within the article element for the Web log entry. 
+				Author information associated with an article element (q.v. the address element) does not apply to nested article elements. 
+				Each article element potentially has a heading. See the section on headings and sections for further details
+			</article>
+			
+			<!--
+			<ol>
+				<li> 
+					<cite>Costello</cite>
+					<blockquote> <p> Look, you gotta first baseman? </p> </blockquote>
+				</li>
+				<li> 
+					<cite>Abbott</cite>
+					<blockquote> <p> Certainly. </p> </blockquote>
+				</li>
+				<li> 
+					<cite>Costello</cite>
+					<blockquote> <p> Who's playing first? </p> </blockquote>
+				</li>
+				<li> 
+					<cite>Abbott</cite>
+					<blockquote> <p> That's right. </p> </blockquote>
+				</li>
+				<li> 
+					<cite>Costello</cite>
+					<blockquote> <p> When you pay off the first baseman every month, who gets the money? </p> </blockquote>
+				</li>
+				<li> 
+					<cite>Abbott</cite>
+					<blockquote> <p> Every dollar of it. </p> </blockquote>
+				</li>
+			</ol>
+			-->
+		    
+		    
+			<code>Some Example Source Code.</code>
+		
+			<code>Here is some more source code.</code>
+			
+			<blog>
+				<post>
+					<entry>
+						<p>This Is A Blog Post.</p>
+						<code>Here is some source code in the blog post.</code>
+						<p/>
+						<cite>Ray Kurzweil</cite>
+						<blockquote>
+							I'm an inventor. 
+							I became interested in long-term trends because an invention has to 
+							make sense in the world in which it is finished, not the world in 
+							which it is started
+						</blockquote>
+						<p/>
+					</entry>
+					<comments>
+						<comment>Here is a comment to the post.</comment>
+						<comment>Here is another comment to the post.</comment>
+					</comments>
+				</post>
+			</blog>
+			
+			<!-- 
+				Example of specific widget 'signup' - this takes an email address and posts it 
+				to the action endpoint
+				
+			    Demonstrates interplay between action, state
+			    
+			    The form will only show if the state is 'not_signed_up'
+			    
+			    When 
+			-->
+			<signup destination="signup" requires="loggedout">
+			</signup>
+			
+		</body>
+	</application>
+</session>
+
+

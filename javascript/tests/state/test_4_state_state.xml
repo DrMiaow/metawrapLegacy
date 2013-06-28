@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!--
+    $Id: test_4_state.xml,v 1.6 2004/01/02 01:22:43 james Exp $
+
+    $Log: test_4_state.xml,v $
+    Revision 1.6  2004/01/02 01:22:43  james
+    State machine renaming
+
+    Revision 1.5  2008/07/21 10:16:17  james
+    Added inactive - now just need a better name for it....
+
+    Revision 1.4  2007/05/01 12:24:11  james
+    Tidied up logs
+
+    Revision 1.3  2007/04/25 12:33:41  james
+    Added simplified javascript format
+
+    Revision 1.2  2007/04/23 13:32:52  james
+    Added 3 different shorthand notations
+
+    Revision 1.1  2007/04/23 12:30:03  james
+    Adding testcase for compact format
+
+    <?xml-stylesheet type="text/xsl" href="E:\metawrap\javascript\tests\state\state.xsl"?>
+    <metawrap xmlns="../metawrap/metawrap.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="../metawrap/metawrap.xsd ../metawrap/metawrap.xsd" >
+    XSLT WILL NOT WORK IF xmlns is included
+-->
+<metawrap  >
+    <states>
+    
+        <state name="loggedout">        
+            <require call="IsLoggedOut()" />        
+             <from>                                
+                 <to  				    call="IsLoggedOutError()" />                    
+                 <to state="loggedin" 	call="OnLoggedIn()" />
+             </from>
+             <to>
+                 <from state="" 			call="OnEnteredSiteAsLoggedOut()" />                    
+                 <from state="loggedin" 	call="OnLoggedOut()" />
+             </to>
+            <exclude state="loggedin" />
+        </state>
+
+        <state name="loggedin">        
+            <require call="IsLoggedIn()" />            
+             <from>                                
+                 <to state="" 			call="IsLoggedOutError()" />                    
+                 <to state="loggedin" 	call="OnLoggedIn()" />
+             </from>
+             <to>
+                 <from state="" 			call="EnteredSiteAsLoggedOut()" />                    
+                 <from state="loggedin" 	call="OnLoggedOut()" />
+             </to>
+            <exclude state="loggedout" />
+        </state>
+        
+    </states>
+</metawrap>

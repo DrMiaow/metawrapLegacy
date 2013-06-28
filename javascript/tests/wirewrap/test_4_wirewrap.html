@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+    <head>
+        <title>Wirewrap TestCases #3 - MetaWrap JavaScript Library - $Id: test_4_wirewrap.html,v 1.14 2008/05/15 02:11:25 james Exp $ </title>
+
+        <script language="JavaScript" type="text/javascript" src="prototype.js"></script>
+        <script language="JavaScript" type="text/javascript" src="effects2.js"></script>
+        <script language="JavaScript" type="text/javascript" src="dragdrop.js"></script>
+
+        <script language="JavaScript" type="text/javascript" src="../base/mw_lib.js"></script>
+		
+        <script language="JavaScript">
+/*!
+    @fn         function debug(p_msg)
+	@param		p_msg Message to display
+    @brief      Debugging routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function debug(p_msg)
+{
+    alert(p_msg);
+}
+
+/*!
+    @fn         function error(p_msg)
+	@param		p_msg Message to display
+    @brief      Error routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function error(p_msg)
+{
+    //alert(p_msg);
+}
+
+/*!
+    @fn         function trace(p_msg)
+	@param		p_msg Message to display
+    @brief      Trace routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function trace(p_msg)
+{
+    //window.status = p_msg;
+}
+
+/*!
+    @fn         function ASSERT(p_cond,p_msg)
+	@param		p_cond The flag that determines if we don't display p_msg
+	@param		p_msg Message to display
+    @brief      If p_cond is not true then display p_msg
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+        </script>		
+		
+        <script language="JavaScript" type="text/javascript" src="../pipeline/mw_lib_pipeline.js?v=1"></script>
+<!--        <script language="javascript" type="text/javascript">MwPath("../page/");</script>-->
+        <script language="JavaScript" type="text/javascript" src="../page/mw_lib_page.js"></script>
+        <script language="JavaScript" type="text/javascript" src="../page/mw_lib_page_event.js"></script>
+        <script language="javascript" type="text/javascript" src="../page/mw_lib_page_element.js"></script>
+        <script language="javascript" type="text/javascript" src="../page/mw_lib_page_element_addhandler.js"></script>
+        <script language="JavaScript" type="text/javascript" src="../network/mw_lib_network.js"></script>
+        <script language="JavaScript" type="text/javascript" src="../xml/mw_lib_xml.js"></script>
+        <script language="JavaScript" type="text/javascript" src="../xslt/mw_lib_xml_xslt.js"></script>
+        <script language="JavaScript" type="text/javascript" src="../cookie/mw_lib_cookie.js"></script>
+        <script language="JavaScript" type="text/javascript" src="../wirewrap/mw_lib_wirewrap.js"></script>
+
+        <script language="JavaScript" type="text/javascript">
+	MetaWrap.Wirewrap.m_behavior_xml_path = "";
+	MetaWrap.Wirewrap.m_style_xml_path = "";
+	MetaWrap.Wirewrap.m_combined_xml_path = "";
+        </script>
+        <script language="JavaScript" type="text/javascript" src="../presentation/mw_lib_presentation.js"></script>
+        <script language="javascript" type="text/javascript" src="../init/mw_lib_init.js"></script>
+
+
+    </head>
+    <body>
+        <div class="wrap">
+            <table width="100%">
+                <tr align="center">
+                    <td>
+                        <h2>
+                            Wirewrap TestCases #4 - Base And Remix Behaviors
+                        </h2>
+                    </td>
+                    <td>
+                        <a href="http://www.metawrap.com"><img border="0" src="../images/metawrap_logo_sm.png" align="right"></a>
+                    </td>
+                </tr>
+            </table>
+            <pre>$Id: test_4_wirewrap.html,v 1.14 2008/05/15 02:11:25 james Exp $</pre>
+        </div>
+        <div class="wrap">
+            <h2 id="fading-list-heading">
+                Fading lists
+            </h2>
+            <ul id="fading-list">
+                <li>
+                    <a>Click me to delete me 1</a>
+                <li>
+                    <a>Click me to delete me 2</a>
+                <li>
+                    <a>Click me to delete me 3</a>
+                <li>
+                    <a>Click me to delete me 4</a>
+                <li>
+                    <a>Click me to delete me 5</a>
+                </li>
+            </ul>
+            <h2 id="sortable-list-heading">
+                Sortable lists
+            </h2>
+            <ul id="sortable-list">
+                <li>
+                Click me to drag me 1
+                <li>
+                Click me to drag me 2
+                <li>
+                Click me to drag me 3
+                <li>
+                Click me to drag me 4
+                <li>
+                    Click me to drag me 5
+                </li>
+            </ul>
+            <h2>
+                Dropout boxen
+            </h2>
+            <ul class="dropout">
+                <li>
+                Clickme!
+                <li>
+                Clickme!
+                <li>
+                Clickme!
+                <li>
+                Clickme!
+                <li>
+                    Clickme!
+                </li>
+            </ul>
+            <h2>
+                Shaky lists
+            </h2>
+            <ul id="shaky">
+                <li>
+                Click me to shake me 1
+                <li>
+                Click me to shake me 2
+                <li>
+                Click me to shake me 3
+                <li>
+                Click me to shake me 4
+                <li>
+                    Click me to shake me 5
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>

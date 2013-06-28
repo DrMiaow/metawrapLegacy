@@ -1,0 +1,1930 @@
+﻿* {
+	padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px
+}
+html {
+	height: 100%
+}
+body {
+	height: 100%
+}
+body {
+	font: 14px arial, helvetica, verdana, sans-serif; color: #333333
+}
+textarea {
+	font: 14px arial, helvetica, verdana, sans-serif; color: #333333
+}
+body {
+	line-height: 1.5em; background-color: #ffffff; text-align: center
+}
+#fixed_width {
+	margin-left: auto; width: 995px; margin-right: auto; text-align: left
+}
+h4 {
+	font-weight: bold; font-size: 16px
+}
+h3 {
+	font-weight: normal; font-size: 20px
+}
+h2 {
+	font-weight: normal; font-size: 24px; line-height: 26px; letter-spacing: -0.03em
+}
+input {
+	padding-right: 1px; padding-left: 1px; padding-bottom: 1px; padding-top: 1px
+}
+a {
+	color: #0088ee; text-decoration: none
+}
+a:link {
+	color: #0088ee; text-decoration: none
+}
+a:hover {
+	color: #0088ee; text-decoration: underline
+}
+img {
+	border-top-style: none;
+	border-right-style: none;
+	border-left-style: none;
+	border-bottom-style: none;
+}
+table {
+	width: 100%; border-collapse: collapse; border-spacing: 0
+}
+td {
+	padding-right: 0px; padding-left: 0px; padding-bottom: 0px; padding-top: 0px
+}
+.text_orange {
+	color: #ff690a
+}
+.text_logo {
+	color: #ff690a
+}
+.text_new {
+	color: #ff690a
+}
+.text_online {
+	color: #ff690a
+}
+.text_free {
+	color: #ff690a
+}
+.text_green {
+	color: #08b63d
+}
+.text_notice {
+	border-right: #d0f5bf 1px solid; padding-right: 5px; border-top: #d0f5bf 1px solid; padding-left: 10px; margin-bottom: 20px; padding-bottom: 5px; border-left: #d0f5bf 1px solid; color: white; padding-top: 5px; border-bottom: #d0f5bf 1px solid; background-color: #08b63d
+}
+.text_red {
+	color: #d50005
+}
+.text_warning {
+	color: #d50005
+}
+#homepage {
+	padding-right: 15px; padding-left: 15px
+}
+#homepage_main {
+	width: 615px
+}
+.logo_description {
+	font-size: 23px; padding-bottom: 5px; margin-left: 398px; color: #caced1; padding-top: 6px; position: absolute; top: 24px
+}
+#homepage .logo_description {
+	font-size: 23px; padding-bottom: 5px; margin-left: 105px; color: #caced1; padding-top: 6px; position: absolute; top: 30px
+}
+#page {
+	padding-right: 20px; padding-left: 20px; padding-top: 10px; background-color: #ffffff; text-align: left
+}
+#main_top {
+	padding-right: 15px; padding-left: 15px; margin-bottom: 15px; padding-bottom: 15px; padding-top: 15px
+}
+#main_hdr {
+	background: #fff
+}
+#main_noborder {
+	background: #fff
+}
+.expando_content {
+	font-size: 12px; margin-left: 2px; color: #656b6f; margin-right: 25px; height: 115px
+}
+.expando_content_compact {
+	margin-right: 15px
+}
+.expando_navlist {
+	font-size: 12px; margin-bottom: 10px; padding-bottom: 3px; line-height: normal; margin-right: 25px; padding-top: 3px; border-bottom: #e2e5e9 1px solid
+}
+.expando_navlist_compact {
+	margin-right: 15px
+}
+.expando_navlist li {
+	display: inline; margin: 0px; list-style-type: none
+}
+.expando_navlist li a {
+	border-right: #ffffff 1px solid; padding-right: 0.7em; border-top: #ffffff 1px solid; padding-left: 0.8em; padding-bottom: 3px; margin-left: 2px; border-left: #ffffff 1px solid; padding-top: 5px; background-color: #eceff3; text-decoration: none; border-bottom-style: none
+}
+.expando_navlist li a.inactive:hover {
+	color: #0088ee; background-color: #e2e5e9; text-decoration: underline
+}
+.expando_navlist li a.current:hover {
+	cursor: default; text-decoration: none
+}
+.expando_navlist li a.current {
+	border-right: #eceff3 1px solid; border-top: #eceff3 1px solid; border-left: #eceff3 1px solid; color: #333333; border-bottom: white 1px solid; background-color: #ffffff
+}
+#navlist {
+	padding-right: 0px; padding-left: 0px; padding-bottom: 5px; margin-left: 3px; line-height: normal; padding-top: 7px
+}
+#navlist li {
+	display: inline; margin: 0px; list-style-type: none
+}
+#navlist li a {
+	border-right: white 1px solid; padding-right: 0.8em; border-top: white 1px solid; padding-left: 0.8em; padding-bottom: 5px; margin-left: 3px; border-left: white 1px solid; padding-top: 7px; border-bottom: white 1px; text-decoration: none
+}
+#navlist li a.inactive:hover {
+	border-right: #f2f2f2 1px solid; border-top: #f2f2f2 1px solid; border-left: #f2f2f2 1px solid; color: #0088ee; background-color: #f2f2f2; text-decoration: underline
+}
+#navlist li a.current:hover {
+	text-decoration: none
+}
+#navlist li a.current {
+	border-right: #caced1 1px solid; border-top: #caced1 1px solid; background: white; border-left: #caced1 1px solid; color: #333333; border-bottom: white 1px solid
+}
+#main_container {
+	width: 605px
+}
+#main {
+	border-right: #caced1 1px solid; border-top: #caced1 1px solid; min-width: 300px; background: #fff; margin-bottom: 2em; padding-bottom: 25px; border-left: #caced1 1px solid; border-bottom: #caced1 1px solid
+}
+#main_no_hdr {
+	border-right: #caced1 1px solid; padding-right: 15px; border-top: #caced1 1px solid; min-width: 300px; padding-left: 15px; background: #fff; margin-bottom: 2em; padding-bottom: 15px; border-left: #caced1 1px solid; padding-top: 15px; border-bottom: #caced1 1px solid
+}
+#banner {
+	margin: 12px auto 20px
+}
+#banner .topHdr {
+	padding-bottom: 4px; border-bottom: #caced1 1px solid; text-align: left
+}
+#banner .logo_link {
+	display: block;
+	float: left;
+	background-image: url('images/metawrap_logo_beta.gif');
+	width: 300px;
+	background-repeat: no-repeat;
+	height: 32px;
+}
+#banner .topNav {
+	padding-top: 15px
+}
+#banner .topNav ul {
+	display: inline; margin-left: -8px; list-style-type: none
+}
+#banner .topNav ul li {
+	display: inline
+}
+#banner .topNav {
+	font-size: 18px
+}
+#banner .topNavInviteLanding {
+	font-size: 24px
+}
+.sep {
+	color: #caced1
+}
+#banner .welcome {
+	padding-bottom: 5px; padding-top: 3px
+}
+#banner .welcome IMG {
+	border-right: #333333 1px solid; border-top: #333333 1px solid; border-left: #333333 1px solid; margin-right: 6px; border-bottom: #333333 1px solid
+}
+#banner .welcome form {
+	
+}
+#banner .searchBox {
+	margin-top: 4px; float: right
+}
+.admin_note {
+	padding-right: 5px; padding-left: 10px; margin-bottom: 10px; padding-bottom: 5px; padding-top: 5px
+}
+.admin_note_alert {
+	color: #d50005
+}
+#user_menu {
+	font-size: 13px; z-index: 2; left: 21px; top: -1px
+}
+#user_menu .alignment {
+	float: left; visibility: hidden
+}
+#user_menu ul {
+	border-right: #caced1 1px solid; padding-right: 10px; border-top: #caced1 1px solid; padding-left: 5px; float: left; padding-bottom: 5px; border-left: #caced1 1px solid; border-bottom: #caced1 1px solid; list-style-type: none; background-color: #ffffff
+}
+#user_menu_down_arrow {
+	background: url(images/down_arrow.gif) no-repeat 6px 8px; float: left; width: 20px; height: 20px
+}
+.searchBox .input {
+	padding-bottom: 3px
+}
+#welcome {
+	clear: both
+}
+#welcome .profileImage {
+	float: left
+}
+#welcome .welcomeText {
+	font-size: 13px; padding-bottom: 5px
+}
+#welcome .signedIn {
+	float: left
+}
+#artist_qp {
+	border-right: #b2b2b2 1px solid; border-top: #b2b2b2 1px solid; padding-left: 4px; font-size: 14px; border-left: #b2b2b2 1px solid; width: 283px; margin-right: 2px; padding-top: 3px; border-bottom: #b2b2b2 1px solid; font-FAMILY: Arial; height: 18px
+}
+#people_qp {
+	border-right: #b2b2b2 1px solid; border-top: #b2b2b2 1px solid; padding-left: 4px; font-size: 14px; border-left: #b2b2b2 1px solid; width: 283px; margin-right: 2px; padding-top: 3px; border-bottom: #b2b2b2 1px solid; font-FAMILY: Arial; height: 18px
+}
+#rbar {
+	float: right; width: 330px
+}
+#rbar DIV h4 {
+	font-size: 12pt; margin: 0px
+}
+.spacer {
+	height: 5px
+}
+#actions {
+	padding-right: 0px; padding-left: 0px; margin-bottom: 10px; padding-bottom: 0px; padding-top: 0px
+}
+.artist_item {
+	border-right: #caced1 1px solid; border-top: #caced1 1px solid; padding-left: 5px; font-size: 12px; float: left; margin-bottom: 10px; overflow: hidden; border-left: #caced1 1px solid; width: 132px; line-height: 1.2em; margin-right: 10px; padding-top: 5px; border-bottom: #caced1 1px solid; height: 60px
+}
+.hidden_dragdrop {
+	padding-left: 5px; float: left; margin-bottom: 10px; overflow: hidden; width: 132px; line-height: 1.2em; margin-right: 10px; padding-top: 5px; height: 60px
+}
+.artist_item_text {
+	padding-left: 5px; float: left; overflow: hidden; width: 74px
+}
+.people_item {
+	font-size: 12px; float: left; margin-bottom: 10px; width: 148px; line-height: 1.2em; margin-right: 10px; height: 60px
+}
+.people_item_med {
+	border-right: #e0e0e0 1px solid; border-top: #e0e0e0 1px solid; font-size: 14px; float: left; margin-bottom: 20px; border-left: #e0e0e0 1px solid; width: 169px; line-height: 1.2em; margin-right: 20px; border-bottom: #e0e0e0 1px solid; height: 72px; background-color: #fafafa
+}
+.people_item_med_tight {
+	margin-bottom: 12px; margin-right: 12px
+}
+.people_item_img {
+	float: left
+}
+.people_item_text {
+	padding-left: 5px; float: left; overflow: hidden; width: 90px
+}
+.people_item_med_text {
+	padding-left: 10px; float: left; overflow: hidden; width: 80px; padding-top: 10px
+}
+.person_online {
+	font-size: 11px; color: #ff690a
+}
+.new_messages {
+	font-weight: bold; color: #ff690a
+}
+.gig_container {
+	padding-right: 10px; margin-top: 15px; padding-left: 10px; padding-bottom: 5px; margin-left: 15px; margin-right: 15px; padding-top: 5px; background-color: #e2e5e9
+}
+.blocked_artist {
+	color: #ff690a
+}
+.person {
+	border-right: white 1px solid; padding-right: 5px; border-top: white 1px solid; display: block; padding-left: 60px; float: left; margin-bottom: 5px; overflow: hidden; border-left: white 1px solid; width: 75px; cursor: hand; margin-right: 0px; padding-top: 3px; border-bottom: white 1px solid; height: 57px
+}
+.person_ontour {
+	margin-right: 30px
+}
+.person:hover {
+	border-right: #e8e8e8 1px solid; border-top: #e8e8e8 1px solid; background: #fefefe; border-left: #e8e8e8 1px solid; border-bottom: #e8e8e8 1px solid; text-decoration: none
+}
+.person SPAN {
+	display: block; font-size: 12px; line-height: 1.2em
+}
+.artist_on_tour {
+	font-size: 11px; color: #ff690a
+}
+.listeners_expando {
+	margin-bottom: 0px; width: 65px; height: 51px
+}
+.expando_button {
+	display: block; cursor: pointer; position: relative; height: 19px; text-align: center
+}
+.expando_button P {
+	margin-left: auto; color: #ffffff; line-height: 19px; margin-right: auto
+}
+.expando_button_small {
+	background: url(images/orange_expando_buttons.gif) no-repeat -238px 0px; width: 95px
+}
+.expando_button_medium {
+	background: url(images/orange_expando_buttons.gif) no-repeat -129px 0px; width: 109px
+}
+.expando_button_large {
+	background: url(images/orange_expando_buttons.gif) no-repeat 0px 0px; width: 129px
+}
+a.expando_button:hover {
+	text-decoration: none
+}
+.nav_button {
+	display: block; background-image: url(images/nav_button_bg.gif); margin-bottom: 2px; width: 330px; height: 33px
+}
+.nav_button P {
+	padding-left: 20px; font-size: 18px; padding-top: 6px
+}
+a.nav_button:hover {
+	background-image: url(images/nav_button_bg_hover.gif); text-decoration: none
+}
+.nav_button_right {
+	padding-right: 10px; float: right; cursor: pointer; padding-top: 6px
+}
+#friend_add {
+	background: url(images/friend_addremove.gif) no-repeat 0px 0px
+}
+#friend_add P {
+	padding-left: 40px; color: white
+}
+#friend_remove {
+	background: url(images/friend_addremove.gif) no-repeat -330px 0px
+}
+#friend_remove P {
+	padding-left: 40px
+}
+#artist_add {
+	background: url(images/artist_addremove.gif) no-repeat 0px 0px
+}
+#artist_add P {
+	padding-left: 40px; color: white
+}
+#artist_remove {
+	background: url(images/artist_addremove.gif) no-repeat -330px 0px
+}
+#artist_remove P {
+	padding-left: 40px; color: #ff690a
+}
+#rbar #prom_emerging {
+	background: #c6e3f9
+}
+.view_all {
+	font-weight: bold
+}
+.graybar0 {
+	background: #eeeff1
+}
+.graybar1 {
+	
+}
+.graybar0 P {
+	padding-left: 5px
+}
+.graybar1 P {
+	padding-left: 5px
+}
+.graybar0 P SPAN {
+	font-size: 75%
+}
+.graybar1 P SPAN {
+	font-size: 75%
+}
+#footer {
+	clear: both; margin-top: 50px
+}
+#footer_main {
+	border-top: #caced1 1px solid; font-size: 12px; color: #656b6f; padding-top: 10px
+}
+#footer_main ul {
+	font-size: 13px; list-style-type: none
+}
+#footer_main ul li {
+	display: inline; line-height: 1.3em
+}
+#footer_tm {
+	margin-top: 7px; font-size: 11px; padding-bottom: 7px; color: #bbbbbb
+}
+#login_overlay {
+	z-index: 1000; filter: alpha(opacity=50); left: 0px; overflow: hidden; width: 100%; position: absolute; top: 0px; height: 100%; background-color: black; opacity: .40
+}
+#login_dialog {
+	border-right: #ff690a 1px solid; border-top: #ff690a 1px solid; z-index: 1001; border-left: #ff690a 1px solid; border-bottom: #ff690a 1px solid; position: absolute; background-color: white
+}
+#login_dialog .content {
+	padding-right: 10px; padding-left: 20px; padding-bottom: 5px; padding-top: 10px
+}
+.challenge_stats_gray {
+	color: #656b6f
+}
+#login_dialog .account_labels {
+	color: #656b6f
+}
+#login_dialog .existing_users {
+	border-right: #656b6f 1px solid; float: left; width: 380px
+}
+#login_dialog .existing_users h2 {
+	padding-bottom: 10px; padding-top: 10px
+}
+#login_dialog .forgotten_password {
+	border-right: #656b6f 1px solid; float: left; width: 380px; padding-top: 15px
+}
+#login_dialog .forgotten_password h2 {
+	padding-left: 110px; padding-bottom: 10px; padding-top: 10px
+}
+#login_dialog .new_users {
+	padding-right: 10px; padding-left: 35px; float: left; width: 195px
+}
+#login_dialog .new_users h2 {
+	padding-bottom: 5px; margin-left: -2px; padding-top: 25px
+}
+#login_dialog form dt {
+	clear: left; float: left; width: 100px; padding-top: 2px; text-align: right
+}
+#login_dialog form dd {
+	margin-bottom: 10px; margin-left: 110px
+}
+#login_dialog .input_text {
+	margin-top: 0px; font-size: 14px; width: 220px; color: #333333; padding-top: 2px; height: 18px
+}
+#login_close {
+	clear: left; text-align: right
+}
+#quiz h1 {
+	font-weight: normal; font-size: 36px; margin-bottom: 15px; margin-left: 150px; letter-spacing: -0.03em
+}
+#account h1 {
+	font-weight: normal; font-size: 36px; margin-bottom: 15px; margin-left: 150px; letter-spacing: -0.03em
+}
+#artist_signup h1 {
+	font-weight: normal; font-size: 36px; margin-bottom: 15px; margin-left: 150px; letter-spacing: -0.03em
+}
+#artist_account h1 {
+	font-weight: normal; font-size: 36px; margin-bottom: 15px; margin-left: 150px; letter-spacing: -0.03em
+}
+#artist_account h1 {
+	margin-left: 170px
+}
+#artist_signup h1 {
+	margin-left: 150px
+}
+#account .wide_left h1 {
+	margin-left: 215px
+}
+#artist_signup .right {
+	margin-left: 150px
+}
+#account_settings .right {
+	margin-left: 150px
+}
+#account .right {
+	margin-left: 150px
+}
+#delete_account .right {
+	margin-left: 150px
+}
+#account_settings label {
+	color: #656b6f
+}
+#account .why_create_invited {
+	margin-bottom: 35px
+}
+#account .why_create {
+	margin-top: 15px; float: right; margin-left: 50px
+}
+#account .why_download_text {
+	padding-left: 10px; float: left; width: 650px; padding-top: 10px
+}
+#account .no_profile {
+	border-top: #caced1 1px solid; margin-left: 150px; padding-top: 35px
+}
+#account .no_profile h1 {
+	margin-left: 0px
+}
+#account .why_create ul {
+	padding-left: 0px; margin-left: 0px; list-style-type: none
+}
+#account .why_create_invited ul {
+	padding-left: 0px; margin-left: 0px; list-style-type: none
+}
+#account .download_sidebar ul {
+	padding-left: 0px; margin-left: 0px; list-style-type: none
+}
+#account .congrats_personalize ul {
+	padding-left: 0px; margin-left: 0px; list-style-type: none
+}
+#account .download_sidebar_explanation ul {
+	padding-left: 0px; margin-left: 0px; list-style-type: none
+}
+#account .why_download ul {
+	padding-left: 0px; margin-left: 0px; list-style-type: none
+}
+#account .no_profile ul {
+	padding-left: 0px; margin-left: 0px; list-style-type: none
+}
+.tartan_bullet_list {
+	padding-left: 0px; margin-left: 0px; list-style-type: none
+}
+#account .why_create li {
+	background-position: 2px 6px; margin-top: 5px; padding-left: 28px; font-size: 18px; background-image: url(images/diamonds.gif); color: #656b6f; background-repeat: no-repeat
+}
+#account .download_sidebar li {
+	background-position: 2px 6px; margin-top: 5px; padding-left: 28px; font-size: 18px; background-image: url(images/diamonds.gif); color: #656b6f; background-repeat: no-repeat
+}
+#account .why_create_invited li {
+	background-position: 2px 6px; margin-top: 5px; padding-left: 28px; font-size: 18px; background-image: url(images/diamonds.gif); color: #656b6f; background-repeat: no-repeat
+}
+#account .congrats_personalize li {
+	background-position: 2px 6px; margin-top: 5px; padding-left: 28px; font-size: 18px; background-image: url(images/diamonds.gif); color: #656b6f; background-repeat: no-repeat
+}
+#account .download_sidebar_explanation li {
+	background-position: 2px 6px; margin-top: 5px; padding-left: 28px; font-size: 18px; background-image: url(images/diamonds.gif); color: #656b6f; background-repeat: no-repeat
+}
+#account .why_download li {
+	background-position: 2px 6px; margin-top: 5px; padding-left: 28px; font-size: 18px; background-image: url(images/diamonds.gif); color: #656b6f; background-repeat: no-repeat
+}
+#account .no_profile li {
+	background-position: 2px 6px; margin-top: 5px; padding-left: 28px; font-size: 18px; background-image: url(images/diamonds.gif); color: #656b6f; background-repeat: no-repeat
+}
+.tartan_bullet_list li {
+	background-position: 2px 6px; margin-top: 5px; padding-left: 28px; font-size: 18px; background-image: url(images/diamonds.gif); color: #656b6f; background-repeat: no-repeat
+}
+#artist_signup form dt {
+	clear: left; float: left; margin-bottom: 15px; width: 135px; padding-top: 1px; text-align: right
+}
+#account form dt {
+	clear: left; float: left; margin-bottom: 15px; width: 135px; padding-top: 1px; text-align: right
+}
+#artist_signup form dd {
+	margin-bottom: 15px; margin-left: 150px
+}
+#account form dd {
+	margin-bottom: 15px; margin-left: 150px
+}
+#artist_signup form .input_text {
+	margin-top: -4px; font-size: 20px; width: 300px; color: #333333; height: 25px
+}
+#account form .input_text {
+	margin-top: -4px; font-size: 20px; width: 300px; color: #333333; height: 25px
+}
+#userform_location_fields select {
+	margin-top: -4px; font-size: 20px; width: 300px; color: #333333; height: 25px
+}
+#artist_info_form .input_text {
+	width: 300px
+}
+#account form .input_textarea {
+	width: 300px; color: #333333; height: 100px
+}
+#artist_signup form .account_labels {
+	font-size: 18px; color: #656b6f
+}
+#account form .account_labels {
+	font-size: 18px; color: #656b6f
+}
+#userform_location_fields label {
+	font-size: 18px; color: #656b6f
+}
+#account form .account_settings dt {
+	clear: left; float: left; margin-bottom: 10px; width: 135px; padding-top: 1px; text-align: right
+}
+#account form .account_settings dd {
+	margin-bottom: 10px; margin-left: 150px
+}
+#account form .wide_left dt {
+	width: 200px
+}
+#account form .wide_left dd {
+	margin-left: 215px
+}
+#userform_location_fields select {
+	width: 215px; height: 29px
+}
+#userform_location_fields #user_country_tip {
+	margin-left: 240px
+}
+#userform_location_fields #user_postalcode_tip {
+	margin-left: 130px
+}
+#login_homepage h1 {
+	font-weight: normal; font-size: 36px; margin-bottom: 15px; letter-spacing: -0.03em
+}
+#login_homepage {
+	background-color: #ffffff
+}
+#login_homepage .input_text {
+	font-size: 16px; margin-bottom: 10px; width: 250px; color: #333333; height: 20px
+}
+#login_homepage .account_labels {
+	font-size: 18px; color: #656b6f
+}
+#account .errors {
+	margin-bottom: 20px; margin-left: 150px; color: #333333; background-color: #ffffff
+}
+#artist_account .errors {
+	margin-bottom: 20px; margin-left: 150px; color: #333333; background-color: #ffffff
+}
+#artist_account .errors {
+	width: 450px
+}
+#account .single_error {
+	margin-bottom: 20px; margin-left: 150px; color: #d50005
+}
+#account_settings .single_error {
+	margin-bottom: 20px; margin-left: 150px; color: #d50005
+}
+#account .single_notification {
+	margin-bottom: 20px; margin-left: 150px; color: #08b63d
+}
+#account .errors h4 {
+	padding-bottom: 3px; color: #d50005
+}
+#artist_account .errors h4 {
+	padding-bottom: 3px; color: #d50005
+}
+#account .errors ul {
+	margin-left: 15px
+}
+#artist_account .errors ul {
+	margin-left: 15px
+}
+#account .fieldWithErrors {
+	background-position: 320px 1px; background-image: url(images/field_errors.gif); background-repeat: no-repeat
+}
+#account .contact_importers {
+	padding-bottom: 30px; padding-top: 20px
+}
+#account .contact_importer_opened {
+	padding-left: 15px; margin-bottom: 20px; margin-left: -15px; padding-top: 15px
+}
+#account .email_addresses {
+	border-top: #caced1 1px solid; padding-top: 30px
+}
+#account .invite_friends_area {
+	
+}
+#account .download_sidebar {
+	margin-bottom: 5px; padding-bottom: 15px
+}
+#account .download_sidebar_mac {
+	background-image: none
+}
+#account .download_sidebar_standalone {
+	background-position: right top; background-image: url(images/sidebar_screen3.jpg); background-repeat: no-repeat
+}
+#account .download_sidebar_standalone_mac {
+	background-image: none
+}
+#account .screenshot_related {
+	padding-left: 530px; background: url(images/screen_related_large3.gif) no-repeat 0px 0px; height: 364px
+}
+#account .screenshot_playlists {
+	padding-left: 530px; background: url(images/screen_playlist_large3.gif) no-repeat 0px 0px; height: 364px
+}
+.screenshot_profile {
+	padding-left: 530px; background: url(images/screen_profile_large.jpg) no-repeat 0px 0px; height: 903px
+}
+#account .screenshot_home {
+	padding-left: 530px; background: url(images/screen_home_large3.gif) no-repeat 0px 0px; height: 364px
+}
+#account .music_compat {
+	border-top: #caced1 1px solid; padding-top: 20px
+}
+.spinner_icon {
+	background-position: -42px -42px; padding-left: 75px; background-image: url(images/creating_profile_spinner.gif); padding-top: 10px; background-repeat: no-repeat; height: 62px
+}
+#account .creating_profile {
+	background-position: -42px -22px; display: block; padding-left: 75px; background-image: url(images/creating_profile_spinner.gif); color: #ff690a; padding-top: 40px; background-repeat: no-repeat; height: 86px
+}
+#account .done {
+	padding-left: 0px; background-image: none; color: #333333; padding-top: 20px
+}
+#account_footer {
+	border-top: #caced1 1px solid; margin-top: 80px; font-size: 12px; color: #656b6f; padding-top: 10px
+}
+#artist_account .right {
+	margin-left: 170px
+}
+#artist_account form dt {
+	clear: left; float: left; margin-bottom: 10px; width: 120px; padding-top: 1px; text-align: right
+}
+#artist_account form dd {
+	margin-bottom: 10px; margin-left: 130px
+}
+#artist_account form .input_text {
+	margin-top: -3px; font-size: 14px; width: 300px; color: #333333; line-height: 19px; padding-top: 2px; height: 19px
+}
+#artist_account form .input_textarea {
+	width: 300px; color: #333333; height: 100px
+}
+#artist_account form .account_labels {
+	color: #656b6f
+}
+#artist_account .errors {
+	margin-bottom: 20px; margin-left: 170px; color: #333333; background-color: #ffffff
+}
+.std_btn {
+	font-weight: bold; font-size: 14px; background: url(images/orange_buttons.gif) no-repeat 0px 0px; cursor: pointer; color: #ffffff; border-top-style: none; border-right-style: none; border-left-style: none; height: 27px; border-bottom-style: none
+}
+.std_btn_small {
+	background-position: 0px 0px; width: 100px
+}
+.std_btn_medium {
+	background-position: -100px 0px; width: 150px
+}
+.std_btn_large {
+	background-position: -250px 0px; width: 200px
+}
+.std_btn_huge {
+	font-weight: normal; font-size: 32px; background: url(images/orange_button_huge.gif) no-repeat 0px 0px; width: 200px; height: 47px
+}
+.std_btn_wide {
+	font-weight: normal; font-size: 20px; background: url(images/orange_button_wide.gif) no-repeat 0px 0px; width: 275px; height: 37px
+}
+.std_btn_small_disabled {
+	background-position: -450px 0px; width: 100px; cursor: default
+}
+.std_btn_medium_disabled {
+	background-position: -550px 0px; width: 150px; cursor: default
+}
+.std_btn_large_disabled {
+	background-position: -700px 0px; width: 200px; cursor: default
+}
+.clear {
+	clear: both
+}
+.container_box {
+	border-right: #7dbeee 1px solid; border-top: #7dbeee 1px solid; margin-bottom: 10px; padding-bottom: 10px; border-left: #7dbeee 1px solid; border-bottom: #7dbeee 1px solid; background-color: #fff
+}
+.container_box_noborder {
+	margin-bottom: 10px; padding-bottom: 10px; background-color: #fff
+}
+.contributor_info_box {
+	border-right: #ff690a 1px solid; border-top: #ff690a 1px solid; margin-bottom: 10px; padding-bottom: 10px; border-left: #ff690a 1px solid; border-bottom: #ff690a 1px solid; background-color: #fff
+}
+.contributor_info_text {
+	color: #656b6f; line-height: 1.3em; padding-top: 5px
+}
+.padded_container {
+	padding-right: 15px; padding-left: 15px; padding-bottom: 10px; padding-top: 15px
+}
+.num_messages {
+	color: #ff690a
+}
+#music_compat_module {
+	color: #656b6f; line-height: 1.3em
+}
+#music_compat_module .hdr {
+	margin-top: 5px; float: left; padding-bottom: 10px
+}
+#music_compat_module h1 {
+	font-size: 36px; margin-bottom: 5px; padding-top: 10px
+}
+#music_compat_module .hdr_description {
+	padding-left: 10px; font-size: 11px; float: left; line-height: 1em
+}
+.compat_hdr_veryhigh {
+	color: #e20edb
+}
+.compat_hdr_high {
+	color: #e20edb
+}
+.compat_hdr_medium {
+	color: #08b63d
+}
+.compat_hdr_low {
+	color: #ff690a
+}
+.compat_hdr_verylow {
+	color: #ff690a
+}
+.compat_container_veryhigh {
+	border-right: #e20edb 1px solid; border-top: #e20edb 1px solid; border-left: #e20edb 1px solid; border-bottom: #e20edb 1px solid
+}
+.compat_container_high {
+	border-right: #e20edb 1px solid; border-top: #e20edb 1px solid; border-left: #e20edb 1px solid; border-bottom: #e20edb 1px solid
+}
+.compat_container_medium {
+	border-right: #08b63d 1px solid; border-top: #08b63d 1px solid; border-left: #08b63d 1px solid; border-bottom: #08b63d 1px solid
+}
+.compat_container_low {
+	border-right: #ff690a 1px solid; border-top: #ff690a 1px solid; border-left: #ff690a 1px solid; border-bottom: #ff690a 1px solid
+}
+.compat_container_verylow {
+	border-right: #ff690a 1px solid; border-top: #ff690a 1px solid; border-left: #ff690a 1px solid; border-bottom: #ff690a 1px solid
+}
+.divider {
+	border-top: #caced1 1px solid; margin-top: 10px; padding-top: 10px
+}
+.divider_white {
+	border-top: #ffffff 1px solid
+}
+.feed_list {
+	margin-bottom: 15px; list-style-type: none
+}
+.feed_filter_area {
+	font-size: 12px; color: #656b6f
+}
+.feed_upsell {
+	font-size: 12px; color: #656b6f; line-height: 1.2em
+}
+.feed_border {
+	border-top: #caced1 1px solid
+}
+.feed_noborder {
+	border-top: white 1px solid
+}
+.feed_header {
+	border-right: white 1px solid; display: block; padding-bottom: 4px; border-left: white 1px solid; cursor: pointer; color: #333333; padding-top: 6px; border-bottom: white 1px solid
+}
+.feed_header_hover {
+	border-right: #d4ecfe 1px solid; border-top: #d4ecfe 1px solid; background-image: url(images/user_hatch_bg.gif); border-left: #d4ecfe 1px solid; cursor: pointer; border-bottom: #d4ecfe 1px solid; background-repeat: repeat; background-color: #d4ecfe; text-decoration: none
+}
+a.feed_header:hover {
+	border-right: #d4ecfe 1px solid; border-top: #d4ecfe 1px solid; background-image: url(images/user_hatch_bg.gif); border-left: #d4ecfe 1px solid; cursor: pointer; border-bottom: #d4ecfe 1px solid; background-repeat: repeat; background-color: #d4ecfe; text-decoration: none
+}
+.feed_header_selected {
+	border-right: #71777b 1px solid; border-top: #71777b 1px solid; background-image: url(images/user_hatch_bg.gif); border-left: #71777b 1px solid; border-bottom: #71777b 1px solid; background-repeat: repeat; background-color: #d4ecfe
+}
+a.feed_header_selected:hover {
+	border-right: #71777b 1px solid; border-top: #71777b 1px solid; border-left: #71777b 1px solid; border-bottom: #71777b 1px solid
+}
+.feed_header_persona_hover {
+	border-right: #ffdffe 1px solid; border-top: #ffdffe 1px solid; background-image: url(images/pink_hatch.gif); border-left: #ffdffe 1px solid; border-bottom: #ffdffe 1px solid; background-color: #ffdffe
+}
+a.feed_header_persona:hover {
+	border-right: #ffdffe 1px solid; border-top: #ffdffe 1px solid; background-image: url(images/pink_hatch.gif); border-left: #ffdffe 1px solid; border-bottom: #ffdffe 1px solid; background-color: #ffdffe
+}
+.feed_header_persona_selected {
+	border-right: #71777b 1px solid; border-top: #71777b 1px solid; background-image: url(images/pink_hatch.gif); border-left: #71777b 1px solid; border-bottom: #71777b 1px solid; background-repeat: repeat; background-color: #ffdffe
+}
+a.feed_header_persona_selected:hover {
+	border-right: #71777b 1px solid; border-top: #71777b 1px solid; border-left: #71777b 1px solid; border-bottom: #71777b 1px solid
+}
+.feed_user_image {
+	padding-left: 8px; float: left; padding-top: 2px; height: 36px
+}
+.feed_presence {
+	font-weight: normal; font-size: 12px; color: #ff690a; position: absolute
+}
+.feed_new {
+	padding-left: 5px; font-weight: bold; color: #ff690a
+}
+.feed_show_details {
+	padding-right: 10px; font-size: 12px; float: right; color: #0088ee
+}
+.feed_description {
+	font-size: 12px; margin-left: 53px; color: #656b6f
+}
+.feed_displayname {
+	font-weight: bold; font-size: 16px
+}
+.feed_expando_container {
+	margin-top: -1px; z-index: 100; margin-left: 54px; width: 519px; position: absolute; background-color: #ffffff
+}
+.feed_expando {
+	border-right: #71777b 1px solid; padding-right: 15px; padding-left: 15px; padding-bottom: 15px; border-left: #71777b 1px solid; border-bottom: #71777b 1px solid
+}
+.feed_view_profile {
+	margin-top: 15px; font-weight: bold; font-size: 12px
+}
+.feed_group_header {
+	font-weight: bold; font-size: 12px; color: #656b6f; padding-top: 10px; border-bottom: #caced1 1px solid
+}
+.feed_noactivity {
+	font-weight: normal; padding-bottom: 7px; line-height: 1.4em; padding-top: 15px; border-bottom-style: none
+}
+.feed_loading {
+	font-weight: normal; padding-bottom: 25px; border-bottom-style: none
+}
+#about_people {
+	margin-bottom: 25px; list-style-type: none
+}
+.about_people_header {
+	border-right: white 1px solid; border-top: white 1px solid; display: block; padding-bottom: 4px; border-left: white 1px solid; cursor: pointer; color: #333333; padding-top: 6px; border-bottom: white 1px solid
+}
+.about_people_border {
+	border-top: #caced1 1px solid
+}
+.about_people_user_image {
+	padding-left: 0px; float: left; padding-top: 2px; height: 36px
+}
+.about_people_show_details {
+	padding-right: 10px; font-size: 12px; float: right; color: #0088ee
+}
+.about_people_description {
+	font-size: 12px; margin-left: 45px; color: #656b6f
+}
+.about_people_displayname {
+	font-weight: bold; font-size: 16px
+}
+.about_people_expando {
+	font-size: 12px; margin-bottom: 15px; margin-left: 47px; line-height: 1.4em; margin-right: 120px
+}
+.pick_image {
+	margin-top: 5px; padding-left: 2px; float: left; width: 44px
+}
+.pick_main {
+	margin-top: 2px; font-size: 12px; float: left; overflow: hidden; width: 526px; color: #656b6f
+}
+.pick_main_with_delete {
+	width: 506px
+}
+.pick_body {
+	font-size: 12px; margin-left: 2px; line-height: 1.3em; margin-right: 25px
+}
+.envelope {
+	padding-bottom: 15px; line-height: 1.3em; padding-top: 10px
+}
+.song {
+	border-top: #e2e5e9 1px solid
+}
+.artist {
+	border-top: #e2e5e9 1px solid
+}
+.fan {
+	border-top: #e2e5e9 1px solid
+}
+.envelope_border {
+	border-top: #e2e5e9 1px solid
+}
+.bordered_list_item {
+	border-top: #e2e5e9 1px solid
+}
+.song_noborder {
+	padding-top: 1px
+}
+.envelope_noborder {
+	padding-top: 11px
+}
+.song_list {
+	padding-top: 5px; list-style-type: none
+}
+.artist_list {
+	padding-top: 5px; list-style-type: none
+}
+.fan_list {
+	padding-top: 5px; list-style-type: none
+}
+.bordered_list {
+	padding-top: 5px; list-style-type: none
+}
+.song_title {
+	left: 0px; overflow: hidden; position: absolute; top: 0px; height: 1.5em
+}
+.song_play_btn {
+	padding-left: 23px; background-image: url(images/player_buttons.gif); padding-bottom: 2px; padding-top: 2px; background-repeat: no-repeat
+}
+.song_play_btn:hover {
+	background-position: 0px -50px
+}
+.song_play_btn_playing {
+	background-position: 0px -100px; padding-left: 23px; background-image: url(images/player_buttons.gif); padding-bottom: 2px; padding-top: 2px; background-repeat: no-repeat
+}
+.song_play_btn_playing:hover {
+	background-position: 0px -150px
+}
+.song_play_btn_loading {
+	background-position: 0px -200px; padding-left: 23px; background-image: url(images/player_buttons.gif); padding-bottom: 2px; padding-top: 2px; background-repeat: no-repeat
+}
+.song_play_btn_noclip {
+	padding-left: 23px
+}
+.song_progress_bar {
+	margin-top: 1px; font-size: 11px; margin-bottom: 1px; line-height: 19px
+}
+.song_progress_bar_active {
+	padding-right: 2px; font-size: 11px; border-left: white 20px solid; color: #333333; background-color: #d9ff39; text-align: right
+}
+.upload_progress_bar {
+	margin-top: 4px; line-height: 19px
+}
+.upload_progress_bar_active {
+	color: #333333; line-height: 19px; background-color: #d9ff39
+}
+#artist_song_upload form dt {
+	clear: left; float: left; width: 100px; padding-top: 2px; text-align: right
+}
+#artist_song_upload form dd {
+	margin-bottom: 10px; margin-left: 110px
+}
+.plays_bar {
+	margin-top: 1px; font-size: 11px; float: right; margin-left: 5px; width: 75px; color: #333333; line-height: 19px; background-color: #e7f4fc
+}
+.plays_val {
+	background-color: #d3e9f9
+}
+.plays_val P {
+	padding-left: 5px
+}
+.spinner {
+	background: url(images/spinner_16x16.gif) no-repeat; width: 16px; cursor: pointer; height: 16px
+}
+.more_btn_expand {
+	background: url(images/song_expandcollapse.gif) no-repeat 0px 5px; width: 10px; cursor: pointer; height: 15px
+}
+.more_btn_collapse {
+	background: url(images/song_expandcollapse.gif) no-repeat -10px 5px; width: 10px; cursor: pointer; height: 15px
+}
+.more_btn {
+	float: right; margin-left: 5px
+}
+.more_btn_absolute {
+	z-index: 1; position: absolute
+}
+.song_right {
+	float: right; width: 15px; height: 10px
+}
+.song_right_wide {
+	float: right; width: 75px; height: 10px
+}
+.song_free_link {
+	font-size: 12px; float: right
+}
+.song_left {
+	margin-right: 0px; position: relative
+}
+.song_left_compact {
+	margin-right: 5px; position: relative
+}
+.song_left_free {
+	margin-right: 70px; position: relative
+}
+.song_left_play_data {
+	margin-right: 95px; position: relative
+}
+.song_left_free_play_data {
+	margin-right: 155px; position: relative
+}
+.song_profile {
+	padding-bottom: 3px; margin-left: -25px; position: absolute
+}
+.song_expando {
+	margin-top: 10px; padding-bottom: 10px; margin-left: 18px
+}
+.song_expando_noalbumimage {
+	margin-top: -2px; padding-bottom: 5px; margin-left: 24px
+}
+.itunes_store {
+	padding-right: 15px; background: url(images/itunes_store.png) no-repeat right 50%
+}
+.find_tix {
+	padding-right: 15px; background: url(images/find_tickets.gif) no-repeat right 50%
+}
+.free_mp3 {
+	padding-right: 15px; background: url(images/download_orange.gif) no-repeat right 50%
+}
+.song_link {
+	padding-right: 15px; background: url(images/song_link.gif) no-repeat 0px 0px
+}
+.song_album_image {
+	float: left
+}
+.song_album_info {
+	font-size: 12px; margin-left: 110px; color: #656b6f; line-height: 1.5em
+}
+.song_album_label {
+	float: right; line-height: 1.5em; text-align: justify
+}
+.song_album_info_noalbumimage {
+	margin-left: 0px
+}
+.song_get_song_help {
+	border-right: gray 1px solid; padding-right: 5px; border-top: gray 1px solid; margin-top: 5px; padding-left: 5px; font-size: 11px; padding-bottom: 5px; border-left: gray 1px solid; color: #333333; line-height: 1.2em; padding-top: 5px; border-bottom: gray 1px solid; background-color: #ffffff
+}
+.song_recommend_link {
+	margin-top: 3px; display: block; float: left; background-image: url(images/recommend.gif); width: 78px; margin-right: 5px; background-repeat: no-repeat; height: 12px
+}
+.get_song_link {
+	margin-top: 3px; display: block; float: left; background-image: url(images/free_mp3_button.gif); width: 77px; margin-right: 5px; background-repeat: no-repeat; height: 12px
+}
+#my_plays_summary {
+	margin-bottom: 10px
+}
+.artist_tile_small {
+	font-size: 12px; float: left; overflow: hidden; width: 143px; line-height: 1.25em; height: 70px
+}
+.artist_tile_small_rhs {
+	width: 149px
+}
+.artist_tile_small_image {
+	padding-left: 2px; float: left; width: 57px
+}
+.artist_tile_small_main {
+	float: left; overflow: hidden; width: 76px
+}
+.artist_tile_small_main_rhs {
+	width: 82px
+}
+.artist_title {
+	font-weight: bold; font-size: 24px; color: #e20edb; line-height: 28px
+}
+.artist_tile {
+	padding-right: 5px; float: left; overflow: hidden; width: 150px; list-style-type: none; text-align: left
+}
+.faceoff_current {
+	background-color: #ffe4da
+}
+.faceoff_tile_padding {
+	padding-right: 5px; padding-left: 5px; padding-bottom: 5px; padding-top: 5px
+}
+.artist_quiz_tile_padding {
+	padding-right: 10px; padding-top: 35px
+}
+.artist_quiz_tile_padding_first_row {
+	padding-right: 10px; padding-top: 15px
+}
+.suggested_artists_title {
+	padding-bottom: 5px; color: #ff690a
+}
+.artist_tile_ilike_btn {
+	margin-top: 8px; display: block; background-image: url(images/ilike_btn_hp.gif); width: 150px; cursor: hand; background-repeat: no-repeat; height: 27px
+}
+.artist_tile_ilike_btn:hover {
+	background-position: -150px 0px
+}
+.artist_tile_ilike_btn_clicked {
+	background-position: -300px 0px; cursor: default
+}
+.artist_tile_ilike_btn_clicked:hover {
+	background-position: -300px 0px
+}
+.artist_tile_ilike_btn_quiz_clicked {
+	background-position: -300px 0px; margin-top: 8px; display: block; background-image: url(images/ilike_btn_hp.gif); width: 150px; cursor: hand; background-repeat: no-repeat; height: 27px
+}
+.artist_tile_ilike_btn_quiz_clicked:hover {
+	background-position: -300px 0px
+}
+.quiz_links_container {
+	padding-right: 15px; float: right; padding-top: 25px
+}
+#change_password form dt {
+	clear: left; float: left; margin-bottom: 10px; width: 120px; padding-top: 1px; text-align: right
+}
+#change_password form dd {
+	margin-bottom: 10px; margin-left: 130px
+}
+#edit_profile form dt {
+	clear: left; float: left; margin-bottom: 9px; width: 135px; padding-top: 1px; text-align: right
+}
+#edit_profile form dd {
+	margin-bottom: 10px; margin-left: 145px
+}
+#edit_profile form .input_text {
+	margin-top: -2px; padding-bottom: 1px; width: 320px; color: #333333; padding-top: 2px
+}
+#edit_profile form .input_labels {
+	color: #656b6f
+}
+#edit_profile .errors {
+	border-right: gray 1px solid; padding-right: 15px; border-top: gray 1px solid; margin-top: 10px; padding-left: 15px; margin-bottom: 10px; padding-bottom: 15px; border-left: gray 1px solid; color: #333333; padding-top: 10px; border-bottom: gray 1px solid; background-color: #ffffff
+}
+#edit_profile .single_error {
+	margin-bottom: 20px; margin-left: 150px; color: #d50005
+}
+#edit_profile .errors h4 {
+	padding-bottom: 3px; color: #d50005
+}
+#edit_profile .errors ul {
+	list-style-type: none
+}
+.profile_data_text {
+	color: #656b6f
+}
+.friend_request {
+	font-weight: bold; color: #ff690a
+}
+.pick_delete {
+	margin-top: 8px; padding-left: 5px; font-size: 12px; float: right; color: #d50005; height: 13px
+}
+.comment_delete {
+	float: right; padding-top: 3px; height: 13px
+}
+.envelope_delete {
+	font-size: 12px; float: right; color: #d50005; height: 13px
+}
+.envelope_delete IMG {
+	padding-top: 3px
+}
+.accept_decline {
+	font-weight: bold; font-size: 12px
+}
+.inviter_name {
+	color: #08b63d
+}
+#debug {
+	border-right: gray 1px solid; padding-right: 10px; border-top: gray 1px solid; padding-left: 10px; z-index: 10000; left: 20px; padding-bottom: 10px; border-left: gray 1px solid; width: 90%; padding-top: 10px; border-bottom: gray 1px solid; position: absolute; top: 70px; background-color: #ffffee
+}
+#debug_timing_list {
+	list-style-type: none
+}
+#debug_timing_list li {
+	clear: left
+}
+.user_hatch_bg {
+	border-right: #d4ecfe 1px solid; border-top: #d4ecfe 1px solid; background-image: url(images/user_hatch_bg.gif); border-left: #d4ecfe 1px solid; border-bottom: #d4ecfe 1px solid; background-repeat: repeat; background-color: #d4ecfe
+}
+.peach_hatch_bg {
+	border-right: #ffe4da 1px solid; border-top: #ffe4da 1px solid; background-image: url(images/artist_hatch_bg.gif); border-left: #ffe4da 1px solid; border-bottom: #ffe4da 1px solid; background-repeat: repeat; background-color: #ffe4da
+}
+.artist_hatch_bg {
+	border-right: #d0f5bf 1px solid; border-top: #d0f5bf 1px solid; background-image: url(images/green_hatch_bg.gif); border-left: #d0f5bf 1px solid; border-bottom: #d0f5bf 1px solid; background-repeat: repeat; background-color: #d0f5bf
+}
+.genre_hatch_bg {
+	border-right: #ffdffe 1px solid; border-top: #ffdffe 1px solid; background-image: url(images/pink_hatch.gif); border-left: #ffdffe 1px solid; border-bottom: #ffdffe 1px solid; background-repeat: repeat; background-color: #ffdffe
+}
+#tour h1 {
+	font-weight: normal; font-size: 32px; margin-bottom: 8px; color: #ff690a; letter-spacing: -0.03em
+}
+#tour P {
+	line-height: 1.3em
+}
+#tour .container_box {
+	border-right: #caced1 1px solid; border-top: #caced1 1px solid; border-left: #caced1 1px solid; border-bottom: #caced1 1px solid
+}
+#tour .navlist {
+	padding-bottom: 4px
+}
+#tour .navlist li a {
+	font-size: 18px
+}
+#tour li a.current {
+	color: #08b63d
+}
+.comment {
+	padding-bottom: 10px; padding-top: 10px
+}
+#add_comment_expando {
+	margin-top: 10px; margin-bottom: 25px
+}
+#comment_body {
+	padding-right: 2px; padding-left: 2px; margin-bottom: 5px; padding-bottom: 2px; width: 270px; padding-top: 2px
+}
+#cancel_comment {
+	padding-left: 5px
+}
+#send_user_message_expando {
+	
+}
+.send_user_message_expando {
+	margin-top: 5px; margin-bottom: 5px
+}
+#send_user_message_body {
+	padding-right: 2px; padding-left: 2px; margin-bottom: 5px; padding-bottom: 2px; width: 270px; padding-top: 2px
+}
+#cancel_user_message {
+	padding-left: 5px
+}
+.cancel_user_message {
+	padding-left: 5px
+}
+.related_upsell_container {
+	border-top: #caced1 1px solid; margin-top: 10px
+}
+.related_upsell_border {
+	float: left; margin-bottom: 50px; margin-right: 10px; padding-top: 15px
+}
+.related_upsell_text {
+	color: #656b6f; line-height: 1.3em; padding-top: 10px
+}
+.unsupported_browser {
+	padding-right: 15px; margin-top: 10px; padding-left: 15px; padding-bottom: 15px; line-height: 1.3em; margin-right: 300px; padding-top: 15px; background-color: #ffffee
+}
+.unsupported_browser_small {
+	margin-right: 500px
+}
+.recommend_body_container {
+	border-top: #caced1 1px solid; margin-top: 15px; padding-top: 15px
+}
+.recommend_friends_container {
+	border-right: #caced1 1px solid; padding-right: 20px; float: left; margin-right: 20px
+}
+.recommend_friends_listbox {
+	border-right: #caced1 1px solid; border-top: #caced1 1px solid; padding-left: 5px; padding-bottom: 2px; overflow: auto; border-left: #caced1 1px solid; width: 250px; padding-top: 2px; border-bottom: #caced1 1px solid; height: 160px
+}
+.contact {
+	clear: left; padding-left: 5px; border-bottom: #caced1 1px solid
+}
+.contact_email {
+	float: right; overflow: hidden; width: 220px
+}
+.contact_is_member {
+	font-weight: bold; float: right; width: 120px; color: #ff690a; text-align: left
+}
+.gb_logo_float {
+	right: -25px; float: right; margin-right: 5px; position: relative; top: -5px
+}
+#myspace_widget_preview {
+	padding-left: 25px; font-size: 12px; float: right; width: 245px; line-height: 1.3em; padding-top: 10px
+}
+#myspace_widget_preview P {
+	padding-left: 5px; margin-right: 55px
+}
+#myspace_widget_main {
+	padding-right: 320px
+}
+#add_myspace_widget_form {
+	margin-top: 25px
+}
+#myspace_status {
+	height: 100px
+}
+#add_widget_adding {
+	line-height: 1.3em; padding-top: 10px
+}
+#add_widget_error {
+	padding-bottom: 0px; color: #d50005; line-height: 1.3em; padding-top: 15px
+}
+#add_widget_success {
+	padding-top: 20px
+}
+.myspace_input_text {
+	font-size: 14px; padding-bottom: 2px; width: 220px; padding-top: 2px
+}
+#account form .myspace_settings dt {
+	clear: left; float: left; margin-bottom: 10px; width: 155px; padding-top: 1px; text-align: right
+}
+#account form .myspace_settings dd {
+	margin-bottom: 10px; margin-left: 170px
+}
+.small_text {
+	font-size: 12px; color: #656b6f
+}
+#user_home_link {
+	cursor: pointer
+}
+#create_profile {
+	margin-top: 20px
+}
+#create_form_container {
+	margin-top: 15px; float: right; width: 620px
+}
+#create_form_container h2 {
+	margin-bottom: 15px
+}
+#invitor_info {
+	margin-left: 45px; width: 220px
+}
+#invitor_info_content {
+	padding-right: 15px; padding-left: 15px; padding-bottom: 25px; line-height: 1.3em; padding-top: 25px
+}
+#invitor_image {
+	text-align: center
+}
+#invitor_info_5 {
+	float: left; width: 100px; line-height: 1.3em
+}
+#invitor_name_5 {
+	margin-top: 3px
+}
+#invitor_quote_5 {
+	float: left; width: 615px
+}
+.invitor_already_member {
+	border-right: #caced1 1px solid; padding-right: 10px; border-top: #caced1 1px solid; margin-top: 15px; padding-left: 10px; margin-bottom: 35px; padding-bottom: 10px; border-left: #caced1 1px solid; line-height: 1.3em; padding-top: 10px; border-bottom: #caced1 1px solid
+}
+.pull_quote {
+	padding-left: 25px; background: url(images/quote_open.gif) no-repeat 0px 0px; margin: 5px 20px 25px -5px; padding-top: 29px
+}
+.pull_quote_5 {
+	padding-left: 35px; font-size: 14px; background: url(images/quote_open.gif) no-repeat 0px 0px; margin-bottom: 25px; padding-bottom: 10px; margin-left: 15px; line-height: 1.3em; margin-right: 40px; padding-top: 5px; text-align: center
+}
+.pull_quote IMG {
+	margin-top: 0px; float: right; margin-right: -20px
+}
+.pull_quote_5 IMG {
+	margin-top: -15px; float: right; margin-right: -40px
+}
+.pull_quote_author {
+	margin-left: 5px
+}
+.landing_upsell_layout_5 {
+	float: right; width: 220px
+}
+.landing_upsell_layout_6 {
+	float: right; width: 300px
+}
+.landing_upsell_5 {
+	padding-right: 25px; padding-left: 15px; padding-bottom: 25px; padding-top: 20px
+}
+.landing_upsell_5 h3 {
+	margin-bottom: 5px
+}
+.landing_upsell_5 ul {
+	font-size: 16px; margin-left: 15px; color: #656b6f
+}
+#invite_manually {
+	margin-bottom: 25px
+}
+#invite_via_link {
+	margin-bottom: 25px
+}
+#invite_manually h2 {
+	margin-bottom: 5px
+}
+#invite_via_link h2 {
+	margin-bottom: 5px
+}
+#invite_manually_expando {
+	padding-left: 15px; margin-bottom: 20px; padding-bottom: 15px; margin-left: -15px; padding-top: 15px
+}
+#invite_via_link_expando {
+	padding-left: 15px; margin-bottom: 20px; padding-bottom: 15px; margin-left: -15px; padding-top: 15px
+}
+#contact_results_header {
+	width: 700px
+}
+.contact_email_hdr {
+	padding-right: 17px; font-weight: bold; font-size: 14px
+}
+.contact_is_member_hdr {
+	font-weight: bold; font-size: 14px; color: #333333
+}
+.contact_name_hdr {
+	padding-left: 5px; font-weight: bold; font-size: 14px
+}
+#contact_results {
+	border-right: #9f9f9f 1px solid; border-top: #9f9f9f 1px solid; margin-top: 2px; border-left: #9f9f9f 1px solid; width: 700px; border-bottom: #9f9f9f 1px solid
+}
+#contact_results_height {
+	overflow: auto; height: 200px
+}
+#import_contacts_error {
+	padding-bottom: 20px; margin-left: auto; width: 350px; margin-right: auto; padding-top: 60px
+}
+#import_contacts_loading {
+	margin-left: auto; width: 380px; margin-right: auto; padding-top: 60px
+}
+#choose_contact_list {
+	list-style-type: none
+}
+#invite_select_all_checkbox {
+	padding-left: 6px; visibility: hidden; margin-bottom: 15px; padding-top: 2px
+}
+#contact_results_customize {
+	margin-bottom: 10px
+}
+#delete_account .single_error {
+	margin-bottom: 10px; color: #d50005
+}
+#delete_account .reason {
+	border-right: #caced1 1px solid; padding-right: 10px; border-top: #caced1 1px solid; padding-left: 10px; padding-bottom: 10px; margin: 10px 10px 20px 0px; border-left: #caced1 1px solid; padding-top: 10px; border-bottom: #caced1 1px solid
+}
+#account .reason {
+	border-right: #caced1 1px solid; padding-right: 10px; border-top: #caced1 1px solid; padding-left: 10px; padding-bottom: 10px; margin: 10px 10px 20px 0px; border-left: #caced1 1px solid; padding-top: 10px; border-bottom: #caced1 1px solid
+}
+#other_delete_reason {
+	padding-right: 2px; padding-left: 2px; margin-bottom: 5px; padding-bottom: 2px; width: 270px; padding-top: 2px
+}
+.search_dimmed_text {
+	padding-left: 4px; color: #caced1
+}
+.search_regular_text {
+	padding-left: 4px; color: #000000
+}
+.tabicon_ilike {
+	background-position: 6px -135px; background-image: url(images/tabicons.gif); background-repeat: no-repeat
+}
+.tabicon_send {
+	background-position: 6px -170px; background-image: url(images/tabicons.gif); background-repeat: no-repeat
+}
+.tabicon_album {
+	background-position: 6px -100px; background-image: url(images/tabicons.gif); background-repeat: no-repeat
+}
+.tabicon_findmp3s {
+	background-position: 6px 5px; background-image: url(images/tabicons.gif); background-repeat: no-repeat
+}
+.tabicon_findvideos {
+	background-position: 6px -30px; background-image: url(images/tabicons.gif); background-repeat: no-repeat
+}
+.tabicon_listeners {
+	background-position: 6px -65px; background-image: url(images/tabicons.gif); background-repeat: no-repeat
+}
+.expando_tab_text {
+	margin-left: 5px; width: 400px; line-height: 1.4em
+}
+.expando_tab_text_compact {
+	width: 250px
+}
+.expando_share_form dt {
+	float: left; margin-bottom: 5px; width: 60px; padding-top: 2px; text-align: right
+}
+.expando_share_form dd {
+	margin-bottom: 5px; margin-left: 65px
+}
+.expando_share_labels {
+	font-size: 12px; color: #656b6f
+}
+.share_recipients {
+	width: 450px
+}
+.share_recipients_inbox {
+	width: 385px
+}
+.share_recipients_compact {
+	width: 190px
+}
+.share_recipients_pick_view {
+	width: 379px
+}
+.share_recipients_quiz_view {
+	width: 420px
+}
+.share_recipients_feed_view {
+	width: 365px
+}
+.share_input {
+	padding-right: 1px; padding-left: 1px; padding-bottom: 1px; font: 12px arial, helvetica, verdana, sans-serif; width: 180px; color: #333333; padding-top: 1px
+}
+.share_textarea {
+	padding-right: 1px; padding-left: 1px; font-size: 12px; padding-bottom: 1px; width: 350px; padding-top: 1px; height: 40px
+}
+.share_textarea_compact {
+	width: 180px
+}
+.share_hint {
+	padding-left: 5px; padding-top: 3px; position: absolute
+}
+.autosuggest_dropdown {
+	z-index: 100; position: absolute; background-color: #e7f4fc
+}
+.autosuggest_item {
+	padding-right: 8px; padding-left: 8px; padding-bottom: 1px; cursor: pointer; color: #333333; padding-top: 1px
+}
+.autosuggest_item_hl {
+	background-color: #d3e9f9
+}
+.to_rcpt {
+	float: left; margin-bottom: 5px; line-height: 21px; margin-right: 5px
+}
+.to_rcpt_name {
+	padding-right: 2px; padding-left: 5px; background: url(images/name_bg.gif) no-repeat 0px 1px; float: left; cursor: pointer; color: #ffffff; height: 20px
+}
+.to_rcpt_cap {
+	background: url(images/name_bg.gif) no-repeat -497px 1px; float: left; width: 3px; cursor: pointer; height: 20px
+}
+.cur_video {
+	float: left; width: 140px; height: 115px
+}
+.cur_video P {
+	line-height: 1.3em; padding-top: 25px; text-align: center
+}
+.video_thumbs {
+	margin-top: -5px; font-size: 12px; float: left; margin-left: 30px; color: #656b6f
+}
+.video_thumbs_inbox {
+	margin-left: 20px
+}
+.video_thumb {
+	filter: alpha(opacity=30); width: 70px; height: 53px; opacity: .25
+}
+.video_thumb_active {
+	filter: alpha(opacity=99); opacity: .9999
+}
+.video_thumb_onhover {
+	filter: alpha(opacity=99); opacity: .9999
+}
+.video_link {
+	margin-right: 4px
+}
+.video_view_all {
+	font-weight: bold; font-size: 12px; line-height: 1em
+}
+.message_image {
+	margin-top: 5px; float: left; width: 60px
+}
+.message_main {
+	margin-top: 2px; float: left; width: 512px
+}
+.message_body {
+	font-size: 12px; line-height: 1.3em; margin-right: 15px
+}
+.message_body_reco {
+	margin-left: 23px
+}
+.message_re {
+	color: #656b6f
+}
+.message_status {
+	color: #656b6f
+}
+.message_textarea {
+	padding-right: 1px; margin-top: 5px; padding-left: 1px; font-size: 12px; padding-bottom: 1px; width: 400px; padding-top: 1px
+}
+.expando_textarea {
+	padding-right: 1px; padding-left: 1px; font-size: 12px; padding-bottom: 1px; width: 400px; padding-top: 1px; height: 45px
+}
+.expando_pick_textarea_compact {
+	width: 240px
+}
+.message_date {
+	font-size: 12px; color: #656b6f
+}
+.icast_dashboard_post {
+	margin-top: 5px; margin-bottom: 20px
+}
+.icast_dashboard_post_border {
+	border-top: #caced1 1px solid; padding-top: 15px
+}
+.icast_post_edit_form dt {
+	clear: left; float: left; margin-bottom: 5px; width: 80px; padding-top: 2px; text-align: right
+}
+.icast_post_edit_form dd {
+	margin-bottom: 5px; margin-left: 85px
+}
+.icast_post_edit_labels {
+	font-size: 12px; color: #656b6f
+}
+.icast_post_edit_input {
+	padding-right: 1px; padding-left: 1px; padding-bottom: 1px; font: 12px arial, helvetica, verdana, sans-serif; width: 400px; color: #333333; padding-top: 1px
+}
+.icast_post_edit_textarea {
+	padding-right: 1px; padding-left: 1px; font-size: 12px; padding-bottom: 1px; width: 400px; padding-top: 1px; height: 60px
+}
+.rec_song_list {
+	list-style-type: none
+}
+.sys_rec_song_list {
+	margin-top: 2px
+}
+.block_user {
+	font-weight: normal; font-size: 12px
+}
+#my_url_status {
+	margin-top: -5px; width: 21px; height: 21px
+}
+.my_url_validating {
+	background: url(images/my_url_status.gif) no-repeat -21px 0px; width: 21px; height: 21px
+}
+.my_url_valid {
+	background: url(images/my_url_status.gif) no-repeat 0px 0px; width: 21px; height: 21px
+}
+.my_url_invalid {
+	background: url(images/my_url_status.gif) no-repeat -63px 0px; width: 21px; height: 21px
+}
+.my_url_error {
+	background: url(images/my_url_status.gif) no-repeat -42px 0px; width: 21px; height: 21px
+}
+.account_create_tip {
+	border-right: #71777b 1px solid; padding-right: 10px; border-top: #71777b 1px solid; margin-top: -33px; padding-left: 10px; font-size: 12px; padding-bottom: 10px; margin-left: 330px; border-left: #71777b 1px solid; width: 300px; line-height: 1.3em; padding-top: 10px; border-bottom: #71777b 1px solid; position: absolute; background-color: #ffffff
+}
+.account_create_tip_arrow {
+	margin-top: -5px; margin-left: -20px; position: absolute
+}
+.account_artist_tip {
+	border-right: #71777b 1px solid; padding-right: 10px; border-top: #71777b 1px solid; margin-top: -30px; padding-left: 10px; font-size: 12px; padding-bottom: 10px; margin-left: 320px; border-left: #71777b 1px solid; width: 300px; line-height: 1.3em; padding-top: 10px; border-bottom: #71777b 1px solid; position: absolute; background-color: #ffffff
+}
+.account_artist_tip_arrow {
+	margin-top: -5px; margin-left: -20px; position: absolute
+}
+.edit_profile_tip {
+	border-right: #caced1 1px solid; padding-right: 10px; border-top: #caced1 1px solid; margin-top: -27px; padding-left: 10px; font-size: 12px; padding-bottom: 10px; margin-left: 230px; border-left: #caced1 1px solid; width: 300px; line-height: 1.3em; padding-top: 10px; border-bottom: #caced1 1px solid; position: absolute; background-color: #ffffff
+}
+.edit_profile_tip_arrow {
+	margin-top: -5px; margin-left: -20px; position: absolute
+}
+.edit_profile_tip_req_field {
+	color: #d50005; padding-top: 10px
+}
+.whats_this_tip {
+	border-right: #656b6f 1px solid; padding-right: 10px; border-top: #656b6f 1px solid; margin-top: -27px; padding-left: 10px; font-size: 12px; padding-bottom: 10px; margin-left: -340px; border-left: #656b6f 1px solid; width: 295px; line-height: 1.3em; padding-top: 10px; border-bottom: #656b6f 1px solid; position: absolute; background-color: #ffffff
+}
+.whats_this_tip_arrow {
+	margin-top: -5px; margin-left: 305px; position: absolute
+}
+#edit_profile .edit_profile_tip {
+	margin-left: 350px
+}
+.my_url_status_success {
+	font-size: 14px; padding-bottom: 10px; margin: -17px 0px 0px 25px; color: #08b63d
+}
+.my_url_status_error {
+	font-size: 14px; padding-bottom: 10px; margin: -17px 0px 0px 25px; color: #d50005
+}
+.my_url_status_validating {
+	font-size: 14px; padding-bottom: 10px; margin: -17px 0px 0px 25px; color: #caced1
+}
+.envelope_delete_overlay {
+	margin-top: 1px; z-index: 98; filter: alpha(opacity=50); position: absolute; background-color: #ffffff; opacity: .50
+}
+.envelope_delete_overlay_message {
+	margin-top: 1px; z-index: 99; position: absolute; text-align: center
+}
+.envelope_delete_overlay_message P {
+	margin-top: 35px; font-weight: bold; font-size: 28px; color: #555555
+}
+.envelope_fade_overlay {
+	margin-top: 1px; z-index: 100; filter: alpha(opacity=0); position: absolute; background-color: #ffffff; opacity: 0
+}
+#artist_dashboard .song_form dt {
+	clear: left; float: left; margin-bottom: 10px; width: 100px; margin-right: 10px; text-align: right
+}
+#artist_dashboard .song_form dd {
+	margin-bottom: 10px
+}
+#artist_dashboard .edit_song_tip {
+	margin-top: -30px; margin-left: 500px
+}
+#artist_dashboard .input_text {
+	width: 350px
+}
+#artist_dashboard_messages .song_errors {
+	padding-right: 10px; padding-left: 10px; margin-bottom: 10px; padding-bottom: 10px; margin-left: 40px; padding-top: 10px
+}
+#artist_dashboard .fieldWithErrors {
+	display: inline
+}
+#artist_dashboard .uploaded_songs {
+	font-size: 12px; margin-bottom: 20px
+}
+#artist_dashboard .uploaded_songs DL {
+	color: #656b6f
+}
+#artist_dashboard .uploaded_songs dt {
+	clear: left; font-weight: bold; float: left; width: 95px; margin-right: 10px; text-align: right
+}
+#artist_dashboard .song_list_title {
+	border-top: #e2e5e9 1px solid; margin-top: 10px; font-weight: bold; overflow: hidden; width: 550px; padding-top: 5px; height: 20px
+}
+#artist_dashboard .song_list {
+	padding-top: 0px
+}
+#artist_dashboard .first_title {
+	border-top-width: 0px
+}
+#artist_dashboard .processing_song_title {
+	margin-left: 24px
+}
+#artist_dashboard .delete_container {
+	border-right: #656b6f 1px solid; border-top: #656b6f 1px solid; margin-top: 1px; z-index: 1001; border-left: #656b6f 1px solid; width: 575px; border-bottom: #656b6f 1px solid; position: absolute; height: 78px; background-color: #ffffff
+}
+#artist_dashboard .delete_confirm {
+	margin-top: 10px; margin-left: 20px
+}
+#artist_dashboard .delete_button {
+	margin-top: 1px; font-size: 12px; float: left
+}
+#artist_dashboard .status_text {
+	font-weight: normal; font-size: 11px; margin-left: 5px
+}
+#artist_dashboard .song_item {
+	margin-bottom: 5px; height: 80px
+}
+#artist_dashboard .song_delete_link {
+	margin-top: 15px; float: right
+}
+#artist_dashboard .form_spacer {
+	margin: 5px 55px 15px
+}
+#artist_dashboard #upload_overlay {
+	border-right: #656b6f 1px solid; border-top: #656b6f 1px solid; display: block; z-index: 1001; border-left: #656b6f 1px solid; width: 601px; border-bottom: #656b6f 1px solid; position: absolute; background-color: #ffffff
+}
+#artist_dashboard #upload_progress_overlay {
+	border-right: #656b6f 1px solid; border-top: #656b6f 1px solid; display: block; z-index: 1001; border-left: #656b6f 1px solid; width: 601px; border-bottom: #656b6f 1px solid; position: absolute; background-color: #ffffff
+}
+#artist_dashboard .song_form {
+	padding-bottom: 20px; background-color: #e2e5e9
+}
+#artist_dashboard ul.venue_select {
+	padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px
+}
+#artist_dashboard li.venue {
+	padding-right: 2px; padding-left: 2px; padding-bottom: 2px; margin: 0pt; padding-top: 2px
+}
+#artist_dashboard ul.venue_select li.selected {
+	background-color: #ffffbb
+}
+#artist_dashboard li.venue DIV.name {
+	font-weight: bold; font-size: 12px; line-height: 1.2em
+}
+#artist_dashboard li.venue DIV.address {
+	font-size: 10px; line-height: 1.2em
+}
+#artist_dashboard li.venue DIV.event_date {
+	font-size: 10px; color: #888888
+}
+ul.search-results {
+	border-right: #000 1px solid; padding-right: 0px; border-top: #000 1px solid; padding-left: 0px; float: left; padding-bottom: 0px; margin: 0px; border-left: #000 1px solid; padding-top: 0px; border-bottom: #000 1px solid
+}
+ul.search-results li.result {
+	padding-right: 2px; padding-left: 2px; font-size: 13px; float: left; padding-bottom: 2px; margin: 0pt; padding-top: 2px
+}
+ul.search-results li.selected {
+	background-color: #ffffbb
+}
+ul.search-results li.result .suggestion {
+	font-size: 13px; float: left; margin-left: 4px
+}
+ul.search-results li.result .count {
+	font-size: 10px; float: right; color: #008000; margin-right: 3px; padding-top: 2px
+}
+#artist_dashboard ul.concerts {
+	padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px; list-style-type: none
+}
+#artist_dashboard li.concert {
+	font-size: 12px; padding-bottom: 15px; padding-top: 15px; border-bottom: #e2e5e9 1px solid
+}
+#artist_dashboard form DIV.header {
+	margin: 5px
+}
+#artist_dashboard form DIV.instructions {
+	font-size: 11px; color: red; line-height: 12px
+}
+#artist_dashboard li.concert DIV.header {
+	font-weight: bold; font-size: 14px
+}
+#artist_dashboard li.concert SPAN.venue_address {
+	display: block
+}
+#artist_dashboard li.concert SPAN.venue_description {
+	display: block
+}
+#artist_dashboard li.concert SPAN.event_price {
+	margin-right: 10px
+}
+.playlist_nav {
+	margin-bottom: 1px; color: #0088ee; line-height: 1.4em
+}
+.pl_nav_overlay {
+	filter: alpha(opacity=80); width: 220px; position: absolute; height: 480px; background-color: white; opacity: .80
+}
+.playlist_nav a:hover {
+	text-decoration: none
+}
+.playlist_nav_item {
+	margin-bottom: 5px; cursor: pointer; border-bottom: white 3px solid
+}
+.playlist_nav_item_hover {
+	margin-bottom: 5px; cursor: pointer; border-bottom: #0088ee 3px solid
+}
+.playlist_nav_selected {
+	margin-bottom: 5px; color: #ff690a; border-bottom: #ff690a 3px solid
+}
+.playlist_nav_selected a {
+	color: #ff690a
+}
+.playlist_nav_selected a:hover {
+	color: #ff690a
+}
+.playlist_expando_share_to {
+	float: left; margin-bottom: 5px; width: 95px; padding-top: 2px; text-align: right
+}
+.playlist_expando_share_to_free {
+	float: left; margin-bottom: 5px; width: 95px; padding-top: 2px; text-align: right
+}
+.playlist_expando_share_msg {
+	float: left; margin-bottom: 5px; width: 95px; padding-top: 2px; text-align: right
+}
+.playlist_expando_share_btn {
+	margin-bottom: 5px; margin-left: 95px; width: 355px
+}
+.playlist_toggle {
+	float: right
+}
+#large_navlist {
+	padding-right: 0px; padding-left: 0px; font-size: 18px; padding-bottom: 5px; margin-left: 3px; line-height: normal; padding-top: 20px
+}
+#large_navlist li {
+	display: inline; margin: 0px; list-style-type: none
+}
+#large_navlist li a {
+	border-right: white 1px solid; padding-right: 0.8em; border-top: white 1px solid; padding-left: 0.8em; padding-bottom: 5px; margin-left: 3px; border-left: white 1px solid; padding-top: 7px; border-bottom: white 1px; text-decoration: none
+}
+#large_navlist li a.inactive:hover {
+	text-decoration: underline
+}
+#large_navlist li a.current:hover {
+	cursor: default; text-decoration: none
+}
+#large_navlist li a.current {
+	border-right: #caced1 1px solid; border-top: #caced1 1px solid; border-left: #caced1 1px solid; color: #333333; border-bottom: #e2e5e9 1px solid; background-color: #e2e5e9
+}
+.navlist_info {
+	padding-right: 25px; padding-bottom: 10px; line-height: 1.4em; padding-top: 10px; background-color: #e2e5e9
+}
+.tooltip {
+	border-right: black 1px solid; padding-right: 2px; border-top: black 1px solid; padding-left: 2px; font-size: 12px; padding-bottom: 2px; margin: 1em; border-left: black 1px solid; width: 240px; line-height: 1.2em; padding-top: 2px; border-bottom: black 1px solid; position: absolute; background-color: rgb(255,255,234)
+}
+.tooltip h1 {
+	font-weight: bold; font-size: 14px; margin: 0px; color: white; height: auto; background-color: rgb(106,106,106)
+}
+.tooltip P {
+	padding-right: 2px; margin-top: 0.5em; padding-left: 2px; padding-bottom: 2px; line-height: 1.2em; padding-top: 2px
+}
+.tooltip a.close {
+	
+}
+
+.style1 {
+	padding-right: 15px;
+	padding-left: 15px;
+	padding-bottom: 10px;
+	padding-top: 15px;
+	height: 133px;
+}
+.style2 {
+	padding-right: 15px;
+	padding-left: 15px;
+	padding-bottom: 10px;
+	padding-top: 15px;
+	width: 424px;
+	text-align: center;
+}
+

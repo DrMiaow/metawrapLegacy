@@ -1,0 +1,65 @@
+<html>
+
+<head>
+<script language="JavaScript" type="text/JavaScript">
+var expectedHash = "";
+
+function makeHistory(newHash)
+{
+  window.location.hash = newHash;
+  expectedHash = window.location.hash;
+  return true;
+}
+
+function reportOptionValue()
+{
+  var myForm = document.make_history;
+  var mySelect = myForm.change_year;
+  return mySelect.options[mySelect.selectedIndex].value;
+}
+
+function setOptionValue(value)
+{
+  var myForm = document.make_history;
+  var mySelect = myForm.change_year;
+  mySelect.options[value-1].selected = true;
+  return true;
+}
+
+function handleHistory()
+{
+  if ( window.location.hash != expectedHash )
+  {
+    expectedHash = window.location.hash;
+    var newoption = expectedHash.substring(6);
+    setOptionValue( newoption );
+  }
+  return true;
+}
+
+function pollHash() {
+  handleHistory();
+  window.setInterval("handleHistory()", 1000);
+  return true;
+}
+</script>
+
+</head>
+
+<body language="JavaScript"
+      onload="return pollHash()">
+<form name=make_history>
+  <select name=change_year
+    onchange="return makeHistory(reportOptionValue())">
+    <option value="year_1">Year 1</option>
+    <option value="year_2">Year 2</option>
+  </select>
+</form>
+
+<p onclick="return makeHistory('Year 1')">Year 1</p>
+<p onclick="return makeHistory('Year 2')">Year 2</p>
+<p onclick="return makeHistory('Year 3')">Year 3</p>
+
+</body>
+
+</html>

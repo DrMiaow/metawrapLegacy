@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    $Id: state.xsd,v 1.16 2004/01/02 01:22:43 james Exp $
+
+    $Log: state.xsd,v $
+    Revision 1.16  2004/01/02 01:22:43  james
+    State machine renaming
+
+    Revision 1.15  2007/05/07 11:56:56  james
+    Added lock
+
+    Revision 1.14  2007/05/01 12:08:50  james
+    Updated state engine so that we can active by state name
+
+    Revision 1.13  2007/04/28 14:31:40  james
+    Working state machine.
+
+    Revision 1.12  2007/04/26 11:33:04  james
+    Minor optimisation to transition format
+
+    Revision 1.10  2007/04/25 12:33:41  james
+    Added simplified javascript format
+
+    Revision 1.9  2006/03/29 12:10:40  james
+    Moving all XML schemas under a single holding schema - as an experiment
+
+    Revision 1.8  2006/01/31 13:21:50  james
+    Added state exclusion and state mutex.
+
+    Revision 1.7  2006/01/30 21:28:41  james
+    Latest state fields
+
+    Revision 1.6  2006/01/24 10:58:19  james
+    Completed initial instructions and framework - can now start coding library
+    Attempting to deal with formatting.
+
+    Revision 1.5  2006/01/19 13:36:59  james
+    A few steps closer in the state instruction stylesheet
+
+    Revision 1.4  2006/01/16 11:49:12  james
+    Decided on minimal state
+
+    Revision 1.3  2006/01/15 13:16:40  james
+    Working on state schema
+
+    Revision 1.2  2006/01/15 12:33:33  james
+    Latest updates
+
+    Revision 1.1  2006/01/12 21:26:47  james
+    *** empty log message ***
+
+    Revision 1.3  2005/11/02 20:55:58  james
+    Changed wirewrap to allow window event handlers to be added
+
+    Revision 1.2  2005/08/29 07:51:41  james
+    Latest wirewrap test
+
+    Revision 1.1  2005/08/25 12:23:15  james
+    Moved code
+
+    Revision 1.3  2005/07/02 13:23:10  james
+    Getting schema definition w3 compliant
+
+    
+    @brief Schema definition for the MetaWrap WireWrap XML Schema
+ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="../metawrap/metawrap.xsd" targetNamespace="../metawrap/metawrap.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:annotation>
+		<xs:documentation xml:lang="en">
+            Schema definition for MetaWrap WireWrap
+            Copyright 2006 The MetaWrap Projet
+        </xs:documentation>
+	</xs:annotation>
+	
+	<xs:include schemaLocation="../code/code.xsd" id="code" />
+	
+	<!-- Main structure -->
+	<xs:element name="states" type="states"/>
+	<!-- Instructions -->
+	<xs:complexType name="states">
+		<xs:sequence>
+			<xs:element name="state" type="state" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="transition" type="transition" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="mutex" type="mutex" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- State -->
+	<xs:complexType name="state">
+		<xs:sequence>
+			<xs:element name="actives" minOccurs="0" maxOccurs="unbounded" >
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="condition" type="condition" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+					<xs:attribute name="call" type="xs:string" use="optional"/>
+					<xs:attribute name="state" type="xs:string" use="optional"/>
+				</xs:complexType>
+			</xs:element>
+  			<xs:element name="transitions" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="from" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="transition" type="transition" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="to" type="to" minOccurs="0" maxOccurs="unbounded"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="to" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="transition" type="transition" minOccurs="0" maxOccurs="unbounded"/>
+									<xs:element name="from" type="from" minOccurs="0" maxOccurs="unbounded"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="enter" type="enter" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="exit" type="exit" minOccurs="0" maxOccurs="unbounded"/>
+ 					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			
+			<xs:element name="from" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="transition" type="transition" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="to" type="to" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="to" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="transition" type="transition" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="from" type="from" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="enter" type="enter" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="exit" type="exit" minOccurs="0" maxOccurs="unbounded"/>
+			
+			<xs:element name="imply" type="imply" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="deny" type="deny" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="lock" type="lock" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="include" type="include" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="exclude" type="exclude" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="states" type="states" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="actived"/>
+		<xs:attribute name="value" type="xs:string" use="optional"/>	
+	</xs:complexType>
+	
+	
+	<!-- Code block parts -->
+	<xs:complexType name="transition">
+		<xs:sequence>
+			<xs:element name="code" type="code" minOccurs="0" />
+		</xs:sequence>
+		<xs:attribute name="from" type="xs:string" use="optional"/>
+		<xs:attribute name="to" type="xs:string" use="optional"/>
+	</xs:complexType>
+	
+	<xs:complexType name="enter">
+		<xs:sequence>
+			<xs:element name="code" type="code" minOccurs="0" />
+		</xs:sequence>
+		<xs:attribute name="state" type="xs:string" use="optional"/>
+		<xs:attribute name="call" type="xs:string" use="optional"/>
+	</xs:complexType>
+
+	<xs:complexType name="exit">
+		<xs:sequence>
+			<xs:element name="code" type="code" minOccurs="0" />
+		</xs:sequence>
+		<xs:attribute name="state" type="xs:string" use="optional"/>
+		<xs:attribute name="call" type="xs:string" use="optional"/>
+	</xs:complexType>
+	
+	
+	<xs:complexType name="from">
+		<xs:sequence>
+			<xs:element name="code" type="code" minOccurs="0" />
+		</xs:sequence>
+		<xs:attribute name="state" type="xs:string" use="optional"/>
+		<xs:attribute name="call" type="xs:string" use="optional"/>
+	</xs:complexType>
+
+	<xs:complexType name="to">
+		<xs:sequence>
+			<xs:element name="code" type="code" minOccurs="0" />
+		</xs:sequence>
+		<xs:attribute name="state" type="xs:string" use="optional"/>
+		<xs:attribute name="call" type="xs:string" use="optional"/>
+	</xs:complexType>
+
+	
+	<!-- Code block -->
+	<xs:complexType name="condition">
+		<xs:sequence>
+			<xs:element name="code" type="code" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="optional"/>
+	</xs:complexType>
+	
+	<!-- Imply -->
+	<xs:complexType name="imply">
+		<xs:attribute name="state" type="xs:string" use="actived"/>
+	</xs:complexType>
+	<!-- Deny -->
+	<xs:complexType name="deny">
+		<xs:attribute name="state" type="xs:string" use="actived"/>
+	</xs:complexType>
+
+	<!-- Lock -->
+	<xs:complexType name="lock">
+		<xs:attribute name="state" type="xs:string" use="actived"/>
+	</xs:complexType>
+
+	
+	<!-- Inclusion -->
+	<xs:complexType name="include">
+		<xs:attribute name="state" type="xs:string" use="actived"/>
+	</xs:complexType>
+	<!-- Exclusion -->
+	<xs:complexType name="exclude">
+		<xs:attribute name="state" type="xs:string" use="actived"/>
+	</xs:complexType>
+	
+	<!-- Exclusion -->
+	<xs:complexType name="mutex">
+		<xs:attribute name="state1" type="xs:string" use="actived"/>
+		<xs:attribute name="state2" type="xs:string" use="actived"/>
+	</xs:complexType>
+</xs:schema>

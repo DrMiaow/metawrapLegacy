@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" >
+    <head>
+
+        <script type="text/javascript" src="../base/mw_lib.js"></script>
+        <script type="text/javascript" src="../cookie/mw_lib_cookie.js"></script>
+        <script type="text/javascript" src="../network/mw_lib_network.js"></script>
+        <script type="text/javascript" src="../xml/mw_lib_xml.js"></script>
+        <script type="text/javascript" src="../svg/mw_lib_svg.js"></script>
+
+        <script>
+        <![CDATA[
+
+
+function error(p_msg)
+{
+    alert(p_msg);
+}
+
+function debug(p_msg)
+{
+    alert(p_msg);
+}
+
+function trace(p_msg)
+{
+    window.status = p_msg;
+}
+
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+
+function drawmap()
+{
+
+
+    var l_svg = new MetaWrap.SVG();
+
+    // Bind to current svg map
+    l_svg.bind("map");
+
+    // add a circle
+    //l_svg.circle(500,500,200,"red");
+
+
+    l_svg.stop();
+
+    var l_width_pixels = 1000;
+    var l_height_pixels = 1000;
+
+    var l_width_km = 10;
+    var l_height_km = 10;
+
+
+    var l_width_pxperk = l_width_pixels/l_width_km;
+    var l_height_pxperk = l_height_pixels/l_height_km;
+
+    if (l_height_pxperk != l_width_pxperk)
+    {
+        error("aspect ration is weird...");
+    }
+
+    var l_c = l_width_pxperk;
+
+
+    //l_svg.circle(500,500,200,"white");
+
+//6/25/2006 3:36:36 PM LOG CircleA = 0.289258989872997x-0.269184799291745,0.01318403171058
+//6/25/2006 3:36:36 PM LOG CircleB = 0.242252551830491x-0.279983888743438,0.0203156685551236
+
+    var l_xa = 0.289258989872997;
+    var l_ya = -0.269184799291745;
+    var l_ra = 0.01318403171058;
+
+
+    var l_xb = 0.242252551830491;
+    var l_yb = -0.279983888743438;
+    var l_rb = 0.0203156685551236;
+
+	l_xa += 0.5;
+	l_xa *= 1000;
+	l_ya += 0.5;
+	l_ya *= 1000;
+	l_ra *= 1000;
+
+	l_xb += 0.5;
+	l_xb *= 1000;
+	l_yb += 0.5;
+	l_yb *= 1000;
+	l_rb *= 1000;
+
+	l_svg.circle(l_xa,l_ya,l_ra,"red");
+	l_svg.circle(l_xb,l_yb,l_rb,"blue");
+
+
+    l_svg.restart();
+
+}
+        ]]>
+        </script>
+
+    <style type="text/css">
+    <![CDATA[
+        .st1 {fill:#ffff00;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.24}
+        .st2 {fill:#000000;font-family:Arial Black;font-size:0.666664em}
+        .st3 {fill:none;fill-rule:evenodd;font-size:12;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+    ]]>
+    </style>
+
+    </head>
+    <body width="100%" height="100%" style="text-align:center" onload="drawmap();" >
+        <svg:svg id="map" width="1000px" height="1000px">
+
+             <svg:style type="text/css">
+                    circle {fill-opacity:0.3;}
+                    circle:hover {stroke:red; stroke-width:3; fill-opacity:1.0;}
+              </svg:style>
+
+            <svg:rect x="0" y="0" width="100%" height="100%" style="fill:black;stroke:blue;stroke-width:2"/>
+
+
+        <svg:g transform="translate(0,780)">
+            <svg:g id="shape1-1" transform="translate(-175.988,0.24) rotate(-90) scale(-1,1)">
+                <svg:path d="M0 196.07 L11.46 176.23 L11.46 189.32 L174.33 189.32 L174.33 202.82 L11.46 202.82 L11.46 215.91 L0 196.07 Z"
+                        class="st1"/>
+                <svg:text x="-99.16" y="198.47" transform="scale(-1,1)" class="st2" >10km</svg:text>
+            </svg:g>
+            <svg:g id="shape2-4" transform="translate(215.673,-0.24) scale(-1,1)">
+                <svg:path d="M0 196.07 L11.46 176.23 L11.46 189.32 L174.33 189.32 L174.33 202.82 L11.46 202.82 L11.46 215.91 L0 196.07 Z"
+                        class="st1"/>
+                <svg:text x="-99.16" y="198.47" transform="scale(-1,1)" class="st2" >10km</svg:text>
+                </svg:g>
+        </svg:g>
+
+        </svg:svg>
+    </body>
+</html>

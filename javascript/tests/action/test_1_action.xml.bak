@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<!--
+    $Id: test_1_action.xml,v 1.8 2006/03/29 12:10:39 james Exp $
+
+    $Log: test_1_action.xml,v $
+    Revision 1.8  2006/03/29 12:10:39  james
+    Moving all XML schemas under a single holding schema - as an experiment
+
+    Revision 1.7  2006/03/21 20:52:33  james
+    Adding Classes to ObjectModel
+
+    Revision 1.6  2006/02/23 12:27:32  james
+    Added stub dataschema
+
+    Revision 1.5  2006/02/20 12:16:04  james
+    Adding dispatch code
+
+    Revision 1.4  2006/02/19 13:23:44  james
+    Added code gen to DBC components of actions
+
+    Revision 1.3  2006/02/19 11:53:30  james
+    Added some code generation for the 'call' instruction
+
+    Revision 1.2  2006/02/14 21:43:21  james
+    Trying to move namespace issues out of xslt
+
+    Revision 1.1  2006/02/13 11:09:01  james
+    Getting stup project for actions - first task is to see if I can share code with state via the 'mc' code namespace
+
+    
+    @brief Example XML for actions evaluator
+
+	Not avery good example - really only a need for the pre and post condition - the invariant is artificial
+
+ -->
+<?xml-stylesheet type="text/xsl" href="..\action\action.xsl"?>
+<metawrap xmlns="../metawrap/metawrap.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="../metawrap/metawrap.xsd ../metawrap/metawrap.xsd">
+	<actions>
+		<action name="signup" runat="server">		
+			<param name="email"/>
+			<code>
+				<body>
+					<!-- Create a new entry in the mail log -->
+					<var name="newemail"/>			
+					<call function="Test1.MailLog._create" result="newemail">
+						<reference name="email"/>
+					</call>				
+					<!-- Send an email -->
+					<var name="result"/>				
+					<call function="Test1.SendMail" result="result">
+						<reference name="email"/>
+					</call>				
+					<return with="result"/>
+				</body>
+				<fault>
+					<!-- if anything bad happens - then we err on the side of security - we disallow this state, which is logged in -->
+					<return with="false"/>
+				</fault>
+			</code>
+	<!--		
+			<precondition name="valid email address">
+				<description>Ensure that email address is valid</description>						
+				<code>
+					<body>	
+						<var name="result"/>				
+						<call function="Client.Validate.EmailAddress" result="result">
+							<reference name="email" />
+						</call>				
+						<return with="result"/>								
+					</body>
+					<fault>
+						<return with="false"/>
+					</fault>
+				</code>		
+			</precondition>	
+			
+			<invariant name="no errors">
+				<description>Ensure that no errors occur while sending the mail</description>			
+				<code>
+					<body>
+						<var name="result"/>				
+						<call function="Test1.Mail.Errors" result="result"/>					
+						<compare op="equal" with="result" to="false" result="result"/>					
+						<return with="result"/>				
+					</body>
+					<fault>
+						<return with="false"/>
+					</fault>
+				</code>			
+			</invariant>			
+			
+			<postcondition name="email was sent" >
+				<description>Ensure that the mail was sent</description>					
+				<code>
+					<body>
+						<var name="result"/>				
+						<call function="Test1.SentMail" result="result">
+							<reference name="email" />
+						</call>				
+						<return with="result"/>				
+					</body>
+					<fault>
+						<return with="false"/>
+					</fault>
+				</code>				
+			</postcondition>
+	-->		
+		</action>
+	</actions>
+</metawrap>

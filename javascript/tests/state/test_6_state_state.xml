@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!--
+    $Id: test_6_state.xml,v 1.10 2004/01/02 01:22:43 james Exp $
+
+    $Log: test_6_state.xml,v $
+    Revision 1.10  2004/01/02 01:22:43  james
+    State machine renaming
+
+    Revision 1.9  2008/07/21 10:16:17  james
+    Added inactive - now just need a better name for it....
+
+    Revision 1.8  2007/05/22 09:19:58  james
+    *** empty log message ***
+
+    Revision 1.7  2007/05/01 12:24:11  james
+    Tidied up logs
+
+    Revision 1.6  2007/04/30 12:48:40  james
+    more state machine fun
+
+    Revision 1.5  2007/04/26 12:18:03  james
+    completed first draft of toaster state machine
+
+    Revision 1.4  2007/04/26 11:33:04  james
+    Minor optimisation to transition format
+
+    Revision 1.3  2007/04/26 10:27:31  james
+    Added enter and exit states
+
+    Revision 1.2  2007/04/25 13:46:01  james
+    Getting sub states kind of working...
+
+    Revision 1.1  2007/04/25 13:28:10  james
+    Working on more complicated state model
+
+    <?xml-stylesheet type="text/xsl" href="E:\metawrap\javascript\tests\state\state.xsl"?>
+    <metawrap xmlns="../metawrap/metawrap.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="../metawrap/metawrap.xsd ../metawrap/metawrap.xsd" >
+    XSLT WILL NOT WORK IF xmlns is included
+-->
+<!--<?xml-stylesheet type="text/xsl" href="E:\metawrap\javascript\tests\state\state.xsl"?>-->
+<metawrap  >
+    <states>
+    
+        <state name="on">        
+            <require call="isOn()" />        
+            
+             <to>                                
+                 <from call="onHardStartup()" />                 
+                 <from state="off" call="onOn()" />
+             </to>                        
+             
+             <exclude state="off" />
+             
+             <states>
+	              <state name="crisper_on">
+                       <require call="isCrisperOn()" />        
+			            <to>                                
+			                 <from state="crisper_off" call="onCrisperOn()" />
+			                 <from state="off" call="onCrisperOn()" />
+			            </to>                                   
+			            <from>                                
+			                 <to state="off" call="onCrisperOff()" />
+			            </from>                                   
+			            
+	                    <exclude state="crisper_off" />
+	              </state>
+
+	              <state name="crisper_off">
+                       <require call="!isCrisperOn()" />        
+			            <to>                                
+			                 <from state="crisper_on" call="onCrisperOff()" />
+			                 <from state="off" call="onCrisperOff()" />
+			            </to>
+			            <exclude state="crisper_on" />         
+	              </state>
+	              
+	              <state name="bread">
+                       <require call="isBreadIn()" />        
+			            
+			            <enter call="onBreadIn()" />			            
+			            <exit call="onBreadOut()" />
+	              </state>
+
+	              <state name="lever">
+                        <require call="isLeverDown()" />
+                        <require call="isBreadIn()" />                                
+			            
+			            <enter call="onLeverDown()" />
+			            <exit call="onLeverUp()" />
+	              </state>
+
+	              <state name="cook">
+						<require call="isLeverDown()" />
+			            
+			            <enter call="onCookingStart()" />
+			            <exit call="onCookingEnd()" />
+	              </state>
+             </states> 
+        </state>
+
+        <state name="off">        
+            <require call="!isOn()" />            
+             <to>                                
+                 <from call="onStartup()" />
+                 <from state="on" call="onOff()" />
+             </to>            
+            <exclude state="on" />
+        </state>
+        
+    </states>
+</metawrap>

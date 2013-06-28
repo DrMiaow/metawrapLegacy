@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<title>
+		Javascript Fundamentals TestCase #26 - MetaWrap JavaScript Library - $Id: test_27_netinclude.html,v 1.2 2005/09/26 03:42:58 james Exp $
+	</title>
+
+	<script language="JavaScript" type="text/javascript" src="../base/mw_lib.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../network/mw_lib_network.js"></script>
+	<script language="JavaScript" src="test.js" ></script>
+
+	<style>
+.wrap{
+    width: 67%;
+    margin: 0 0 1em 14%;
+    padding: 2% 3% 2% 5%;
+    BACKGROUND: white;
+    border-style: solid;
+    border-width: 1px;
+    top: -1px;
+}
+h1,h2,h3,h4{
+    position: relative;
+    left: -1em;
+    clear: both;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: orange;
+    font: 0.8em trebuchet ms;
+}
+em{
+    background: #ffc;
+}
+pre{
+    font-size: 1.1em;
+    background: #f0f0f0;
+    -moz-border-radius: 10px;
+    padding: 1em;
+}
+pre span{
+    font-weight: bold;
+}
+.selector, pre b{
+    color: red;
+}
+.beh{
+    color: blue;
+}
+.event{
+    color: green;
+}
+
+foo{
+    color: green;
+}
+
+
+#sortable-list li{
+    cursor:move;
+    -moz-user-select: none;
+    width: 100%;
+}
+
+.dropout li{
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    float: left;
+    margin: 5px;
+    border: 1px solid #ccc;
+    list-style: none;
+    background: red;
+}
+
+.dropout li.hover{
+    background: yellow;
+}
+	</style>
+
+<script language="JavaScript">
+
+function error(p_msg)
+{
+    alert(p_msg);
+}
+
+function debug(p_msg)
+{
+    alert(p_msg);
+}
+
+function trace(p_msg)
+{
+    window.status = p_msg;
+}
+
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+
+</script>
+</head>
+<body>
+<div class="wrap">
+<table width="100%">
+	<tr align="middle" >
+		<td>
+			<h2>
+				Javascript Fundamentals TestCase #25 - MetaWrap.Network.Client.HTTP onreadystatechange
+			</h2>
+		</td>
+		<td>
+			<a href="http://www.metawrap.com"><img border="0" src="../images/metawrap_logo_sm.png" align="right" /></a>
+		</td>
+	</tr>
+</table>
+<pre>$Id: test_27_netinclude.html,v 1.2 2005/09/26 03:42:58 james Exp $</pre>
+</div>
+
+<div id="bar" class="wrap">
+<script language="JavaScript">
+
+var l_xmlhttp = new MetaWrap.Network.Client.HTTP();
+
+l_xmlhttp.open("GET","include.js",false);
+l_xmlhttp.onreadystatechange = checkData;
+l_xmlhttp.send(null);
+alert("finished");
+
+//alert(l_xmlhttp.readyState);
+document.write("l_xmlhttp.readyState = " + l_xmlhttp.readyState + "<br/>");
+
+if (l_xmlhttp.readyState == 4)
+{
+	eval(l_xmlhttp.responseText);
+}
+
+
+</script>
+
+</div>
+
+
+</body>
+</html>

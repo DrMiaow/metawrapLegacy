@@ -1,0 +1,19 @@
+MwPackage(
+    "http://localhost/metawrap/javascript/lib/",
+    "com.metawrap",
+    [
+        "MetaWrap.Logger",            
+        "MetaWrap.Network",
+        "MetaWrap.Cookie",
+        "MetaWrap.Page",
+        "MetaWrap.Page.Event",
+        "MetaWrap.Page.Selection",
+        "MetaWrap.Page.Event.Simulate",      
+        "MetaWrap.Page.Element",
+        "MetaWrap.Page.Element.Addhandler",
+        "MetaWrap.Page.Output",
+        "MetaWrap.Xml",
+        "MetaWrap.Xml.Serialise",
+        "MetaWrap.Tester"
+    ]
+    );

@@ -1,0 +1,693 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Loading...</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+	<script language="JavaScript" type="text/javascript" src="../base/mw_lib.js" ></script>
+	<script language="JavaScript" type="text/javascript" src="../pipeline/mw_lib_pipeline.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../network/mw_lib_network.js" ></script>
+	<script language="JavaScript" type="text/javascript" src="../xml/mw_lib_xml.js" ></script>
+	<script language="JavaScript" type="text/javascript" src="../xml/mw_lib_xml_serialise.js" ></script>
+	<script language="JavaScript" type="text/javascript" src="../page/mw_lib_page.js" ></script>
+	<script language="JavaScript" type="text/javascript" src="../page/mw_lib_page_output.js" ></script>
+	<script language="JavaScript" type="text/javascript" src="../xslt/mw_lib_xml_xslt.js" ></script>
+	<script language="JavaScript" type="text/javascript" src="../cookie/mw_lib_cookie.js" ></script>
+	<script language="JavaScript" type="text/javascript" src="../css/mw_lib_css.js" ></script>
+	<script language="JavaScript" type="text/javascript" src="../logger/mw_lib_logger.js" ></script>
+	<script language="JavaScript" type="text/javascript" src="../objectmodel/mw_lib_objectmodel.js" ></script>
+	<script language="JavaScript" type="text/javascript" src="../objectmodel/mw_lib_objectmodel_node.js" ></script>
+	<script language="JavaScript" type="text/javascript" src="../objectmodel/mw_lib_objectmodel_node_cookie.js" ></script>
+	<script language="JavaScript" type="text/javascript" src="../code/mw_lib_code.js" ></script>
+	<script language="JavaScript" type="text/javascript" src="../view/mw_lib_view.js" ></script>
+	<script language="JavaScript" type="text/javascript" src="../stateviewmap/mw_lib_stateviewmap.js" ></script>
+	<script language="JavaScript" type="text/javascript" src="../state/mw_lib_state.js" ></script>
+	<script language="JavaScript" type="text/javascript" src="../xml/mw_lib_xml_action.js"></script>
+
+
+	<script language="JavaScript">
+
+		MetaWrap.XML.Action.WS = {};
+
+		var g_cookie_name = "ThumbWhereUserAPIToken";
+
+		var l_api_key = "8e9ff318-3cd7-4593-99de-4c37c0fb335a";
+		//var l_api_key = "74537800-F027-47AD-B527-9B3133AEDB60";
+		//var l_api_member_token = "d6029931-d37a-4dd2-8075-e6a41f4d5187";
+		var l_api_member_token = "d148e4ec-629b-43c8-9650-1c5caf6c1bb4";
+
+
+		//var l_api_server = "http://localhost.thumbwhere.com/thumbwhere/websites/services/";
+		var l_api_server = "/api/";
+		//var l_api_server = "http://api.staging.thumbwhere.com";
+		//var l_api_server = "http://localhost.thumbwhere.com/thumbwhere/websites/services";
+
+		// Regex for testing for a valid email addresss
+		var l_email_regex = new RegExp("^[\\w-_\.]*[\\w-_\.]\@[\\w]\.+[\\w]+[\\w]$");
+
+		//MetaWrap.View.m_page_open_effects[MetaWrap.View.m_page_open_effects.length] = pageOpen;
+
+		/////////////////////////////////////////////////////////
+		//
+		// XML Action Interface Created for invite
+		//
+
+		MetaWrap.XML.Action.WS.invite = function(p_api_key,p_email)
+		{
+				this.m_action = {};
+				this.m_action.m_invite =
+				{
+					m_api_key:p_api_key,
+					m_email:p_email
+				};
+		}
+
+
+		MetaWrap.XML.Action.WS.invite.prototype.response = function()
+		{
+				this.m_response = {};
+				this.m_response.m_invite =
+					{
+
+					};
+				return this;
+		}
+
+		var l_invite = null;
+		var l_invite_action = null;
+
+
+
+		function pageOpen(p_document)
+		{
+			alert("pageOpen effect");
+		}
+
+
+		function start()
+		{
+			// register a listener for onstatechange
+			MetaWrap.State.onstatechange = MetaWrap.View.OnStateChange;
+
+			// Work out our initial state
+			MetaWrap.State.determineState();
+
+			// Add a special effect on transition
+			MetaWrap.View.m_aspect_show_effects[MetaWrap.View.m_aspect_show_effects.length] = yellowFade;
+		}
+
+		///////////////////////////////
+		//var g_loggedin = false;
+
+		var g_invite_sent = false;
+
+		// return true if we are logged in
+		function isLoggedIn()
+		{
+			// get the cookie
+			var l_cookie_value =  MetaWrap.Cookie.Get(g_cookie_name);
+
+			// empty cookie is the same as no cookie.
+			if (l_cookie_value == "")
+			{
+				l_cookie_value = null;
+			}
+
+			// no cookie, no love
+			return (l_cookie_value != null);
+		}
+
+		function doLogin()
+		{
+			//debug("doLogin CLICK");
+			//g_loggedin = true;
+
+			MetaWrap.Cookie.Set(g_cookie_name,l_api_member_token)
+
+			MetaWrap.State.determineState();
+		}
+
+		function doLogout()
+		{
+			//debug("doLogin CLICK");
+			//g_loggedin = false;
+
+			MetaWrap.Cookie.Delete(g_cookie_name)
+
+			MetaWrap.State.determineState();
+		}
+
+		function doJoin()
+		{
+			MetaWrap.State.affirmState("loggedOut/joining");
+		}
+
+		function doCancelJoin()
+		{
+			MetaWrap.State.affirmState("loggedOut/waiting");
+		}
+
+
+
+///////////////////////////////////////////////////////////
+//
+// XML Action Interface Created for api_member_token_request_query
+//
+
+// Create the webservice action request
+MetaWrap.XML.Action.WS.api_member_token_request_query = function(
+	p_api_key,
+	p_code)
+{
+	this.m_action = {};
+	this.m_action.m_api_member_token_request_query =
+	{
+		m_api_key:p_api_key,
+		m_code:p_code
+	};
+}
+
+// Create the webservice action response
+MetaWrap.XML.Action.WS.api_member_token_request_query.prototype.response = function()
+{
+	this.m_response = {};
+	this.m_response.m_api_member_token_request_query =
+		{
+
+			m_request:"",
+			m_expiry_seconds:"",
+			m_token:""
+		};
+	return this;
+}
+
+// Reference to the request
+var l_api_member_token_request_query = null;
+
+// Reference to the action
+var l_api_member_token_request_query_action = null;
+
+// This is called on completion of a call to api_member_token_request_query
+function oncomplete_api_member_token_request_query()
+{
+	alert("oncomplete_api_member_token_request_query");
+
+
+	// Get response as object
+	var l_obj = l_api_member_token_request_query.m_response.m_api_member_token_request_query;
+	alert("'status' = " + l_obj.m_status);
+	alert("'request' = " + l_obj.m_request);
+	alert("'expiry_seconds' = " + l_obj.m_expiry_seconds);
+	alert("'token' = " + l_obj.m_token);
+
+	// Get response as XML
+	var l_xml = l_api_member_token_request_query_action.m_response_xml;
+	alert("'status' (from xml) = " + l_xml.selectSingleNode("response/api_member_token_request_query/status").text);
+	alert("'request' (from xml) = " +l_xml.selectSingleNode("response/api_member_token_request_query/request").text);
+	alert("'expiry_seconds' (from xml) = " +l_xml.selectSingleNode("response/api_member_token_request_query/expiry_seconds").text);
+	alert("'token' (from xml) = " +l_xml.selectSingleNode("response/api_member_token_request_query/token").text);
+
+	// Get response as a single string
+	alert(l_api_member_token_request_query_action.m_response_string);
+}
+
+// Create the request
+//l_api_member_token_request_query = new MetaWrap.XML.Action.WS.api_member_token_request_query
+//(
+//
+//	'api_key',
+//	'code'
+//);
+
+// Create action
+//l_api_member_token_request_query_action = new MetaWrap.XML.Action(l_api_member_token_request_query,l_api_server + "/api_member_token_request_query.aspx");
+
+// Call the action
+//if (!l_api_member_token_request_query_action.run(oncomplete_api_member_token_request_query))
+//{
+//	alert("There was an error calling 'api_member_token_request_query'");
+//}
+
+//
+//
+//
+///////////////////////////////////////////////////////////
+
+
+
+
+
+
+		var l_test_expired = false;
+		var l_test_ready = false;
+		var l_test_error = false;
+
+		// This is called on completion of a call to api_member_token_request
+		function oncomplete_api_member_token_request()
+		{
+			//alert("oncomplete_api_member_token_request");
+
+			// Get response as object
+			var l_obj = l_api_member_token_request.m_response.m_api_member_token_request;
+
+			//alert("'status' = " + l_obj.m_status);
+			//alert("'request' = " + l_obj.m_request);
+			//debug("'expiry_seconds' = " + l_obj.m_expiry_seconds);
+			//alert("'token' = " + l_obj.m_token);
+
+			if (l_test_error)
+			{
+				l_test_error = false;
+				MetaWrap.State.affirmState("waitingForSMSError");
+			}
+			else
+			if (l_test_ready)
+			{
+				l_test_ready = false;
+				MetaWrap.Cookie.Set(g_cookie_name,l_api_member_token);
+				MetaWrap.State.determineState();
+			}
+			else
+			if ((l_obj.m_request == "expired") || (l_test_expired))
+			{
+				l_test_expired = false;
+				//MetaWrap.State.negateState("waitingForSMS");
+				MetaWrap.State.affirmState("waitingForSMSExpired");
+			}
+			else
+			if (l_obj.m_request == "ready")
+			{
+				debug("token = " +  l_obj.m_token);
+
+				MetaWrap.Cookie.Set(g_cookie_name,l_obj.m_token);
+				MetaWrap.State.determineState();
+			}
+			else
+			if (l_obj.m_request == "error")
+			{
+				MetaWrap.State.affirmState("waitingForSMSError");
+			}
+			else
+			{
+				// start waiting for the SMS to be sent
+				l_waiting_for_sms_request_timer_timer = window.setTimeout(WaitingForSMSRequestTimer, 10000);
+			}
+		}
+
+
+		//
+		//
+		//
+		///////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////////////////////
+//
+// XML Action Interface Created for api_member_token_request
+//
+
+// Create the webservice action request
+MetaWrap.XML.Action.WS.api_member_token_request = function(
+	p_api_key)
+{
+	this.m_action = {};
+	this.m_action.m_api_member_token_request =
+	{
+		m_api_key:p_api_key
+	};
+}
+
+// Create the webservice action response
+MetaWrap.XML.Action.WS.api_member_token_request.prototype.response = function()
+{
+	this.m_response = {};
+	this.m_response.m_api_member_token_request =
+		{
+
+			m_code:"",
+			m_number:""
+		};
+	return this;
+}
+
+// Reference to the request
+var l_api_member_token_request = null;
+
+// Reference to the action
+var l_api_member_token_request_action = null;
+
+// This is called on completion of a call to api_member_token_request
+function oncomplete_api_member_token_request()
+{
+	alert("oncomplete_api_member_token_request");
+
+
+	// Get response as object
+	var l_obj = l_api_member_token_request.m_response.m_api_member_token_request;
+	alert("'status' = " + l_obj.m_status);
+	alert("'code' = " + l_obj.m_code);
+	alert("'number' = " + l_obj.m_number);
+
+	// Get response as XML
+	var l_xml = l_api_member_token_request_action.m_response_xml;
+	alert("'status' (from xml) = " + l_xml.selectSingleNode("response/api_member_token_request/status").text);
+	alert("'code' (from xml) = " +l_xml.selectSingleNode("response/api_member_token_request/code").text);
+	alert("'number' (from xml) = " +l_xml.selectSingleNode("response/api_member_token_request/number").text);
+
+	// Get response as a single string
+	alert(l_api_member_token_request_action.m_response_string);
+}
+
+// Create the request
+//l_api_member_token_request = new MetaWrap.XML.Action.WS.api_member_token_request
+//(
+//
+//	'api_key'
+//);
+
+// Create action
+//l_api_member_token_request_action = new MetaWrap.XML.Action(l_api_member_token_request,l_api_server + "/api_member_token_request.aspx");
+
+// Call the action
+//if (!l_api_member_token_request_action.run(oncomplete_api_member_token_request))
+//{
+//	alert("There was an error calling 'api_member_token_request'");
+//}
+
+//
+//
+//
+///////////////////////////////////////////////////////////
+
+
+		/*
+		MetaWrap.View.addAspectEvent("onshow","waiting_for_sms",function()
+				{
+					alert("Simple...");
+				});
+		*/
+
+
+	var l_waiting_for_sms_request_timer_timer = null;
+
+	function WaitingForSMSRequestTimer()
+	{
+		//alert("WaitingForSMSRequestTimer");
+
+		l_waiting_for_sms_request_timer_timer = null;
+
+		// Create the request
+		l_api_member_token_request = new MetaWrap.XML.Action.WS.api_member_token_request
+		(
+			l_api_key,
+			l_login_code
+		);
+
+		// Create action
+		l_api_member_token_request_action = new MetaWrap.XML.Action(l_api_member_token_request,l_api_server + "/api_member_token_request.aspx");
+
+		//alert("About to run!");
+
+		// Call the action
+		if (!l_api_member_token_request_action.run(oncomplete_api_member_token_request))
+		{
+			MetaWrap.State.affirmState("waitingForSMSError");
+		}
+
+	}
+
+
+		function onShow_waitingForSMS()
+		{
+			//alert("l_login_code = " + l_login_code);
+
+			var l_login_code_out = MetaWrap.Page.Output("waiting_for_sms_code");
+			l_login_code_out.clear();
+			l_login_code_out.write(l_login_code);
+			l_login_code_out.flush();
+
+			var l_login_number_out = MetaWrap.Page.Output("waiting_for_sms_number");
+			l_login_number_out.clear();
+			l_login_number_out.write(l_login_number);
+			l_login_number_out.flush();
+
+			// start waiting for the SMS to be sent
+			l_waiting_for_sms_request_timer_timer = window.setTimeout(WaitingForSMSRequestTimer, 10000);
+		}
+
+		var l_login_code = "";
+		var l_login_number = "";
+
+		// This is called on completion of a call to api_member_token_request
+		function oncomplete_api_member_token_request()
+		{
+
+			// Get response as object
+			var l_obj = l_api_member_token_request.m_response.m_api_member_token_request;
+			//alert("'status' = " + l_obj.m_status);
+
+			if (l_obj.m_status == "success")
+			{
+				// Get response as object
+				var l_response = l_api_member_token_request.m_response.m_api_member_token_request;
+				l_login_code = l_response.m_code;
+				l_login_number = l_response.m_number;
+
+				// now lets show the waiting aspect
+				MetaWrap.State.affirmState("waitingForSMS");
+			}
+			else
+			{
+				MetaWrap.State.affirmState("generatingCodeError");
+			}
+		}
+
+
+		function doGenerateCode()
+		{
+			//alert("Generate code!");
+
+			// Create the request
+			l_api_member_token_request = new MetaWrap.XML.Action.WS.api_member_token_request
+			(
+				l_api_key
+			);
+
+			// Create action
+			l_api_member_token_request_action = new MetaWrap.XML.Action(l_api_member_token_request,l_api_server + "/api_member_token_request.aspx");
+
+			// Call the action
+			if (!l_api_member_token_request_action.run(oncomplete_api_member_token_request,true))
+			{
+				MetaWrap.State.affirmState("generatingCodeError");
+			}
+
+
+			return true;
+		}
+
+		/*
+		function onLOGINUSERNAMEKeyDown()
+		{
+			debug(MetaWrap.$("LOGINUSERNAME").value);
+		}
+
+		function onLOGINPASSWORDKeyDown()
+		{
+			debug(MetaWrap.$("LOGINPASSWORD").value);
+		}
+
+		function onINVITEEMAILKeyDown()
+		{
+			MetaWrap.State.determineState();
+		}
+		*/
+
+		function onInviteReady()
+		{
+			//alert("onInviteReady");
+
+			MetaWrap.State.negateState("/main/loggedOut/inviteSent");
+
+			return true;
+		}
+
+		// return true if the regex for an email matches
+		function isInviteReady()
+		{
+			try
+			{
+				return l_email_regex.test((MetaWrap.$("INVITEEMAIL").value));
+			}
+			catch(l_e)
+			{
+				return false;
+			}
+		}
+
+		function isReadyToLogin()
+		{
+			try
+			{
+				return (
+							(l_email_regex.test(MetaWrap.$("LOGINUSERNAME").value))
+							&&
+							(MetaWrap.$("LOGINPASSWORD").value.length > 0)
+							);
+			}
+			catch(l_e)
+			{
+				return false;
+			}
+		}
+
+		// This is called on completion of a call to invite
+		function oncomplete_invite()
+		{
+				//alert("oncomplete_invite");
+				//alert(l_invite_action.m_response_string);
+				//alert(l_invite.m_response.m_invite.m_status);
+
+				if (l_invite.m_response.m_invite.m_status == "success")
+				{
+					// clear the email address
+					MetaWrap.$("INVITEEMAIL").value = "";
+
+					// send the invite
+					MetaWrap.State.affirmState("main/loggedOut/inviteSent");
+				}
+				else
+				{
+					// send the invite
+					MetaWrap.State.affirmState("main/loggedOut/inviteError");
+				}
+		}
+
+		function doInvite()
+		{
+
+			//alert("http://localhost.thumbwhere.com/thumbwhere/websites/services/" + p_form_element.action);
+
+			// Create the request
+			l_invite = new MetaWrap.XML.Action.WS.invite
+			(
+					l_api_key,
+					MetaWrap.$("INVITEEMAIL").value
+			);
+
+			// Create action
+			l_invite_action = new MetaWrap.XML.Action(l_invite,l_api_server + "/invite.aspx");
+
+			// Call the action
+			l_invite_action.run(oncomplete_invite);
+
+
+		}
+
+
+		var l_original_backgrounds = {};
+
+		// Simple closure based yellow fade
+		function yellowFade(p_element)
+		{
+
+		   var l_r_yellow = 255;
+		   var l_g_yellow = 255;
+		   var l_b_yellow = 0;
+
+		   var l_r = l_r_yellow;
+		   var l_g = l_g_yellow;
+		   var l_b = l_b_yellow;
+
+		   var l_r_target = 211;
+		   var l_g_target = 211;
+		   var l_b_target = 211;
+
+		   var l_r_d = l_r_yellow - l_r_target;
+		   var l_g_d = l_g_yellow - l_g_target;
+		   var l_b_d = l_b_yellow - l_b_target;
+
+		   var l_dx = 0.02;
+		   var l_dx2 = 0.005;
+
+
+		   var l_unit = 0;
+
+		   var l_timeout = null;
+
+		   if (l_original_backgrounds[p_element.id] == null)
+		   {
+				l_original_backgrounds[p_element.id] = p_element.style.background;
+		   }
+
+		   var l_old_background = l_original_backgrounds[p_element.id];
+
+		   //debug(p_element.style.background);
+
+
+		  function _f()
+		  {
+
+			var l_done = false;
+
+			if (l_timeout != null)
+			{
+				window.clearTimeout(l_timeout);
+				l_timeout = null;
+			}
+
+
+			if (l_unit > 1.0)
+			{
+				l_unit = 1.0;
+				l_done = true;
+			}
+
+			l_r = Math.floor(l_r_target + (l_r_d * (1.0-l_unit)));
+			l_g = Math.floor(l_g_target + (l_g_d * (1.0-l_unit)));
+			l_b = Math.floor(l_b_target + (l_b_d * (1.0-l_unit)));
+
+			var l_rgb = 'rgb(' + l_r + ',' + l_g + ','+ l_b +')';
+
+			//debug(l_rgb);
+
+			//if (l_rgb != p_element.style.background)
+			{
+				p_element.style.background = l_rgb;
+			}
+
+			// increase by l_dx
+			l_unit += l_dx;
+
+			// increase l_dx
+			l_dx += l_dx2;
+
+			if (!l_done)
+			{
+				l_timeout = window.setTimeout(_f, 40);
+			}
+			else
+			{
+				p_element.style.background = l_old_background;
+			}
+
+		  };
+
+
+
+		  _f();
+		}
+
+	</script>
+
+
+
+</head>
+	<body onload="start()">
+		<div id="destination_body"></div>
+		<iframe name="history_iframe" id="history_iframe" src="history_iframe.html"  style="border: 0px; width: 1px; height: 1px; position: absolute; bottom: 0px; right: 0px; visibility: visible;"></iframe>
+	</body>
+</html>
+

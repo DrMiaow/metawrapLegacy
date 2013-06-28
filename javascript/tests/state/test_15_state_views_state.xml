@@ -1,0 +1,347 @@
+<?xml version="1.0"?>
+<!--< ?xml-stylesheet type="text/xsl" href="E:\metawrap\javascript\tests\state\state.xsl"? ><metawrap xmlns="../metawrap/metawrap.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="../metawrap/metawrap.xsd ../metawrap/metawrap.xsd" >XSLT WILL NOT WORK IF xmlns is included -->
+<metawrap>
+	<states mutex="true" >
+		<!--  This state handles all the loading at the start -->
+		<state name="application" value="true" >
+			<states mutex="true">
+				<state name="loading" value="true">					
+					<require call="isLoading()" />				
+				</state>
+				<state name="loaded" value="false" >
+					<require call="isLoaded()" />				
+					<states>
+						<state name="registerOrLogin" value="true">
+							<require call="!isLoggedIn()" />
+							<states>
+								<state name="loggingIn" value="true" />
+								<state name="loginFailed" />
+								<state name="readyToLogin" >
+									<require call="isReadyToLogin()" />
+								</state>
+								
+								<state name="notReadyToLogin" >
+									<require call="!isReadyToLogin()" />
+								</state>
+								
+								<state name="mobileRegistration" >
+									<negate state="../loggingIn" />
+									<pulse state="generatingCode" />
+									<states mutex="true" >
+										<state name="generatingCode" value="true" >
+											<enter call="doRegistrationGenerateCode()" />
+										</state>
+										<state name="generatingCodeError" />
+										<state name="waitingForSMS" />
+										<state name="waitingForSMSExpired" />
+										<state name="waitingForSMSError" />
+									</states>
+								</state>
+							</states>
+						</state>
+						<state name="loggedIn" value="false">
+							<require call="isLoggedIn()" />
+							<enter call="loadMemberDetails()" />
+							<states>
+							
+								<state name="readyToAcceptSMSorMMS" >
+									<require call="isReadyToAcceptSMSorMMS()" />
+									<negate state="../notReadyToAcceptSMSorMMS" />
+								</state>
+								
+								<state name="notReadyToAcceptSMSorMMS" value="true" >
+									<negate state="../readyToAcceptSMSorMMS" />
+								</state>
+								
+							
+								<state name="accountCreated" value="false" />
+								<state name="completeRegistration" >
+									<require call="!isMemberAccountComplete()" />
+									<states>
+										<state name="canCreateAccount"  value="false"  >
+											<negate state="../canNotCreateAccount"/>
+											<inactive state="../canInputUsername/usernameInvalid"/>
+											<inactive state="../canInputUsername/usernameChecking"/>
+											<inactive state="../canInputUsername/usernameTaken"/>
+											<inactive state="../canInputPassword/passwordPoor"/>
+											<inactive state="../canInputPassword/passwordWeak"/>
+											<inactive state="../canInputPasswordVerify/passwordVerifyDoesNotMatch"/>
+											<inactive state="../canInputPasswordVerify/passwordVerifyIsBlank"/>
+											<unpulse state="../../accountCreated"/>
+										</state>
+										<state name="canNotCreateAccount" value="true" />
+										<state name="canInputUsername" value="true" >
+											<states>
+												<state name="usernameAvailable" >
+													<require call="(getUserNameAvailability('CREATEUSERNAME') == 2)" />
+												</state>
+												<state name="usernameTaken" >
+													<require call="(getUserNameAvailability('CREATEUSERNAME') == 3)" />
+												</state>
+												<state name="usernameCurrent" >
+													<require call="(getUserNameAvailability('CREATEUSERNAME') == 0)" />
+												</state>
+												<state name="usernameChecking" >
+													<require call="(getUserNameAvailability('CREATEUSERNAME') == 1)" />
+												</state>
+												<state name="usernameInvalid" >
+													<require call="(getUserNameAvailability('CREATEUSERNAME') == -1)" />
+												</state>
+											</states>
+										</state>
+										<state name="canInputPassword" value="true" >
+											<states>
+												<state name="passwordInvalid" >
+													<require call="(getPasswordComplexity('CREATEPASSWORD') == 0)" />
+												</state>
+												<state name="passwordPoor" >
+													<require call="(getPasswordComplexity('CREATEPASSWORD') == 1)" />
+												</state>
+												<state name="passwordWeak" >
+													<require call="(getPasswordComplexity('CREATEPASSWORD') == 2)" />
+												</state>
+												<state name="passwordGood" >
+													<require call="(getPasswordComplexity('CREATEPASSWORD') == 3)" />
+												</state>
+												<state name="passwordStrong" >
+													<require call="(getPasswordComplexity('CREATEPASSWORD') == 4)" />
+												</state>
+											</states>
+										</state>
+										<state name="canInputPasswordVerify"  >
+											<inactive state="../canInputPassword/passwordInvalid"/>
+											<states >
+												<state name="passwordVerifyIsBlank" >
+													<require call="(getPasswordVerifyMatch('CREATEPASSWORD','CREATEPASSWORDVERIFY') == 0)" />
+												</state>
+												<state name="passwordVerifyDoesNotMatch" >
+													<require call="(getPasswordVerifyMatch('CREATEPASSWORD','CREATEPASSWORDVERIFY') == 1)" />
+												</state>
+												<state name="passwordVerifyMatches" >
+													<require call="(getPasswordVerifyMatch('CREATEPASSWORD','CREATEPASSWORDVERIFY') == 2)" />
+												</state>
+											</states>
+										</state>
+									</states>
+								</state>
+								<state name="updateRegistration" >
+									<require call="isMemberAccountComplete()" />
+									<states>
+										<state name="canUpdateAccount" >
+											<negate state="../canNotUpdateAccount"/>
+											<inactive state="../canInputUsername/usernameInvalid"/>
+											<inactive state="../canInputUsername/usernameChecking"/>
+											<inactive state="../canInputUsername/usernameTaken"/>
+											<inactive state="../canInputPassword/passwordPoor"/>
+											<inactive state="../canInputPassword/passwordWeak"/>
+											<inactive state="../canInputPasswordVerify/passwordVerifyDoesNotMatch"/>
+											<inactive state="../canInputPasswordVerify/passwordVerifyIsBlank"/>
+											<active state="../needCurrentPassword/currentPasswordReady"/>
+											<unpulse state="../accountUpdated"/>
+										</state>
+										<state name="canNotUpdateAccount" value="true" />
+										<state name="detailsUnchanged" >
+											<require call="!isRegistrationDetailsChanged()" />
+										</state>
+										<state name="accountUpdated" />
+										<state name="needCurrentPassword" >
+											<require call="isRegistrationDetailsChanged()"  />
+											<unpulse state="../accountUpdated"/>
+											<unpulse state="../../accountCreated"/>
+											<states>
+												<state name="currentPasswordReady" >
+													<require call="isCurrentPasswordReady()" />
+													<negate state="../currentPasswordNotReady"/>
+												</state>
+												<state name="currentPasswordNotReady" value="true" >
+													<negate state="../currentPasswordReady"/>
+												</state>
+												<state name="currentPasswordRejected" />
+											</states>
+										</state>
+										<state name="canInputUsername" value="true" >
+											<states>
+												<state name="usernameAvailable" >
+													<require call="(getUserNameAvailability('UPDATEUSERNAME') == 2)" />
+												</state>
+												<state name="usernameTaken" >
+													<require call="(getUserNameAvailability('UPDATEUSERNAME') == 3)" />
+												</state>
+												<state name="usernameCurrent" >
+													<require call="(getUserNameAvailability('UPDATEUSERNAME') == 0)" />
+												</state>
+												<state name="usernameChecking" >
+													<require call="(getUserNameAvailability('UPDATEUSERNAME') == 1)" />
+												</state>
+												<state name="usernameInvalid" >
+													<require call="(getUserNameAvailability('UPDATEUSERNAME') == -1)" />
+												</state>
+											</states>
+										</state>
+										<state name="canInputPassword" value="true" >
+											<states>
+												<state name="passwordInvalid" >
+													<require call="(getPasswordComplexity('UPDATEPASSWORD') == 0)" />
+												</state>
+												<state name="passwordPoor" >
+													<require call="(getPasswordComplexity('UPDATEPASSWORD') == 1)" />
+												</state>
+												<state name="passwordWeak" >
+													<require call="(getPasswordComplexity('UPDATEPASSWORD') == 2)" />
+												</state>
+												<state name="passwordGood" >
+													<require call="(getPasswordComplexity('UPDATEPASSWORD') == 3)" />
+												</state>
+												<state name="passwordStrong" >
+													<require call="(getPasswordComplexity('UPDATEPASSWORD') == 4)" />
+												</state>
+											</states>
+										</state>
+										<state name="canInputPasswordVerify"  >
+											<require call="isChangingCurrentPassword()"/>
+											<states >
+												<state name="passwordVerifyIsBlank" >
+													<require call="(getPasswordVerifyMatch('UPDATEPASSWORD','UPDATEPASSWORDVERIFY') == 0)" />
+												</state>
+												<state name="passwordVerifyDoesNotMatch" >
+													<require call="(getPasswordVerifyMatch('UPDATEPASSWORD','UPDATEPASSWORDVERIFY') == 1)" />
+												</state>
+												<state name="passwordVerifyMatches" >
+													<require call="(getPasswordVerifyMatch('UPDATEPASSWORD','UPDATEPASSWORDVERIFY') == 2)" />
+												</state>
+											</states>
+										</state>
+									</states>
+								</state>
+								<state name="applicationAccountValid" value="false" >
+									<unpulse state="../applicationAccountInvalid"/>
+									<unpulse state="../addApplication/applicationAddTesting"/>
+									<unpulse state="../updateApplication/applicationUpdateTesting"/>
+								</state>
+								<state name="applicationAccountInvalid" value="false" >
+									<unpulse state="../applicationAccountValid"/>
+									<unpulse state="../addApplication/applicationAddTesting"/>
+									<unpulse state="../updateApplication/applicationUpdateTesting"/>
+								</state>
+								<state name="addApplication">
+									<require call="!hasMemberAddedApplication()" />
+									<states>
+										<state name="applicationAdding" >
+											<unpulse state="../../applicationAccountValid"/>
+											<unpulse state="../../applicationAccountInvalid"/>
+										</state>
+										<state name="applicationAddError" >
+											<unpulse state="../applicationAdding"/>
+										</state>
+										<state name="applicationAddTesting" >
+											<unpulse state="../applicationAdding"/>
+										</state>
+										<state name="canAddApplication" >
+											<unpulse state="../applicationAddTesting"/>
+											<unpulse state="../applicationAddError"/>
+											<unpulse state="../applicationAdding"/>
+											<unpulse state="../../applicationAccountValid"/>
+											<unpulse state="../../applicationAccountInvalid"/>
+											<require call="canAddApplication()" />
+										</state>
+										<state name="canNotAddApplication" >
+											<require call="!canAddApplication()" />
+											<unpulse state="../../applicationAccountValid"/>
+											<unpulse state="../../applicationAccountInvalid"/>
+										</state>
+									</states>
+								</state>
+								<state name="updateApplication">
+									<require call="hasMemberAddedApplication()" />
+									<states>
+										<state name="applicationUpdating">
+											<unpulse state="../../applicationAccountValid"/>
+											<unpulse state="../../applicationAccountInvalid"/>
+										</state>
+										<state name="applicationUpdateError" >
+											<unpulse state="../applicationUpdating"/>
+										</state>
+										<state name="applicationUpdateTesting" >
+											<unpulse state="../applicationUpdating"/>
+										</state>
+										<state name="canUpdateApplication" >
+											<require call="hasApplicationChanged()" />
+											<unpulse state="../applicationUpdateTesting"/>
+											<unpulse state="../applicationUpdateError"/>
+											<unpulse state="../applicationUpdating"/>
+											<unpulse state="../../applicationAccountValid"/>
+											<unpulse state="../../applicationAccountInvalid"/>
+										</state>
+										<state name="canNotUpdateApplication" >
+											<require call="!hasApplicationChanged()" />
+										</state>
+									</states>
+								</state>
+								<state name="memberSummaryLoaded"/>
+							</states>
+						</state>
+					</states>
+				</state>
+			</states>
+		</state>
+		
+		<state name="main" value="false" >
+			<states mutex="true">
+				<state name="loading" value="true">
+					<require call="isLoading()" />				
+				</state>
+				<state name="loaded" value="false" >
+					<require call="isLoaded()" />				
+					<states>
+						<state name="loggedOut" value="true">
+							<require call="!isLoggedIn()" />
+							<negate state="../loggedIn" />
+							<pulse state="normalLogin" />
+							<states>
+								<state name="waiting" >
+									<negate state="../joining" />
+								</state>
+								<state name="joining" >
+									<negate state="../waiting" />
+								</state>
+								<state name="inviteReady" >
+									<require call="isInviteReady()" />
+								</state>
+								<state name="readyToLogin" >
+									<require call="isReadyToLogin()" />
+								</state>
+								<state name="inviteSent" />
+								<state name="inviteError" />
+								<state name="normalLogin" value="true" >
+									<negate state="../mobileLogin" />
+								</state>
+								<state name="mobileLogin" >
+									<negate state="../normalLogin" />
+									<pulse state="generatingCode" />
+									<states mutex="true" >
+										<state name="generatingCode" value="true" >
+											<enter call="doGenerateCode()" />
+										</state>
+										<state name="generatingCodeError" />
+										<state name="waitingForSMS" />
+										<state name="waitingForSMSExpired" />
+										<state name="waitingForSMSError" />
+									</states>
+								</state>
+							</states>
+						</state>
+						<state name="loggedIn">
+							<exclude state="../loggedOut" />
+							<negate state="../loggedOut" />
+							<enter call="loadMemberDetails()" />
+							<states>
+								<state name="memberSummaryLoaded"/>
+							</states>
+						</state>
+					</states>
+				</state>
+			</states>
+		</state>
+		<state name="api" value="false" />
+	</states>
+</metawrap>

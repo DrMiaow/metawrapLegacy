@@ -1,0 +1,1 @@
+java -jar ..\..\..\tools\JavaScriptCompressor\shrinksafe.jar -c %1 > %2

@@ -1,0 +1,1905 @@
+* {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+HTML {
+	HEIGHT: 100%
+}
+BODY {
+	HEIGHT: 100%
+}
+BODY {
+	FONT: 14px arial, helvetica, verdana, sans-serif; COLOR: #333333
+}
+TEXTAREA {
+	FONT: 14px arial, helvetica, verdana, sans-serif; COLOR: #333333
+}
+BODY {
+	LINE-HEIGHT: 1.5em; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: center
+}
+#fixed_width {
+	MARGIN-LEFT: auto; WIDTH: 995px; MARGIN-RIGHT: auto; TEXT-ALIGN: left
+}
+H4 {
+	FONT-WEIGHT: bold; FONT-SIZE: 16px
+}
+H3 {
+	FONT-WEIGHT: normal; FONT-SIZE: 20px
+}
+H2 {
+	FONT-WEIGHT: normal; FONT-SIZE: 24px; LINE-HEIGHT: 26px; LETTER-SPACING: -0.03em
+}
+INPUT {
+	PADDING-RIGHT: 1px; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px; PADDING-TOP: 1px
+}
+A {
+	COLOR: #0088ee; TEXT-DECORATION: none
+}
+A:link {
+	COLOR: #0088ee; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #0088ee; TEXT-DECORATION: underline
+}
+IMG {
+	BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none
+}
+TABLE {
+	WIDTH: 100%; BORDER-COLLAPSE: collapse; border-spacing: 0
+}
+TD {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+.text_orange {
+	COLOR: #ff690a
+}
+.text_logo {
+	COLOR: #ff690a
+}
+.text_new {
+	COLOR: #ff690a
+}
+.text_online {
+	COLOR: #ff690a
+}
+.text_free {
+	COLOR: #ff690a
+}
+.text_green {
+	COLOR: #08b63d
+}
+.text_notice {
+	BORDER-RIGHT: #d0f5bf 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #d0f5bf 1px solid; PADDING-LEFT: 10px; MARGIN-BOTTOM: 20px; PADDING-BOTTOM: 5px; BORDER-LEFT: #d0f5bf 1px solid; COLOR: white; PADDING-TOP: 5px; BORDER-BOTTOM: #d0f5bf 1px solid; BACKGROUND-COLOR: #08b63d
+}
+.text_red {
+	COLOR: #d50005
+}
+.text_warning {
+	COLOR: #d50005
+}
+#homepage {
+	PADDING-RIGHT: 15px; PADDING-LEFT: 15px
+}
+#homepage_main {
+	WIDTH: 615px
+}
+.logo_description {
+	FONT-SIZE: 23px; PADDING-BOTTOM: 5px; MARGIN-LEFT: 398px; COLOR: #caced1; PADDING-TOP: 6px; POSITION: absolute; TOP: 24px
+}
+#homepage .logo_description {
+	FONT-SIZE: 23px; PADDING-BOTTOM: 5px; MARGIN-LEFT: 105px; COLOR: #caced1; PADDING-TOP: 6px; POSITION: absolute; TOP: 30px
+}
+#page {
+	PADDING-RIGHT: 20px; PADDING-LEFT: 20px; PADDING-TOP: 10px; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: left
+}
+#main_top {
+	PADDING-RIGHT: 15px; PADDING-LEFT: 15px; MARGIN-BOTTOM: 15px; PADDING-BOTTOM: 15px; PADDING-TOP: 15px
+}
+#main_hdr {
+	BACKGROUND: #fff
+}
+#main_noborder {
+	BACKGROUND: #fff
+}
+.expando_content {
+	FONT-SIZE: 12px; MARGIN-LEFT: 2px; COLOR: #656b6f; MARGIN-RIGHT: 25px; HEIGHT: 115px
+}
+.expando_content_compact {
+	MARGIN-RIGHT: 15px
+}
+.expando_navlist {
+	FONT-SIZE: 12px; MARGIN-BOTTOM: 10px; PADDING-BOTTOM: 3px; LINE-HEIGHT: normal; MARGIN-RIGHT: 25px; PADDING-TOP: 3px; BORDER-BOTTOM: #e2e5e9 1px solid
+}
+.expando_navlist_compact {
+	MARGIN-RIGHT: 15px
+}
+.expando_navlist LI {
+	DISPLAY: inline; MARGIN: 0px; LIST-STYLE-TYPE: none
+}
+.expando_navlist LI A {
+	BORDER-RIGHT: #ffffff 1px solid; PADDING-RIGHT: 0.7em; BORDER-TOP: #ffffff 1px solid; PADDING-LEFT: 0.8em; PADDING-BOTTOM: 3px; MARGIN-LEFT: 2px; BORDER-LEFT: #ffffff 1px solid; PADDING-TOP: 5px; BACKGROUND-COLOR: #eceff3; TEXT-DECORATION: none; BORDER-BOTTOM-STYLE: none
+}
+.expando_navlist LI A.inactive:hover {
+	COLOR: #0088ee; BACKGROUND-COLOR: #e2e5e9; TEXT-DECORATION: underline
+}
+.expando_navlist LI A.current:hover {
+	CURSOR: default; TEXT-DECORATION: none
+}
+.expando_navlist LI A.current {
+	BORDER-RIGHT: #eceff3 1px solid; BORDER-TOP: #eceff3 1px solid; BORDER-LEFT: #eceff3 1px solid; COLOR: #333333; BORDER-BOTTOM: white 1px solid; BACKGROUND-COLOR: #ffffff
+}
+#navlist {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 5px; MARGIN-LEFT: 3px; LINE-HEIGHT: normal; PADDING-TOP: 7px
+}
+#navlist LI {
+	DISPLAY: inline; MARGIN: 0px; LIST-STYLE-TYPE: none
+}
+#navlist LI A {
+	BORDER-RIGHT: white 1px solid; PADDING-RIGHT: 0.8em; BORDER-TOP: white 1px solid; PADDING-LEFT: 0.8em; PADDING-BOTTOM: 5px; MARGIN-LEFT: 3px; BORDER-LEFT: white 1px solid; PADDING-TOP: 7px; BORDER-BOTTOM: white 1px; TEXT-DECORATION: none
+}
+#navlist LI A.inactive:hover {
+	BORDER-RIGHT: #f2f2f2 1px solid; BORDER-TOP: #f2f2f2 1px solid; BORDER-LEFT: #f2f2f2 1px solid; COLOR: #0088ee; BACKGROUND-COLOR: #f2f2f2; TEXT-DECORATION: underline
+}
+#navlist LI A.current:hover {
+	TEXT-DECORATION: none
+}
+#navlist LI A.current {
+	BORDER-RIGHT: #caced1 1px solid; BORDER-TOP: #caced1 1px solid; BACKGROUND: white; BORDER-LEFT: #caced1 1px solid; COLOR: #333333; BORDER-BOTTOM: white 1px solid
+}
+#main_container {
+	WIDTH: 605px
+}
+#main {
+	BORDER-RIGHT: #caced1 1px solid; BORDER-TOP: #caced1 1px solid; MIN-WIDTH: 300px; BACKGROUND: #fff; MARGIN-BOTTOM: 2em; PADDING-BOTTOM: 25px; BORDER-LEFT: #caced1 1px solid; BORDER-BOTTOM: #caced1 1px solid
+}
+#main_no_hdr {
+	BORDER-RIGHT: #caced1 1px solid; PADDING-RIGHT: 15px; BORDER-TOP: #caced1 1px solid; MIN-WIDTH: 300px; PADDING-LEFT: 15px; BACKGROUND: #fff; MARGIN-BOTTOM: 2em; PADDING-BOTTOM: 15px; BORDER-LEFT: #caced1 1px solid; PADDING-TOP: 15px; BORDER-BOTTOM: #caced1 1px solid
+}
+#banner {
+	MARGIN: 12px auto 20px
+}
+#banner .topHdr {
+	PADDING-BOTTOM: 4px; BORDER-BOTTOM: #caced1 1px solid; TEXT-ALIGN: left
+}
+#banner .logo_link {
+	DISPLAY: block; FLOAT: left; BACKGROUND-IMAGE: url(images/logo_beta.gif); WIDTH: 101px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 32px
+}
+#banner .topNav {
+	PADDING-TOP: 15px
+}
+#banner .topNav UL {
+	DISPLAY: inline; MARGIN-LEFT: -8px; LIST-STYLE-TYPE: none
+}
+#banner .topNav UL LI {
+	DISPLAY: inline
+}
+#banner .topNav {
+	FONT-SIZE: 18px
+}
+#banner .topNavInviteLanding {
+	FONT-SIZE: 24px
+}
+.sep {
+	COLOR: #caced1
+}
+#banner .welcome {
+	PADDING-BOTTOM: 5px; PADDING-TOP: 3px
+}
+#banner .welcome IMG {
+	BORDER-RIGHT: #333333 1px solid; BORDER-TOP: #333333 1px solid; BORDER-LEFT: #333333 1px solid; MARGIN-RIGHT: 6px; BORDER-BOTTOM: #333333 1px solid
+}
+#banner .welcome FORM {
+	
+}
+#banner .searchBox {
+	MARGIN-TOP: 4px; FLOAT: right
+}
+.admin_note {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 10px; MARGIN-BOTTOM: 10px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px
+}
+.admin_note_alert {
+	COLOR: #d50005
+}
+#user_menu {
+	FONT-SIZE: 13px; Z-INDEX: 2; LEFT: 21px; TOP: -1px
+}
+#user_menu .alignment {
+	FLOAT: left; VISIBILITY: hidden
+}
+#user_menu UL {
+	BORDER-RIGHT: #caced1 1px solid; PADDING-RIGHT: 10px; BORDER-TOP: #caced1 1px solid; PADDING-LEFT: 5px; FLOAT: left; PADDING-BOTTOM: 5px; BORDER-LEFT: #caced1 1px solid; BORDER-BOTTOM: #caced1 1px solid; LIST-STYLE-TYPE: none; BACKGROUND-COLOR: #ffffff
+}
+#user_menu_down_arrow {
+	BACKGROUND: url(images/down_arrow.gif) no-repeat 6px 8px; FLOAT: left; WIDTH: 20px; HEIGHT: 20px
+}
+.searchBox .input {
+	PADDING-BOTTOM: 3px
+}
+#welcome {
+	CLEAR: both
+}
+#welcome .profileImage {
+	FLOAT: left
+}
+#welcome .welcomeText {
+	FONT-SIZE: 13px; PADDING-BOTTOM: 5px
+}
+#welcome .signedIn {
+	FLOAT: left
+}
+#artist_qp {
+	BORDER-RIGHT: #b2b2b2 1px solid; BORDER-TOP: #b2b2b2 1px solid; PADDING-LEFT: 4px; FONT-SIZE: 14px; BORDER-LEFT: #b2b2b2 1px solid; WIDTH: 283px; MARGIN-RIGHT: 2px; PADDING-TOP: 3px; BORDER-BOTTOM: #b2b2b2 1px solid; FONT-FAMILY: Arial; HEIGHT: 18px
+}
+#people_qp {
+	BORDER-RIGHT: #b2b2b2 1px solid; BORDER-TOP: #b2b2b2 1px solid; PADDING-LEFT: 4px; FONT-SIZE: 14px; BORDER-LEFT: #b2b2b2 1px solid; WIDTH: 283px; MARGIN-RIGHT: 2px; PADDING-TOP: 3px; BORDER-BOTTOM: #b2b2b2 1px solid; FONT-FAMILY: Arial; HEIGHT: 18px
+}
+#rbar {
+	FLOAT: right; WIDTH: 330px
+}
+#rbar DIV H4 {
+	FONT-SIZE: 12pt; MARGIN: 0px
+}
+.spacer {
+	HEIGHT: 5px
+}
+#actions {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; MARGIN-BOTTOM: 10px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+.artist_item {
+	BORDER-RIGHT: #caced1 1px solid; BORDER-TOP: #caced1 1px solid; PADDING-LEFT: 5px; FONT-SIZE: 12px; FLOAT: left; MARGIN-BOTTOM: 10px; OVERFLOW: hidden; BORDER-LEFT: #caced1 1px solid; WIDTH: 132px; LINE-HEIGHT: 1.2em; MARGIN-RIGHT: 10px; PADDING-TOP: 5px; BORDER-BOTTOM: #caced1 1px solid; HEIGHT: 60px
+}
+.hidden_dragdrop {
+	PADDING-LEFT: 5px; FLOAT: left; MARGIN-BOTTOM: 10px; OVERFLOW: hidden; WIDTH: 132px; LINE-HEIGHT: 1.2em; MARGIN-RIGHT: 10px; PADDING-TOP: 5px; HEIGHT: 60px
+}
+.artist_item_text {
+	PADDING-LEFT: 5px; FLOAT: left; OVERFLOW: hidden; WIDTH: 74px
+}
+.people_item {
+	FONT-SIZE: 12px; FLOAT: left; MARGIN-BOTTOM: 10px; WIDTH: 148px; LINE-HEIGHT: 1.2em; MARGIN-RIGHT: 10px; HEIGHT: 60px
+}
+.people_item_med {
+	BORDER-RIGHT: #e0e0e0 1px solid; BORDER-TOP: #e0e0e0 1px solid; FONT-SIZE: 14px; FLOAT: left; MARGIN-BOTTOM: 20px; BORDER-LEFT: #e0e0e0 1px solid; WIDTH: 169px; LINE-HEIGHT: 1.2em; MARGIN-RIGHT: 20px; BORDER-BOTTOM: #e0e0e0 1px solid; HEIGHT: 72px; BACKGROUND-COLOR: #fafafa
+}
+.people_item_med_tight {
+	MARGIN-BOTTOM: 12px; MARGIN-RIGHT: 12px
+}
+.people_item_img {
+	FLOAT: left
+}
+.people_item_text {
+	PADDING-LEFT: 5px; FLOAT: left; OVERFLOW: hidden; WIDTH: 90px
+}
+.people_item_med_text {
+	PADDING-LEFT: 10px; FLOAT: left; OVERFLOW: hidden; WIDTH: 80px; PADDING-TOP: 10px
+}
+.person_online {
+	FONT-SIZE: 11px; COLOR: #ff690a
+}
+.new_messages {
+	FONT-WEIGHT: bold; COLOR: #ff690a
+}
+.gig_container {
+	PADDING-RIGHT: 10px; MARGIN-TOP: 15px; PADDING-LEFT: 10px; PADDING-BOTTOM: 5px; MARGIN-LEFT: 15px; MARGIN-RIGHT: 15px; PADDING-TOP: 5px; BACKGROUND-COLOR: #e2e5e9
+}
+.blocked_artist {
+	COLOR: #ff690a
+}
+.person {
+	BORDER-RIGHT: white 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: white 1px solid; DISPLAY: block; PADDING-LEFT: 60px; FLOAT: left; MARGIN-BOTTOM: 5px; OVERFLOW: hidden; BORDER-LEFT: white 1px solid; WIDTH: 75px; CURSOR: hand; MARGIN-RIGHT: 0px; PADDING-TOP: 3px; BORDER-BOTTOM: white 1px solid; HEIGHT: 57px
+}
+.person_ontour {
+	MARGIN-RIGHT: 30px
+}
+.person:hover {
+	BORDER-RIGHT: #e8e8e8 1px solid; BORDER-TOP: #e8e8e8 1px solid; BACKGROUND: #fefefe; BORDER-LEFT: #e8e8e8 1px solid; BORDER-BOTTOM: #e8e8e8 1px solid; TEXT-DECORATION: none
+}
+.person SPAN {
+	DISPLAY: block; FONT-SIZE: 12px; LINE-HEIGHT: 1.2em
+}
+.artist_on_tour {
+	FONT-SIZE: 11px; COLOR: #ff690a
+}
+.listeners_expando {
+	MARGIN-BOTTOM: 0px; WIDTH: 65px; HEIGHT: 51px
+}
+.expando_button {
+	DISPLAY: block; CURSOR: pointer; POSITION: relative; HEIGHT: 19px; TEXT-ALIGN: center
+}
+.expando_button P {
+	MARGIN-LEFT: auto; COLOR: #ffffff; LINE-HEIGHT: 19px; MARGIN-RIGHT: auto
+}
+.expando_button_small {
+	BACKGROUND: url(images/orange_expando_buttons.gif) no-repeat -238px 0px; WIDTH: 95px
+}
+.expando_button_medium {
+	BACKGROUND: url(images/orange_expando_buttons.gif) no-repeat -129px 0px; WIDTH: 109px
+}
+.expando_button_large {
+	BACKGROUND: url(images/orange_expando_buttons.gif) no-repeat 0px 0px; WIDTH: 129px
+}
+A.expando_button:hover {
+	TEXT-DECORATION: none
+}
+.nav_button {
+	DISPLAY: block; BACKGROUND-IMAGE: url(images/nav_button_bg.gif); MARGIN-BOTTOM: 2px; WIDTH: 330px; HEIGHT: 33px
+}
+.nav_button P {
+	PADDING-LEFT: 20px; FONT-SIZE: 18px; PADDING-TOP: 6px
+}
+A.nav_button:hover {
+	BACKGROUND-IMAGE: url(images/nav_button_bg_hover.gif); TEXT-DECORATION: none
+}
+.nav_button_right {
+	PADDING-RIGHT: 10px; FLOAT: right; CURSOR: pointer; PADDING-TOP: 6px
+}
+#friend_add {
+	BACKGROUND: url(images/friend_addremove.gif) no-repeat 0px 0px
+}
+#friend_add P {
+	PADDING-LEFT: 40px; COLOR: white
+}
+#friend_remove {
+	BACKGROUND: url(images/friend_addremove.gif) no-repeat -330px 0px
+}
+#friend_remove P {
+	PADDING-LEFT: 40px
+}
+#artist_add {
+	BACKGROUND: url(images/artist_addremove.gif) no-repeat 0px 0px
+}
+#artist_add P {
+	PADDING-LEFT: 40px; COLOR: white
+}
+#artist_remove {
+	BACKGROUND: url(images/artist_addremove.gif) no-repeat -330px 0px
+}
+#artist_remove P {
+	PADDING-LEFT: 40px; COLOR: #ff690a
+}
+#rbar #prom_emerging {
+	BACKGROUND: #c6e3f9
+}
+.view_all {
+	FONT-WEIGHT: bold
+}
+.graybar0 {
+	BACKGROUND: #eeeff1
+}
+.graybar1 {
+	
+}
+.graybar0 P {
+	PADDING-LEFT: 5px
+}
+.graybar1 P {
+	PADDING-LEFT: 5px
+}
+.graybar0 P SPAN {
+	FONT-SIZE: 75%
+}
+.graybar1 P SPAN {
+	FONT-SIZE: 75%
+}
+#footer {
+	CLEAR: both; MARGIN-TOP: 50px
+}
+#footer_main {
+	BORDER-TOP: #caced1 1px solid; FONT-SIZE: 12px; COLOR: #656b6f; PADDING-TOP: 10px
+}
+#footer_main UL {
+	FONT-SIZE: 13px; LIST-STYLE-TYPE: none
+}
+#footer_main UL LI {
+	DISPLAY: inline; LINE-HEIGHT: 1.3em
+}
+#footer_tm {
+	MARGIN-TOP: 7px; FONT-SIZE: 11px; PADDING-BOTTOM: 7px; COLOR: #bbbbbb
+}
+#login_overlay {
+	Z-INDEX: 1000; FILTER: alpha(opacity=50); LEFT: 0px; OVERFLOW: hidden; WIDTH: 100%; POSITION: absolute; TOP: 0px; HEIGHT: 100%; BACKGROUND-COLOR: black; opacity: .40
+}
+#login_dialog {
+	BORDER-RIGHT: #ff690a 1px solid; BORDER-TOP: #ff690a 1px solid; Z-INDEX: 1001; BORDER-LEFT: #ff690a 1px solid; BORDER-BOTTOM: #ff690a 1px solid; POSITION: absolute; BACKGROUND-COLOR: white
+}
+#login_dialog .content {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 20px; PADDING-BOTTOM: 5px; PADDING-TOP: 10px
+}
+.challenge_stats_gray {
+	COLOR: #656b6f
+}
+#login_dialog .account_labels {
+	COLOR: #656b6f
+}
+#login_dialog .existing_users {
+	BORDER-RIGHT: #656b6f 1px solid; FLOAT: left; WIDTH: 380px
+}
+#login_dialog .existing_users H2 {
+	PADDING-BOTTOM: 10px; PADDING-TOP: 10px
+}
+#login_dialog .forgotten_password {
+	BORDER-RIGHT: #656b6f 1px solid; FLOAT: left; WIDTH: 380px; PADDING-TOP: 15px
+}
+#login_dialog .forgotten_password H2 {
+	PADDING-LEFT: 110px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px
+}
+#login_dialog .new_users {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 35px; FLOAT: left; WIDTH: 195px
+}
+#login_dialog .new_users H2 {
+	PADDING-BOTTOM: 5px; MARGIN-LEFT: -2px; PADDING-TOP: 25px
+}
+#login_dialog FORM DT {
+	CLEAR: left; FLOAT: left; WIDTH: 100px; PADDING-TOP: 2px; TEXT-ALIGN: right
+}
+#login_dialog FORM DD {
+	MARGIN-BOTTOM: 10px; MARGIN-LEFT: 110px
+}
+#login_dialog .input_text {
+	MARGIN-TOP: 0px; FONT-SIZE: 14px; WIDTH: 220px; COLOR: #333333; PADDING-TOP: 2px; HEIGHT: 18px
+}
+#login_close {
+	CLEAR: left; TEXT-ALIGN: right
+}
+#quiz H1 {
+	FONT-WEIGHT: normal; FONT-SIZE: 36px; MARGIN-BOTTOM: 15px; MARGIN-LEFT: 150px; LETTER-SPACING: -0.03em
+}
+#account H1 {
+	FONT-WEIGHT: normal; FONT-SIZE: 36px; MARGIN-BOTTOM: 15px; MARGIN-LEFT: 150px; LETTER-SPACING: -0.03em
+}
+#artist_signup H1 {
+	FONT-WEIGHT: normal; FONT-SIZE: 36px; MARGIN-BOTTOM: 15px; MARGIN-LEFT: 150px; LETTER-SPACING: -0.03em
+}
+#artist_account H1 {
+	FONT-WEIGHT: normal; FONT-SIZE: 36px; MARGIN-BOTTOM: 15px; MARGIN-LEFT: 150px; LETTER-SPACING: -0.03em
+}
+#artist_account H1 {
+	MARGIN-LEFT: 170px
+}
+#artist_signup H1 {
+	MARGIN-LEFT: 150px
+}
+#account .wide_left H1 {
+	MARGIN-LEFT: 215px
+}
+#artist_signup .right {
+	MARGIN-LEFT: 150px
+}
+#account_settings .right {
+	MARGIN-LEFT: 150px
+}
+#account .right {
+	MARGIN-LEFT: 150px
+}
+#delete_account .right {
+	MARGIN-LEFT: 150px
+}
+#account_settings LABEL {
+	COLOR: #656b6f
+}
+#account .why_create_invited {
+	MARGIN-BOTTOM: 35px
+}
+#account .why_create {
+	MARGIN-TOP: 15px; FLOAT: right; MARGIN-LEFT: 50px
+}
+#account .why_download_text {
+	PADDING-LEFT: 10px; FLOAT: left; WIDTH: 650px; PADDING-TOP: 10px
+}
+#account .no_profile {
+	BORDER-TOP: #caced1 1px solid; MARGIN-LEFT: 150px; PADDING-TOP: 35px
+}
+#account .no_profile H1 {
+	MARGIN-LEFT: 0px
+}
+#account .why_create UL {
+	PADDING-LEFT: 0px; MARGIN-LEFT: 0px; LIST-STYLE-TYPE: none
+}
+#account .why_create_invited UL {
+	PADDING-LEFT: 0px; MARGIN-LEFT: 0px; LIST-STYLE-TYPE: none
+}
+#account .download_sidebar UL {
+	PADDING-LEFT: 0px; MARGIN-LEFT: 0px; LIST-STYLE-TYPE: none
+}
+#account .congrats_personalize UL {
+	PADDING-LEFT: 0px; MARGIN-LEFT: 0px; LIST-STYLE-TYPE: none
+}
+#account .download_sidebar_explanation UL {
+	PADDING-LEFT: 0px; MARGIN-LEFT: 0px; LIST-STYLE-TYPE: none
+}
+#account .why_download UL {
+	PADDING-LEFT: 0px; MARGIN-LEFT: 0px; LIST-STYLE-TYPE: none
+}
+#account .no_profile UL {
+	PADDING-LEFT: 0px; MARGIN-LEFT: 0px; LIST-STYLE-TYPE: none
+}
+.tartan_bullet_list {
+	PADDING-LEFT: 0px; MARGIN-LEFT: 0px; LIST-STYLE-TYPE: none
+}
+#account .why_create LI {
+	BACKGROUND-POSITION: 2px 6px; MARGIN-TOP: 5px; PADDING-LEFT: 28px; FONT-SIZE: 18px; BACKGROUND-IMAGE: url(images/diamonds.gif); COLOR: #656b6f; BACKGROUND-REPEAT: no-repeat
+}
+#account .download_sidebar LI {
+	BACKGROUND-POSITION: 2px 6px; MARGIN-TOP: 5px; PADDING-LEFT: 28px; FONT-SIZE: 18px; BACKGROUND-IMAGE: url(images/diamonds.gif); COLOR: #656b6f; BACKGROUND-REPEAT: no-repeat
+}
+#account .why_create_invited LI {
+	BACKGROUND-POSITION: 2px 6px; MARGIN-TOP: 5px; PADDING-LEFT: 28px; FONT-SIZE: 18px; BACKGROUND-IMAGE: url(images/diamonds.gif); COLOR: #656b6f; BACKGROUND-REPEAT: no-repeat
+}
+#account .congrats_personalize LI {
+	BACKGROUND-POSITION: 2px 6px; MARGIN-TOP: 5px; PADDING-LEFT: 28px; FONT-SIZE: 18px; BACKGROUND-IMAGE: url(images/diamonds.gif); COLOR: #656b6f; BACKGROUND-REPEAT: no-repeat
+}
+#account .download_sidebar_explanation LI {
+	BACKGROUND-POSITION: 2px 6px; MARGIN-TOP: 5px; PADDING-LEFT: 28px; FONT-SIZE: 18px; BACKGROUND-IMAGE: url(images/diamonds.gif); COLOR: #656b6f; BACKGROUND-REPEAT: no-repeat
+}
+#account .why_download LI {
+	BACKGROUND-POSITION: 2px 6px; MARGIN-TOP: 5px; PADDING-LEFT: 28px; FONT-SIZE: 18px; BACKGROUND-IMAGE: url(images/diamonds.gif); COLOR: #656b6f; BACKGROUND-REPEAT: no-repeat
+}
+#account .no_profile LI {
+	BACKGROUND-POSITION: 2px 6px; MARGIN-TOP: 5px; PADDING-LEFT: 28px; FONT-SIZE: 18px; BACKGROUND-IMAGE: url(images/diamonds.gif); COLOR: #656b6f; BACKGROUND-REPEAT: no-repeat
+}
+.tartan_bullet_list LI {
+	BACKGROUND-POSITION: 2px 6px; MARGIN-TOP: 5px; PADDING-LEFT: 28px; FONT-SIZE: 18px; BACKGROUND-IMAGE: url(images/diamonds.gif); COLOR: #656b6f; BACKGROUND-REPEAT: no-repeat
+}
+#artist_signup FORM DT {
+	CLEAR: left; FLOAT: left; MARGIN-BOTTOM: 15px; WIDTH: 135px; PADDING-TOP: 1px; TEXT-ALIGN: right
+}
+#account FORM DT {
+	CLEAR: left; FLOAT: left; MARGIN-BOTTOM: 15px; WIDTH: 135px; PADDING-TOP: 1px; TEXT-ALIGN: right
+}
+#artist_signup FORM DD {
+	MARGIN-BOTTOM: 15px; MARGIN-LEFT: 150px
+}
+#account FORM DD {
+	MARGIN-BOTTOM: 15px; MARGIN-LEFT: 150px
+}
+#artist_signup FORM .input_text {
+	MARGIN-TOP: -4px; FONT-SIZE: 20px; WIDTH: 300px; COLOR: #333333; HEIGHT: 25px
+}
+#account FORM .input_text {
+	MARGIN-TOP: -4px; FONT-SIZE: 20px; WIDTH: 300px; COLOR: #333333; HEIGHT: 25px
+}
+#userform_location_fields SELECT {
+	MARGIN-TOP: -4px; FONT-SIZE: 20px; WIDTH: 300px; COLOR: #333333; HEIGHT: 25px
+}
+#artist_info_form .input_text {
+	WIDTH: 300px
+}
+#account FORM .input_textarea {
+	WIDTH: 300px; COLOR: #333333; HEIGHT: 100px
+}
+#artist_signup FORM .account_labels {
+	FONT-SIZE: 18px; COLOR: #656b6f
+}
+#account FORM .account_labels {
+	FONT-SIZE: 18px; COLOR: #656b6f
+}
+#userform_location_fields LABEL {
+	FONT-SIZE: 18px; COLOR: #656b6f
+}
+#account FORM .account_settings DT {
+	CLEAR: left; FLOAT: left; MARGIN-BOTTOM: 10px; WIDTH: 135px; PADDING-TOP: 1px; TEXT-ALIGN: right
+}
+#account FORM .account_settings DD {
+	MARGIN-BOTTOM: 10px; MARGIN-LEFT: 150px
+}
+#account FORM .wide_left DT {
+	WIDTH: 200px
+}
+#account FORM .wide_left DD {
+	MARGIN-LEFT: 215px
+}
+#userform_location_fields SELECT {
+	WIDTH: 215px; HEIGHT: 29px
+}
+#userform_location_fields #user_country_tip {
+	MARGIN-LEFT: 240px
+}
+#userform_location_fields #user_postalcode_tip {
+	MARGIN-LEFT: 130px
+}
+#login_homepage H1 {
+	FONT-WEIGHT: normal; FONT-SIZE: 36px; MARGIN-BOTTOM: 15px; LETTER-SPACING: -0.03em
+}
+#login_homepage {
+	BACKGROUND-COLOR: #ffffff
+}
+#login_homepage .input_text {
+	FONT-SIZE: 16px; MARGIN-BOTTOM: 10px; WIDTH: 250px; COLOR: #333333; HEIGHT: 20px
+}
+#login_homepage .account_labels {
+	FONT-SIZE: 18px; COLOR: #656b6f
+}
+#account .errors {
+	MARGIN-BOTTOM: 20px; MARGIN-LEFT: 150px; COLOR: #333333; BACKGROUND-COLOR: #ffffff
+}
+#artist_account .errors {
+	MARGIN-BOTTOM: 20px; MARGIN-LEFT: 150px; COLOR: #333333; BACKGROUND-COLOR: #ffffff
+}
+#artist_account .errors {
+	WIDTH: 450px
+}
+#account .single_error {
+	MARGIN-BOTTOM: 20px; MARGIN-LEFT: 150px; COLOR: #d50005
+}
+#account_settings .single_error {
+	MARGIN-BOTTOM: 20px; MARGIN-LEFT: 150px; COLOR: #d50005
+}
+#account .single_notification {
+	MARGIN-BOTTOM: 20px; MARGIN-LEFT: 150px; COLOR: #08b63d
+}
+#account .errors H4 {
+	PADDING-BOTTOM: 3px; COLOR: #d50005
+}
+#artist_account .errors H4 {
+	PADDING-BOTTOM: 3px; COLOR: #d50005
+}
+#account .errors UL {
+	MARGIN-LEFT: 15px
+}
+#artist_account .errors UL {
+	MARGIN-LEFT: 15px
+}
+#account .fieldWithErrors {
+	BACKGROUND-POSITION: 320px 1px; BACKGROUND-IMAGE: url(images/field_errors.gif); BACKGROUND-REPEAT: no-repeat
+}
+#account .contact_importers {
+	PADDING-BOTTOM: 30px; PADDING-TOP: 20px
+}
+#account .contact_importer_opened {
+	PADDING-LEFT: 15px; MARGIN-BOTTOM: 20px; MARGIN-LEFT: -15px; PADDING-TOP: 15px
+}
+#account .email_addresses {
+	BORDER-TOP: #caced1 1px solid; PADDING-TOP: 30px
+}
+#account .invite_friends_area {
+	
+}
+#account .download_sidebar {
+	MARGIN-BOTTOM: 5px; PADDING-BOTTOM: 15px
+}
+#account .download_sidebar_mac {
+	BACKGROUND-IMAGE: none
+}
+#account .download_sidebar_standalone {
+	BACKGROUND-POSITION: right top; BACKGROUND-IMAGE: url(images/sidebar_screen3.jpg); BACKGROUND-REPEAT: no-repeat
+}
+#account .download_sidebar_standalone_mac {
+	BACKGROUND-IMAGE: none
+}
+#account .screenshot_related {
+	PADDING-LEFT: 530px; BACKGROUND: url(images/screen_related_large3.gif) no-repeat 0px 0px; HEIGHT: 364px
+}
+#account .screenshot_playlists {
+	PADDING-LEFT: 530px; BACKGROUND: url(images/screen_playlist_large3.gif) no-repeat 0px 0px; HEIGHT: 364px
+}
+.screenshot_profile {
+	PADDING-LEFT: 530px; BACKGROUND: url(images/screen_profile_large.jpg) no-repeat 0px 0px; HEIGHT: 903px
+}
+#account .screenshot_home {
+	PADDING-LEFT: 530px; BACKGROUND: url(images/screen_home_large3.gif) no-repeat 0px 0px; HEIGHT: 364px
+}
+#account .music_compat {
+	BORDER-TOP: #caced1 1px solid; PADDING-TOP: 20px
+}
+.spinner_icon {
+	BACKGROUND-POSITION: -42px -42px; PADDING-LEFT: 75px; BACKGROUND-IMAGE: url(images/creating_profile_spinner.gif); PADDING-TOP: 10px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 62px
+}
+#account .creating_profile {
+	BACKGROUND-POSITION: -42px -22px; DISPLAY: block; PADDING-LEFT: 75px; BACKGROUND-IMAGE: url(images/creating_profile_spinner.gif); COLOR: #ff690a; PADDING-TOP: 40px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 86px
+}
+#account .done {
+	PADDING-LEFT: 0px; BACKGROUND-IMAGE: none; COLOR: #333333; PADDING-TOP: 20px
+}
+#account_footer {
+	BORDER-TOP: #caced1 1px solid; MARGIN-TOP: 80px; FONT-SIZE: 12px; COLOR: #656b6f; PADDING-TOP: 10px
+}
+#artist_account .right {
+	MARGIN-LEFT: 170px
+}
+#artist_account FORM DT {
+	CLEAR: left; FLOAT: left; MARGIN-BOTTOM: 10px; WIDTH: 120px; PADDING-TOP: 1px; TEXT-ALIGN: right
+}
+#artist_account FORM DD {
+	MARGIN-BOTTOM: 10px; MARGIN-LEFT: 130px
+}
+#artist_account FORM .input_text {
+	MARGIN-TOP: -3px; FONT-SIZE: 14px; WIDTH: 300px; COLOR: #333333; LINE-HEIGHT: 19px; PADDING-TOP: 2px; HEIGHT: 19px
+}
+#artist_account FORM .input_textarea {
+	WIDTH: 300px; COLOR: #333333; HEIGHT: 100px
+}
+#artist_account FORM .account_labels {
+	COLOR: #656b6f
+}
+#artist_account .errors {
+	MARGIN-BOTTOM: 20px; MARGIN-LEFT: 170px; COLOR: #333333; BACKGROUND-COLOR: #ffffff
+}
+.std_btn {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; BACKGROUND: url(images/orange_buttons.gif) no-repeat 0px 0px; CURSOR: pointer; COLOR: #ffffff; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; HEIGHT: 27px; BORDER-BOTTOM-STYLE: none
+}
+.std_btn_small {
+	BACKGROUND-POSITION: 0px 0px; WIDTH: 100px
+}
+.std_btn_medium {
+	BACKGROUND-POSITION: -100px 0px; WIDTH: 150px
+}
+.std_btn_large {
+	BACKGROUND-POSITION: -250px 0px; WIDTH: 200px
+}
+.std_btn_huge {
+	FONT-WEIGHT: normal; FONT-SIZE: 32px; BACKGROUND: url(images/orange_button_huge.gif) no-repeat 0px 0px; WIDTH: 200px; HEIGHT: 47px
+}
+.std_btn_wide {
+	FONT-WEIGHT: normal; FONT-SIZE: 20px; BACKGROUND: url(images/orange_button_wide.gif) no-repeat 0px 0px; WIDTH: 275px; HEIGHT: 37px
+}
+.std_btn_small_disabled {
+	BACKGROUND-POSITION: -450px 0px; WIDTH: 100px; CURSOR: default
+}
+.std_btn_medium_disabled {
+	BACKGROUND-POSITION: -550px 0px; WIDTH: 150px; CURSOR: default
+}
+.std_btn_large_disabled {
+	BACKGROUND-POSITION: -700px 0px; WIDTH: 200px; CURSOR: default
+}
+.clear {
+	CLEAR: both
+}
+.container_box {
+	BORDER-RIGHT: #7dbeee 1px solid; BORDER-TOP: #7dbeee 1px solid; MARGIN-BOTTOM: 10px; PADDING-BOTTOM: 10px; BORDER-LEFT: #7dbeee 1px solid; BORDER-BOTTOM: #7dbeee 1px solid; BACKGROUND-COLOR: #fff
+}
+.container_box_noborder {
+	MARGIN-BOTTOM: 10px; PADDING-BOTTOM: 10px; BACKGROUND-COLOR: #fff
+}
+.musician_info_box {
+	BORDER-RIGHT: #ff690a 1px solid; BORDER-TOP: #ff690a 1px solid; MARGIN-BOTTOM: 10px; PADDING-BOTTOM: 10px; BORDER-LEFT: #ff690a 1px solid; BORDER-BOTTOM: #ff690a 1px solid; BACKGROUND-COLOR: #fff
+}
+.musician_info_text {
+	COLOR: #656b6f; LINE-HEIGHT: 1.3em; PADDING-TOP: 5px
+}
+.padded_container {
+	PADDING-RIGHT: 15px; PADDING-LEFT: 15px; PADDING-BOTTOM: 10px; PADDING-TOP: 15px
+}
+.num_messages {
+	COLOR: #ff690a
+}
+#music_compat_module {
+	COLOR: #656b6f; LINE-HEIGHT: 1.3em
+}
+#music_compat_module .hdr {
+	MARGIN-TOP: 5px; FLOAT: left; PADDING-BOTTOM: 10px
+}
+#music_compat_module H1 {
+	FONT-SIZE: 36px; MARGIN-BOTTOM: 5px; PADDING-TOP: 10px
+}
+#music_compat_module .hdr_description {
+	PADDING-LEFT: 10px; FONT-SIZE: 11px; FLOAT: left; LINE-HEIGHT: 1em
+}
+.compat_hdr_veryhigh {
+	COLOR: #e20edb
+}
+.compat_hdr_high {
+	COLOR: #e20edb
+}
+.compat_hdr_medium {
+	COLOR: #08b63d
+}
+.compat_hdr_low {
+	COLOR: #ff690a
+}
+.compat_hdr_verylow {
+	COLOR: #ff690a
+}
+.compat_container_veryhigh {
+	BORDER-RIGHT: #e20edb 1px solid; BORDER-TOP: #e20edb 1px solid; BORDER-LEFT: #e20edb 1px solid; BORDER-BOTTOM: #e20edb 1px solid
+}
+.compat_container_high {
+	BORDER-RIGHT: #e20edb 1px solid; BORDER-TOP: #e20edb 1px solid; BORDER-LEFT: #e20edb 1px solid; BORDER-BOTTOM: #e20edb 1px solid
+}
+.compat_container_medium {
+	BORDER-RIGHT: #08b63d 1px solid; BORDER-TOP: #08b63d 1px solid; BORDER-LEFT: #08b63d 1px solid; BORDER-BOTTOM: #08b63d 1px solid
+}
+.compat_container_low {
+	BORDER-RIGHT: #ff690a 1px solid; BORDER-TOP: #ff690a 1px solid; BORDER-LEFT: #ff690a 1px solid; BORDER-BOTTOM: #ff690a 1px solid
+}
+.compat_container_verylow {
+	BORDER-RIGHT: #ff690a 1px solid; BORDER-TOP: #ff690a 1px solid; BORDER-LEFT: #ff690a 1px solid; BORDER-BOTTOM: #ff690a 1px solid
+}
+.divider {
+	BORDER-TOP: #caced1 1px solid; MARGIN-TOP: 10px; PADDING-TOP: 10px
+}
+.divider_white {
+	BORDER-TOP: #ffffff 1px solid
+}
+.feed_list {
+	MARGIN-BOTTOM: 15px; LIST-STYLE-TYPE: none
+}
+.feed_filter_area {
+	FONT-SIZE: 12px; COLOR: #656b6f
+}
+.feed_upsell {
+	FONT-SIZE: 12px; COLOR: #656b6f; LINE-HEIGHT: 1.2em
+}
+.feed_border {
+	BORDER-TOP: #caced1 1px solid
+}
+.feed_noborder {
+	BORDER-TOP: white 1px solid
+}
+.feed_header {
+	BORDER-RIGHT: white 1px solid; DISPLAY: block; PADDING-BOTTOM: 4px; BORDER-LEFT: white 1px solid; CURSOR: pointer; COLOR: #333333; PADDING-TOP: 6px; BORDER-BOTTOM: white 1px solid
+}
+.feed_header_hover {
+	BORDER-RIGHT: #d4ecfe 1px solid; BORDER-TOP: #d4ecfe 1px solid; BACKGROUND-IMAGE: url(images/user_hatch_bg.gif); BORDER-LEFT: #d4ecfe 1px solid; CURSOR: pointer; BORDER-BOTTOM: #d4ecfe 1px solid; BACKGROUND-REPEAT: repeat; BACKGROUND-COLOR: #d4ecfe; TEXT-DECORATION: none
+}
+A.feed_header:hover {
+	BORDER-RIGHT: #d4ecfe 1px solid; BORDER-TOP: #d4ecfe 1px solid; BACKGROUND-IMAGE: url(images/user_hatch_bg.gif); BORDER-LEFT: #d4ecfe 1px solid; CURSOR: pointer; BORDER-BOTTOM: #d4ecfe 1px solid; BACKGROUND-REPEAT: repeat; BACKGROUND-COLOR: #d4ecfe; TEXT-DECORATION: none
+}
+.feed_header_selected {
+	BORDER-RIGHT: #71777b 1px solid; BORDER-TOP: #71777b 1px solid; BACKGROUND-IMAGE: url(images/user_hatch_bg.gif); BORDER-LEFT: #71777b 1px solid; BORDER-BOTTOM: #71777b 1px solid; BACKGROUND-REPEAT: repeat; BACKGROUND-COLOR: #d4ecfe
+}
+A.feed_header_selected:hover {
+	BORDER-RIGHT: #71777b 1px solid; BORDER-TOP: #71777b 1px solid; BORDER-LEFT: #71777b 1px solid; BORDER-BOTTOM: #71777b 1px solid
+}
+.feed_header_persona_hover {
+	BORDER-RIGHT: #ffdffe 1px solid; BORDER-TOP: #ffdffe 1px solid; BACKGROUND-IMAGE: url(images/pink_hatch.gif); BORDER-LEFT: #ffdffe 1px solid; BORDER-BOTTOM: #ffdffe 1px solid; BACKGROUND-COLOR: #ffdffe
+}
+A.feed_header_persona:hover {
+	BORDER-RIGHT: #ffdffe 1px solid; BORDER-TOP: #ffdffe 1px solid; BACKGROUND-IMAGE: url(images/pink_hatch.gif); BORDER-LEFT: #ffdffe 1px solid; BORDER-BOTTOM: #ffdffe 1px solid; BACKGROUND-COLOR: #ffdffe
+}
+.feed_header_persona_selected {
+	BORDER-RIGHT: #71777b 1px solid; BORDER-TOP: #71777b 1px solid; BACKGROUND-IMAGE: url(images/pink_hatch.gif); BORDER-LEFT: #71777b 1px solid; BORDER-BOTTOM: #71777b 1px solid; BACKGROUND-REPEAT: repeat; BACKGROUND-COLOR: #ffdffe
+}
+A.feed_header_persona_selected:hover {
+	BORDER-RIGHT: #71777b 1px solid; BORDER-TOP: #71777b 1px solid; BORDER-LEFT: #71777b 1px solid; BORDER-BOTTOM: #71777b 1px solid
+}
+.feed_user_image {
+	PADDING-LEFT: 8px; FLOAT: left; PADDING-TOP: 2px; HEIGHT: 36px
+}
+.feed_presence {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #ff690a; POSITION: absolute
+}
+.feed_new {
+	PADDING-LEFT: 5px; FONT-WEIGHT: bold; COLOR: #ff690a
+}
+.feed_show_details {
+	PADDING-RIGHT: 10px; FONT-SIZE: 12px; FLOAT: right; COLOR: #0088ee
+}
+.feed_description {
+	FONT-SIZE: 12px; MARGIN-LEFT: 53px; COLOR: #656b6f
+}
+.feed_displayname {
+	FONT-WEIGHT: bold; FONT-SIZE: 16px
+}
+.feed_expando_container {
+	MARGIN-TOP: -1px; Z-INDEX: 100; MARGIN-LEFT: 54px; WIDTH: 519px; POSITION: absolute; BACKGROUND-COLOR: #ffffff
+}
+.feed_expando {
+	BORDER-RIGHT: #71777b 1px solid; PADDING-RIGHT: 15px; PADDING-LEFT: 15px; PADDING-BOTTOM: 15px; BORDER-LEFT: #71777b 1px solid; BORDER-BOTTOM: #71777b 1px solid
+}
+.feed_view_profile {
+	MARGIN-TOP: 15px; FONT-WEIGHT: bold; FONT-SIZE: 12px
+}
+.feed_group_header {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #656b6f; PADDING-TOP: 10px; BORDER-BOTTOM: #caced1 1px solid
+}
+.feed_noactivity {
+	FONT-WEIGHT: normal; PADDING-BOTTOM: 7px; LINE-HEIGHT: 1.4em; PADDING-TOP: 15px; BORDER-BOTTOM-STYLE: none
+}
+.feed_loading {
+	FONT-WEIGHT: normal; PADDING-BOTTOM: 25px; BORDER-BOTTOM-STYLE: none
+}
+#about_people {
+	MARGIN-BOTTOM: 25px; LIST-STYLE-TYPE: none
+}
+.about_people_header {
+	BORDER-RIGHT: white 1px solid; BORDER-TOP: white 1px solid; DISPLAY: block; PADDING-BOTTOM: 4px; BORDER-LEFT: white 1px solid; CURSOR: pointer; COLOR: #333333; PADDING-TOP: 6px; BORDER-BOTTOM: white 1px solid
+}
+.about_people_border {
+	BORDER-TOP: #caced1 1px solid
+}
+.about_people_user_image {
+	PADDING-LEFT: 0px; FLOAT: left; PADDING-TOP: 2px; HEIGHT: 36px
+}
+.about_people_show_details {
+	PADDING-RIGHT: 10px; FONT-SIZE: 12px; FLOAT: right; COLOR: #0088ee
+}
+.about_people_description {
+	FONT-SIZE: 12px; MARGIN-LEFT: 45px; COLOR: #656b6f
+}
+.about_people_displayname {
+	FONT-WEIGHT: bold; FONT-SIZE: 16px
+}
+.about_people_expando {
+	FONT-SIZE: 12px; MARGIN-BOTTOM: 15px; MARGIN-LEFT: 47px; LINE-HEIGHT: 1.4em; MARGIN-RIGHT: 120px
+}
+.pick_image {
+	MARGIN-TOP: 5px; PADDING-LEFT: 2px; FLOAT: left; WIDTH: 44px
+}
+.pick_main {
+	MARGIN-TOP: 2px; FONT-SIZE: 12px; FLOAT: left; OVERFLOW: hidden; WIDTH: 526px; COLOR: #656b6f
+}
+.pick_main_with_delete {
+	WIDTH: 506px
+}
+.pick_body {
+	FONT-SIZE: 12px; MARGIN-LEFT: 2px; LINE-HEIGHT: 1.3em; MARGIN-RIGHT: 25px
+}
+.envelope {
+	PADDING-BOTTOM: 15px; LINE-HEIGHT: 1.3em; PADDING-TOP: 10px
+}
+.song {
+	BORDER-TOP: #e2e5e9 1px solid
+}
+.artist {
+	BORDER-TOP: #e2e5e9 1px solid
+}
+.fan {
+	BORDER-TOP: #e2e5e9 1px solid
+}
+.envelope_border {
+	BORDER-TOP: #e2e5e9 1px solid
+}
+.bordered_list_item {
+	BORDER-TOP: #e2e5e9 1px solid
+}
+.song_noborder {
+	PADDING-TOP: 1px
+}
+.envelope_noborder {
+	PADDING-TOP: 11px
+}
+.song_list {
+	PADDING-TOP: 5px; LIST-STYLE-TYPE: none
+}
+.artist_list {
+	PADDING-TOP: 5px; LIST-STYLE-TYPE: none
+}
+.fan_list {
+	PADDING-TOP: 5px; LIST-STYLE-TYPE: none
+}
+.bordered_list {
+	PADDING-TOP: 5px; LIST-STYLE-TYPE: none
+}
+.song_title {
+	LEFT: 0px; OVERFLOW: hidden; POSITION: absolute; TOP: 0px; HEIGHT: 1.5em
+}
+.song_play_btn {
+	PADDING-LEFT: 23px; BACKGROUND-IMAGE: url(images/player_buttons.gif); PADDING-BOTTOM: 2px; PADDING-TOP: 2px; BACKGROUND-REPEAT: no-repeat
+}
+.song_play_btn:hover {
+	BACKGROUND-POSITION: 0px -50px
+}
+.song_play_btn_playing {
+	BACKGROUND-POSITION: 0px -100px; PADDING-LEFT: 23px; BACKGROUND-IMAGE: url(images/player_buttons.gif); PADDING-BOTTOM: 2px; PADDING-TOP: 2px; BACKGROUND-REPEAT: no-repeat
+}
+.song_play_btn_playing:hover {
+	BACKGROUND-POSITION: 0px -150px
+}
+.song_play_btn_loading {
+	BACKGROUND-POSITION: 0px -200px; PADDING-LEFT: 23px; BACKGROUND-IMAGE: url(images/player_buttons.gif); PADDING-BOTTOM: 2px; PADDING-TOP: 2px; BACKGROUND-REPEAT: no-repeat
+}
+.song_play_btn_noclip {
+	PADDING-LEFT: 23px
+}
+.song_progress_bar {
+	MARGIN-TOP: 1px; FONT-SIZE: 11px; MARGIN-BOTTOM: 1px; LINE-HEIGHT: 19px
+}
+.song_progress_bar_active {
+	PADDING-RIGHT: 2px; FONT-SIZE: 11px; BORDER-LEFT: white 20px solid; COLOR: #333333; BACKGROUND-COLOR: #d9ff39; TEXT-ALIGN: right
+}
+.upload_progress_bar {
+	MARGIN-TOP: 4px; LINE-HEIGHT: 19px
+}
+.upload_progress_bar_active {
+	COLOR: #333333; LINE-HEIGHT: 19px; BACKGROUND-COLOR: #d9ff39
+}
+#artist_song_upload FORM DT {
+	CLEAR: left; FLOAT: left; WIDTH: 100px; PADDING-TOP: 2px; TEXT-ALIGN: right
+}
+#artist_song_upload FORM DD {
+	MARGIN-BOTTOM: 10px; MARGIN-LEFT: 110px
+}
+.plays_bar {
+	MARGIN-TOP: 1px; FONT-SIZE: 11px; FLOAT: right; MARGIN-LEFT: 5px; WIDTH: 75px; COLOR: #333333; LINE-HEIGHT: 19px; BACKGROUND-COLOR: #e7f4fc
+}
+.plays_val {
+	BACKGROUND-COLOR: #d3e9f9
+}
+.plays_val P {
+	PADDING-LEFT: 5px
+}
+.spinner {
+	BACKGROUND: url(images/spinner_16x16.gif) no-repeat; WIDTH: 16px; CURSOR: pointer; HEIGHT: 16px
+}
+.more_btn_expand {
+	BACKGROUND: url(images/song_expandcollapse.gif) no-repeat 0px 5px; WIDTH: 10px; CURSOR: pointer; HEIGHT: 15px
+}
+.more_btn_collapse {
+	BACKGROUND: url(images/song_expandcollapse.gif) no-repeat -10px 5px; WIDTH: 10px; CURSOR: pointer; HEIGHT: 15px
+}
+.more_btn {
+	FLOAT: right; MARGIN-LEFT: 5px
+}
+.more_btn_absolute {
+	Z-INDEX: 1; POSITION: absolute
+}
+.song_right {
+	FLOAT: right; WIDTH: 15px; HEIGHT: 10px
+}
+.song_right_wide {
+	FLOAT: right; WIDTH: 75px; HEIGHT: 10px
+}
+.song_free_link {
+	FONT-SIZE: 12px; FLOAT: right
+}
+.song_left {
+	MARGIN-RIGHT: 0px; POSITION: relative
+}
+.song_left_compact {
+	MARGIN-RIGHT: 5px; POSITION: relative
+}
+.song_left_free {
+	MARGIN-RIGHT: 70px; POSITION: relative
+}
+.song_left_play_data {
+	MARGIN-RIGHT: 95px; POSITION: relative
+}
+.song_left_free_play_data {
+	MARGIN-RIGHT: 155px; POSITION: relative
+}
+.song_profile {
+	PADDING-BOTTOM: 3px; MARGIN-LEFT: -25px; POSITION: absolute
+}
+.song_expando {
+	MARGIN-TOP: 10px; PADDING-BOTTOM: 10px; MARGIN-LEFT: 18px
+}
+.song_expando_noalbumimage {
+	MARGIN-TOP: -2px; PADDING-BOTTOM: 5px; MARGIN-LEFT: 24px
+}
+.itunes_store {
+	PADDING-RIGHT: 15px; BACKGROUND: url(images/itunes_store.png) no-repeat right 50%
+}
+.find_tix {
+	PADDING-RIGHT: 15px; BACKGROUND: url(images/find_tickets.gif) no-repeat right 50%
+}
+.free_mp3 {
+	PADDING-RIGHT: 15px; BACKGROUND: url(images/download_orange.gif) no-repeat right 50%
+}
+.song_link {
+	PADDING-RIGHT: 15px; BACKGROUND: url(images/song_link.gif) no-repeat 0px 0px
+}
+.song_album_image {
+	FLOAT: left
+}
+.song_album_info {
+	FONT-SIZE: 12px; MARGIN-LEFT: 110px; COLOR: #656b6f; LINE-HEIGHT: 1.5em
+}
+.song_album_label {
+	FLOAT: right; LINE-HEIGHT: 1.5em; TEXT-ALIGN: justify
+}
+.song_album_info_noalbumimage {
+	MARGIN-LEFT: 0px
+}
+.song_get_song_help {
+	BORDER-RIGHT: gray 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: gray 1px solid; MARGIN-TOP: 5px; PADDING-LEFT: 5px; FONT-SIZE: 11px; PADDING-BOTTOM: 5px; BORDER-LEFT: gray 1px solid; COLOR: #333333; LINE-HEIGHT: 1.2em; PADDING-TOP: 5px; BORDER-BOTTOM: gray 1px solid; BACKGROUND-COLOR: #ffffff
+}
+.song_recommend_link {
+	MARGIN-TOP: 3px; DISPLAY: block; FLOAT: left; BACKGROUND-IMAGE: url(images/recommend.gif); WIDTH: 78px; MARGIN-RIGHT: 5px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 12px
+}
+.get_song_link {
+	MARGIN-TOP: 3px; DISPLAY: block; FLOAT: left; BACKGROUND-IMAGE: url(images/free_mp3_button.gif); WIDTH: 77px; MARGIN-RIGHT: 5px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 12px
+}
+#my_plays_summary {
+	MARGIN-BOTTOM: 10px
+}
+.artist_tile_small {
+	FONT-SIZE: 12px; FLOAT: left; OVERFLOW: hidden; WIDTH: 143px; LINE-HEIGHT: 1.25em; HEIGHT: 70px
+}
+.artist_tile_small_rhs {
+	WIDTH: 149px
+}
+.artist_tile_small_image {
+	PADDING-LEFT: 2px; FLOAT: left; WIDTH: 57px
+}
+.artist_tile_small_main {
+	FLOAT: left; OVERFLOW: hidden; WIDTH: 76px
+}
+.artist_tile_small_main_rhs {
+	WIDTH: 82px
+}
+.artist_title {
+	FONT-WEIGHT: bold; FONT-SIZE: 24px; COLOR: #e20edb; LINE-HEIGHT: 28px
+}
+.artist_tile {
+	PADDING-RIGHT: 5px; FLOAT: left; OVERFLOW: hidden; WIDTH: 150px; LIST-STYLE-TYPE: none; TEXT-ALIGN: left
+}
+.faceoff_current {
+	BACKGROUND-COLOR: #ffe4da
+}
+.faceoff_tile_padding {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px
+}
+.artist_quiz_tile_padding {
+	PADDING-RIGHT: 10px; PADDING-TOP: 35px
+}
+.artist_quiz_tile_padding_first_row {
+	PADDING-RIGHT: 10px; PADDING-TOP: 15px
+}
+.suggested_artists_title {
+	PADDING-BOTTOM: 5px; COLOR: #ff690a
+}
+.artist_tile_ilike_btn {
+	MARGIN-TOP: 8px; DISPLAY: block; BACKGROUND-IMAGE: url(images/ilike_btn_hp.gif); WIDTH: 150px; CURSOR: hand; BACKGROUND-REPEAT: no-repeat; HEIGHT: 27px
+}
+.artist_tile_ilike_btn:hover {
+	BACKGROUND-POSITION: -150px 0px
+}
+.artist_tile_ilike_btn_clicked {
+	BACKGROUND-POSITION: -300px 0px; CURSOR: default
+}
+.artist_tile_ilike_btn_clicked:hover {
+	BACKGROUND-POSITION: -300px 0px
+}
+.artist_tile_ilike_btn_quiz_clicked {
+	BACKGROUND-POSITION: -300px 0px; MARGIN-TOP: 8px; DISPLAY: block; BACKGROUND-IMAGE: url(images/ilike_btn_hp.gif); WIDTH: 150px; CURSOR: hand; BACKGROUND-REPEAT: no-repeat; HEIGHT: 27px
+}
+.artist_tile_ilike_btn_quiz_clicked:hover {
+	BACKGROUND-POSITION: -300px 0px
+}
+.quiz_links_container {
+	PADDING-RIGHT: 15px; FLOAT: right; PADDING-TOP: 25px
+}
+#change_password FORM DT {
+	CLEAR: left; FLOAT: left; MARGIN-BOTTOM: 10px; WIDTH: 120px; PADDING-TOP: 1px; TEXT-ALIGN: right
+}
+#change_password FORM DD {
+	MARGIN-BOTTOM: 10px; MARGIN-LEFT: 130px
+}
+#edit_profile FORM DT {
+	CLEAR: left; FLOAT: left; MARGIN-BOTTOM: 9px; WIDTH: 135px; PADDING-TOP: 1px; TEXT-ALIGN: right
+}
+#edit_profile FORM DD {
+	MARGIN-BOTTOM: 10px; MARGIN-LEFT: 145px
+}
+#edit_profile FORM .input_text {
+	MARGIN-TOP: -2px; PADDING-BOTTOM: 1px; WIDTH: 320px; COLOR: #333333; PADDING-TOP: 2px
+}
+#edit_profile FORM .input_labels {
+	COLOR: #656b6f
+}
+#edit_profile .errors {
+	BORDER-RIGHT: gray 1px solid; PADDING-RIGHT: 15px; BORDER-TOP: gray 1px solid; MARGIN-TOP: 10px; PADDING-LEFT: 15px; MARGIN-BOTTOM: 10px; PADDING-BOTTOM: 15px; BORDER-LEFT: gray 1px solid; COLOR: #333333; PADDING-TOP: 10px; BORDER-BOTTOM: gray 1px solid; BACKGROUND-COLOR: #ffffff
+}
+#edit_profile .single_error {
+	MARGIN-BOTTOM: 20px; MARGIN-LEFT: 150px; COLOR: #d50005
+}
+#edit_profile .errors H4 {
+	PADDING-BOTTOM: 3px; COLOR: #d50005
+}
+#edit_profile .errors UL {
+	LIST-STYLE-TYPE: none
+}
+.profile_data_text {
+	COLOR: #656b6f
+}
+.friend_request {
+	FONT-WEIGHT: bold; COLOR: #ff690a
+}
+.pick_delete {
+	MARGIN-TOP: 8px; PADDING-LEFT: 5px; FONT-SIZE: 12px; FLOAT: right; COLOR: #d50005; HEIGHT: 13px
+}
+.comment_delete {
+	FLOAT: right; PADDING-TOP: 3px; HEIGHT: 13px
+}
+.envelope_delete {
+	FONT-SIZE: 12px; FLOAT: right; COLOR: #d50005; HEIGHT: 13px
+}
+.envelope_delete IMG {
+	PADDING-TOP: 3px
+}
+.accept_decline {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px
+}
+.inviter_name {
+	COLOR: #08b63d
+}
+#debug {
+	BORDER-RIGHT: gray 1px solid; PADDING-RIGHT: 10px; BORDER-TOP: gray 1px solid; PADDING-LEFT: 10px; Z-INDEX: 10000; LEFT: 20px; PADDING-BOTTOM: 10px; BORDER-LEFT: gray 1px solid; WIDTH: 90%; PADDING-TOP: 10px; BORDER-BOTTOM: gray 1px solid; POSITION: absolute; TOP: 70px; BACKGROUND-COLOR: #ffffee
+}
+#debug_timing_list {
+	LIST-STYLE-TYPE: none
+}
+#debug_timing_list LI {
+	CLEAR: left
+}
+.user_hatch_bg {
+	BORDER-RIGHT: #d4ecfe 1px solid; BORDER-TOP: #d4ecfe 1px solid; BACKGROUND-IMAGE: url(images/user_hatch_bg.gif); BORDER-LEFT: #d4ecfe 1px solid; BORDER-BOTTOM: #d4ecfe 1px solid; BACKGROUND-REPEAT: repeat; BACKGROUND-COLOR: #d4ecfe
+}
+.peach_hatch_bg {
+	BORDER-RIGHT: #ffe4da 1px solid; BORDER-TOP: #ffe4da 1px solid; BACKGROUND-IMAGE: url(images/artist_hatch_bg.gif); BORDER-LEFT: #ffe4da 1px solid; BORDER-BOTTOM: #ffe4da 1px solid; BACKGROUND-REPEAT: repeat; BACKGROUND-COLOR: #ffe4da
+}
+.artist_hatch_bg {
+	BORDER-RIGHT: #d0f5bf 1px solid; BORDER-TOP: #d0f5bf 1px solid; BACKGROUND-IMAGE: url(images/green_hatch_bg.gif); BORDER-LEFT: #d0f5bf 1px solid; BORDER-BOTTOM: #d0f5bf 1px solid; BACKGROUND-REPEAT: repeat; BACKGROUND-COLOR: #d0f5bf
+}
+.genre_hatch_bg {
+	BORDER-RIGHT: #ffdffe 1px solid; BORDER-TOP: #ffdffe 1px solid; BACKGROUND-IMAGE: url(images/pink_hatch.gif); BORDER-LEFT: #ffdffe 1px solid; BORDER-BOTTOM: #ffdffe 1px solid; BACKGROUND-REPEAT: repeat; BACKGROUND-COLOR: #ffdffe
+}
+#tour H1 {
+	FONT-WEIGHT: normal; FONT-SIZE: 32px; MARGIN-BOTTOM: 8px; COLOR: #ff690a; LETTER-SPACING: -0.03em
+}
+#tour P {
+	LINE-HEIGHT: 1.3em
+}
+#tour .container_box {
+	BORDER-RIGHT: #caced1 1px solid; BORDER-TOP: #caced1 1px solid; BORDER-LEFT: #caced1 1px solid; BORDER-BOTTOM: #caced1 1px solid
+}
+#tour .navlist {
+	PADDING-BOTTOM: 4px
+}
+#tour .navlist LI A {
+	FONT-SIZE: 18px
+}
+#tour LI A.current {
+	COLOR: #08b63d
+}
+.comment {
+	PADDING-BOTTOM: 10px; PADDING-TOP: 10px
+}
+#add_comment_expando {
+	MARGIN-TOP: 10px; MARGIN-BOTTOM: 25px
+}
+#comment_body {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; MARGIN-BOTTOM: 5px; PADDING-BOTTOM: 2px; WIDTH: 270px; PADDING-TOP: 2px
+}
+#cancel_comment {
+	PADDING-LEFT: 5px
+}
+#send_user_message_expando {
+	
+}
+.send_user_message_expando {
+	MARGIN-TOP: 5px; MARGIN-BOTTOM: 5px
+}
+#send_user_message_body {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; MARGIN-BOTTOM: 5px; PADDING-BOTTOM: 2px; WIDTH: 270px; PADDING-TOP: 2px
+}
+#cancel_user_message {
+	PADDING-LEFT: 5px
+}
+.cancel_user_message {
+	PADDING-LEFT: 5px
+}
+.related_upsell_container {
+	BORDER-TOP: #caced1 1px solid; MARGIN-TOP: 10px
+}
+.related_upsell_border {
+	FLOAT: left; MARGIN-BOTTOM: 50px; MARGIN-RIGHT: 10px; PADDING-TOP: 15px
+}
+.related_upsell_text {
+	COLOR: #656b6f; LINE-HEIGHT: 1.3em; PADDING-TOP: 10px
+}
+.unsupported_browser {
+	PADDING-RIGHT: 15px; MARGIN-TOP: 10px; PADDING-LEFT: 15px; PADDING-BOTTOM: 15px; LINE-HEIGHT: 1.3em; MARGIN-RIGHT: 300px; PADDING-TOP: 15px; BACKGROUND-COLOR: #ffffee
+}
+.unsupported_browser_small {
+	MARGIN-RIGHT: 500px
+}
+.recommend_body_container {
+	BORDER-TOP: #caced1 1px solid; MARGIN-TOP: 15px; PADDING-TOP: 15px
+}
+.recommend_friends_container {
+	BORDER-RIGHT: #caced1 1px solid; PADDING-RIGHT: 20px; FLOAT: left; MARGIN-RIGHT: 20px
+}
+.recommend_friends_listbox {
+	BORDER-RIGHT: #caced1 1px solid; BORDER-TOP: #caced1 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; OVERFLOW: auto; BORDER-LEFT: #caced1 1px solid; WIDTH: 250px; PADDING-TOP: 2px; BORDER-BOTTOM: #caced1 1px solid; HEIGHT: 160px
+}
+.contact {
+	CLEAR: left; PADDING-LEFT: 5px; BORDER-BOTTOM: #caced1 1px solid
+}
+.contact_email {
+	FLOAT: right; OVERFLOW: hidden; WIDTH: 220px
+}
+.contact_is_member {
+	FONT-WEIGHT: bold; FLOAT: right; WIDTH: 120px; COLOR: #ff690a; TEXT-ALIGN: left
+}
+.gb_logo_float {
+	RIGHT: -25px; FLOAT: right; MARGIN-RIGHT: 5px; POSITION: relative; TOP: -5px
+}
+#myspace_widget_preview {
+	PADDING-LEFT: 25px; FONT-SIZE: 12px; FLOAT: right; WIDTH: 245px; LINE-HEIGHT: 1.3em; PADDING-TOP: 10px
+}
+#myspace_widget_preview P {
+	PADDING-LEFT: 5px; MARGIN-RIGHT: 55px
+}
+#myspace_widget_main {
+	PADDING-RIGHT: 320px
+}
+#add_myspace_widget_form {
+	MARGIN-TOP: 25px
+}
+#myspace_status {
+	HEIGHT: 100px
+}
+#add_widget_adding {
+	LINE-HEIGHT: 1.3em; PADDING-TOP: 10px
+}
+#add_widget_error {
+	PADDING-BOTTOM: 0px; COLOR: #d50005; LINE-HEIGHT: 1.3em; PADDING-TOP: 15px
+}
+#add_widget_success {
+	PADDING-TOP: 20px
+}
+.myspace_input_text {
+	FONT-SIZE: 14px; PADDING-BOTTOM: 2px; WIDTH: 220px; PADDING-TOP: 2px
+}
+#account FORM .myspace_settings DT {
+	CLEAR: left; FLOAT: left; MARGIN-BOTTOM: 10px; WIDTH: 155px; PADDING-TOP: 1px; TEXT-ALIGN: right
+}
+#account FORM .myspace_settings DD {
+	MARGIN-BOTTOM: 10px; MARGIN-LEFT: 170px
+}
+.small_text {
+	FONT-SIZE: 12px; COLOR: #656b6f
+}
+#user_home_link {
+	CURSOR: pointer
+}
+#create_profile {
+	MARGIN-TOP: 20px
+}
+#create_form_container {
+	MARGIN-TOP: 15px; FLOAT: right; WIDTH: 620px
+}
+#create_form_container H2 {
+	MARGIN-BOTTOM: 15px
+}
+#invitor_info {
+	MARGIN-LEFT: 45px; WIDTH: 220px
+}
+#invitor_info_content {
+	PADDING-RIGHT: 15px; PADDING-LEFT: 15px; PADDING-BOTTOM: 25px; LINE-HEIGHT: 1.3em; PADDING-TOP: 25px
+}
+#invitor_image {
+	TEXT-ALIGN: center
+}
+#invitor_info_5 {
+	FLOAT: left; WIDTH: 100px; LINE-HEIGHT: 1.3em
+}
+#invitor_name_5 {
+	MARGIN-TOP: 3px
+}
+#invitor_quote_5 {
+	FLOAT: left; WIDTH: 615px
+}
+.invitor_already_member {
+	BORDER-RIGHT: #caced1 1px solid; PADDING-RIGHT: 10px; BORDER-TOP: #caced1 1px solid; MARGIN-TOP: 15px; PADDING-LEFT: 10px; MARGIN-BOTTOM: 35px; PADDING-BOTTOM: 10px; BORDER-LEFT: #caced1 1px solid; LINE-HEIGHT: 1.3em; PADDING-TOP: 10px; BORDER-BOTTOM: #caced1 1px solid
+}
+.pull_quote {
+	PADDING-LEFT: 25px; BACKGROUND: url(images/quote_open.gif) no-repeat 0px 0px; MARGIN: 5px 20px 25px -5px; PADDING-TOP: 29px
+}
+.pull_quote_5 {
+	PADDING-LEFT: 35px; FONT-SIZE: 14px; BACKGROUND: url(images/quote_open.gif) no-repeat 0px 0px; MARGIN-BOTTOM: 25px; PADDING-BOTTOM: 10px; MARGIN-LEFT: 15px; LINE-HEIGHT: 1.3em; MARGIN-RIGHT: 40px; PADDING-TOP: 5px; TEXT-ALIGN: center
+}
+.pull_quote IMG {
+	MARGIN-TOP: 0px; FLOAT: right; MARGIN-RIGHT: -20px
+}
+.pull_quote_5 IMG {
+	MARGIN-TOP: -15px; FLOAT: right; MARGIN-RIGHT: -40px
+}
+.pull_quote_author {
+	MARGIN-LEFT: 5px
+}
+.landing_upsell_layout_5 {
+	FLOAT: right; WIDTH: 220px
+}
+.landing_upsell_layout_6 {
+	FLOAT: right; WIDTH: 300px
+}
+.landing_upsell_5 {
+	PADDING-RIGHT: 25px; PADDING-LEFT: 15px; PADDING-BOTTOM: 25px; PADDING-TOP: 20px
+}
+.landing_upsell_5 H3 {
+	MARGIN-BOTTOM: 5px
+}
+.landing_upsell_5 UL {
+	FONT-SIZE: 16px; MARGIN-LEFT: 15px; COLOR: #656b6f
+}
+#invite_manually {
+	MARGIN-BOTTOM: 25px
+}
+#invite_via_link {
+	MARGIN-BOTTOM: 25px
+}
+#invite_manually H2 {
+	MARGIN-BOTTOM: 5px
+}
+#invite_via_link H2 {
+	MARGIN-BOTTOM: 5px
+}
+#invite_manually_expando {
+	PADDING-LEFT: 15px; MARGIN-BOTTOM: 20px; PADDING-BOTTOM: 15px; MARGIN-LEFT: -15px; PADDING-TOP: 15px
+}
+#invite_via_link_expando {
+	PADDING-LEFT: 15px; MARGIN-BOTTOM: 20px; PADDING-BOTTOM: 15px; MARGIN-LEFT: -15px; PADDING-TOP: 15px
+}
+#contact_results_header {
+	WIDTH: 700px
+}
+.contact_email_hdr {
+	PADDING-RIGHT: 17px; FONT-WEIGHT: bold; FONT-SIZE: 14px
+}
+.contact_is_member_hdr {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #333333
+}
+.contact_name_hdr {
+	PADDING-LEFT: 5px; FONT-WEIGHT: bold; FONT-SIZE: 14px
+}
+#contact_results {
+	BORDER-RIGHT: #9f9f9f 1px solid; BORDER-TOP: #9f9f9f 1px solid; MARGIN-TOP: 2px; BORDER-LEFT: #9f9f9f 1px solid; WIDTH: 700px; BORDER-BOTTOM: #9f9f9f 1px solid
+}
+#contact_results_height {
+	OVERFLOW: auto; HEIGHT: 200px
+}
+#import_contacts_error {
+	PADDING-BOTTOM: 20px; MARGIN-LEFT: auto; WIDTH: 350px; MARGIN-RIGHT: auto; PADDING-TOP: 60px
+}
+#import_contacts_loading {
+	MARGIN-LEFT: auto; WIDTH: 380px; MARGIN-RIGHT: auto; PADDING-TOP: 60px
+}
+#choose_contact_list {
+	LIST-STYLE-TYPE: none
+}
+#invite_select_all_checkbox {
+	PADDING-LEFT: 6px; VISIBILITY: hidden; MARGIN-BOTTOM: 15px; PADDING-TOP: 2px
+}
+#contact_results_customize {
+	MARGIN-BOTTOM: 10px
+}
+#delete_account .single_error {
+	MARGIN-BOTTOM: 10px; COLOR: #d50005
+}
+#delete_account .reason {
+	BORDER-RIGHT: #caced1 1px solid; PADDING-RIGHT: 10px; BORDER-TOP: #caced1 1px solid; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; MARGIN: 10px 10px 20px 0px; BORDER-LEFT: #caced1 1px solid; PADDING-TOP: 10px; BORDER-BOTTOM: #caced1 1px solid
+}
+#account .reason {
+	BORDER-RIGHT: #caced1 1px solid; PADDING-RIGHT: 10px; BORDER-TOP: #caced1 1px solid; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; MARGIN: 10px 10px 20px 0px; BORDER-LEFT: #caced1 1px solid; PADDING-TOP: 10px; BORDER-BOTTOM: #caced1 1px solid
+}
+#other_delete_reason {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; MARGIN-BOTTOM: 5px; PADDING-BOTTOM: 2px; WIDTH: 270px; PADDING-TOP: 2px
+}
+.search_dimmed_text {
+	PADDING-LEFT: 4px; COLOR: #caced1
+}
+.search_regular_text {
+	PADDING-LEFT: 4px; COLOR: #000000
+}
+.tabicon_ilike {
+	BACKGROUND-POSITION: 6px -135px; BACKGROUND-IMAGE: url(images/tabicons.gif); BACKGROUND-REPEAT: no-repeat
+}
+.tabicon_send {
+	BACKGROUND-POSITION: 6px -170px; BACKGROUND-IMAGE: url(images/tabicons.gif); BACKGROUND-REPEAT: no-repeat
+}
+.tabicon_album {
+	BACKGROUND-POSITION: 6px -100px; BACKGROUND-IMAGE: url(images/tabicons.gif); BACKGROUND-REPEAT: no-repeat
+}
+.tabicon_findmp3s {
+	BACKGROUND-POSITION: 6px 5px; BACKGROUND-IMAGE: url(images/tabicons.gif); BACKGROUND-REPEAT: no-repeat
+}
+.tabicon_findvideos {
+	BACKGROUND-POSITION: 6px -30px; BACKGROUND-IMAGE: url(images/tabicons.gif); BACKGROUND-REPEAT: no-repeat
+}
+.tabicon_listeners {
+	BACKGROUND-POSITION: 6px -65px; BACKGROUND-IMAGE: url(images/tabicons.gif); BACKGROUND-REPEAT: no-repeat
+}
+.expando_tab_text {
+	MARGIN-LEFT: 5px; WIDTH: 400px; LINE-HEIGHT: 1.4em
+}
+.expando_tab_text_compact {
+	WIDTH: 250px
+}
+.expando_share_form DT {
+	FLOAT: left; MARGIN-BOTTOM: 5px; WIDTH: 60px; PADDING-TOP: 2px; TEXT-ALIGN: right
+}
+.expando_share_form DD {
+	MARGIN-BOTTOM: 5px; MARGIN-LEFT: 65px
+}
+.expando_share_labels {
+	FONT-SIZE: 12px; COLOR: #656b6f
+}
+.share_recipients {
+	WIDTH: 450px
+}
+.share_recipients_inbox {
+	WIDTH: 385px
+}
+.share_recipients_compact {
+	WIDTH: 190px
+}
+.share_recipients_pick_view {
+	WIDTH: 379px
+}
+.share_recipients_quiz_view {
+	WIDTH: 420px
+}
+.share_recipients_feed_view {
+	WIDTH: 365px
+}
+.share_input {
+	PADDING-RIGHT: 1px; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px; FONT: 12px arial, helvetica, verdana, sans-serif; WIDTH: 180px; COLOR: #333333; PADDING-TOP: 1px
+}
+.share_textarea {
+	PADDING-RIGHT: 1px; PADDING-LEFT: 1px; FONT-SIZE: 12px; PADDING-BOTTOM: 1px; WIDTH: 350px; PADDING-TOP: 1px; HEIGHT: 40px
+}
+.share_textarea_compact {
+	WIDTH: 180px
+}
+.share_hint {
+	PADDING-LEFT: 5px; PADDING-TOP: 3px; POSITION: absolute
+}
+.autosuggest_dropdown {
+	Z-INDEX: 100; POSITION: absolute; BACKGROUND-COLOR: #e7f4fc
+}
+.autosuggest_item {
+	PADDING-RIGHT: 8px; PADDING-LEFT: 8px; PADDING-BOTTOM: 1px; CURSOR: pointer; COLOR: #333333; PADDING-TOP: 1px
+}
+.autosuggest_item_hl {
+	BACKGROUND-COLOR: #d3e9f9
+}
+.to_rcpt {
+	FLOAT: left; MARGIN-BOTTOM: 5px; LINE-HEIGHT: 21px; MARGIN-RIGHT: 5px
+}
+.to_rcpt_name {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 5px; BACKGROUND: url(images/name_bg.gif) no-repeat 0px 1px; FLOAT: left; CURSOR: pointer; COLOR: #ffffff; HEIGHT: 20px
+}
+.to_rcpt_cap {
+	BACKGROUND: url(images/name_bg.gif) no-repeat -497px 1px; FLOAT: left; WIDTH: 3px; CURSOR: pointer; HEIGHT: 20px
+}
+.cur_video {
+	FLOAT: left; WIDTH: 140px; HEIGHT: 115px
+}
+.cur_video P {
+	LINE-HEIGHT: 1.3em; PADDING-TOP: 25px; TEXT-ALIGN: center
+}
+.video_thumbs {
+	MARGIN-TOP: -5px; FONT-SIZE: 12px; FLOAT: left; MARGIN-LEFT: 30px; COLOR: #656b6f
+}
+.video_thumbs_inbox {
+	MARGIN-LEFT: 20px
+}
+.video_thumb {
+	FILTER: alpha(opacity=30); WIDTH: 70px; HEIGHT: 53px; opacity: .25
+}
+.video_thumb_active {
+	FILTER: alpha(opacity=99); opacity: .9999
+}
+.video_thumb_onhover {
+	FILTER: alpha(opacity=99); opacity: .9999
+}
+.video_link {
+	MARGIN-RIGHT: 4px
+}
+.video_view_all {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; LINE-HEIGHT: 1em
+}
+.message_image {
+	MARGIN-TOP: 5px; FLOAT: left; WIDTH: 60px
+}
+.message_main {
+	MARGIN-TOP: 2px; FLOAT: left; WIDTH: 512px
+}
+.message_body {
+	FONT-SIZE: 12px; LINE-HEIGHT: 1.3em; MARGIN-RIGHT: 15px
+}
+.message_body_reco {
+	MARGIN-LEFT: 23px
+}
+.message_re {
+	COLOR: #656b6f
+}
+.message_status {
+	COLOR: #656b6f
+}
+.message_textarea {
+	PADDING-RIGHT: 1px; MARGIN-TOP: 5px; PADDING-LEFT: 1px; FONT-SIZE: 12px; PADDING-BOTTOM: 1px; WIDTH: 400px; PADDING-TOP: 1px
+}
+.expando_textarea {
+	PADDING-RIGHT: 1px; PADDING-LEFT: 1px; FONT-SIZE: 12px; PADDING-BOTTOM: 1px; WIDTH: 400px; PADDING-TOP: 1px; HEIGHT: 45px
+}
+.expando_pick_textarea_compact {
+	WIDTH: 240px
+}
+.message_date {
+	FONT-SIZE: 12px; COLOR: #656b6f
+}
+.icast_dashboard_post {
+	MARGIN-TOP: 5px; MARGIN-BOTTOM: 20px
+}
+.icast_dashboard_post_border {
+	BORDER-TOP: #caced1 1px solid; PADDING-TOP: 15px
+}
+.icast_post_edit_form DT {
+	CLEAR: left; FLOAT: left; MARGIN-BOTTOM: 5px; WIDTH: 80px; PADDING-TOP: 2px; TEXT-ALIGN: right
+}
+.icast_post_edit_form DD {
+	MARGIN-BOTTOM: 5px; MARGIN-LEFT: 85px
+}
+.icast_post_edit_labels {
+	FONT-SIZE: 12px; COLOR: #656b6f
+}
+.icast_post_edit_input {
+	PADDING-RIGHT: 1px; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px; FONT: 12px arial, helvetica, verdana, sans-serif; WIDTH: 400px; COLOR: #333333; PADDING-TOP: 1px
+}
+.icast_post_edit_textarea {
+	PADDING-RIGHT: 1px; PADDING-LEFT: 1px; FONT-SIZE: 12px; PADDING-BOTTOM: 1px; WIDTH: 400px; PADDING-TOP: 1px; HEIGHT: 60px
+}
+.rec_song_list {
+	LIST-STYLE-TYPE: none
+}
+.sys_rec_song_list {
+	MARGIN-TOP: 2px
+}
+.block_user {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px
+}
+#my_url_status {
+	MARGIN-TOP: -5px; WIDTH: 21px; HEIGHT: 21px
+}
+.my_url_validating {
+	BACKGROUND: url(images/my_url_status.gif) no-repeat -21px 0px; WIDTH: 21px; HEIGHT: 21px
+}
+.my_url_valid {
+	BACKGROUND: url(images/my_url_status.gif) no-repeat 0px 0px; WIDTH: 21px; HEIGHT: 21px
+}
+.my_url_invalid {
+	BACKGROUND: url(images/my_url_status.gif) no-repeat -63px 0px; WIDTH: 21px; HEIGHT: 21px
+}
+.my_url_error {
+	BACKGROUND: url(images/my_url_status.gif) no-repeat -42px 0px; WIDTH: 21px; HEIGHT: 21px
+}
+.account_create_tip {
+	BORDER-RIGHT: #71777b 1px solid; PADDING-RIGHT: 10px; BORDER-TOP: #71777b 1px solid; MARGIN-TOP: -33px; PADDING-LEFT: 10px; FONT-SIZE: 12px; PADDING-BOTTOM: 10px; MARGIN-LEFT: 330px; BORDER-LEFT: #71777b 1px solid; WIDTH: 300px; LINE-HEIGHT: 1.3em; PADDING-TOP: 10px; BORDER-BOTTOM: #71777b 1px solid; POSITION: absolute; BACKGROUND-COLOR: #ffffff
+}
+.account_create_tip_arrow {
+	MARGIN-TOP: -5px; MARGIN-LEFT: -20px; POSITION: absolute
+}
+.account_artist_tip {
+	BORDER-RIGHT: #71777b 1px solid; PADDING-RIGHT: 10px; BORDER-TOP: #71777b 1px solid; MARGIN-TOP: -30px; PADDING-LEFT: 10px; FONT-SIZE: 12px; PADDING-BOTTOM: 10px; MARGIN-LEFT: 320px; BORDER-LEFT: #71777b 1px solid; WIDTH: 300px; LINE-HEIGHT: 1.3em; PADDING-TOP: 10px; BORDER-BOTTOM: #71777b 1px solid; POSITION: absolute; BACKGROUND-COLOR: #ffffff
+}
+.account_artist_tip_arrow {
+	MARGIN-TOP: -5px; MARGIN-LEFT: -20px; POSITION: absolute
+}
+.edit_profile_tip {
+	BORDER-RIGHT: #caced1 1px solid; PADDING-RIGHT: 10px; BORDER-TOP: #caced1 1px solid; MARGIN-TOP: -27px; PADDING-LEFT: 10px; FONT-SIZE: 12px; PADDING-BOTTOM: 10px; MARGIN-LEFT: 230px; BORDER-LEFT: #caced1 1px solid; WIDTH: 300px; LINE-HEIGHT: 1.3em; PADDING-TOP: 10px; BORDER-BOTTOM: #caced1 1px solid; POSITION: absolute; BACKGROUND-COLOR: #ffffff
+}
+.edit_profile_tip_arrow {
+	MARGIN-TOP: -5px; MARGIN-LEFT: -20px; POSITION: absolute
+}
+.edit_profile_tip_req_field {
+	COLOR: #d50005; PADDING-TOP: 10px
+}
+.whats_this_tip {
+	BORDER-RIGHT: #656b6f 1px solid; PADDING-RIGHT: 10px; BORDER-TOP: #656b6f 1px solid; MARGIN-TOP: -27px; PADDING-LEFT: 10px; FONT-SIZE: 12px; PADDING-BOTTOM: 10px; MARGIN-LEFT: -340px; BORDER-LEFT: #656b6f 1px solid; WIDTH: 295px; LINE-HEIGHT: 1.3em; PADDING-TOP: 10px; BORDER-BOTTOM: #656b6f 1px solid; POSITION: absolute; BACKGROUND-COLOR: #ffffff
+}
+.whats_this_tip_arrow {
+	MARGIN-TOP: -5px; MARGIN-LEFT: 305px; POSITION: absolute
+}
+#edit_profile .edit_profile_tip {
+	MARGIN-LEFT: 350px
+}
+.my_url_status_success {
+	FONT-SIZE: 14px; PADDING-BOTTOM: 10px; MARGIN: -17px 0px 0px 25px; COLOR: #08b63d
+}
+.my_url_status_error {
+	FONT-SIZE: 14px; PADDING-BOTTOM: 10px; MARGIN: -17px 0px 0px 25px; COLOR: #d50005
+}
+.my_url_status_validating {
+	FONT-SIZE: 14px; PADDING-BOTTOM: 10px; MARGIN: -17px 0px 0px 25px; COLOR: #caced1
+}
+.envelope_delete_overlay {
+	MARGIN-TOP: 1px; Z-INDEX: 98; FILTER: alpha(opacity=50); POSITION: absolute; BACKGROUND-COLOR: #ffffff; opacity: .50
+}
+.envelope_delete_overlay_message {
+	MARGIN-TOP: 1px; Z-INDEX: 99; POSITION: absolute; TEXT-ALIGN: center
+}
+.envelope_delete_overlay_message P {
+	MARGIN-TOP: 35px; FONT-WEIGHT: bold; FONT-SIZE: 28px; COLOR: #555555
+}
+.envelope_fade_overlay {
+	MARGIN-TOP: 1px; Z-INDEX: 100; FILTER: alpha(opacity=0); POSITION: absolute; BACKGROUND-COLOR: #ffffff; opacity: 0
+}
+#artist_dashboard .song_form DT {
+	CLEAR: left; FLOAT: left; MARGIN-BOTTOM: 10px; WIDTH: 100px; MARGIN-RIGHT: 10px; TEXT-ALIGN: right
+}
+#artist_dashboard .song_form DD {
+	MARGIN-BOTTOM: 10px
+}
+#artist_dashboard .edit_song_tip {
+	MARGIN-TOP: -30px; MARGIN-LEFT: 500px
+}
+#artist_dashboard .input_text {
+	WIDTH: 350px
+}
+#artist_dashboard_messages .song_errors {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; MARGIN-BOTTOM: 10px; PADDING-BOTTOM: 10px; MARGIN-LEFT: 40px; PADDING-TOP: 10px
+}
+#artist_dashboard .fieldWithErrors {
+	DISPLAY: inline
+}
+#artist_dashboard .uploaded_songs {
+	FONT-SIZE: 12px; MARGIN-BOTTOM: 20px
+}
+#artist_dashboard .uploaded_songs DL {
+	COLOR: #656b6f
+}
+#artist_dashboard .uploaded_songs DT {
+	CLEAR: left; FONT-WEIGHT: bold; FLOAT: left; WIDTH: 95px; MARGIN-RIGHT: 10px; TEXT-ALIGN: right
+}
+#artist_dashboard .song_list_title {
+	BORDER-TOP: #e2e5e9 1px solid; MARGIN-TOP: 10px; FONT-WEIGHT: bold; OVERFLOW: hidden; WIDTH: 550px; PADDING-TOP: 5px; HEIGHT: 20px
+}
+#artist_dashboard .song_list {
+	PADDING-TOP: 0px
+}
+#artist_dashboard .first_title {
+	BORDER-TOP-WIDTH: 0px
+}
+#artist_dashboard .processing_song_title {
+	MARGIN-LEFT: 24px
+}
+#artist_dashboard .delete_container {
+	BORDER-RIGHT: #656b6f 1px solid; BORDER-TOP: #656b6f 1px solid; MARGIN-TOP: 1px; Z-INDEX: 1001; BORDER-LEFT: #656b6f 1px solid; WIDTH: 575px; BORDER-BOTTOM: #656b6f 1px solid; POSITION: absolute; HEIGHT: 78px; BACKGROUND-COLOR: #ffffff
+}
+#artist_dashboard .delete_confirm {
+	MARGIN-TOP: 10px; MARGIN-LEFT: 20px
+}
+#artist_dashboard .delete_button {
+	MARGIN-TOP: 1px; FONT-SIZE: 12px; FLOAT: left
+}
+#artist_dashboard .status_text {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; MARGIN-LEFT: 5px
+}
+#artist_dashboard .song_item {
+	MARGIN-BOTTOM: 5px; HEIGHT: 80px
+}
+#artist_dashboard .song_delete_link {
+	MARGIN-TOP: 15px; FLOAT: right
+}
+#artist_dashboard .form_spacer {
+	MARGIN: 5px 55px 15px
+}
+#artist_dashboard #upload_overlay {
+	BORDER-RIGHT: #656b6f 1px solid; BORDER-TOP: #656b6f 1px solid; DISPLAY: block; Z-INDEX: 1001; BORDER-LEFT: #656b6f 1px solid; WIDTH: 601px; BORDER-BOTTOM: #656b6f 1px solid; POSITION: absolute; BACKGROUND-COLOR: #ffffff
+}
+#artist_dashboard #upload_progress_overlay {
+	BORDER-RIGHT: #656b6f 1px solid; BORDER-TOP: #656b6f 1px solid; DISPLAY: block; Z-INDEX: 1001; BORDER-LEFT: #656b6f 1px solid; WIDTH: 601px; BORDER-BOTTOM: #656b6f 1px solid; POSITION: absolute; BACKGROUND-COLOR: #ffffff
+}
+#artist_dashboard .song_form {
+	PADDING-BOTTOM: 20px; BACKGROUND-COLOR: #e2e5e9
+}
+#artist_dashboard UL.venue_select {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+#artist_dashboard LI.venue {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; MARGIN: 0pt; PADDING-TOP: 2px
+}
+#artist_dashboard UL.venue_select LI.selected {
+	BACKGROUND-COLOR: #ffffbb
+}
+#artist_dashboard LI.venue DIV.name {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; LINE-HEIGHT: 1.2em
+}
+#artist_dashboard LI.venue DIV.address {
+	FONT-SIZE: 10px; LINE-HEIGHT: 1.2em
+}
+#artist_dashboard LI.venue DIV.event_date {
+	FONT-SIZE: 10px; COLOR: #888888
+}
+UL.search-results {
+	BORDER-RIGHT: #000 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #000 1px solid; PADDING-LEFT: 0px; FLOAT: left; PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: #000 1px solid; PADDING-TOP: 0px; BORDER-BOTTOM: #000 1px solid
+}
+UL.search-results LI.result {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; FONT-SIZE: 13px; FLOAT: left; PADDING-BOTTOM: 2px; MARGIN: 0pt; PADDING-TOP: 2px
+}
+UL.search-results LI.selected {
+	BACKGROUND-COLOR: #ffffbb
+}
+UL.search-results LI.result .suggestion {
+	FONT-SIZE: 13px; FLOAT: left; MARGIN-LEFT: 4px
+}
+UL.search-results LI.result .count {
+	FONT-SIZE: 10px; FLOAT: right; COLOR: #008000; MARGIN-RIGHT: 3px; PADDING-TOP: 2px
+}
+#artist_dashboard UL.concerts {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+}
+#artist_dashboard LI.concert {
+	FONT-SIZE: 12px; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; BORDER-BOTTOM: #e2e5e9 1px solid
+}
+#artist_dashboard FORM DIV.header {
+	MARGIN: 5px
+}
+#artist_dashboard FORM DIV.instructions {
+	FONT-SIZE: 11px; COLOR: red; LINE-HEIGHT: 12px
+}
+#artist_dashboard LI.concert DIV.header {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px
+}
+#artist_dashboard LI.concert SPAN.venue_address {
+	DISPLAY: block
+}
+#artist_dashboard LI.concert SPAN.venue_description {
+	DISPLAY: block
+}
+#artist_dashboard LI.concert SPAN.event_price {
+	MARGIN-RIGHT: 10px
+}
+.playlist_nav {
+	MARGIN-BOTTOM: 1px; COLOR: #0088ee; LINE-HEIGHT: 1.4em
+}
+.pl_nav_overlay {
+	FILTER: alpha(opacity=80); WIDTH: 220px; POSITION: absolute; HEIGHT: 480px; BACKGROUND-COLOR: white; opacity: .80
+}
+.playlist_nav A:hover {
+	TEXT-DECORATION: none
+}
+.playlist_nav_item {
+	MARGIN-BOTTOM: 5px; CURSOR: pointer; BORDER-BOTTOM: white 3px solid
+}
+.playlist_nav_item_hover {
+	MARGIN-BOTTOM: 5px; CURSOR: pointer; BORDER-BOTTOM: #0088ee 3px solid
+}
+.playlist_nav_selected {
+	MARGIN-BOTTOM: 5px; COLOR: #ff690a; BORDER-BOTTOM: #ff690a 3px solid
+}
+.playlist_nav_selected A {
+	COLOR: #ff690a
+}
+.playlist_nav_selected A:hover {
+	COLOR: #ff690a
+}
+.playlist_expando_share_to {
+	FLOAT: left; MARGIN-BOTTOM: 5px; WIDTH: 95px; PADDING-TOP: 2px; TEXT-ALIGN: right
+}
+.playlist_expando_share_to_free {
+	FLOAT: left; MARGIN-BOTTOM: 5px; WIDTH: 95px; PADDING-TOP: 2px; TEXT-ALIGN: right
+}
+.playlist_expando_share_msg {
+	FLOAT: left; MARGIN-BOTTOM: 5px; WIDTH: 95px; PADDING-TOP: 2px; TEXT-ALIGN: right
+}
+.playlist_expando_share_btn {
+	MARGIN-BOTTOM: 5px; MARGIN-LEFT: 95px; WIDTH: 355px
+}
+.playlist_toggle {
+	FLOAT: right
+}
+#large_navlist {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 18px; PADDING-BOTTOM: 5px; MARGIN-LEFT: 3px; LINE-HEIGHT: normal; PADDING-TOP: 20px
+}
+#large_navlist LI {
+	DISPLAY: inline; MARGIN: 0px; LIST-STYLE-TYPE: none
+}
+#large_navlist LI A {
+	BORDER-RIGHT: white 1px solid; PADDING-RIGHT: 0.8em; BORDER-TOP: white 1px solid; PADDING-LEFT: 0.8em; PADDING-BOTTOM: 5px; MARGIN-LEFT: 3px; BORDER-LEFT: white 1px solid; PADDING-TOP: 7px; BORDER-BOTTOM: white 1px; TEXT-DECORATION: none
+}
+#large_navlist LI A.inactive:hover {
+	TEXT-DECORATION: underline
+}
+#large_navlist LI A.current:hover {
+	CURSOR: default; TEXT-DECORATION: none
+}
+#large_navlist LI A.current {
+	BORDER-RIGHT: #caced1 1px solid; BORDER-TOP: #caced1 1px solid; BORDER-LEFT: #caced1 1px solid; COLOR: #333333; BORDER-BOTTOM: #e2e5e9 1px solid; BACKGROUND-COLOR: #e2e5e9
+}
+.navlist_info {
+	PADDING-RIGHT: 25px; PADDING-BOTTOM: 10px; LINE-HEIGHT: 1.4em; PADDING-TOP: 10px; BACKGROUND-COLOR: #e2e5e9
+}
+.tooltip {
+	BORDER-RIGHT: black 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: black 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 12px; PADDING-BOTTOM: 2px; MARGIN: 1em; BORDER-LEFT: black 1px solid; WIDTH: 240px; LINE-HEIGHT: 1.2em; PADDING-TOP: 2px; BORDER-BOTTOM: black 1px solid; POSITION: absolute; BACKGROUND-COLOR: rgb(255,255,234)
+}
+.tooltip H1 {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; MARGIN: 0px; COLOR: white; HEIGHT: auto; BACKGROUND-COLOR: rgb(106,106,106)
+}
+.tooltip P {
+	PADDING-RIGHT: 2px; MARGIN-TOP: 0.5em; PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; LINE-HEIGHT: 1.2em; PADDING-TOP: 2px
+}
+.tooltip A.close {
+	
+}

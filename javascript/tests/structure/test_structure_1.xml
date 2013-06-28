@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="metawrap_application.xsl" ?>
+<session>
+	<user>
+		<id>1</id>
+		<name>James</name>
+	</user>
+	<application>
+		<metadata>
+			<title>Test MetaWrap Application #1</title>
+		</metadata>
+		<body>
+			<code>Some Example Source Code.</code>
+			<comment>Here is a comment.</comment>
+			<code>Here is some more source code.</code>
+		</body>
+	</application>
+</session>
+
+

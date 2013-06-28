@@ -1,0 +1,28 @@
+﻿<html>
+<head>
+</head>
+<body>
+<script type="text/javascript">
+
+function test(p_file)
+{
+	alert(p_file);
+	var l_xml_document = new ActiveXObject("Msxml2.DOMDocument.3.0");
+	l_xml_document.async = false;
+	l_xml_document.validateOnParse = false;
+	l_xml_document.resolveExternals = false;
+	l_xml_document.load(p_file);
+	alert(l_xml_document.xml + " parseError " + l_xml_document.parseError + " doctype = " + l_xml_document.doctype);
+}
+
+test("test_0_ms_xml_document.xml");
+test("test_0_ms_xml_document.xml");
+test("test_0_ms_xml_document_xhtml.xml");
+test("test_0_ms_xml_document_xhtml_a.html");
+test("test_0_ms_xml_document_xhtml_b.html");
+test("test_0_ms_xml_document_xhtml_c.html");
+test("test_0_ms_xml_document_xhtml_d.html");
+
+</script>
+</body>
+</html>

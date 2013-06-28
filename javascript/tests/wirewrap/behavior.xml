@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<!--
+    $Id: behavior.xml,v 1.3 2005/10/04 13:43:45 james Exp $
+
+    $Log: behavior.xml,v $
+    Revision 1.3  2005/10/04 13:43:45  james
+    Got some more testcases working for wirewrap
+
+    Revision 1.2  2005/08/31 12:41:53  james
+    Testcase 3 now processes style and behavior xml
+    on browsers that have XSLT support.
+
+    Revision 1.1  2005/08/25 12:23:15  james
+    Moved code
+
+    Revision 1.4  2005/07/03 03:24:52  james
+    Fixed issue in XSLT and in example XML
+
+    Revision 1.3  2005/07/02 13:23:10  james
+    Getting schema definition w3 compliant
+
+    
+    @brief Example XML for css selector applied HTML/JavaScript behaviors
+ -->
+<wirewrap xmlns="http://xsd.metawrap.com/wirewrap/1.0/wirewrap.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xsd.metawrap.com/wirewrap/1.0/ http://xsd.metawrap.com/wirewrap/1.0/wirewrap.xsd">
+    <selector css="#example li">        
+        <onclick>
+            this.parentNode.removeChild(this);
+        </onclick>              
+    </selector>
+
+    <selector css="#fading-list li">
+        <onclick>
+            new Effect2.Fade(this);
+        </onclick>              
+    </selector>
+
+    <selector css="ul#sortable-list">    
+        <constructor>
+            Sortable.create(p_e);
+        </constructor>              
+    </selector>
+
+    <selector css="#shaky li">        
+        <onclick>
+            new Effect2.Shake(this)
+        </onclick>              
+    </selector>
+
+    <selector css=".dropout li">        
+        <onclick> 
+            new Effect2.DropOut(this)           
+        </onclick>
+        <onmouseover>
+            this.className = "hover";
+        </onmouseover>              
+        <onmouseout>            
+            this.className = "";
+        </onmouseout>                      
+    </selector>       
+</wirewrap>            
+        

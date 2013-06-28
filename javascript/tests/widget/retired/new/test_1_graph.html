@@ -1,0 +1,121 @@
+<HTML>
+<head>
+<style>
+	.graph { font-family: Arial; }
+	.ycaption { font-weight:bolder; font-size: 10pt; writing-mode:tb-rl; }
+	.xcaption { font-weight:bolder; font-size: 10pt; }
+
+	.yvalue_h { font-size: 8pt; position=absolute; top=8; }
+	.yvalue_v { font-size: 8pt; top=8; }
+
+	.xvalue_h { font-size: 6pt; }
+	.xvalue_v { font-size: 6pt; writing-mode:tb-rl; }
+
+	.xyvalue { font-size: 6pt; }
+	.bar
+	{
+		background-color: blue;
+		BORDER-RIGHT: 2px outset olive;
+		BORDER-LEFT: 1px outset light-blue;
+		BORDER-TOP: 2px outset light-blue;
+		BORDER-BOTTOM: 0px outset olive;
+	}
+	.gridleft { border-right:1px solid gray; border-top:1px solid gray; }
+	.grid { background-color: #d0d0d0; border-top:1px solid gray; }
+	.gridright { background-color: #d0d0d0; border-right:1px solid gray; border-top:1px solid gray; }
+	.gridbottom { border-right:1px solid gray; border-top:1px solid gray; }
+	.datatable { position=absolute; top=5; left=0; }
+	.gridtable { position=absolute; top=6; left=0; }
+</style>
+
+
+<script language=JavaScript src="../base/mw_lib.js"></script>
+<script language=JavaScript src="../page/mw_lib_page.js"></script>
+<script language=JavaScript src="../page/mw_lib_page_output.js"></script>
+<!--<script language=JavaScript src="../widget/mw_lib_widget.js"></script>-->
+<script language=JavaScript>
+// @brief Create MetaWrap.Widget Namespace
+ MetaWrap.Widget = new Object();
+</script>
+<script language=JavaScript src="mw_lib_widget_graph.js"></script>
+<script type="text/javascript" src="../external/wz_jsgraphics.js"></script>
+<script language=JavaScript>
+
+function drawgraph()
+{
+	// Create a new graph object
+    var l_graph = new MetaWrap.Widget.Graph(0);
+
+    // Create a new outputter
+    l_graph.m_destination = new MetaWrap.Page.Output(document.getElementById('here'));
+
+    //g_destination = l_graph.m_destination;
+    //g_destination_target = document.getElementById('here');
+
+	l_graph.clear();
+	l_graph.write("<div>");
+	l_graph.write("<table>");
+	l_graph.write("<tr><td>Hello Cruel World</td></tr>");
+	l_graph.write("<tr><td>Hello Cruel World</td></tr>");
+	l_graph.write("<tr><td>Hello Cruel World</td></tr>");
+	l_graph.write("</table>");
+	l_graph.write("</div>");
+
+	l_graph.flush();
+
+	l_graph.m_line_width = 1;
+    //l_graph.m_parent = g_destination_target;
+    l_graph.m_title = 'Simple Function Call Speed By Length Of Function';
+    l_graph.m_xcaption = 'Function Calls Per Second';
+    l_graph.m_ycaption = 'Length Of Simple Function Name';
+
+    l_graph.m_values.push([188,'1']);
+    l_graph.m_values.push([180,'2']);
+    l_graph.m_values.push([159,'3']);
+    l_graph.m_values.push([67 ,'4']);
+    l_graph.m_values.push([66 ,'5']);
+    l_graph.m_values.push([62 ,'6']);
+    l_graph.m_values.push([48 ,'7']);
+    l_graph.m_values.push([26 ,'8']);
+    l_graph.m_values.push([16 ,'9']);
+    l_graph.m_values.push([11 ,'10']);
+    l_graph.m_values.push([188,'1']);
+    l_graph.m_values.push([180,'2']);
+    l_graph.m_values.push([159,'3']);
+    l_graph.m_values.push([67 ,'4']);
+    l_graph.m_values.push([66 ,'5']);
+    l_graph.m_values.push([62 ,'6']);
+    l_graph.m_values.push([48 ,'7']);
+    l_graph.m_values.push([26 ,'8']);
+    l_graph.m_values.push([16 ,'9']);
+    l_graph.m_values.push([11 ,'10']);
+
+    //l_graph.m_orientation = 'vertical';
+    l_graph.m_orientation = 'horizontal';
+
+    l_graph.m_showline = true;
+    l_graph.m_showbar = true;
+
+
+	//l_graph.clear();
+    l_graph.draw();
+
+}
+
+</script>
+
+</head>
+<BODY style="font-family: Arial;" onload="drawgraph()" >
+
+	<table border=1>
+	<tr><td>
+	<div id="here" >hello</div>
+	</td></tr>
+	</table>
+
+<script language=JavaScript>
+    //drawgraph();
+</script>
+
+</body>
+</html>

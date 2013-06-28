@@ -1,0 +1,93 @@
+/* The container contains that mw_log_border/mw_log */
+#mw_logger
+{
+}
+
+#mw_log 
+{
+    border: 8px solid #ff0000;
+    padding: 8px;
+    visibility:visible;
+    background-color: black ;
+}
+
+#mw_log_border 
+{
+    border: 8px solid black;
+    visibility:visible;
+    background-color: black ;   
+    display: none;  
+}
+
+#mw_log_content 
+{
+    display: none;  
+}
+
+
+#mw_log_logo
+{   
+    font-weight:bold;
+    color: #FF0000; 
+    border-color:Black;
+    text-align:center;
+}
+
+#mw_log * 
+{
+    background-repeat: no-repeat;   
+    font-size: 9pt;
+    font-family:Courier New;
+    margin: 0;
+    padding: 0; 
+}
+
+#mw_log p, #mw_log h6, #mw_log ul 
+{
+    text-align: left;
+}
+
+#mw_log p 
+{   
+    margin-left: 3px;
+    padding-left: 20px;
+    background-position: top left;
+    line-height: 1.4em;
+}
+
+#mw_log a 
+{   
+    font-weight:bold;  
+    margin-left: 3px;
+    padding-left: 20px;       
+}
+
+#mw_log table
+{
+    width:90%;
+    text-align:center;
+}
+
+#mw_log td.debug a { visibility:hidden; color: #0CCD14;  }
+#mw_log p.debug { color: #0CCD14; }
+
+#mw_log td.trace a { visibility:hidden; color: #0082C6;}
+#mw_log p.trace  {  color: #0066B3; }
+
+#mw_log td.warn a { visibility:hidden; color: #E9C000; }
+#mw_log p.warn  { color: #E9C000; }
+
+#mw_log td.error a { visibility:hidden; color: #EE0000;}
+#mw_log p.error { color: #EE0000; }
+
+#mw_log td.fatal a { visibility:hidden; color: #FFFFFF;}
+#mw_log p.fatal { color: #FFFFFF; }
+
+#mw_log td.all a { color: purple;}
+
+
+
+
+
+
+

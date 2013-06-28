@@ -1,0 +1,672 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<style>
+.wrap{
+    width: 67%;
+    margin: 0 0 1em 14%;
+    padding: 2% 3% 2% 5%;
+    BACKGROUND: white;
+    border-style: solid;
+    border-width: 1px;
+    top: -1px;
+}
+h1,h2,h3,h4{
+    position: relative;
+    left: -1em;
+    clear: both;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: orange;
+    font: 0.8em trebuchet ms;
+}
+em{
+    background: #ffc;
+}
+pre{
+    font-size: 1.1em;
+    background: #f0f0f0;
+    -moz-border-radius: 10px;
+    padding: 1em;
+}
+pre span{
+    font-weight: bold;
+}
+.selector, pre b{
+    color: red;
+}
+.beh{
+    color: blue;
+}
+.event{
+    color: green;
+}
+
+#sortable-list li{
+    cursor:move;
+    -moz-user-select: none;
+    width: 100%;
+}
+
+.dropout li{
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    float: left;
+    margin: 5px;
+    border: 1px solid #ccc;
+    list-style: none;
+    background: red;
+}
+
+.dropout li.hover{
+    background: yellow;
+}
+	</style>
+
+
+	<title>
+		Flavour Crusader - Webservices TestCase #1 - MetaWrap JavaScript Library - $Id: test_1_pipeline.html,v 1.5 2007/01/16 07:48:21 james Exp $
+	</title>
+	<script language="JavaScript" type="text/javascript" src="../base/mw_lib.js"></script>	
+	<script language="JavaScript" type="text/javascript" src="../logger/mw_lib_logger.js"></script>
+	
+	<script language="JavaScript" type="text/javascript" src="../fundamental/test.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../network/mw_lib_network.js"></script>	
+	<script language="JavaScript" type="text/javascript" src="../xml/mw_lib_xml.js"></script>	
+	<script language="JavaScript" type="text/javascript" src="../xml/mw_lib_xml_action.js"></script>
+	<script language="JavaScript" type="text/javascript" src="./mw_lib_api.js"></script>	
+
+	<script language="JavaScript" type="text/javascript" src="http://localhost.thumbwhere.com/thumbwhere/websites/js/api/service_admin_v1_1.js"></script>	    
+	<script language="JavaScript" type="text/javascript" src="http://localhost.thumbwhere.com/thumbwhere/websites/js/api/service_identity_v1_1.js"></script>   
+	<script language="JavaScript" type="text/javascript" src="http://localhost.thumbwhere.com/thumbwhere/websites/js/api/service_member_v1_1.js"></script>   
+    <script language="JavaScript" type="text/javascript" src="./mw_lib_api_implementation.js"></script>    
+
+</head>
+<body>
+<div class="wrap">
+<table width="100%">
+	<tr align="middle" >
+		<td>
+			<h2>
+				Flavour Crusader - TestCases #1 - Webservices Tests #1
+			</h2>
+		</td>
+		<td>
+			<a href="http://www.metawrap.com"><img border="0" src="../images/metawrap_logo_sm.png" align="right" /></a>
+		</td>
+	</tr>
+</table>
+
+<pre>$Id: test_1_pipeline.html,v 1.5 2007/01/16 07:48:21 james Exp $</pre>
+</div>
+
+<div class="wrap">
+
+<script language="JavaScript" type="text/javascript" >
+
+MetaWrap.API.Request.Batch = "batch/";
+MetaWrap.API.Request.Url = "http://localhost.thumbwhere.com/api/";
+var l_response = null;
+var key = "48e34e27-62f2-4aec-a1d5-8ff4bf7a2732";
+
+//
+// Simple Feed request
+/*
+l_response = MetaWrap.API.                
+    Feed("http://localhost.thumbwhere.com/thumbwhere/websites/webroot/campaigns/08598A53E46B200ED8028908D15EDF1F-1/mediaitems.xml")
+    .For("/campaign/items/item",function()
+    {                
+        trace("item title = " + this.Value("title"));
+
+        this.For("thumbnails/thumbnail",function()
+        {
+            trace("thumbnail = " + this.Value("file"));
+        })
+        .For("images/image",function()
+        {
+            trace("image = " + this.Value("file"));
+        });
+    });
+*/
+
+//trace(l_response.XML.xml);
+
+
+
+
+//
+// Simple Call
+//
+
+/*
+l_response = MetaWrap.API.
+            Call().
+                Admin().
+                    invite().    
+                        key("8e9ff318-3cd7-4593-99de-4c37c0fb335a").
+                        email("james@massive.com.au").
+                Execute("http://localhost.thumbwhere.com/thumbwhere/websites/api");
+
+trace(l_response.XML.xml);
+*/
+
+
+//
+// Call with 'use'
+//
+
+/*
+l_response = MetaWrap.API.
+            Use("key","8e9ff318-3cd7-4593-99de-4c37c0fb335a").
+            Call().
+                Admin().
+                    invite().    
+                        email("james@massive.com.au").
+            Call().
+                Admin().
+                    invite().    
+                        email("ron@massive.com.au").
+            Execute("http://localhost.thumbwhere.com/thumbwhere/websites/api");
+
+trace(l_response.XML.xml);
+*/
+
+
+//
+// Import
+//
+
+/*
+l_response = MetaWrap.API.
+            Import("emails","<email>adam@earth.com</email><email>eve@earth.com</email><email>lilith@earth.com</email>").
+            Use("key","8e9ff318-3cd7-4593-99de-4c37c0fb335a").      
+            For("action/import[@name='emails']/email").
+                Var("email","text()").
+                    Call().
+                        Admin().
+                            invite().                                    
+                                email().Select("{$email}").
+
+            EndFor().
+            Execute();
+
+
+//passFail("Chaining - Result","trace('REQUEST: ' + l_response.Request.XML);trace('RESPONSE: ' + l_response.XML.xml);","l_response.XML.xml != null");
+*/
+
+//
+// Post Processing
+//
+
+/*
+l_response = MetaWrap.API.
+            Import("emails","<email>adam@earth.com</email><email>eve@earth.com</email><email>lilith@earth.com</email>").
+            Use("key","8e9ff318-3cd7-4593-99de-4c37c0fb335a").      
+            For("action/import[@name='emails']/email").
+                Var("email","text()").
+                    Call().
+                        Admin().
+                            invite().                                    
+                                email().Select("{$email}").
+            EndFor().
+            Execute("http://localhost.thumbwhere.com/thumbwhere/websites/api");
+
+//passFail("Chaining - Result","trace('REQUEST: ' + l_response.Request.XML);trace('RESPONSE: ' + l_response.XML.xml);","l_response.XML.xml != null");
+*/
+
+
+
+
+//
+// Logic
+//
+
+/*
+
+var l_challenges = [];
+
+
+l_response = MetaWrap.API.
+	Use("key","8e9ff318-3cd7-4593-99de-4c37c0fb335a").		
+	Var("email","'james@massive.com.au'").
+		Call().
+			Identity().
+				request().									
+					type("twitter").	
+		If("response/request[status='success']").		
+			Call().
+				Admin().
+					invite().					
+						email().Select("$email").
+            Call().
+                Admin().
+                    invite().                   
+                        email().Select("$email").
+            Call().
+                Admin().
+                    invite().                   
+                        email().Select("$email").
+
+		EndIf().
+	Execute().
+        With("invite/status",function()
+            {
+                trace("with value = " + this.Value());
+            }).
+        If("invite/status",function()
+            {
+                trace("if value = " + this.Value());
+            }).            
+        For("request",function()
+            {
+                
+                l_challenges.push(
+                        {
+                            type:this.selectSingleNode("challenge_type").text,
+                            address:this.selectSingleNode("challenge_address").text
+                        }
+                    );
+            });
+        
+//passFail("Chaining - Result","trace('REQUEST: ' + l_response.Request.XML);trace('RESPONSE: ' + l_response.XML.xml);","l_response.XML.xml != null");
+
+for (var i = 0; i < l_challenges.length; i++) 
+{
+    trace(" -- challenge --");
+    trace("challenge_type:" + l_challenges[i].type);
+    trace("challenge_address:" + l_challenges[i].address);
+};
+*/
+
+
+//
+// Asynch
+//
+
+/*
+l_response = MetaWrap.API.
+            Import("emails","<email>adam@earth.com</email><email>eve@earth.com</email><email>lilith@earth.com</email>").
+            Use("key","8e9ff318-3cd7-4593-99de-4c37c0fb335a").      
+            For("action/import[@name='emails']/email").
+                Var("email","text()").
+                    Call().
+                        Admin().
+                            invite().                                    
+                                email().Select("{text()}").
+
+            EndFor().
+            Execute(function()
+                {
+                    var i = 1;                    
+                    this.
+                        For("invite/status",function()
+                        {
+                            trace("invite " + (i++) + " has status = '" + this.Value() + "'");
+                        }).
+                        Do(function()
+                        {
+                            trace("completed");                
+                        });
+                });
+
+//passFail("Chaining - Result","l_response.Request.XML != null","l_response.Request.XML != null");
+
+trace("I am now free to carry on");
+*/
+
+
+
+/*
+l_response = MetaWrap.API.
+            Use("key",key).      
+			 Call().
+				Member().
+					create().                                    
+						id().Select("drmiaow").
+						secret().Select("secret").            
+            Execute(function()
+                {
+                    this.
+                        Do(function()
+                        {
+                            trace("completed");                
+                        });
+                });
+
+
+//passFail("Chaining - Result","l_response.Request.XML != null","l_response.Request.XML != null");
+
+trace("I am now free to carry on");
+*/
+
+/*
+l_response = MetaWrap.API.
+	Use("key",key).			
+		Call().
+			Identity().
+				request().									
+					type("twitter").	
+Execute();
+
+//passFail("Chaining - Result","l_response.Request.XML != null","l_response.Request.XML != null");
+
+trace("I am now free to carry on");
+*/
+
+
+var number = MetaWrap.qs("n") || 14;
+var internal_id = "drmiaow" + number;
+var internal_identity = "";
+var internal_label = "DrMiaow" + number;
+var internal_secret = "secret";
+var internal_type = "internal";
+
+var challenge_code = "";
+var member = "";
+var email_id = "drmiaow" + number + "@gmail.com";
+var email_type = "email";
+
+//
+// Make a request
+//
+
+l_response = MetaWrap.API.
+	Use("key",key).			
+		Call().
+			Identity().
+				available().									
+					type(internal_type).
+					id(internal_id).	
+		Execute();
+		
+l_response.IfElse("available[((status='success') and (available='true'))]",function(){
+
+	log("member name " + internal_id + " does not exist.. let's create it.");
+	//passFail("Identity is available","true","true");
+
+	getInternalIdentity();
+},function(){
+
+	log("member name " + internal_id + " already exists...");
+	//passFail("Identity already exists.","true","true");
+
+	authenticateMember();
+})
+
+
+
+
+
+
+function getEmailIdentity()
+{
+	MetaWrap.API.
+		Use("key",key).			
+			Call().
+				Identity().
+					request().			
+						member(member).				
+						type(email_type).
+						id(email_id).	
+			Execute(function()
+					{
+					
+					
+						this.IfElse("request[status='success']",function(){ 																										
+							this.
+							For("request/status",function()
+							{
+								trace("EMAIL request has status = '" + this.Value() + "'");
+								
+								//passFail("EMAIL identity request has succeeded","true","true");
+								
+							}).
+							For("request/challenge_type",function()
+							{
+								trace("EMAIL  request has challenge_type = '" + this.Value() + "'");
+								
+								//passFail("EMAIL identity request returned a correct challenge type","true","true");
+							}).
+							For("request/challenge_code",function()
+							{
+								trace("EMAIL  request has challenge_code = '" + this.Value() + "'");
+								
+								challenge_code = this.Value();
+							}).						
+							Do(function(){
+								MetaWrap.API.
+									Use("key",key).			
+										Call().
+											Identity().
+												authenticate_request().									
+													code(challenge_code).
+													id(email_id).
+										Execute(function(){												
+											this.
+											IfElse("authenticate_request[status='success']",function(){ 																										
+												this.
+													For("authenticate_request/status",function()
+													{
+														trace("EMAIL  authenticate_request has status = '" + this.Value() + "'");
+													}).													
+													For("authenticate_request/identity",function()
+													{													
+														trace("EMAIL authenticate_request has identity = '" + this.Value() + "'");															
+														email_identity = this.Value();
+													}).																														
+													Do(function()
+													{
+													
+														getTwitterIdentity();
+													
+														getContentFeed();
+													
+													});
+											},function(){
+											
+													this.For("authenticate_request/status",function()
+													{
+														error("EMAIL request has status = '" + this.Value() + "'");
+													}).
+													For("authenticate_request/error",function()
+													{
+														error("EMAIL request has error = '" + this.Value() + "'");
+													});												
+											});
+										});
+								});							
+							},function(){																								
+								this.For("request/status",function()
+								{
+									error("request has status = '" + this.Value() + "'");
+								}).
+								For("request/error",function()
+								{
+									error("request has error = '" + this.Value() + "'");
+								});																					
+							});		
+					});
+}
+
+
+
+
+
+function getInternalIdentity()
+{
+
+	MetaWrap.API.
+		Use("key",key).			
+			Call().
+				Identity().
+					request().									
+						type(internal_type).
+						id(internal_id).											
+			Execute(function()
+					{
+						this.
+							For("request/status",function()
+							{
+								trace("request has status = '" + this.Value() + "'");
+							}).
+							For("request/challenge_type",function()
+							{
+								trace("request has challenge_type = '" + this.Value() + "'");
+							}).
+							For("request/challenge_code",function()
+							{
+								trace("request has challenge_code = '" + this.Value() + "'");
+								
+								challenge_code = this.Value();
+							}).						
+							Do(function()
+							{
+								trace("completed");   
+
+								trace("challenge_code = " + challenge_code);
+								
+								MetaWrap.API.
+									Use("key",key).			
+										Call().
+											Identity().
+												authenticate_request().									
+													code(challenge_code).
+													id(internal_id).
+													secret(internal_secret).
+										Execute(function(){
+													this.
+														IfElse("authenticate_request[status='success']",
+														function(){ 
+
+															//passFail("Authenticated email identity request.","true","true");
+														
+															this.
+																For("authenticate_request/status",function(){
+																	trace("request has status = '" + this.Value() + "'");
+																}).																									
+																For("authenticate_request/member",function(){
+																	trace("INTERNAL authenticate_request has member = '" + this.Value() + "'");																
+																	member = this.Value();
+																}).																	
+																For("authenticate_request/identity",function(){
+																	trace("INTERNAL authenticate_request has identity = '" + this.Value() + "'");																
+																	internal_identity = this.Value();
+																}).																														
+																Do(function(){	
+																	MetaWrap.API.
+																		Use("key",key).			
+																			Call().
+																				Identity().
+																					set_label().																												
+																						identity(internal_identity).	
+																						label(internal_label).																					
+																			Execute();
+																	 getEmailIdentity();},
+														function(){		
+
+															//passFail("Failed to authenticate email identity request.","false","true");
+														
+															this.For("authenticate_request/status",function()
+															{
+																error("request has status = '" + this.Value() + "'");
+															}).
+															For("authenticate_request/error",function()
+															{
+																error("request has error = '" + this.Value() + "'");
+															});																											
+														});													
+												});
+										});
+							});
+					});
+
+}
+
+function getContentFeed()
+{
+	log("requesting content feed for member with id of " + member);
+}
+
+
+function authenticateMember()
+{
+
+	log("authenticating as " + internal_id + "/" + internal_secret);
+	
+	l_response = MetaWrap.API.
+		Use("key",key).			
+			Call().
+				Identity().
+					authenticate().									
+						type(internal_type).
+						id(internal_id).	
+						secret(internal_secret).	
+			Execute();
+			
+	l_response.
+	For("authenticate/member",function(){
+		trace("INTERNAL authenticate returned member = '" + this.Value() + "'");																
+		member = this.Value();
+	}).		
+	For("authenticate/identity",function(){
+		trace("INTERNAL authenticate returned identity = '" + this.Value() + "'");																
+		internal_identity = this.Value();
+	}).			
+	For("authenticate/label",function(){
+		trace("INTERNAL authenticate returned label = '" + this.Value() + "'");																
+		internal_label = this.Value();
+	}).				
+	IfElse("authenticate[((status='success'))]",function(){
+	
+		log("authenticated");
+		//passFail("Member has been authenticated.","true","true");
+		
+		getContentFeed();
+		
+	},function(){
+		fail("failed to authenticate");
+		//passFail("Member failed to authenticate.","false","false");
+	});
+	
+}
+
+function getTwitterIdentity()
+{
+ 
+ log("requesting twitter identity.");
+
+ l_request = MetaWrap.API.
+	Use("key",key).			
+		Call().
+			Identity().
+				request().									
+					type("twitter").	
+					member(member).	
+ Execute();
+ 
+ var twitter_challenge_address = "";
+ 
+ l_request.For("request/challenge_address",function(){
+		trace("INTERNAL authenticate returned challenge_address = '" + this.Value() + "'");																
+		twitter_challenge_address = this.Value();
+		
+		//MetaWrap.$("twitteriframe").innerHTML = '<iframe src="' + twitter_challenge_address + '"></iframe>';
+		
+		newwindow=window.open(twitter_challenge_address);
+	});
+	
+	
+}
+
+
+</script>
+<div id="twitteriframe"></div>
+</div>
+
+</body>
+</html>

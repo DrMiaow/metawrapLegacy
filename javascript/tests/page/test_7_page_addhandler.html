@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<style>
+.wrap{
+    width: 67%;
+    margin: 0 0 1em 14%;
+    padding: 2% 3% 2% 5%;
+    BACKGROUND: white;
+    border-style: solid;
+    border-width: 1px;
+    top: -1px;
+}
+h1,h2,h3,h4{
+    position: relative;
+    left: -1em;
+    clear: both;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: orange;
+    font: 0.8em trebuchet ms;
+}
+em{
+    background: #ffc;
+}
+pre{
+    font-size: 1.1em;
+    background: #f0f0f0;
+    -moz-border-radius: 10px;
+    padding: 1em;
+}
+pre span{
+    font-weight: bold;
+}
+.selector, pre b{
+    color: red;
+}
+.beh{
+    color: blue;
+}
+.event{
+    color: green;
+}
+
+#sortable-list li{
+    cursor:move;
+    -moz-user-select: none;
+    width: 100%;
+}
+
+.droA li{
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    float: left;
+    margin: 5px;
+    border: 1px solid #ccc;
+    list-style: none;
+    background: red;
+}
+
+.droA li.hover{
+    background: yellow;
+}
+	</style>
+
+
+	<title>
+		Page - AddHandler - TestCase #7 - MetaWrap JavaScript Library - $Id: test_7_page_addhandler.html,v 1.20 2005/10/23 07:57:32 james Exp $
+	</title>
+	<script language="JavaScript" src="../base/mw_lib.js"></script>
+	<script language="JavaScript" src="../page/mw_lib_page.js"></script>
+	<script language="JavaScript" src="../page/mw_lib_page_element.js"></script>
+	<script language="JavaScript" src="../page/mw_lib_page_element_addhandler.js"></script>
+
+<script language="JavaScript">
+
+
+var g_log = "";
+
+function error(p_msg)
+{
+    alert(p_msg);
+}
+
+function debug(p_msg)
+{
+    alert(p_msg);
+}
+
+function trace(p_msg)
+{
+    window.status = p_msg;
+    document.title = p_msg;
+}
+
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+
+</script>
+</head>
+<body onload="start()" onunload="end()" >
+<div class="wrap">
+<table width="100%">
+	<tr align="middle" >
+		<td>
+			<h2>
+				Page - AddHandler - TestCases #7 - Cross Browers Event Stacking
+			</h2>
+		</td>
+		<td>
+			<a href="http://www.metawrap.com"><img border="0" src="../images/metawrap_logo_sm.png" align="right" /></a>
+		</td>
+	</tr>
+</table>
+
+<pre>$Id: test_7_page_addhandler.html,v 1.20 2005/10/23 07:57:32 james Exp $</pre>
+</div>
+
+<div class="wrap" >
+
+<h1>This Page Will Not Work In IE</h1>
+
+<p>Click on some of the text in square brackets, a series of popups will be displayed, the event 'letter' of each popup in turn should form a sequence that matches the sequence in the square brackets.</p>
+
+<p>Eg if you click in [C,B,A] you should get three popups such as "event C (this=? target=?)" then "event B (this=? target=?)" and then "event A (this=? target=?)").</p>
+
+<h3>DEFAULT {using 'inline' onclick="f()"}</h3>
+<P id="iA" onclick="event_A.call(this,event)" >[A]<B id="iB" onclick="event_B.call(this,event);">[B,A]<i id="iC" onclick="event_C.call(this,event);" >[C,B,A]</i></B>.
+</P>
+<hr/>
+
+<h3>CAPTURE</h3>
+<P id="Ac">[A]<B id="Bc">[A,B]<i id="Cc" >[A,B,C]</i></B>.</P>
+
+<hr/>
+
+<h3>BUBBLING</h3>
+<P id="A">
+[A]<B id="B">[B,A]<i id="C" >[C,B,A]</i></B>.
+</P>
+
+
+<hr/>
+<h3>MIXED1 (A CAPTURED)</h3>
+<P id="Am1">
+[A]<B id="Bm1">[A,B]<i id="Cm1" >[A,C,B]</i></B>.
+</P>
+
+<hr/>
+<h3>MIXED2 (B CAPTURED)</h3>
+<P id="Am2">
+[A]<B id="Bm2">[B,A]<i id="Cm2" >[B,C,A]</i></B>.
+</P>
+
+<hr/>
+<h3>MIXED3 (C CAPTURED)</h3>
+<P id="Am3">
+[A]<B id="Bm3">[B,A]<i id="Cm3" >[C,B,A]</i></B>.
+</P>
+
+<hr/>
+<h3>MIXED4 (A,B CAPTURED)</h3>
+<P id="Am4">
+[A]<B id="Bm4">[A,B]<i id="Cm4" >[A,B,C]</i></B>.
+</P>
+
+<hr/>
+<h3>MIXED5 (A,C CAPTURED)</h3>
+<P id="Am5">
+[A]<B id="Bm5">[A,B]<i id="Cm5" >[A,C,B]</i></B>.
+</P>
+
+<hr/>
+<h3>MIXED6 (B,C CAPTURED)</h3>
+<P id="Am6">
+[A]<B id="Bm6">[B,A]<i id="Cm6" >[B,C,A]</i></B>.
+</P>
+
+<hr/>
+<h3>MIXED7 (C,B CAPTURED)</h3>
+<P id="Am7">
+[A]<B id="Bm7">[B,A]<i id="Cm7" >[B,C,A]</i></B>.
+</P>
+
+<hr/>
+<h3>MIXED8 (C,B CAPTURED) c,b</h3>
+<P id="Am8">
+[A]<B id="Bm8">[B,b,A]<i id="Cm8" >[B,C,c,b,A]</i></B>.
+</P>
+
+<script language="JavaScript" type="text/javascript" >
+
+var l_Ac = document.getElementById("Ac");
+var l_Bc = document.getElementById("Bc");
+var l_Cc = document.getElementById("Cc");
+
+var l_A = document.getElementById("A");
+var l_B = document.getElementById("B");
+var l_C = document.getElementById("C");
+
+var l_Am1 = document.getElementById("Am1");
+var l_Bm1 = document.getElementById("Bm1");
+var l_Cm1 = document.getElementById("Cm1");
+
+var l_Am2 = document.getElementById("Am2");
+var l_Bm2 = document.getElementById("Bm2");
+var l_Cm2 = document.getElementById("Cm2");
+
+var l_Am3 = document.getElementById("Am3");
+var l_Bm3 = document.getElementById("Bm3");
+var l_Cm3 = document.getElementById("Cm3");
+
+var l_Am4 = document.getElementById("Am4");
+var l_Bm4 = document.getElementById("Bm4");
+var l_Cm4 = document.getElementById("Cm4");
+
+var l_Am5 = document.getElementById("Am5");
+var l_Bm5 = document.getElementById("Bm5");
+var l_Cm5 = document.getElementById("Cm5");
+
+var l_Am5 = document.getElementById("Am5");
+var l_Bm5 = document.getElementById("Bm5");
+var l_Cm5 = document.getElementById("Cm5");
+
+var l_Am6 = document.getElementById("Am6");
+var l_Bm6 = document.getElementById("Bm6");
+var l_Cm6 = document.getElementById("Cm6");
+
+var l_Am7 = document.getElementById("Am7");
+var l_Bm7 = document.getElementById("Bm7");
+var l_Cm7 = document.getElementById("Cm7");
+
+var l_Am7 = document.getElementById("Am7");
+var l_Bm7 = document.getElementById("Bm7");
+var l_Cm7 = document.getElementById("Cm7");
+
+var l_Am8 = document.getElementById("Am8");
+var l_Bm8 = document.getElementById("Bm8");
+var l_Cm8 = document.getElementById("Cm8");
+
+
+function event_A(e)
+{
+	var e_target;
+	if (!e) e = window.event;
+	if (e.target) e_target = e.target;
+	else if (e.srcElement) e_target = e.srcElement;
+	if (e_target.nodeType == 3) // defeat Safari bug
+		e_target = e_target.parentNode
+
+   alert("event A (this=" + this.id + " target=" + e_target.id + ")" );
+}
+
+function event_B(e)
+{
+	var e_target;
+	if (!e) e = window.event;
+	if (e.target) e_target = e.target;
+	else if (e.srcElement) e_target = e.srcElement;
+	if (e_target.nodeType == 3) // defeat Safari bug
+		e_target = e_target.parentNode
+    alert("event B (this=" + this.id + " target=" + e_target.id + ")" );
+}
+
+function event_C(e)
+{
+	var e_target;
+	if (!e) e = window.event;
+	if (e.target) e_target = e.target;
+	else if (e.srcElement) e_target = e.srcElement;
+	if (e_target.nodeType == 3) // defeat Safari bug
+		e_target = e_target.parentNode
+   alert("event C (this=" + this.id + " target=" + e_target.id + ")" );
+}
+
+function event_a(e)
+{
+	var e_target;
+	if (!e) e = window.event;
+	if (e.target) e_target = e.target;
+	else if (e.srcElement) e_target = e.srcElement;
+	if (e_target.nodeType == 3) // defeat Safari bug
+		e_target = e_target.parentNode
+   alert("event a (this=" + this.id + " target=" + e_target.id + ")" );
+}
+
+function event_b(e)
+{
+	var e_target;
+	if (!e) e = window.event;
+	if (e.target) e_target = e.target;
+	else if (e.srcElement) e_target = e.srcElement;
+	if (e_target.nodeType == 3) // defeat Safari bug
+		e_target = e_target.parentNode
+   alert("event b (this=" + this.id + " target=" + e_target.id + ")" );
+}
+
+function event_c(e)
+{
+	var e_target;
+	if (!e) e = window.event;
+	if (e.target) e_target = e.target;
+	else if (e.srcElement) e_target = e.srcElement;
+	if (e_target.nodeType == 3) // defeat Safari bug
+		e_target = e_target.parentNode
+   alert("event c (this=" + this.id + " target=" + e_target.id + ")" );
+}
+
+
+function addEventListenerTest(p_event,p_eventtype,p_function,p_capture)
+{
+    if (p_event.addEventListener)
+    {
+        p_event.addEventListener(p_eventtype,p_function,p_capture);
+    }
+}
+
+function start()
+{
+    addEventListenerTest(l_Ac,"click",event_A,true);
+    addEventListenerTest(l_Bc,"click",event_B,true);
+    addEventListenerTest(l_Cc,"click",event_C,true);
+
+    addEventListenerTest(l_A,"click",event_A,false);
+    addEventListenerTest(l_B,"click",event_B,false);
+    addEventListenerTest(l_C,"click",event_C,false);
+
+    addEventListenerTest(l_Am1,"click",event_A,true);
+    addEventListenerTest(l_Bm1,"click",event_B,false);
+    addEventListenerTest(l_Cm1,"click",event_C,false);
+
+    addEventListenerTest(l_Am2,"click",event_A,false);
+    addEventListenerTest(l_Bm2,"click",event_B,true);
+    addEventListenerTest(l_Cm2,"click",event_C,false);
+
+    addEventListenerTest(l_Am3,"click",event_A,false);
+    addEventListenerTest(l_Bm3,"click",event_B,false);
+    addEventListenerTest(l_Cm3,"click",event_C,true);
+
+    addEventListenerTest(l_Am4,"click",event_A,true);
+    addEventListenerTest(l_Bm4,"click",event_B,true);
+    addEventListenerTest(l_Cm4,"click",event_C,false);
+
+    addEventListenerTest(l_Am5,"click",event_A,true);
+    addEventListenerTest(l_Bm5,"click",event_B,false);
+    addEventListenerTest(l_Cm5,"click",event_C,true);
+
+    addEventListenerTest(l_Am6,"click",event_A,false);
+    addEventListenerTest(l_Bm6,"click",event_B,true);
+    addEventListenerTest(l_Cm6,"click",event_C,true);
+
+    addEventListenerTest(l_Am7,"click",event_A,false);
+    addEventListenerTest(l_Cm7,"click",event_C,true);
+    addEventListenerTest(l_Bm7,"click",event_B,true);
+
+    addEventListenerTest(l_Am8,"click",event_A,false);
+    addEventListenerTest(l_Cm8,"click",event_C,true);
+    addEventListenerTest(l_Bm8,"click",event_B,true);
+    addEventListenerTest(l_Cm8,"click",event_c,false);
+    addEventListenerTest(l_Bm8,"click",event_b,false);
+
+}
+
+function end()
+{
+    //MetaWrap.Page.deleteListeners();
+}
+
+</script>
+</div>
+</body>
+</html>

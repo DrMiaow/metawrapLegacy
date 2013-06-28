@@ -1,0 +1,18 @@
+<script language="JavaScript">
+function MakeClosure(p_a)
+{
+	return function(){return p_a;}
+}
+
+var l_a = 1;
+var l_f1 = MakeClosure(l_a);
+
+l_a = 2;
+var l_f2 = MakeClosure(l_a);
+
+l_a = 3;
+
+
+alert(l_f1());
+alert(l_f2());
+</script>

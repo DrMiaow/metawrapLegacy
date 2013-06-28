@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<!--
+    $Id: test_2_state.xml,v 1.12 2008/09/25 05:54:39 james Exp $
+
+    $Log: test_2_state.xml,v $
+    Revision 1.12  2008/09/25 05:54:39  james
+    *** empty log message ***
+
+    Revision 1.11  2004/01/02 01:22:43  james
+    State machine renaming
+
+    Revision 1.10  2008/07/21 10:16:17  james
+    Added inactive - now just need a better name for it....
+
+    Revision 1.9  2007/04/21 06:19:35  james
+    Working on state machine
+
+    Revision 1.8  2006/05/18 08:17:54  james
+    Schema update to a single global schema
+
+    Revision 1.7  2006/03/29 12:10:40  james
+    Moving all XML schemas under a single holding schema - as an experiment
+
+    Revision 1.3  2006/02/15 11:45:41  james
+    *** empty log message ***
+
+    Revision 1.2  2006/02/02 13:09:21  james
+    Basic sub states operating
+
+    Revision 1.1  2006/01/31 13:21:50  james
+    Added state exclusion and state mutex.
+
+
+ -->
+<!--?xml-stylesheet type="text/xsl" href="E:\metawrap\javascript\tests\state\state.xsl"?-->
+<!--  XSLT WILL NOT WORK IF xmlns is included -->
+<metawrap xmlns="../metawrap/metawrap.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="../metawrap/metawrap.xsd ../metawrap/metawrap.xsd" >
+<!--  
+<metawrap xmlns="../metawrap/metawrap.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="../metawrap/metawrap.xsd ../metawrap/metawrap.xsd" >
+-->
+	<states> 
+		<state name="loggedout">
+			<active>
+				<condition>
+					<code>
+						<body>
+							<!-- just fake it for now -->
+							<return with="true"/>
+						</body>
+						<fault>
+							<!-- if anything bad happens - then we err on the side of security - we allow this state, which is logged out -->
+							<return with="true"/>
+						</fault>
+					</code>
+				</condition>
+			</active>
+	
+			<exclude state="loggedin" />
+			
+			<states>
+				<state name="registered">
+					<active>
+						<!-- List of tests that determine if you are in this state-->
+						<condition>
+							<code>
+								<body>
+									<!-- Return the value of A -->
+									<return with="true"/>						
+								</body>
+								<fault>
+									<!-- if anything bad happens - then we err on the side of security - we disallow this state, which is logged in -->
+									<return with="false"/>
+								</fault>
+							</code>
+						</condition>
+					</active>
+	
+					<exclude state="unregistered" />
+				</state>
+				<state name="unregistered">
+					<active>
+						<!-- List of tests that determine if you are in this state-->
+						<condition>
+							<code>
+								<body>
+									<!-- Return the value of A -->
+									<return with="false"/>						
+								</body>
+								<fault>
+									<!-- if anything bad happens - then we err on the side of security - we disallow this state, which is logged in -->
+									<return with="false"/>
+								</fault>
+							</code>
+						</condition>
+					</active>
+	
+					<exclude state="registered" />
+				</state>					
+			</states>		
+		</state>
+		<state name="loggedin">
+			<active>
+				<!-- List of tests that determine if you are in this state-->
+				<condition>
+					<code>
+						<body>
+							<!-- just fake it for now -->
+							<return with="false"/>						
+						</body>
+						<fault>
+							<!-- if anything bad happens - then we err on the side of security - we disallow this state, which is logged in -->
+							<return with="false"/>
+						</fault>
+					</code>
+				</condition>
+			</active>
+	
+			<!-- Exclusions -->
+			<exclude state="loggedout" />
+			
+			<states>
+				<state name="superuser">
+					<active>
+						<!-- List of tests that determine if you are in this state-->
+						<condition>
+							<code>
+								<body>
+									<!-- Return the value of A -->
+									<return with="true"/>						
+								</body>
+								<fault>
+									<!-- if anything bad happens - then we err on the side of security - we disallow this state, which is logged in -->
+									<return with="false"/>
+								</fault>
+							</code>
+						</condition>
+					</active>
+	
+					<exclude state="guest" />
+				</state>
+				<state name="guest">
+					<active>
+						<!-- List of tests that determine if you are in this state-->
+						<condition>
+							<code>
+								<body>
+									<!-- Return the value of A -->
+									<return with="false"/>						
+								</body>
+								<fault>
+									<!-- if anything bad happens - then we err on the side of security - we disallow this state, which is logged in -->
+									<return with="false"/>
+								</fault>
+							</code>
+						</condition>
+					</active>
+	
+					<exclude state="superuser" />
+				</state>					
+			</states>
+		</state>
+		<!-- Example external transitions -->
+		
+		<transition from="loggedout" to="loggedin" >
+			<code>
+				<body>
+				</body>
+			</code>					
+		</transition>
+		
+		<transition from="loggedin" to="loggedout" >
+			<code>
+				<body>
+				</body>
+			</code>					
+		</transition>
+		
+		<!-- Example mutexes -->	
+		<mutex state1="loggedin" state2="loggedout" />
+		
+	</states>
+</metawrap> 

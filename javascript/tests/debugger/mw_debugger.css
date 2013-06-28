@@ -1,0 +1,76 @@
+#so_mContainer {
+    position:absolute;
+    top:5px;
+    left:5px;
+    background-color:orange;
+    text-align:left;
+    font:9pt verdana;
+    width:85%;
+    border:2px solid #000;
+    padding:5px;
+    z-index:1000;
+    background-position:bottom right;
+    background-repeat:no-repeat;
+    color:#000;
+}
+
+#so_mContainer ul {
+    padding-left:20px;
+}
+
+#so_mContainer ul li {
+    display:block;
+    list-style-type:none;
+    list-style-image:url();
+    line-height:2em;
+    -moz-border-radius:.75em;
+    font:10px verdana;
+    padding:0;
+    margin:2px;
+    color:#000;
+}
+
+#so_mContainer li:hover {
+    background-color:#E3EBED;
+}
+
+#so_mContainer ul li span {
+    position:relative;
+    width:15px;
+    height:15px;
+    margin-right:4px;
+}
+#so_mContainer pre {
+    background-color:#F9FAFB;
+    border:1px solid #638DA1;
+    height:auto;
+    padding:5px;
+    font:9px verdana;
+    color:#000;
+}
+
+#so_mContainer .topLevel {
+    margin:0;
+    padding:0;
+}
+
+#so_mContainer .credits {
+    float:left;
+    width:200px;
+    font:6.5pt verdana;
+    color:#000;
+    padding:2px;
+    margin-left:5px;
+    text-align:left;
+    border-top:1px solid #000;
+    margin-top:15px;
+    width:75%;
+}
+
+#so_mContainer .credits a {
+    font:9px verdana;
+    font-weight:bold;
+    color:#004465;
+    text-decoration:none;
+    background-color:transparent;
+}

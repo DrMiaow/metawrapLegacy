@@ -1,0 +1,57 @@
+<html>
+<head>
+
+<script type="text/javascript" src="../base/mw_lib.js"></script>
+<script type="text/javascript" src="../cookie/mw_lib_cookie.js"></script>
+<script type="text/javascript" src="../network/mw_lib_network.js"></script>
+<script type="text/javascript" src="../page/mw_lib_page.js"></script>
+<script type="text/javascript" src="../page/mw_lib_page_event.js"></script>
+<script type="text/javascript" src="../xml/mw_lib_xml.js"></script>
+<script type="text/javascript" src="../xml/mw_lib_xml_serialise.js"></script>
+<script type="text/javascript" src="../xml/mw_lib_xml_action.js"></script>
+<script type="text/javascript" src="../xml/mw_lib_xml_action_flashconnector.js"></script>
+<script type="text/javascript" src="../xml/mw_lib_xml_action_xmlvault.js"></script>
+</head>
+<body>
+Hello Cruel World
+<script Language="JavaScript">
+
+
+function oncomplete_put()
+{
+	alert("oncomplete_put");
+}
+
+function oncomplete_get()
+{
+	alert("oncomplete_get");
+}
+
+function RunTest()
+{
+
+	var l_sample = "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n\r\
+	<name>\n\r\
+	<first>Bill</first>\n\r\
+	<last>Gates</last>\n\r\
+	</name>";
+	
+	var l_put = new MetaWrap.XML.Action.XMLVault.put("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",l_sample,"test.xml");
+	var l_put_action = new MetaWrap.XML.Action(l_put,"http://www.xmlvault.com/put.aspx");
+	l_put_action.run(oncomplete_put);
+	
+	window.status = l_put_action.m_result.m_put.m_status;
+	
+	var l_get = new MetaWrap.XML.Action.XMLVault.get("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","test.xml","cdata");
+	var l_get_action = new MetaWrap.XML.Action(l_get,"http://www.xmlvault.com/get.aspx");
+	l_get_action.run(oncomplete_get);
+	
+	window.status += l_get_action.m_result.m_get.m_status;
+	}
+
+</script>
+
+<p onclick="RunTest()" >RunTest()</p>
+
+</body>
+</html>

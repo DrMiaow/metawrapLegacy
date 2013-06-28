@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<script src="http://js.metawrap.com/mw_lib.js"></script>
+	<script src="http://js.metawrap.com/mw_pkg_macrorecorder.js"></script>
+	<script src="http://js.metawrap.com/mw_lib_logger.js"></script>
+
+<script LANGUAGE="JavaScript"><!--
+//-- JavaScript code written by Alan Simpson - www.coolnerds.com
+function pad(anystr) {
+	document.calc.shownum.value += anystr
+}
+
+function calcit() {
+	document.calc.shownum.value = eval(document.calc.shownum.value)
+}
+
+function clearit() {
+	document.calc.shownum.value = ""
+}
+
+function backspace() {
+	curvalue = document.calc.shownum.value
+	curlength = curvalue.length
+	curvalue = curvalue.substring(0,curlength-1)
+	document.calc.shownum.value = curvalue
+}
+//--></script>
+</head>
+
+<body>
+<map name="calcmap">
+<area shape="RECT" coords="10,80,40,106" href="javascript:pad('1')">
+<area shape="RECT" coords="49,80,78,106" href="javascript:pad('2')">
+<area shape="RECT" coords="88,79,117,106" href="javascript:pad('3')">
+<area shape="RECT" coords="128,81,158,105" href="javascript:pad('+')">
+<area shape="RECT" coords="11,115,39,141" href="javascript:pad('0')">
+<area shape="RECT" coords="49,115,78,142" href="javascript:pad('.')">
+<area shape="RECT" coords="89,116,119,141" href="javascript:calcit()">
+<area shape="RECT" coords="128,116,158,142" href="javascript:pad('-')">
+<area shape="RECT" coords="167,80,194,105" href="javascript:pad('*')">
+<area shape="RECT" coords="167,116,196,141" href="javascript:pad('/')">
+<area shape="RECT" coords="11,43,39,71" href="javascript:pad('4')">
+<area shape="RECT" coords="50,45,77,69" href="javascript:pad('5')">
+<area shape="RECT" coords="88,44,117,71" href="javascript:pad('6')">
+<area shape="RECT" coords="127,44,158,71" href="javascript:pad(')')">
+<area shape="RECT" coords="165,43,196,70" href="javascript:backspace()">
+<area shape="RECT" coords="10,7,40,33" href="javascript:pad('7')">
+<area shape="RECT" coords="48,7,81,35" href="javascript:pad('8')">
+<area shape="RECT" coords="87,7,117,34" href="javascript:pad('9')">
+<area shape="RECT" coords="127,7,156,34" href="javascript:pad('(')">
+<area shape="RECT" coords="166,7,195,35" href="javascript:clearit()">
+</map>
+<center>
+<table border="1" bgcolor="#C0C0C0">
+  <form name="calc">
+  <tr>
+    <td width="213"><center>
+      <!-- The field below is where users type numbers and see results -->
+      <input name="shownum" size="25"></center></td>
+  </tr>
+  <tr>
+    <td width="213"><center>
+      <!-- Here's the graphic image of calculator buttons, a graphic image named calcbttn.gif -->
+      <p>
+      <!-- Each button is a clickable hot spot defined in an image map named calcmap. -->
+      <img usemap="#calcmap" src="calcbttn.gif" border="0" width="206" height="153"></center></td>
+  </tr>
+  </form>
+</table>
+</center>
+
+</body>
+
+</html>

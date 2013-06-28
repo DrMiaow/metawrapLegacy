@@ -1,0 +1,257 @@
+<script language="JavaScript">
+/*!
+    @fn         function debug(p_msg)
+	@param		p_msg Message to display
+    @brief      Debugging routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function debug(p_msg)
+{
+    alert(p_msg);
+}
+
+/*!
+    @fn         function error(p_msg)
+	@param		p_msg Message to display
+    @brief      Error routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function error(p_msg)
+{
+    alert(p_msg);
+}
+
+/*!
+    @fn         function warn(p_msg)
+	@param		p_msg Message to display
+    @brief      Warn routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function warn(p_msg)
+{
+    alert(p_msg);
+}
+
+/*!
+    @fn         function trace(p_msg)
+	@param		p_msg Message to display
+    @brief      Trace routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function trace(p_msg)
+{
+    alert(p_msg);
+}
+
+/*!
+    @fn         function ASSERT(p_cond,p_msg)
+	@param		p_cond The flag that determines if we don't display p_msg
+	@param		p_msg Message to display
+    @brief      If p_cond is not true then display p_msg
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+</script>
+<script language="JavaScript" type="text/javascript" src="../base/mw_lib.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../logger/mw_lib_logger.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../pipeline/mw_lib_pipeline.js"></script>
+<script language="JavaScript" type="text/javascript" src="../network/mw_lib_network.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../xml/mw_lib_xml.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../xml/mw_lib_xml_serialise.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../xslt/mw_lib_xml_xslt.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../cookie/mw_lib_cookie.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../css/mw_lib_css.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../objectmodel/mw_lib_objectmodel.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../objectmodel/mw_lib_objectmodel_node.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../objectmodel/mw_lib_objectmodel_node_cookie.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../code/mw_lib_code.js" ></script>
+<script language="JavaScript">
+
+///////////////////////////////
+
+function isOn()
+{
+	return MetaWrap.$("POWER").value == "POWER ON";
+}
+
+function isCrisperOn()
+{
+	return MetaWrap.$("CRISPER").value == "CRISPER ON";
+}
+
+function isBreadIn()
+{
+	return MetaWrap.$("BREAD").value == "BREAD INSERTED";
+}
+
+function isLeverDown()
+{
+	return MetaWrap.$("LEVER").value == "LEVER DOWN";
+}
+
+//////////////////////////////
+
+function onCrisperOn()
+{
+	alert("Crisper Is On");
+	return true;
+}
+
+function onCrisperOff()
+{
+	alert("Crisper Is Off");
+	return true;
+}
+
+function onBreadIn()
+{
+	alert("Bread Is In");
+	
+	MetaWrap.$("LEVER").disabled = false;
+	
+	return true;
+}
+
+function onBreadOut()
+{
+	// disable the lever
+	MetaWrap.$("LEVER").disabled = true;
+	
+	alert("There is no bread");
+	return true;
+}
+
+function onLeverDown()
+{
+	alert("Lever Is Down");
+	
+	return true;
+}
+
+function onLeverUp()
+{
+	MetaWrap.$("LEVER").checked = false;
+	
+	alert("Lever Is Up");
+	
+	return true;
+}
+
+function onCookingStart()
+{
+	alert("Cooking");
+	return true;
+}
+
+function onCookingStop()
+{
+	alert("Cooking Ended");
+	return true;
+}
+
+function onOff()
+{
+	alert("Toaster Is Off");
+	return true;
+}
+
+function onOn()
+{
+	alert("Toaster Is On");
+	return true;
+}
+
+
+
+function onStartup()
+{
+	alert("Plugged in while turned off");
+	return true;
+}
+
+function onHardStartup()
+{
+	alert("Plugged in while turned on");
+	return true;
+}
+
+function onPowerButtonClick()
+{
+	if (MetaWrap.$("POWER").value == "POWER OFF")
+	{
+		MetaWrap.$("POWER").value = "POWER ON";
+	}
+	else
+	{
+		MetaWrap.$("POWER").value = "POWER OFF";
+	}
+
+	MetaWrap.State.determineState();
+}
+
+function onCrisperButtonClick()
+{
+	if (MetaWrap.$("CRISPER").value == "CRISPER OFF")
+	{
+		MetaWrap.$("CRISPER").value = "CRISPER ON";
+	}
+	else
+	{
+		MetaWrap.$("CRISPER").value = "CRISPER OFF";
+	}
+
+	MetaWrap.State.determineState();
+}
+
+function onBreadButtonClick()
+{
+	if (MetaWrap.$("BREAD").value == "NO BREAD")
+	{
+		MetaWrap.$("BREAD").value = "BREAD INSERTED";
+	}
+	else
+	{
+		MetaWrap.$("BREAD").value = "NO BREAD";
+	}
+
+	MetaWrap.State.determineState();
+}
+
+function onLeverButtonClick()
+{
+	if (MetaWrap.$("LEVER").value == "LEVER UP")
+	{
+		MetaWrap.$("LEVER").value = "LEVER DOWN";
+	}
+	else
+	{
+		MetaWrap.$("LEVER").value = "LEVER UP";
+	}
+
+	MetaWrap.State.determineState();
+}
+
+
+</script>
+
+<body>
+<p>
+<input type="button" value="POWER OFF" id="POWER" name="POWER" onclick="onPowerButtonClick()" ><br/>
+<input type="button" value="CRISPER OFF" id="CRISPER" name="CRISPER" onclick="onCrisperButtonClick();" ><br/>
+<input type="button" value="NO BREAD" id="BREAD" name="BREAD" onclick="onBreadButtonClick();" ><br/>
+<input type="button" value="LEVER UP" id="LEVER" name="LEVER" onclick="onLeverButtonClick()" disabled="true" ><br/>
+</p>
+</body>
+<script language="JavaScript" type="text/javascript" src="../state/mw_lib_state.js" ></script>
+

@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<style>
+.wrap{
+    width: 67%;
+    margin: 0 0 1em 14%;
+    padding: 2% 3% 2% 5%;
+    BACKGROUND: white;
+    border-style: solid;
+    border-width: 1px;
+    top: -1px;
+}
+h1,h2,h3,h4{
+    position: relative;
+    left: -1em;
+    clear: both;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: orange;
+    font: 0.8em trebuchet ms;
+}
+em{
+    background: #ffc;
+}
+pre{
+    font-size: 1.1em;
+    background: #f0f0f0;
+    -moz-border-radius: 10px;
+    padding: 1em;
+}
+pre span{
+    font-weight: bold;
+}
+.selector, pre b{
+    color: red;
+}
+.beh{
+    color: blue;
+}
+.event{
+    color: green;
+}
+
+#sortable-list li{
+    cursor:move;
+    -moz-user-select: none;
+    width: 100%;
+}
+
+.dropout li{
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    float: left;
+    margin: 5px;
+    border: 1px solid #ccc;
+    list-style: none;
+    background: red;
+}
+
+.dropout li.hover{
+    background: yellow;
+}
+	</style>
+
+
+	<title>
+		Page - AddHandler - TestCase #6 - MetaWrap JavaScript Library - $Id: test_6_page_addhandler.html,v 1.13 2005/10/23 07:57:32 james Exp $
+	</title>
+	<script language="JavaScript" src="../base/mw_lib.js"></script>
+	<script language="JavaScript" src="../page/mw_lib_page.js"></script>
+	<script language="JavaScript" src="../page/mw_lib_page_element.js"></script>
+	<script language="JavaScript" src="../page/mw_lib_page_element_addhandler.js"></script>
+
+<script language="JavaScript">
+
+function error(p_msg)
+{
+    alert(p_msg);
+}
+
+function debug(p_msg)
+{
+    alert(p_msg);
+}
+
+function trace(p_msg)
+{
+    window.status = p_msg;
+    document.title = p_msg;
+}
+
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+
+</script>
+</head>
+<body onload="start()" onunload="end()" >
+<div class="wrap">
+<table width="100%">
+	<tr align="middle" >
+		<td>
+			<h2>
+				Page - AddHandler - TestCases #6 - Cross Browers Event Stacking
+			</h2>
+		</td>
+		<td>
+			<a href="http://www.metawrap.com"><img border="0" src="../images/metawrap_logo_sm.png" align="right" /></a>
+		</td>
+	</tr>
+</table>
+
+<pre>$Id: test_6_page_addhandler.html,v 1.13 2005/10/23 07:57:32 james Exp $</pre>
+</div>
+
+<div class="wrap">
+
+<a id="a1">Click Me #1 (event1 and event2)</a>
+<hr/>
+<a id="a2">Click Me #2 (event2)</a>
+<hr/>
+<a id="a3">Click Me #3</a>
+<hr/>
+
+<a onclick="AddEvent1()" >Add Event1 To #3</a><br/>
+
+<a onclick="RemoveEvent1()" >Remove Event1 From #3</a><br/>
+
+
+<a onclick="AddEvent2()" >Add Event2 To #3</a><br/>
+
+<a onclick="RemoveEvent2()" >Remove Event2 From #3</a><br/>
+
+<a onclick="CheckStatus()" >CheckStatus()</a><br/>
+
+<script language="JavaScript" type="text/javascript" >
+
+var l_a1 = document.getElementById("a1");
+var l_a2 = document.getElementById("a2");
+var l_a3 = document.getElementById("a3");
+
+function onclick1(p_event)
+{
+   alert("event1");
+}
+
+function onclick2(p_event)
+{
+   alert("event2");
+}
+
+function start()
+{
+    MetaWrap.Page.Element.addEventListener(l_a1,"click",onclick1,false);
+    MetaWrap.Page.Element.addEventListener(l_a2,"click",onclick2,false);
+    MetaWrap.Page.Element.addEventListener(l_a1,"click",onclick2,false);
+}
+
+function AddEvent1()
+{
+	MetaWrap.Page.Element.addEventListener(l_a3,"click",onclick1,false);
+}
+
+function RemoveEvent1()
+{
+	MetaWrap.Page.Element.removeEventListener(l_a3,"click",onclick1,false);
+}
+
+function AddEvent2()
+{
+	MetaWrap.Page.Element.addEventListener(l_a3,"click",onclick2,false);
+}
+
+function RemoveEvent2()
+{
+	MetaWrap.Page.Element.removeEventListener(l_a3,"click",onclick2,false);
+}
+
+function CheckStatus()
+{
+	// unique identifier to check for the element in a hash table
+
+	if (document.addEventListener)
+	{
+	    alert("unknown - this browser had native addEventListener");
+	    return;
+	}
+
+	var l_elements_listeners = MetaWrap.Page.m_elements_listeners;
+
+	var l_listeners = l_elements_listeners[l_a3.uniqueID];
+
+	// No listeners?
+	if (!l_listeners)
+	{
+		alert("No listeners for this element ('l_a3')"  + l_elements_listeners.length);
+	}
+	else
+	{
+		// Get the listener stack for this event type
+		var l_listener_stack = l_listeners.m_listener_stacks["click"];
+
+		// Is there an event stack?
+		if (!l_listener_stack)
+		{
+			alert("no listeners for 'click'");
+		}
+		else
+		{
+		    alert(l_listener_stack.length + " onclicks on l_a3");
+		}
+	}
+}
+
+
+function end()
+{
+    //alert("end");
+    //MetaWrap.Page.deleteListeners();
+}
+
+</script>
+</div>
+</body>
+</html>

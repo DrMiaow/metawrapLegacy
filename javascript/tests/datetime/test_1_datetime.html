@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<title>
+		Javascript Datetime #1 - MetaWrap JavaScript Library - $Id: test_1_datetime.html,v 1.1 2006/05/23 13:08:19 james Exp $
+	</title>
+
+	<script language="JavaScript" src="../fundamental/test.js" ></script>
+
+	<style>
+.wrap{
+    width: 67%;
+    margin: 0 0 1em 14%;
+    padding: 2% 3% 2% 5%;
+    BACKGROUND: white;
+    border-style: solid;
+    border-width: 1px;
+    top: -1px;
+}
+h1,h2,h3,h4{
+    position: relative;
+    left: -1em;
+    clear: both;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: orange;
+    font: 0.8em trebuchet ms;
+}
+em{
+    background: #ffc;
+}
+pre{
+    font-size: 1.1em;
+    background: #f0f0f0;
+    -moz-border-radius: 10px;
+    padding: 1em;
+}
+pre span{
+    font-weight: bold;
+}
+.selector, pre b{
+    color: red;
+}
+.beh{
+    color: blue;
+}
+.event{
+    color: green;
+}
+
+#sortable-list li{
+    cursor:move;
+    -moz-user-select: none;
+    width: 100%;
+}
+
+.dropout li{
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    float: left;
+    margin: 5px;
+    border: 1px solid #ccc;
+    list-style: none;
+    background: red;
+}
+
+.dropout li.hover{
+    background: yellow;
+}
+	</style>
+
+<script language="JavaScript">
+
+function error(p_msg)
+{
+    alert(p_msg);
+}
+
+function debug(p_msg)
+{
+    alert(p_msg);
+}
+
+function trace(p_msg)
+{
+    window.status = p_msg;
+}
+
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+
+</script>
+<script language="JavaScript" type="text/javascript" src="..\base\mw_lib.js"></script>
+<script language="JavaScript" type="text/javascript" src="..\datetime\mw_lib_datetime.js"></script>
+</head>
+<body>
+<div class="wrap">
+<table width="100%" ID="Table1">
+	<tr align="middle" >
+		<td>
+			<h2>
+				Datetime #1
+			</h2>
+		</td>
+		<td>
+			<a href="http://www.metawrap.com"><img border="0" src="../images/metawrap_logo_sm.png" align="right" /></a>
+		</td>
+	</tr>
+</table>
+<pre>$Id: test_1_datetime.html,v 1.1 2006/05/23 13:08:19 james Exp $</pre>
+</div>
+
+
+
+<script language="JavaScript">
+
+	var l_name = 'MetaWrap.Datetime.DateString2DateUTC';
+	var l_test = 'var l_datetime = MetaWrap.Datetime.DateString2DateUTC("2008-10-23");';
+	var l_valid = 'l_datetime.toUTCString() == "Thu, 23 Oct 2008 00:00:00 UTC";';
+	var l_display = 'l_datetime.toUTCString()';
+	passFail(l_name,l_test,l_valid,l_display);
+
+	l_name = 'MetaWrap.Datetime.DateString2Date';
+	l_test = 'var l_datetime = MetaWrap.Datetime.DateString2DateUTC("2008-10-23");';
+	l_valid = 'l_datetime.getDay() == 4;';
+	l_display = 'l_datetime.getDay()';
+	passFail(l_name,l_test,l_valid,l_display);
+
+
+	l_name = 'MetaWrap.Datetime.DateString2Date';
+	l_test = 'var l_friday = MetaWrap.Datetime.GetNextDayWithName(MetaWrap.Datetime.DateString2DateUTC("2008-10-23"),5);';
+	l_valid = 'l_friday.getDay() == 5;';
+	l_display = 'l_friday.toUTCString()';
+	passFail(l_name,l_test,l_valid,l_display);
+
+
+</script>
+
+
+</body>
+</html>

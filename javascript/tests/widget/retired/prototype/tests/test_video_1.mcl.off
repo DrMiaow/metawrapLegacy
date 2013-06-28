@@ -1,0 +1,6 @@
+<application
+    url=".\test_video_1.html"
+    name="example V8 Supercars - Testcase - Video 1"
+    startImage=".\images\Test_Video_1_ProgramImage.png"
+    thumbnailImage=".\images\Test_Video_1_ThumbnailImage.png"    
+/>

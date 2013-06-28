@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Memory leaks</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+
+window.onload = init;
+
+var closureTest = null;
+
+var g = 17;
+
+function init()
+{
+	var a = 42;
+
+	closureTest = function()
+	{
+		var x = 1;
+		var y = 2;
+
+		// Use Eval to work out what we can see from the scope
+		alert("x = " + eval("x"));
+		alert("y = " + eval("y"));
+		alert("a = " + eval("a"));
+		alert("g = " + eval("g"));
+	}
+
+}
+
+
+</script>
+
+</head>
+
+<body>
+
+<h2>JavaScript memory leaks - test</h2>
+
+<div id="header"></div>
+
+<p>Click on the link below.</p>
+<p>x and y are in the local scope. a is in the scope in which the closure was declared. g is in the sub scope of that. w is in the scope of the call to closureTest(). This test
+shows that a JavaScript anonymous function takes a references to the entire scope in which it was declared, not just the objects it explicitly references, Which implies
+that all anonymous functions are closures, which makes avoiding closures rather tricky.</p>
+
+<a href="#" onclick="closureTest(); return false;" >call closureTest()</a>
+
+<pre>
+window.onload = init;
+
+var closureTest = null;
+
+var g = 17;
+
+function init()
+{
+	var a = 42;
+
+	closureTest = function()
+	{
+		var x = 1;
+		var y = 2;
+
+		// Use Eval to work out what we can see from the scope
+		alert("x = " + eval("x"));
+		alert("y = " + eval("y"));
+		alert("a = " + eval("a"));
+		alert("g = " + eval("g"));
+	}
+
+}
+</pre>
+
+
+
+</body>
+</html>

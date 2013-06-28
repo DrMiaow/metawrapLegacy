@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<title>
+		Javascript Fundamentals TestCase #1 - MetaWrap JavaScript Library - $Id: test_1_graph_horizontal.html,v 1.1 2006/12/21 07:42:25 james Exp $
+	</title>
+
+	<style>
+.wrap{
+    width: 67%;
+    margin: 0 0 1em 14%;
+    padding: 2% 3% 2% 5%;
+    BACKGROUND: white;
+    border-style: solid;
+    border-width: 1px;
+    top: -1px;
+}
+h1,h2,h3,h4{
+    position: relative;
+    left: -1em;
+    clear: both;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: orange;
+    font: 0.8em trebuchet ms;
+}
+em{
+    background: #ffc;
+}
+pre{
+    font-size: 1.1em;
+    background: #f0f0f0;
+    -moz-border-radius: 10px;
+    padding: 1em;
+}
+pre span{
+    font-weight: bold;
+}
+.selector, pre b{
+    color: red;
+}
+.beh{
+    color: blue;
+}
+.event{
+    color: green;
+}
+
+#sortable-list li{
+    cursor:move;
+    -moz-user-select: none;
+    width: 100%;
+}
+
+.dropout li{
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    float: left;
+    margin: 5px;
+    border: 1px solid #ccc;
+    list-style: none;
+    background: red;
+}
+
+.dropout li.hover{
+    background: yellow;
+
+}
+	</style>
+<style>
+
+	// style for graphs
+	.graph { font-family: Arial; }
+	.ycaption { font-weight:bolder; font-size: 10pt; writing-mode:tb-rl; }
+	.xcaption { font-weight:bolder; font-size: 10pt; }
+
+	.yvalue_h { font-size: 8pt; position=absolute; top=8; }
+	.yvalue_v { font-size: 8pt; top=8; }
+
+	.xvalue_h { font-size: 6pt; }
+	.xvalue_v { font-size: 6pt; writing-mode:tb-rl; }
+
+	.xyvalue { font-size: 6pt; }
+	.bar
+	{
+		background-color: blue;
+		BORDER-RIGHT: 2px outset olive;
+		BORDER-LEFT: 1px outset light-blue;
+		BORDER-TOP: 2px outset light-blue;
+		BORDER-BOTTOM: 0px outset olive;
+	}
+	.gridleft { border-right:1px solid gray; border-top:1px solid gray; }
+	.grid { background-color: #d0d0d0; border-top:1px solid gray; }
+	.gridright { background-color: #d0d0d0; border-right:1px solid gray; border-top:1px solid gray; }
+	.gridbottom { border-right:1px solid gray; border-top:1px solid gray; }
+	.datatable { position=absolute; top=5; left=0; }
+	.gridtable { position=absolute; top=6; left=0; }
+
+</style>
+
+
+
+<script language="JavaScript">
+
+function error(p_msg)
+{
+    alert(p_msg);
+}
+
+function debug(p_msg)
+{
+    alert(p_msg);
+}
+
+function trace(p_msg)
+{
+    window.status = p_msg;
+}
+
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+
+</script>
+<script language=JavaScript src="../base/mw_lib.js"></script>
+<script language=JavaScript src="../page/mw_lib_page.js"></script>
+<script language=JavaScript src="../page/mw_lib_page_output.js"></script>
+<!--<script language=JavaScript src="../widget/mw_lib_widget.js"></script>-->
+<script language=JavaScript>
+// @brief Create MetaWrap.Widget Namespace
+ MetaWrap.Widget = new Object();
+</script>
+<script language=JavaScript src="mw_lib_widget_graph.js"></script>
+<script type="text/javascript" src="../external/wz_jsgraphics.js"></script>
+<script language=JavaScript>
+<script language=JavaScript>
+
+function drawgraph()
+{
+    var bg = new Graph(0);
+
+    g_destination_target = document.getElementById('here');
+
+    g_destination_target.innerHTML = "Hello Cruel World";
+    g_destination_target.innerHTML += " Hello Cruel World";
+
+/*
+	bg.m_line_width = 2;
+    bg.m_parent = g_destination_target;
+    bg.m_title = 'Simple Function Call Speed By Length Of Function';
+    bg.m_xcaption = 'Function Calls Per Second';
+    bg.m_ycaption = 'Length Of Simple Function Name';
+
+    bg.m_values.push([188,'1']);
+    bg.m_values.push([180,'2']);
+    bg.m_values.push([159,'3']);
+    bg.m_values.push([67 ,'4']);
+    bg.m_values.push([66 ,'5']);
+    bg.m_values.push([62 ,'6']);
+    bg.m_values.push([48 ,'7']);
+    bg.m_values.push([26 ,'8']);
+    bg.m_values.push([16 ,'9']);
+    bg.m_values.push([11 ,'10']);
+
+
+    //bg.m_orientation = 'vertical';
+    bg.m_orientation = 'horizontal';
+
+    bg.m_showline = true;
+    bg.m_showbar = true;
+
+    bg.draw();
+    */
+
+}
+</script>
+</head>
+<body onload="drawgraph()" >
+<div class="wrap">
+<table width="100%">
+	<tr align="middle" >
+		<td>
+			<h2>
+				Javascript Fundamentals TestCase #1 - root level "break; in HTML"
+			</h2>
+		</td>
+		<td>
+			<a href="http://www.metawrap.com"><img border="0" src="../images/metawrap_logo_sm.png" align="right" /></a>
+		</td>
+	</tr>
+</table>
+<pre>$Id: test_1_graph_horizontal.html,v 1.1 2006/12/21 07:42:25 james Exp $</pre>
+</div>
+
+<div class="wrap" >
+	<div id="here">
+		Here is where the graph will go.
+	</div>
+</div>
+</body>
+</html>

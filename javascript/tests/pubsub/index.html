@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<style>
+.wrap{
+    width: 67%;
+    margin: 0 0 1em 14%;
+    padding: 2% 3% 2% 5%;
+    BACKGROUND: white;
+    border-style: solid;
+    border-width: 1px;
+    top: -1px;
+}
+h1,h2,h3,h4{
+    position: relative;
+    left: -1em;
+    clear: both;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: orange;
+    font: 0.8em trebuchet ms;
+}
+em{
+    background: #ffc;
+}
+pre{
+    font-size: 1.1em;
+    background: #f0f0f0;
+    -moz-border-radius: 10px;
+    padding: 1em;
+}
+pre span{
+    font-weight: bold;
+}
+.selector, pre b{
+    color: red;
+}
+.beh{
+    color: blue;
+}
+.event{
+    color: green;
+}
+
+#sortable-list li{
+    cursor:move;
+    -moz-user-select: none;
+    width: 100%;
+}
+
+.dropout li{
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    float: left;
+    margin: 5px;
+    border: 1px solid #ccc;
+    list-style: none;
+    background: red;
+}
+
+.dropout li.hover{
+    background: yellow;
+}
+	</style>
+
+
+	<title>
+		API Chaining - TestCase #1 - MetaWrap JavaScript Library - $Id: test_1_pipeline.html,v 1.5 2007/01/16 07:48:21 james Exp $
+	</title>
+	<script language="JavaScript" type="text/javascript" src="../base/mw_lib.js"></script>	
+	<script language="JavaScript" type="text/javascript" src="../logger/mw_lib_logger.js"></script>
+	
+	<script language="JavaScript" type="text/javascript" src="../fundamental/test.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../network/mw_lib_network.js"></script>	
+	<script language="JavaScript" type="text/javascript" src="../json/mw_lib_json.js"></script>	
+	
+	
+
+	<script src="http://10.0.2.153:3000/socket.io/socket.io.js"></script>
+</head>
+<body >
+<div class="wrap">
+<table width="100%">
+	<tr align="middle" >
+		<td>
+			<h2>
+				Pipeline - TestCases #1 - Pipeline Processing Testcases
+			</h2>
+		</td>
+		<td>
+			<a href="http://www.metawrap.com"><img border="0" src="../images/metawrap_logo_sm.png" align="right" /></a>
+		</td>
+	</tr>
+</table>
+
+<pre>$Id: test_1_pipeline.html,v 1.5 2007/01/16 07:48:21 james Exp $</pre>
+</div>
+
+<div class="wrap">
+
+
+
+<script>
+  var socket = io.connect('http://10.0.2.153:3000');
+  socket.on('news', function (data) 
+  {  
+	try
+	{
+		console.log(data);	
+		log(MetaWrap.JSON.stringify(data));	
+	}
+	catch(e)
+	{
+	
+	}});
+  
+
+  socket.on('echo', function (data) 
+  {  
+	try
+	{		
+		trace(MetaWrap.JSON.stringify(data));	
+	}
+	catch(e)
+	{
+	
+	}});
+
+  socket.on('broadcast', function (data) 
+  {  
+	try
+	{		
+		warn(MetaWrap.JSON.stringify(data));	
+	}
+	catch(e)
+	{
+	
+	}});
+
+  
+  function announce()
+  {
+		socket.emit('news', { announce: 'james' });
+  }
+  
+  function launch()
+  {
+		socket.emit('news', { launch: 'appxyz' });
+  }
+  
+</script>
+
+
+<a href="javascript:announce()">Announce</a><br>
+<a href="javascript:launch()">Launch</a><br>
+
+</div>
+</body>
+</html>
+
+
+
+

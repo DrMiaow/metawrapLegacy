@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Simple XPath parser test</title>
+    <script src="misc.js" type="text/javascript"/>
+    <script src="dom.js" type="text/javascript"/>
+    <script src="xpath.js" type="text/javascript"/>
+    <script src="xpathdebug.js" type="text/javascript"/>
+    <script src="xslt.js" type="text/javascript"/>
+    <script src="test-xpath.js" type="text/javascript"/>
+    <link rel="stylesheet" href="test.css"/>
+    <style>
+      td { vertical-align: top; }
+    </style>
+  </head>
+  <body>
+    <form onsubmit="test_xpath(this);return false">
+      <table>
+        <tr>
+          <td>
+            <select multiple="1" size="30" name="cases">
+              <option>concat(substring-before(@image,'marker'),'icon',substring-after(@image,'marker'))</option>
+              <option>@*|text()</option>
+              <option>*|/</option>
+              <option>source|destination</option>
+              <option>$page != 'to' and $page != 'from'</option>
+              <option>substring-after(icon/@image, '/mapfiles/marker')</option>
+              <option>substring-before($str, $c)</option>
+              <option>$page = 'from'</option>
+              <option>segments/@time</option>
+              <option>child::para</option>
+              <option>child::*</option>
+              <option>child::text()</option>
+              <option>child::node()</option>
+              <option>attribute::name</option>
+              <option>attribute::*</option>
+              <option>descendant::para</option>
+              <option>ancestor::div</option>
+              <option>ancestor-or-self::div</option>
+              <option>descendant-or-self::para</option>
+              <option>self::para</option>
+              <option>child::chapter/descendant::para</option>
+              <option>child::*/child::para</option>
+              <option>/</option>
+              <option>/descendant::para</option>
+              <option>/descendant::olist/child::item</option>
+              <option>child::para[position()=1]</option>
+              <option>child::para[position()=last()]</option>
+              <option>child::para[position()=last()-1]</option>
+              <option>child::para[position()>1]</option>
+              <option>following-sibling::chapter[position()=1]</option>
+              <option>preceding-sibling::chapter[position()=1]</option>
+              <option>/descendant::figure[position()=42]</option>
+              <option>/child::doc/child::chapter[position()=5]/child::section[position()=2]</option>
+              <option>child::para[attribute::type='warning']</option>
+              <option>child::para[attribute::type='warning'][position()=5]</option>
+              <option>child::para[position()=5][attribute::type='warning']</option>
+              <option>child::chapter[child::title='Introduction']</option>
+              <option>child::chapter[child::title]</option>
+              <option>child::*[self::chapter or self::appendix]</option>
+              <option>child::*[self::chapter or
+              self::appendix][position()=last()]</option>
+            </select>
+          </td>
+          <td>
+            <input type="submit" value="parse"/>
+          </td>
+          <td id="result">
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

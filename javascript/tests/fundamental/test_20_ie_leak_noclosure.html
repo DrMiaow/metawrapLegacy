@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<title>
+		Javascript Fundamentals TestCase #18 - MetaWrap JavaScript Library - $Id: test_20_ie_leak_noclosure.html,v 1.1 2005/09/02 10:33:24 james Exp $
+	</title>
+
+	<script language="JavaScript" src="test.js" ></script>
+
+	<style>
+.wrap{
+    width: 67%;
+    margin: 0 0 1em 14%;
+    padding: 2% 3% 2% 5%;
+    BACKGROUND: white;
+    border-style: solid;
+    border-width: 1px;
+    top: -1px;
+}
+h1,h2,h3,h4{
+    position: relative;
+    left: -1em;
+    clear: both;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: orange;
+    font: 0.8em trebuchet ms;
+}
+em{
+    background: #ffc;
+}
+pre{
+    font-size: 1.1em;
+    background: #f0f0f0;
+    -moz-border-radius: 10px;
+    padding: 1em;
+}
+pre span{
+    font-weight: bold;
+}
+.selector, pre b{
+    color: red;
+}
+.beh{
+    color: blue;
+}
+.event{
+    color: green;
+}
+
+foo{
+    color: green;
+}
+
+
+#sortable-list li{
+    cursor:move;
+    -moz-user-select: none;
+    width: 100%;
+}
+
+.dropout li{
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    float: left;
+    margin: 5px;
+    border: 1px solid #ccc;
+    list-style: none;
+    background: red;
+}
+
+.dropout li.hover{
+    background: yellow;
+}
+	</style>
+
+<script language="JavaScript">
+
+function error(p_msg)
+{
+    alert(p_msg);
+}
+
+function debug(p_msg)
+{
+    alert(p_msg);
+}
+
+function trace(p_msg)
+{
+    window.status = p_msg;
+}
+
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+
+</script>
+</head>
+<body onload="start()" onunload="finish()" >
+<div class="wrap">
+<table width="100%">
+	<tr align="middle" >
+		<td>
+			<h2>
+				Javascript Fundamentals TestCase #19 - IE Memory Leak - No Closure
+			</h2>
+		</td>
+		<td>
+			<a href="http://www.metawrap.com"><img border="0" src="../images/metawrap_logo_sm.png" align="right" /></a>
+		</td>
+	</tr>
+</table>
+<pre>$Id: test_20_ie_leak_noclosure.html,v 1.1 2005/09/02 10:33:24 james Exp $</pre>
+</div>
+
+<div id="bar" class="wrap">
+<script language="JavaScript">
+
+var l_bar = null;
+
+function createElement(p_id)
+{
+    // Create the element
+	var div = document.createElement("span");
+	
+	// Assign some essential attributes	
+	div.className = "foo";
+	div.id = "foo" + p_id;
+	div.innerHTML = "&nbsp;foobar #"+p_id+"&nbsp;";
+	
+	// Add the onclick handler
+	div.onclick = function() { alert("foobar"); };
+	
+	// add it to the DOM
+	l_bar.appendChild(div);
+	
+};
+
+function start()
+{
+    // Where we are adding our elements to
+	l_bar =  document.getElementById("bar");
+
+    // Start timing
+	var T1 = (new Date()).getTime();
+	
+	// Create 3000 of them
+	for (var i = 0; i < 3000; ++i)
+	{
+		createElement(i);
+	}
+	
+	// How long did that take?
+	alert("it took " + ((new Date()).getTime() - T1) / 1000 + " seconds to render this\r\nHit F5 a few times and see what happens to the render time.");
+};
+
+function finish()
+{
+    
+}
+</script>
+</div>
+
+
+</body>
+</html>

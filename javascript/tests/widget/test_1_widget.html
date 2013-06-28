@@ -1,0 +1,153 @@
+<html>
+<head>
+<script language="JavaScript">
+
+function error(p_msg)
+{
+    alert(p_msg);
+}
+
+function trace(p_msg)
+{
+    //window.status = p_msg;
+}
+
+
+function debug(p_msg)
+{
+    //window.status = p_msg;
+}
+
+
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+
+</script>
+<script language="JavaScript" type="text/javascript" src="../base/mw_lib.js"></script>
+<script language="JavaScript" type="text/javascript" src="../widget/mw_lib_widget.js"></script>
+
+
+
+<script language="JavaScript" >
+/*
+try
+{
+	if (MwUse("MetaWrap","lib_mw.js"))
+	{
+		document.write("<h1>MetaWrap namespace detected</h1>");
+	}
+	else
+	{
+		document.write("<h1>MetaWrap namespace not detected</h1>");
+	}
+}
+catch(l_e)
+{
+		document.write("<h1>MetaWrap namespace not detected - detection threw an error</h1>");
+}
+*/
+</script>
+
+  <script language="JavaScript">
+/*
+
+
+	var Animal = MetaWrap.Class.extend({
+
+		constructor: function(name) {
+			this.name = name;
+		},
+
+		name: "",
+
+		eat: function() {
+			this.say("Yum!!");
+		},
+
+		say: function(message) {
+			document.write("<p><b>" + this.name + "</b>: " + message + "</p>");
+		}
+	});
+
+	var Cat = Animal.extend({
+		eat: function(food) {
+			if (food instanceof Mouse) this.base();
+			else this.say("Yuk! I only eat mice.");
+		}
+	});
+
+	var Mouse = Animal.extend();
+
+	// test
+	var tom = new Cat("Tom");
+	var jerry = new Mouse("Jerry");
+	jerry.eat("cheese");
+	// ==> Jerry: Yum!
+	tom.eat("cheese");
+	// ==> Tom: Yuk! I only eat mice.
+	tom.eat(jerry);
+	// ==> Tom: Yum!
+*/
+
+
+var g_world = null;
+
+function start()
+{
+	g_world = new MetaWrap.Widget.DIV("world");
+	
+	//g_world.hide();
+}
+
+
+  </script>
+
+</head>
+
+<style type="text/css">
+		body {overflow:hidden; status:hidden; border:0px; background-color:#FF0000;}
+		html {overflow:hidden; status:hidden; border:0px; background-color:#FF0000;}
+		
+		iframe {width:100%; height:100%;}
+
+
+		div.box { float: left; position:relative; background-color:#00FF00; border-color:#FF00FF; margin:0px; border:10px; border-style: dashed; border-width: 10px; left:0px; top:0px; width:300px; height:300px; visibility:visible; }
+		div.world { float: left; position:absolute; background-color:#FF0000; border-color:#FFFF00; margin:0px; border:10px; border-style: dashed; border-width: 10px; left:100px; top:10px; width:700px; height:700px; visibility:visible; }
+
+
+/* hide from ie on mac \*/
+html {
+	height: 100%;
+	overflow: hidden;
+}
+
+#flashcontent {
+	height: 100%;
+}
+
+#noFlash {
+	margin: 40px;
+}
+
+/* end hide */
+
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+/*	background-color: #000000; */
+}
+
+
+</style>
+<body onload="start()"><div id="world" class="world"><div id="controlpanel" class="box"><iframe name="main" src="./controlpanel.html" ></iframe></div>
+<div id="video"  class="box"><iframe name="video" src="./video.html"></iframe></div>
+<div id="tracker" class="box"><iframe name="tracker" src="./tracker.html"></iframe></div>
+<div id="livetiming" class="box"><iframe name="livetiming" src="./livetiming.html"></iframe></div>
+</div></body>
+</html>

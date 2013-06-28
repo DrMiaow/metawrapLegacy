@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<content2ids>
+	<content2id>
+		<id>fans</id>
+		<target>innerHTML</target>
+		<content>This is from a fragment hello </content>
+	</content2id>	
+	<content2id>
+		<id>related_mainstream_artists</id>
+		<target>innerHTML</target>
+		<content>This is also from a fragment</content>
+	</content2id>
+	<content2id>
+        <id>logged_in_state</id>
+		<target>innerHTML</target>
+        <content>&lt;h1&gt;Hello This is a fragment from XML&lt;/h1&gt; Join &lt;a href="javascript:MetaWrap.View.renderPageFragment('logged_in');"&gt;join&lt;/a&gt;</content>
+	</content2id>
+	
+	<content2id>
+		<id>contributor_info</id>
+		<target>innerHTML</target>
+		<content>This is contributor info description from a fragment</content>
+	</content2id>
+
+</content2ids>

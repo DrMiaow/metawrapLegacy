@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<title>
+		Tester TestCase #2 - MetaWrap JavaScript Library - $Id: test_2_xml_serialise.html,v 1.3 2006/05/09 13:44:21 james Exp $
+	</title>
+	<script type="text/javascript" src="../base/mw_lib.js"></script>
+	<script type="text/javascript" src="../cookie/mw_lib_cookie.js"></script>
+	<script type="text/javascript" src="../xml/mw_lib_xml.js"></script>
+	<script type="text/javascript" src="../xml/mw_lib_xml_serialise.js"></script>
+
+	<style>
+.wrap{
+    width: 67%;
+    margin: 0 0 1em 14%;
+    padding: 2% 3% 2% 5%;
+    BACKGROUND: white;
+    border-style: solid;
+    border-width: 1px;
+    top: -1px;
+}
+h1,h2,h3,h4{
+    position: relative;
+    left: -1em;
+    clear: both;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: orange;
+    font: 0.8em trebuchet ms;
+}
+em{
+    background: #ffc;
+}
+pre{
+    font-size: 1.1em;
+    background: #f0f0f0;
+    -moz-border-radius: 10px;
+    padding: 1em;
+}
+pre span{
+    font-weight: bold;
+}
+.selector, pre b{
+    color: red;
+}
+.beh{
+    color: blue;
+}
+.event{
+    color: green;
+}
+
+#sortable-list li{
+    cursor:move;
+    -moz-user-select: none;
+    width: 100%;
+}
+
+.dropout li{
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    float: left;
+    margin: 5px;
+    border: 1px solid #ccc;
+    list-style: none;
+    background: red;
+}
+
+.dropout li.hover{
+    background: yellow;
+}
+	</style>
+</head>
+<body>
+<div class="wrap">
+<table width="100%">
+	<tr align="middle" >
+		<td>
+			<h2>
+				Tester TestCases #2 - XML Serialise
+			</h2>
+		</td>
+		<td>
+			<a href="http://www.metawrap.com"><img border="0" src="../images/metawrap_logo_sm.png" align="right" /></a>
+		</td>
+	</tr>
+</table>
+
+<pre>$Id: test_2_xml_serialise.html,v 1.3 2006/05/09 13:44:21 james Exp $</pre>
+
+
+
+</div>
+
+<div class="wrap">
+<script language="JavaScript">
+
+
+// Out setup object
+var l_setup = null;
+
+// Look for the cookie
+var l_setup_xml_string = MetaWrap.Cookie.Get("V8WMCSETTINGS");
+
+// Did we get something?
+if (l_setup_xml_string == null)
+{
+	create_setup();
+		
+	alert("NEWLY CREATED");
+}
+else
+{
+	alert("FROM COOKIE");
+	
+	l_setup = new Object();
+	
+	// Deserialise it
+	l_setup = MetaWrap.XML.Deserialise(l_setup_xml_string,l_setup);
+}
+
+show_setup();
+
+function show_setup()
+{
+	// Serialise it
+	l_setup_xml_string = MetaWrap.XML.Serialise(l_setup);
+
+	// Show it
+	alert(l_setup_xml_string);
+}
+
+function save_setup()
+{
+	// Serialise it
+	l_setup_xml_string = MetaWrap.XML.Serialise(l_setup);
+	
+	alert("save " + l_setup_xml_string);
+
+	// Show it
+	MetaWrap.Cookie.Set("V8WMCSETTINGS",l_setup_xml_string);
+}
+
+function create_setup()
+{
+	// no - Create the setup object using defaults
+	l_setup = {
+		m_timezone:"0",
+		m_sfx:"0",
+		m_streamspeed:"0",
+		m_channel:"TEN",
+		m_animspeed:"1"
+	};
+
+}
+
+function change_setup()
+{
+	// no - Create the setup object using defaults
+	l_setup.m_timezone = Math.round(Math.random()*10) % 8;
+	l_setup.m_sfx = Math.round(Math.random()*10) % 2;
+	l_setup.m_streamspeed = Math.round(Math.random()*10) % 4;
+	l_setup.m_channel = Math.round(Math.random()* 10) % 8;
+	l_setup.m_animspeed = Math.round(Math.random()* 10) % 3;
+}
+
+
+</script>
+
+<p onclick="show_setup()" >show_setup();</p>
+
+<p onclick="save_setup()" >save_setup();</p>
+
+<p onclick="create_setup()" >create_setup();</p>
+
+<p onclick="change_setup()" >change_setup();</p>
+
+
+</div>
+</body>
+</html>

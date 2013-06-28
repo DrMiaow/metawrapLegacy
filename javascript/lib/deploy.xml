@@ -1,0 +1,13 @@
+<project name="metawrap.javascript.tests.xml" default="deploy" basedir=".">
+	<!-- Deploy all the sub files -->
+	<target name="deploy" description="package up all the javascript files into a deployable library">
+		<copy todir="../../demos/xmlvault/WebSite/js/" verbose="yes" >
+			<fileset dir="." casesensitive="yes" >
+			  <include name="mw_lib*.js"/>
+  		  	  <include name="images/*.gif"/>
+		      <modified/>
+			</fileset>
+		</copy>
+	</target>
+</project>
+

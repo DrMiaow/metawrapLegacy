@@ -1,0 +1,24 @@
+
+<project type="cont" name="stateviewmap" expanded="yes" catalog="no" pluginOwner="-1">
+	<file plugId="3" URL="stateviewmap.xsd" catalog="no">
+		<queries/>
+		<namespaces/>
+	</file>
+	<file plugId="3" URL="test_1_stateviewmap.xml" catalog="no">
+		<queries/>
+		<namespaces/>
+	</file>
+	<file plugId="2" URL="stateviewmap.xsl">
+		<scenarios>
+			<scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="no" url="test_1_stateviewmap.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="yes" profilemode="0" profiledepth="" profilelength=""
+			          urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal"
+			          customvalidator=""/>
+		</scenarios>
+		<MapperMetaTag>
+			<MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/>
+			<MapperBlockPosition></MapperBlockPosition>
+			<TemplateContext></TemplateContext>
+			<MapperFilter side="source"></MapperFilter>
+		</MapperMetaTag>
+	</file>
+</project>

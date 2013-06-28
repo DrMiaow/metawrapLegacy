@@ -1,0 +1,42 @@
+<script language="JavaScript">
+
+function error(p_msg)
+{
+    alert(p_msg);
+}
+
+function trace(p_msg)
+{
+    //window.status = p_msg;
+}
+
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+
+</script>
+<script language="JavaScript" type="text/javascript" src="../base/mw_lib.js"></script>
+
+
+
+<script language="JavaScript" >
+try
+{
+	if (MwUse("MetaWrap","lib_mw.js"))
+	{
+		document.write("<h1>MetaWrap namespace detected</h1>");
+	}
+	else
+	{
+		document.write("<h1>MetaWrap namespace not detected</h1>");
+	}
+}
+catch(l_e)
+{
+		document.write("<h1>MetaWrap namespace not detected - detection threw an error</h1>");
+}
+</script>

@@ -1,0 +1,203 @@
+<script language="JavaScript">
+/*!
+    @fn         function debug(p_msg)
+	@param		p_msg Message to display
+    @brief      Debugging routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function debug(p_msg)
+{
+    //alert(p_msg);
+}
+
+/*!
+    @fn         function error(p_msg)
+	@param		p_msg Message to display
+    @brief      Error routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function error(p_msg)
+{
+    //alert(p_msg);
+}
+
+/*!
+    @fn         function warn(p_msg)
+	@param		p_msg Message to display
+    @brief      Warn routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function warn(p_msg)
+{
+    //alert(p_msg);
+}
+
+/*!
+    @fn         function trace(p_msg)
+	@param		p_msg Message to display
+    @brief      Trace routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function trace(p_msg)
+{
+    //alert(p_msg);
+}
+
+/*!
+    @fn         function ASSERT(p_cond,p_msg)
+	@param		p_cond The flag that determines if we don't display p_msg
+	@param		p_msg Message to display
+    @brief      If p_cond is not true then display p_msg
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+</script>
+<script language="JavaScript" type="text/javascript" src="../base/mw_lib.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../pipeline/mw_lib_pipeline.js"></script>
+<script language="JavaScript" type="text/javascript" src="../network/mw_lib_network.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../xml/mw_lib_xml.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../xml/mw_lib_xml_serialise.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../xslt/mw_lib_xml_xslt.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../cookie/mw_lib_cookie.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../css/mw_lib_css.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../logger/mw_lib_logger.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../objectmodel/mw_lib_objectmodel.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../objectmodel/mw_lib_objectmodel_node.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../objectmodel/mw_lib_objectmodel_node_cookie.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../code/mw_lib_code.js" ></script>
+<script language="JavaScript">
+
+///////////////////////////////
+
+
+
+//////////////////////////////
+
+
+function onOff()
+{
+	MetaWrap.$("POWER").value = "POWER IS OFF";
+
+	alert("Toaster Is Off");
+
+	return true;
+}
+
+function onOn()
+{
+	MetaWrap.$("POWER").value = "POWER IS ON";
+
+	alert("Toaster Is On");
+
+	return true;
+}
+
+function onBreadIn()
+{
+	alert("There is bread in the toaster");
+
+	return true;
+}
+
+function onBreadOut()
+{
+
+	alert("There is no bread");
+	return true;
+}
+
+function onLeverDown()
+{
+	l_lever_down = true;
+
+	MetaWrap.$("LEVER").value = "LEVER IS DOWN";
+
+	alert("Lever Is Down");
+
+	return true;
+}
+
+function onLeverUp()
+{
+	l_lever_down = false;
+
+	MetaWrap.$("LEVER").value = "LEVER IS UP";
+
+	alert("Lever Is Up");
+
+	return true;
+}
+
+var l_toast_timer = null;
+
+var l_bread_toasted = false;
+
+function onCookingStart()
+{
+	alert("Cooking");
+	
+	setTimeout(timerCookingCompleted, 2000);
+	return true;
+}
+
+function timerCookingCompleted()
+{
+	alert("timerCookingCompleted");
+	//l_bread_toasted = true;
+	//MetaWrap.State.determineState();
+	
+	MetaWrap.State.affirmState("bread/toast");
+}	
+
+function onTheToastTheToastTheToastIsOnFire()
+{	
+	alert("Do you smell something burning?");
+	return true;
+}
+
+
+function onCookingStop()
+{
+	alert("Cooking Ended");
+	return true;
+}
+
+
+
+
+function onStartup()
+{
+	alert("Plugged in while turned off");
+	return true;
+}
+
+function onHardStartup()
+{
+	alert("Plugged in while turned on");
+	return true;
+}
+
+
+</script>
+
+<body>
+<p><a href="./test_10_state.xml">XML State Machine Description</a></p>
+<p>
+<input type="button" value="POWER IS OFF" id="POWER" name="POWER" onclick="MetaWrap.State.flipState('on');" ><br/>
+<input type="checkbox" id="BREAD" name="BREAD" onclick="MetaWrap.State.flipState('bread');" ><label for="BREAD">BREAD</label><br/>
+<input type="button" value="LEVER IS UP" id="LEVER" name="LEVER" onclick="MetaWrap.State.flipState('on/lever');"  ><br/>
+</p>
+</body>
+<script language="JavaScript" type="text/javascript" src="../state/mw_lib_state.js" ></script>
+

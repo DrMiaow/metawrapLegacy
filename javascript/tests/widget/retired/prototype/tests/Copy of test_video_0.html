@@ -1,0 +1,1167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html>
+	<head>
+		<title>Widget Test #1</title>
+		<meta http-equiv="cache-control" content="no-cache">
+		<!-- Include the widget library -->
+		<script language="javascript" src="../widget.js"></script>
+		<!-- Application specific tweaks of the library -->
+		<script language="javascript">
+			// Turn off special effects
+			g_SFX = false;
+			var g_File_Flash_Header = "flashVideoFlash_player.swf";
+			var g_File_Flash_Master = "wmc_telemetry.swf";
+			var g_File_Stream = "mms://example.com/OnDemand/2004/Adelaide/Interview_Skaife_Adelaide_2004.wmv";
+		</script>
+		<script language="javascript" src="../widget_window.js"></script>
+		<script language="javascript" src="../widget_video.js"></script>
+		<script language="javascript" src="../widget_video_wmp9.js"></script>
+		<script language="javascript" src="../widget_video_mce.js"></script>
+		<script language="javascript" src="../widget_video_flash.js"></script>
+		<style type="text/css"> 				
+				html {overflow:hidden;} 
+				div.VideoFlash { position:absolute; /*border:1px solid blue;*/ top:300px; left:350px; width:10px; height:10px; font-size:13px; font-family:vardana; z-index:3; visibility:visible; cursor:hand; }			
+				div.Menu { position:absolute; /*border:1px solid blue;*/ top:400px; left:350px; width:10px; height:10px; font-size:13px; font-family:vardana; z-index:2; visibility:visible; cursor:hand; }				
+				div.VideoWMP9 { position:absolute; /*border:1px solid blue;*/ top:200px; left:350px; width:10px; height:10px; font-size:13px; font-family:vardana; z-index:1; visibility:visible; cursor:hand; }
+				div.VideoMCE { position:absolute; /*border:1px solid blue;*/ top:100px; left:350px; width:10px; height:10px; font-size:13px; font-family:vardana; z-index:0; visibility:visible; cursor:hand; }
+		</style>
+		<script language="javascript">			
+			
+			// Create Main WIdget List
+			var g_WidgetList = new Class_WidgetList("VOD");
+
+			/// Create Pixel Video Ratio Object for MCE CustomViewPort
+			var g_Video_MCE_PIR = new Video_PIR(750,576,1,1,1,1);			
+			
+			/// Create Pixel Video Ratio Object for WMP9
+			var g_Video_WMP9_PIR = new Video_PIR(336,272,1,1,64,45);			
+
+			/// Create Pixel Video Ratio Object for Flash
+			var g_Video_Flash_PIR = new Video_PIR(1024,120,1,1,1,1);			
+
+			/// Create Pixel Video Ratio Object for Flash
+			var g_Video_Menu_PIR = new Video_PIR(1024,133,1,1,1,1);			
+						
+			// No widgets will show if this is false
+			var g_Master = true;
+
+			// No transitions will occur if this is false
+			var g_Transitions = true;
+			
+			/// Make this true if you want a draggable MCE video window
+			var g_Dynamic_MCE_Video = true && g_Master;
+			
+			var g_Show_MCE_Video = true && g_Master;
+			var g_Show_Flash_Video = true && g_Master;
+			var g_Show_WMP9_Video = true && g_Master;
+			var g_Show_Menu = true && g_Master;
+			
+			var g_On_MCE_Video = true;
+			var g_On_Flash_Video = true;
+			var g_On_WMP9_Video = true;
+			var g_On_Menu = true;
+			
+			var g_WMP_Big = true;
+			var l_Video_WMP9_Inset = 0;							
+			var l_Video_MCE_Inset = 32;							
+			
+			var l_Rewound = false;
+			var l_Video_Stream_Offset = 40*1000;
+			
+		</script>
+	</head>
+	<body onload="start()" onunload="end()" bgcolor="#000000">
+		<script language="javascript">
+
+		/************************************************************************/
+		/*                                                                      */
+		/*                              SETUP                                   */
+		
+		var g_started = false;
+		/*!
+			@fn			function start()
+			@brief		Our Main Function
+			@return	    void
+			@author		James Mc Parlane
+			@date		24 September 2004
+		*/			
+		function start()
+		{	
+			debugtext("+ start()");
+			
+			if (!g_started)
+			{
+				// remember we have started				
+				g_started = true;
+				
+				//
+				// Starting point - off screen
+				//
+				
+				var l_Offscreen_Offset = 100;
+				
+				// Work out size of screen and project our encoded video
+				var l_Video_Flash_Width = g_Video_Screen_Width;
+				var l_Video_Flash_Height = g_Video_Flash_PIR.ProjectedHeight(l_Video_Flash_Width)
+				var l_Video_Flash_X = 0;
+				var l_Video_Flash_Y = -l_Offscreen_Offset - g_Video_Screen_Height;
+				var l_Video_Flash_Transparency = 0;
+
+				// Work out size of screen and project our encoded video
+				var l_Video_WMP9_Width = g_Video_Screen_Width;
+				var l_Video_WMP9_Height = g_Video_WMP9_PIR.ProjectedHeight(l_Video_WMP9_Width)
+				var l_Video_WMP9_X = -l_Offscreen_Offset - g_Video_Screen_Width;
+				var l_Video_WMP9_Y = 0;
+				var l_Video_WMP9_Transparency = 0;
+				
+				// Work out size of screen and project our encoded video
+				var l_Video_MCE_Width = g_Video_Screen_Width/5;
+				var l_Video_MCE_Height = g_Video_MCE_PIR.ProjectedHeight(l_Video_MCE_Width);
+				// how much to offset the MCE Video window by						
+				var l_Video_MCE_X = g_Video_Screen_Width + l_Offscreen_Offset;				
+				var l_Video_MCE_Y = 0;				
+				var l_Video_MCE_Transparency = 0;
+
+				// Work out size of screen and project our encoded video
+				var l_Menu_Width = g_Video_Screen_Width;
+				var l_Menu_Height = g_Video_Menu_PIR.ProjectedHeight(l_Menu_Width);
+				var l_Menu_X = 0
+				var l_Menu_Y = g_Video_Screen_Height + l_Offscreen_Offset;
+				var l_Menu_Transparency = 0;
+
+
+				// ok - the above works well for 4x3 - but not for 15x9 - so lets make sure nothing is broken
+				
+				if (l_Video_WMP9_Y < 0)
+				{
+					//alert("layout issue");
+					
+					// reposition Video
+					l_Video_WMP9_Height += l_Video_WMP9_Y;
+					l_Video_WMP9_Y = 0;
+					l_Video_WMP9_Width = g_Video_WMP9_PIR.ProjectedWidth(l_Video_WMP9_Height);	
+					
+					// reposition MCE
+					l_Video_MCE_Width = l_Video_WMP9_Width/5;
+					l_Video_MCE_Height = g_Video_MCE_PIR.ProjectedHeight(l_Video_MCE_Width);										
+					l_Video_MCE_Y = 0;		
+															
+					// Work out size of screen and project our encoded video
+					l_Menu_Width = g_Video_Screen_Width - l_Video_WMP9_Width;
+					l_Menu_Height = g_Video_Screen_Height;
+					l_Menu_X = l_Video_WMP9_Width;
+					l_Menu_Y = g_Video_Screen_Height + l_Offscreen_Offset;										
+					
+				}
+
+				//
+				// Flash
+				//
+				
+				if (g_Show_Flash_Video)			
+				{
+						
+					// add this widget to our display list
+					WidgetList_Add(g_WidgetList,g_widgetVideoFlash,0);
+					
+					// decide were we want this to appear
+					g_widgetVideoFlash.vft.f_InitialPosition(g_widgetVideoFlash,l_Video_Flash_X,l_Video_Flash_Y,l_Video_Flash_Width,l_Video_Flash_Height,l_Video_Flash_Transparency);	
+					
+					g_widgetVideoFlash.vft.f_SetMedia(g_widgetVideoFlash,g_File_Flash_Master);		
+					
+					// open it
+					g_widgetVideoFlash.vft.f_Open(g_widgetVideoFlash);			
+				}
+				
+				//
+				// Windows Media Player 9
+				//
+				
+				if (g_Show_WMP9_Video)
+				{																			
+					// add this widget to our display list
+					WidgetList_Add(g_WidgetList,g_widgetVideoWMP9,0);
+				
+					// set the video we want to show
+					g_widgetVideoWMP9.vft.f_SetMedia(g_widgetVideoWMP9,g_File_Stream);	
+					
+					// decide were we want this to appear
+					g_widgetVideoWMP9.vft.f_InitialPosition(g_widgetVideoWMP9,l_Video_WMP9_X,l_Video_WMP9_Y,l_Video_WMP9_Width,l_Video_WMP9_Height,l_Video_WMP9_Transparency);		
+					
+					// open it
+					g_widgetVideoWMP9.vft.f_Open(g_widgetVideoWMP9);								
+					
+					if (IsMCEEnabled())
+					{
+						// mute it
+						g_widgetVideoWMP9.vft.f_Mute(g_widgetVideoWMP9,true);
+					}
+				}
+		
+				//
+				// Media Center Edition Draggable Video
+				//			
+				if (IsMCEEnabled() && (g_Show_MCE_Video))
+				{					
+					if (g_Dynamic_MCE_Video)
+					{			
+						// start video
+						//window.external.MediaCenter.Experience.PlayRate = 2;			
+					
+						// make the custome MCE viewport visible
+						window.external.MediaCenter.SharedViewPort.Visible = false;
+						window.external.MediaCenter.CustomViewPort.Visible = true;
+					
+						// add this widget to our display list
+						WidgetList_Add(g_WidgetList,g_widgetVideoMCE,0);
+																						
+						// decide were we want this to appear			
+						g_widgetVideoMCE.vft.f_InitialPosition(g_widgetVideoMCE,l_Video_MCE_X,l_Video_MCE_Y,l_Video_MCE_Width,l_Video_MCE_Height,l_Video_MCE_Transparency);
+						
+						// open it
+						g_widgetVideoMCE.vft.f_Open(g_widgetVideoMCE);
+					}
+				}
+				
+				//
+				// Menu
+				//
+				
+				if (g_Show_Menu)			
+				{
+						
+					// add this widget to our display list
+					WidgetList_Add(g_WidgetList,g_widgetMenu,0);
+					
+					// the flash file to play
+					g_widgetMenu.vft.f_SetMedia(g_widgetMenu,g_File_Flash_Header);		
+					
+					// decide were we want this to appear
+					g_widgetMenu.vft.f_InitialPosition(g_widgetMenu,l_Menu_X,l_Menu_Y,l_Menu_Width,l_Menu_Height,l_Menu_Transparency);	
+					
+					// open it
+					g_widgetMenu.vft.f_Open(g_widgetMenu);			
+				}
+				
+			}
+			
+			// Play TV - make sure we have got the right channel
+			if (IsMCEEnabled() && (g_Show_MCE_Video))
+			{	
+				// mute it		
+				//window.external.MediaCenter.AudioMixer.Mute = true;
+				
+				// play it
+				window.setTimeout("SelectTV();",1000);						
+			}	
+			
+			if (!IsMCEEnabled())			
+			{
+				// now work out where they should be
+				Reposition();	
+				
+				// Draw them there
+				ReDraw();	
+			}
+														
+			debugtext("- start()");	
+		}
+
+		function SelectTV()
+		{
+			//alert("StartTV");
+			
+			// Find The TV Show we want		
+			var rgServiceIDs = window.external.MediaCenter.FindService("CA35","");			
+			if (rgServiceIDs == null)
+			{
+				alert("No Services");
+			
+				// make the custome MCE viewport visible
+				window.external.MediaCenter().SharedViewPort.Visible = false;
+				window.external.MediaCenter().CustomViewPort.Visible = false;				
+				return;
+			}
+			
+			// Did we find a service?
+			if (rgServiceIDs.item(0) == null)
+			{
+				alert("No Service (" + rgServiceIDs.Length + " found)?");
+				
+				// make the custome MCE viewport visible
+				window.external.MediaCenter().SharedViewPort.Visible = false;	
+				window.external.MediaCenter().CustomViewPort.Visible = false;			
+				return;				
+			}
+			
+			//alert("Play");
+			
+			// Select the channel
+			window.external.MediaCenter.PlayMedia(0,rgServiceIDs.item(0));						
+
+			//alert("PlayRate");
+
+			if (g_Show_WMP9_Video && g_Show_MCE_Video)
+			{
+				// mute it
+				g_widgetVideoWMP9.vft.f_Mute(g_widgetVideoWMP9,true);
+			}
+
+			if (g_Show_MCE_Video)
+			{
+				// start TV														
+				window.setTimeout("PlayTV();", 1);				
+			}
+						
+			//alert("Playing");
+					
+			
+		}
+		
+		function PlayTV()
+		{
+			if (g_Show_WMP9_Video)
+			{
+				// mute it
+				g_widgetVideoWMP9.vft.f_Mute(g_widgetVideoWMP9,true);
+			}
+				
+			// are we playing
+			if ((window.external.MediaCenter.Experience.PlayRate == 0) || (window.external.MediaCenter.Experience.PlayRate == -1) || (window.external.MediaCenter.Experience.PlayRate == 5))
+			{
+				//alert("PlayTV");
+				
+				// Start playing			
+				window.external.MediaCenter.Experience.PlayRate = 2;											
+				
+				// start TV														
+				window.setTimeout("PlayTV();",5000);								
+			}
+			else
+			{
+				//alert("TV Started");
+				
+				// now work out where they should be
+				Reposition();	
+				
+				// Draw them there
+				ReDraw();								
+			}
+			
+		}
+				
+
+		/*!
+			@fn			function end()
+			@brief		Our Main Function
+			@return	    void
+			@author		James Mc Parlane
+			@date		24 September 2004
+		*/			
+		function end()
+		{	
+			if (!IsMCEEnabled())
+			{
+				debugtext("+ end()");
+				
+				//alert("end()");
+				
+				debugtext("- end()");
+			}
+		}
+		
+
+		/*                                                                      */
+		/*                                                                      */
+		/************************************************************************/
+
+		</script>
+		<div id="divVideoWMP9" class="VideoWMP9" onmouseover="g_widgetVideoWMP9.vft.f_Element_OnMouseOver(g_widgetVideoWMP9,this);" onmouseout="g_widgetVideoWMP9.vft.f_Element_OnMouseOut(g_widgetVideoWMP9,this);"><img id="imgVideoWMP9_CloseBox" src="images/red_square.png" style="width:16px; height:16px;"><img id="imgVideoWMP9_DragBar" src="images/blue_square.png" style="height:16px;"><img id="imgVideoWMP9_SizeBox" src="images/green_square.png" style="width:16px; height:16px;" onclick="g_widgetVideoWMP9.vft.f_Element_OnClick(g_widgetVideoWMP9,this);"><script language="javascript">
+				/* create a new Video Widget */
+
+				debugtext("* create instance of VideoWMP9");
+								
+				var g_widgetVideoWMP9 = new Class_VideoWMP9("VideoWMP9");
+				debugtext("* created Widget '" + g_widgetVideoWMP9.m_sName + "'");				
+			</script><div id="divVideoWMP9_VideoOut">Media Player</div>
+		</div>
+		<div id="divVideoMCE" class="VideoMCE" onmouseover="g_widgetVideoMCE.vft.f_Element_OnMouseOver(g_widgetVideoMCE,this);" onmouseout="g_widgetVideoMCE.vft.f_Element_OnMouseOut(g_widgetVideoMCE,this);"><img id="imgVideoMCE_CloseBox" src="images/red_square.png" style="width:16px; height:16px;"><img id="imgVideoMCE_DragBar" src="images/blue_square.png" style="height:16px;"><img id="imgVideoMCE_SizeBox" src="images/green_square.png" style="width:16px; height:16px;" onclick="g_widgetVideoMCE.vft.f_Element_OnClick(g_widgetVideoMCE,this);"><script language="javascript">
+				/* create a new Video Widget */				
+				debugtext("* create instance of VideoMCE");
+								
+				var g_widgetVideoMCE = new Class_VideoMCE("VideoMCE");
+				debugtext("* created Widget '" + g_widgetVideoMCE.m_sName + "'");												
+			</script><div id="divVideoMCE_VideoOut">Media Center Video</div>
+		</div>
+		<div id="divVideoFlash" class="VideoFlash" onmouseover="g_widgetVideoFlash.vft.f_Element_OnMouseOver(g_widgetVideoFlash,this);" onmouseout="g_widgetVideoFlash.vft.f_Element_OnMouseOut(g_widgetVideoFlash,this);"><img id="imgVideoFlash_CloseBox" src="images/red_square.png" style="width:16px; height:16px;"><img id="imgVideoFlash_DragBar" src="images/blue_square.png" style="height:16px;"><img id="imgVideoFlash_SizeBox" src="images/green_square.png" style="width:16px; height:16px;" onclick="g_widgetVideoFlash.vft.f_Element_OnClick(g_widgetVideoFlash,this);"><script language="javascript">
+				/* create a new Video Widget */				
+				debugtext("* create instance of VideoFlash");
+								
+				var g_widgetVideoFlash = new Class_VideoFlash("VideoFlash");
+				debugtext("* created Widget '" + g_widgetVideoFlash.m_sName + "'");												
+			</script><div id="divVideoFlash_VideoOut">Bottom Flash</div>
+		</div>
+		<div id="divMenu" class="Menu" onmouseover="g_widgetMenu.vft.f_Element_OnMouseOver(g_widgetMenu,this);" onmouseout="g_widgetMenu.vft.f_Element_OnMouseOut(g_widgetMenu,this);"><img id="imgMenu_CloseBox" src="images/red_square.png" style="width:16px; height:16px;"><img id="imgMenu_DragBar" src="images/blue_square.png" style="height:16px;"><img id="imgMenu_SizeBox" src="images/green_square.png" style="width:16px; height:16px;" onclick="g_widgetMenu.vft.f_Element_OnClick(g_widgetMenu,this);"><script language="javascript">
+				/* create a new Video Widget */				
+				debugtext("* create instance of Menu");
+								
+				var g_widgetMenu = new Class_VideoFlash("Menu");
+				debugtext("* created Widget '" + g_widgetMenu.m_sName + "'");												
+			</script><div id="divMenu_VideoOut">Top Menu</div>
+		</div>
+		<script language="javascript">
+
+	function OnKeyPress(p_event)
+	{
+		debugstatus("You pressed a key " + window.event.keyCode);
+		
+		g_widgetVideoFlash.vft.f_SendMessage(g_widgetVideoFlash,"setLeader,Key " + window.event.keyCode);		
+	
+		//doCall("flash" + "VideoFlash" + "_Player", 'setLeader,M Winterbottom');
+		
+		switch(window.event.keyCode)
+		{
+			// bottom
+			case 48:
+			{
+				if (IsMCEEnabled())		
+				{						
+					if (!l_Rewound)
+					{												
+						// we are now rewound
+						if (window.external.MediaCenter.Experience.MediaPosition > l_Video_Stream_Offset)
+						{
+							window.external.MediaCenter.Experience.MediaPosition = window.external.MediaCenter.Experience.MediaPosition - l_Video_Stream_Offset;
+							l_Rewound = true;
+							
+							// rewind
+							if (g_MCE_Debug_MediaPosition)
+							{			
+								var l_inputMCEscaleevent = document.getElementById("inputMCEMediaPosition");		
+								l_inputMCEscaleevent.value = "REWOUND" + window.external.MediaCenter.Experience.MediaPosition;
+							}
+						}												
+						else
+						{
+							// rewind
+							if (g_MCE_Debug_MediaPosition)
+							{			
+								var l_inputMCEscaleevent = document.getElementById("inputMCEMediaPosition");		
+								l_inputMCEscaleevent.value = "BUFFER SHORT" + window.external.MediaCenter.Experience.MediaPosition;
+							}						
+						}
+					}
+					else
+					{
+						// rewind
+						if (g_MCE_Debug_MediaPosition)
+						{			
+							var l_inputMCEscaleevent = document.getElementById("inputMCEMediaPosition");		
+							l_inputMCEscaleevent.value = window.external.MediaCenter.Experience.MediaPosition;
+						}
+					}
+				}
+			}
+			break;
+		
+			// bottom
+			case 56:
+			{
+				// hide - show the status bar
+				if (g_Show_Flash_Video)
+				{
+					ToggleFlash();
+					Reposition();
+					ReDraw()
+				}			
+			}
+			break;
+			
+			// top
+			case 50:
+			{
+				// hide - show the status bar
+				if (g_Show_Menu)
+				{
+					ToggleMenu();
+					Reposition();
+					ReDraw()
+				}			
+			}
+			break;
+			
+			// bottom left corner
+			case 55:
+			{
+				// hide - the MCE video
+				if (IsMCEEnabled() && (g_Show_MCE_Video))
+				{
+					ToggleMCE();
+					Reposition();
+					ReDraw()
+				}			
+			}
+			break;
+
+			// bottom left corner
+			case 53:
+			{
+				// hide - the MCE video
+				if (IsMCEEnabled() && (g_Show_MCE_Video))
+				{
+					ToggleMCEvsMP();
+					Reposition();
+					ReDraw()
+				}			
+			}
+			break;
+			
+		}
+	}
+
+	document.onkeypress=OnKeyPress;
+	
+	function ToggleFlash()
+	{
+		g_On_Flash_Video = !g_On_Flash_Video;	
+	}
+	
+	function ToggleMCEvsMP()
+	{		
+		// only worth doing this if MCE is on
+		if (g_On_MCE_Video)
+		{
+			g_WMP_Big = !g_WMP_Big;		
+		}	
+	}
+
+	function ToggleMCE()
+	{
+		g_On_MCE_Video = !g_On_MCE_Video;	
+		
+		if (g_On_MCE_Video)
+		{
+			window.external.MediaCenter().CustomViewPort.Visible = true;					
+			
+			// Start playing			
+			window.external.MediaCenter.Experience.PlayRate = 2;											
+					
+			// Mute WMP 
+			g_widgetVideoWMP9.vft.f_Mute(g_widgetVideoWMP9,true);			
+		}
+		else
+		{
+			window.external.MediaCenter().CustomViewPort.Visible = false;
+			
+			// Stop playing			
+			window.external.MediaCenter.Experience.PlayRate = 0;
+			
+			// Un Mute WMP 
+			g_widgetVideoWMP9.vft.f_Mute(g_widgetVideoWMP9,false);
+		}
+	}
+
+	function ToggleMenu()
+	{
+		g_On_Menu = !g_On_Menu;	
+	}
+
+
+	function Reposition()
+	{				
+		/*
+			+---------------------------------------+
+			|              Flash Menu               |
+			+----------------------------------------
+			|                                       |
+			|                                       |
+			|                                       |
+			|                 WMP9                  |
+			|                                       |
+			|                                       |
+			|                                       |
+			+---------------------------------------+
+			|              Flash Bar                |
+			+---------------------------------------+
+		
+		*/
+		if (g_On_Flash_Video && g_On_WMP9_Video && g_On_Menu)
+		{
+			//alert("all on");
+			
+			// Work out size of screen and project our encoded video
+			l_Video_Flash_Width = g_Video_Screen_Width;
+			l_Video_Flash_Height = g_Video_Flash_PIR.ProjectedHeight(l_Video_Flash_Width)
+			l_Video_Flash_X = 0;
+			l_Video_Flash_Y = g_Video_Screen_Height - l_Video_Flash_Height;
+			l_Video_Flash_Transparency = 100;
+			
+			// Work out size of screen and project our encoded video
+			l_Menu_Width = g_Video_Screen_Width;
+			l_Menu_Height = g_Video_Menu_PIR.ProjectedHeight(l_Menu_Width);
+			
+
+			if (g_WMP_Big || (!g_On_MCE_Video))
+			{
+				//WMP BIG!
+				// Work out size of screen and project our encoded video
+				l_Video_WMP9_Width = g_Video_Screen_Width;
+				l_Video_WMP9_Height = g_Video_WMP9_PIR.ProjectedHeight(l_Video_WMP9_Width)
+				l_Video_WMP9_X = 0;
+				l_Video_WMP9_Y = l_Video_Flash_Y - l_Video_WMP9_Height;
+				l_Video_WMP9_Transparency = 100;
+				
+				// Work out size of screen and project our encoded video
+				l_Menu_X = 0;
+				l_Menu_Y = (g_Video_Screen_Height - (l_Video_Flash_Height + l_Video_WMP9_Height)) - l_Menu_Height;
+				l_Menu_Transparency = 100;
+				
+			}
+			else
+			{
+			
+				var l_Video_MCE_Height2 = g_Video_Screen_Height - l_Menu_Height - l_Video_Flash_Height;
+				var l_Video_MCE_Width2 = g_Video_MCE_PIR.ProjectedWidth(l_Video_MCE_Height2)
+			
+				//MCE BIG!
+				// Work out size of screen and project our encoded video
+				l_Video_WMP9_Width = g_Video_Screen_Width - l_Video_MCE_Width2;
+				l_Video_WMP9_Height = g_Video_WMP9_PIR.ProjectedHeight(l_Video_WMP9_Width)
+				l_Video_WMP9_X = l_Video_WMP9_Inset;				
+				l_Video_WMP9_Y = g_Video_Screen_Height-(l_Video_WMP9_Height+l_Video_WMP9_Inset)-l_Video_Flash_Height;				
+				l_Video_WMP9_Transparency = 100;											
+			}
+
+
+
+			if (IsMCEEnabled())
+			{		
+				if (g_WMP_Big || (!g_On_MCE_Video))
+				{
+					// Work out size of screen and project our encoded video
+					l_Video_MCE_Width = g_Video_Screen_Width/5;
+					l_Video_MCE_Height = g_Video_MCE_PIR.ProjectedHeight(l_Video_MCE_Width);
+					// how much to offset the MCE Video window by						
+					l_Video_MCE_X = l_Video_MCE_Inset;				
+					l_Video_MCE_Y = g_Video_Screen_Height-(l_Video_MCE_Height+l_Video_MCE_Inset)-l_Video_Flash_Height;				
+					l_Video_MCE_Transparency = 100;
+
+					if (!g_On_MCE_Video)
+					{
+						//l_Video_MCE_X = - l_Video_MCE_Width ;				
+						//l_Video_MCE_Transparency = 0;				
+					}
+				}
+				else
+				{
+					// BIG MCE!
+				
+					// Work out size of screen and project our encoded video
+					l_Video_MCE_Height = g_Video_Screen_Height - l_Menu_Height - l_Video_Flash_Height;
+					l_Video_MCE_Width = g_Video_MCE_PIR.ProjectedWidth(l_Video_MCE_Height)
+					l_Video_MCE_X = g_Video_Screen_Width - l_Video_MCE_Width;
+					l_Video_MCE_Y = l_Video_Flash_Y - l_Video_MCE_Height;
+					l_Video_MCE_Transparency = 100;
+					
+					// Work out size of screen and project our encoded video
+					l_Menu_X = 0;
+					l_Menu_Y = (g_Video_Screen_Height - (l_Video_Flash_Height + l_Video_MCE_Height)) - l_Menu_Height;
+					l_Menu_Transparency = 100;															
+				}
+			}
+			// ok - the above works well for 4x3 - but not for 15x9 - so lets make sure nothing is broken
+			
+			/*
+			if (l_Video_WMP9_Y < 0)
+			{
+				//alert("layout issue");
+				
+				// reposition Video
+				l_Video_WMP9_Height += l_Video_WMP9_Y;
+				l_Video_WMP9_Y = 0;
+				l_Video_WMP9_Width = g_Video_WMP9_PIR.ProjectedWidth(l_Video_WMP9_Height);	
+				
+				// Work out size of screen and project our encoded video
+				l_Menu_Width = g_Video_Screen_Width - l_Video_WMP9_Width;
+				l_Menu_Height = g_Video_Screen_Height;
+				l_Menu_X = l_Video_WMP9_Width;
+				l_Menu_Y = 0;	
+
+				if (IsMCEEnabled())
+				{		
+					if (g_On_MCE_Video)
+					{					
+						// reposition MCE
+						l_Video_MCE_Width = l_Video_WMP9_Width/5;
+						l_Video_MCE_Height = g_Video_MCE_PIR.ProjectedHeight(l_Video_MCE_Width);										
+						l_Video_MCE_Y = g_Video_Screen_Height-(l_Video_MCE_Height+l_Video_MCE_Inset)-l_Video_Flash_Height;		
+					}
+				}
+			}	
+			*/				
+		}
+		else
+				
+		/*
+			    +---------------------------------------+
+			    |              Flash Menu               |
+			@@@@+---------------------------------------+@@@@
+			@	|                                       |   @
+			@	|                                       |   @
+			@	|                                       |   @		
+			@	|                                       |   @
+			@	|                 WMP9                  |   @
+			@	|                                       |   @
+			@	|                                       |   @
+			@	|                                       |   @
+			@	|                                       |   @			
+			@	|                                       |   @
+			@@@@+---------------------------------------+@@@@
+		
+		*/
+		if ((!g_On_Flash_Video) && (g_On_WMP9_Video) && (g_On_Menu))
+		{
+			//alert("flash bar off");
+			
+			// Menu is on and takes up as much of screen as it can
+			l_Menu_Width = g_Video_Screen_Width;
+			l_Menu_Height = g_Video_Menu_PIR.ProjectedHeight(l_Menu_Width);
+			l_Menu_X = 0
+			l_Menu_Y = 0;
+			l_Menu_Transparency = 100;
+			
+			if (g_WMP_Big || (!g_On_MCE_Video))
+			{			
+				// fit video in
+				l_Video_WMP9_Height = g_Video_Screen_Height - l_Menu_Height;
+				l_Video_WMP9_Width = g_Video_WMP9_PIR.ProjectedWidth(l_Video_WMP9_Height);							
+				l_Video_WMP9_X = (g_Video_Screen_Width - l_Video_WMP9_Width)/2 ;
+				l_Video_WMP9_Y = l_Menu_Height;
+				l_Video_WMP9_Transparency = 100;
+			}
+			else
+			{
+				// fit video in
+				l_Video_WMP9_Height = g_Video_Screen_Height/5;
+				l_Video_WMP9_Width = g_Video_WMP9_PIR.ProjectedWidth(l_Video_WMP9_Height);											
+				l_Video_WMP9_X = l_Video_WMP9_Inset;				
+				l_Video_WMP9_Y = g_Video_Screen_Height-l_Video_WMP9_Inset-l_Video_WMP9_Height;				
+				l_Video_WMP9_Transparency = 100;			
+			}
+			
+			// push flash offsecreen
+			l_Video_Flash_Width = g_Video_Screen_Width;
+			l_Video_Flash_Height = g_Video_Flash_PIR.ProjectedHeight(l_Video_Flash_Width)
+			l_Video_Flash_X = 0;
+			l_Video_Flash_Y = g_Video_Screen_Height + l_Video_Flash_Height;
+			l_Video_Flash_Transparency = 0;
+
+			if (IsMCEEnabled())
+			{
+					
+				if (g_WMP_Big || (!g_On_MCE_Video))
+				{																				
+					// Work out size of screen and project our encoded video
+					l_Video_MCE_Width = g_Video_Screen_Width/5;
+					l_Video_MCE_Height = g_Video_MCE_PIR.ProjectedHeight(l_Video_MCE_Width);
+					// how much to offset the MCE Video window by						
+					l_Video_MCE_X = l_Video_MCE_Inset;				
+					l_Video_MCE_Y = g_Video_Screen_Height-l_Video_MCE_Inset-l_Video_MCE_Height;				
+					l_Video_MCE_Transparency = 100;						
+									
+					if (!g_On_MCE_Video)			
+					{
+						//l_Video_MCE_X = -l_Video_MCE_Width;				
+						//l_Video_MCE_Transparency = 0;									
+					}
+				}
+				else
+				{
+					// Work out size of screen and project our encoded video
+					l_Video_MCE_Width = g_Video_Screen_Width-l_Video_WMP9_Width;
+					l_Video_MCE_Height = g_Video_MCE_PIR.ProjectedHeight(l_Video_MCE_Width);
+					// how much to offset the MCE Video window by						
+					l_Video_MCE_X = l_Video_WMP9_Width;				
+					l_Video_MCE_Y = l_Menu_Height;				
+					l_Video_MCE_Transparency = 100;						
+				
+				}
+			}
+		}
+	
+		else
+				
+		/*
+			@@@@+---------------------------------------+@@@@
+			@	|                                       |   @
+			@	|                                       |   @
+			@	|                                       |   @		
+			@	|                                       |   @
+			@	|                 WMP9                  |   @
+			@	|                                       |   @
+			@	|                                       |   @
+			@	|                                       |   @
+			@	|                                       |   @			
+			@	|                                       |   @
+			@@@@+---------------------------------------+@@@@
+				|              Flash Menu               |
+				+---------------------------------------+
+			
+		
+		*/
+		if ((g_On_Flash_Video) && (g_On_WMP9_Video) && (!g_On_Menu))
+		{
+			//alert("flash bar off");
+			
+			// Show flash
+			l_Video_Flash_Width = g_Video_Screen_Width;
+			l_Video_Flash_Height = g_Video_Flash_PIR.ProjectedHeight(l_Video_Flash_Width)
+			l_Video_Flash_X = 0;
+			l_Video_Flash_Y = g_Video_Screen_Height - l_Video_Flash_Height;
+			l_Video_Flash_Transparency = 100;			
+			
+			// Push menu off screen
+			l_Menu_Width = g_Video_Screen_Width;
+			l_Menu_Height = g_Video_Menu_PIR.ProjectedHeight(l_Menu_Width);
+			l_Menu_X = 0
+			l_Menu_Y = -l_Menu_Height;
+			l_Menu_Transparency = 0;
+			
+			if (g_WMP_Big || (!g_On_MCE_Video))
+			{						
+				// fit video in
+				l_Video_WMP9_Height = g_Video_Screen_Height - l_Video_Flash_Height;
+				l_Video_WMP9_Width = g_Video_WMP9_PIR.ProjectedWidth(l_Video_WMP9_Height);							
+				l_Video_WMP9_X = (g_Video_Screen_Width - l_Video_WMP9_Width)/2 ;
+				l_Video_WMP9_Y = 0;
+				l_Video_WMP9_Transparency = 100;
+			}
+			else
+			{
+				// fit video in
+				l_Video_WMP9_Width = g_Video_Screen_Width/5;							
+				l_Video_WMP9_Height = g_Video_WMP9_PIR.ProjectedHeight(l_Video_WMP9_Width);							
+				l_Video_WMP9_X = l_Video_WMP9_Inset ;
+				l_Video_WMP9_Y = g_Video_Screen_Height-l_Video_WMP9_Height;
+				l_Video_WMP9_Transparency = 100;		
+			}
+
+			if (IsMCEEnabled())
+			{
+				if (g_WMP_Big)
+				{									
+					// Work out size of screen and project our encoded video
+					l_Video_MCE_Width = g_Video_Screen_Width/5;
+					l_Video_MCE_Height = g_Video_MCE_PIR.ProjectedHeight(l_Video_MCE_Width);
+					// how much to offset the MCE Video window by						
+					l_Video_MCE_X = l_Video_MCE_Inset;				
+					l_Video_MCE_Y = g_Video_Screen_Height-l_Video_MCE_Inset-l_Video_Flash_Height-l_Video_MCE_Height;				
+					l_Video_MCE_Transparency = 100;		
+						
+					if (!g_On_MCE_Video)
+					{					
+						//l_Video_MCE_X = -l_Video_MCE_Width;				
+						//l_Video_MCE_Transparency = 0;					
+					}
+				}
+				else
+				{
+					// Work out size of screen and project our encoded video
+					l_Video_MCE_Width = g_Video_Screen_Width - l_Video_WMP9_Width;
+					l_Video_MCE_Height = g_Video_MCE_PIR.ProjectedHeight(l_Video_MCE_Width)
+					l_Video_MCE_X = g_Video_Screen_Width - l_Video_MCE_Width;
+					l_Video_MCE_Y = l_Video_Flash_Height;
+					l_Video_MCE_Transparency = 100;												
+				}
+			}			
+		}	
+		else
+				
+		/*
+			@@@@+---------------------------------------+@@@@
+			@	|                                       |   @
+			@	|                                       |   @
+			@	|                                       |   @
+			@	|                                       |   @							
+			@	|                                       |   @
+			@	|                 WMP9                  |   @
+			@	|                                       |   @
+			@	|                                       |   @
+			@	|                                       |   @
+			@	|                                       |   @						
+			@	|                                       |   @
+			@@@@+---------------------------------------+@@@@
+			
+		
+		*/
+		if ((!g_On_Flash_Video) && (g_On_WMP9_Video) && (!g_On_Menu))
+		{
+			//alert("flash bar off");
+			
+			// Push menu off screen
+			l_Menu_Width = g_Video_Screen_Width;
+			l_Menu_Height = g_Video_Menu_PIR.ProjectedHeight(l_Menu_Width);
+			l_Menu_X = 0
+			l_Menu_Y = -l_Menu_Height;
+			l_Menu_Transparency = 0;
+			
+			if (g_WMP_Big || (!g_On_MCE_Video))
+			{												
+				// fit video in
+				l_Video_WMP9_Height = g_Video_Screen_Height;
+				l_Video_WMP9_Width = g_Video_WMP9_PIR.ProjectedWidth(l_Video_WMP9_Height);							
+				l_Video_WMP9_X = (g_Video_Screen_Width - l_Video_WMP9_Width)/2 ;
+				l_Video_WMP9_Y = 0;
+				l_Video_WMP9_Transparency = 100;
+			}
+			else
+			{						
+				//MCE BIG!
+				// Work out size of screen and project our encoded video
+				l_Video_WMP9_Width = g_Video_Screen_Width/5;
+				l_Video_WMP9_Height = g_Video_WMP9_PIR.ProjectedHeight(l_Video_WMP9_Width)
+				l_Video_WMP9_X = l_Video_WMP9_Inset;				
+				l_Video_WMP9_Y = g_Video_Screen_Height-(l_Video_WMP9_Height+l_Video_WMP9_Inset);				
+				l_Video_WMP9_Transparency = 100;			
+			}
+			
+			// Show flash
+			l_Video_Flash_Width = g_Video_Screen_Width;
+			l_Video_Flash_Height = g_Video_Flash_PIR.ProjectedHeight(l_Video_Flash_Width)
+			l_Video_Flash_X = 0;
+			l_Video_Flash_Y = g_Video_Screen_Height + l_Video_Flash_Height;
+			l_Video_Flash_Transparency = 0;
+
+			if (IsMCEEnabled())
+			{						
+				if (g_WMP_Big || (!g_On_MCE_Video))
+				{																										
+					// Work out size of screen and project our encoded video
+					l_Video_MCE_Width = g_Video_Screen_Width/5;
+					l_Video_MCE_Height = g_Video_MCE_PIR.ProjectedHeight(l_Video_MCE_Width);
+					// how much to offset the MCE Video window by						
+					l_Video_MCE_X = l_Video_MCE_Inset;				
+					l_Video_MCE_Y = g_Video_Screen_Height-l_Video_MCE_Inset-l_Video_MCE_Height;				
+					l_Video_MCE_Transparency = 100;					
+					
+					if (!g_On_MCE_Video)
+					{
+						//l_Video_MCE_X = l_Video_MCE_Inset;				
+						//l_Video_MCE_Transparency = 100;									
+					}
+				}
+				else
+				{				
+					// BIG MCE!
+				
+					// Work out size of screen and project our encoded video
+					l_Video_MCE_Width = g_Video_Screen_Width - l_Video_WMP9_Width;
+					l_Video_MCE_Height = g_Video_MCE_PIR.ProjectedHeight(l_Video_MCE_Width)
+					l_Video_MCE_X = g_Video_Screen_Width - l_Video_MCE_Width;
+					l_Video_MCE_Y = 0;
+					l_Video_MCE_Transparency = 100;								
+				}
+			}							
+		}			
+	}
+
+	function ReDraw()
+	{
+			if (g_Transitions)
+			{
+				var l_Steps = 30;
+				var l_Time  = 3000;
+								
+				setTrajectory(g_widgetVideoWMP9,l_Video_WMP9_X,l_Video_WMP9_Y,l_Video_WMP9_Width,l_Video_WMP9_Height,l_Video_WMP9_Transparency,l_Steps,l_Time);
+
+				setTrajectory(g_widgetVideoFlash,l_Video_Flash_X,l_Video_Flash_Y,l_Video_Flash_Width,l_Video_Flash_Height,l_Video_Flash_Transparency,l_Steps,l_Time);
+
+				setTrajectory(g_widgetMenu,l_Menu_X,l_Menu_Y,l_Menu_Width,l_Menu_Height,l_Menu_Transparency,l_Steps,l_Time);
+
+				if (IsMCEEnabled())
+				{														
+					setTrajectory(g_widgetVideoMCE,l_Video_MCE_X,l_Video_MCE_Y,l_Video_MCE_Width,l_Video_MCE_Height,l_Video_MCE_Transparency,l_Steps,l_Time);
+				}
+			}
+	}
+
+
+function GetBufferingPercentage() // Send percentage buffered to Flash movie.
+{		
+	if (navigator.appName == "Netscape") 
+	{  
+		try
+		{
+			// check for Netscape 7
+			if(window.GeckoActiveXObject)
+			{
+				if (typeof document.wmpVideoWMP9_Player == "undefined") return;
+				try
+				{
+					return document.wmpVideoWMP9_Player.network.bufferingProgress;
+				}
+				catch(e)
+				{
+					// this may happen if the WMP is not ready, or has been removed by another process
+				}
+				
+			}			
+		}
+		
+		// Handle Netscape 6.2
+		catch(e)
+		{
+			//if (typeof document.Player == "undefined") return;
+			try
+			{
+				return document.wmpVideoWMP9_Player.network.bufferingProgress;
+			}
+			catch(e)
+			{
+				// this may happen if the WMP is not ready, or has been removed by another process
+			}
+			
+		}							
+	} 
+	else 
+	{    
+		if (typeof wmpVideoWMP9_Player == "undefined") return;
+		try
+		{
+			return wmpVideoWMP9_Player.network.bufferingProgress;
+		}
+		catch(e)
+		{
+			// this may happen if the WMP is not ready, or has been removed by another process
+		}
+	}	
+}
+
+var g_offset = "";
+var g_History = "";	
+
+function GetCurrentPositionTimecode()
+{
+	//return "+0000:00:00";
+
+	if (navigator.appName == "Netscape") 
+	{  
+		try
+		{
+			// check for Netscape 7
+			if(window.GeckoActiveXObject)
+			{
+				//alert(document.Player.controls.currentPositionTimecode);
+				if (typeof document.wmpVideoWMP9_Player == "undefined") return;							
+				
+				try
+				{	
+					if (g_offset != "")
+						return document.wmpVideoWMP9_Player.controls.currentPositionTimecode;
+				}
+				catch(e)
+				{
+					// this may happen if the WMP is not ready, or has been removed by another process
+				}
+				
+			}			
+		}
+		
+		// Handle Netscape 6.2
+		catch(e)
+		{
+			if (typeof document.wmpVideoWMP9_Player == "undefined") return;
+			
+			try
+			{
+				if (g_offset != "")
+					return document.wmpVideoWMP9_Player.getControls().currentPositionTimecode;	
+			}
+			catch(e)
+			{
+				// this may happen if the WMP is not ready, or has been removed by another process
+			}
+					
+		}							
+	} 
+	else 
+	{    
+		if (typeof wmpVideoWMP9_Player == "undefined") return;
+		try
+		{
+			if (g_offset != "")
+				return wmpVideoWMP9_Player.controls.currentPositionTimecode;
+		}
+		catch(e)
+		{
+			// this may happen if the WMP is not ready, or has been removed by another process
+		}
+		
+	}
+	return "+[0000]:00:00:00.00";
+}
+
+		</script>
+		<!-- JAVASCRIPT : Create an event handler for buffering -->
+		<script for="wmpVideoWMP9_Player" event="buffering(Start)">
+// Test buffering status
+if (Start == true) 
+{
+	debugstatus("starting buffering = " + GetBufferingPercentage());
+	// Let flash know buffering status
+	//* var bInterval = window.setInterval("wmpBufferingPercentage('flashObject3','_level0.BufferingPercentage')", 1000);
+} 
+else 
+{
+	try
+	{
+		debugstatus("buffering = " + GetBufferingPercentage());
+		//alert("GetBufferingPercentage() " + GetBufferingPercentage());
+		// buffering 0 is on restart - anything above this means wmp is ready
+		if (GetBufferingPercentage() != 0)
+		{
+			// Clear our interval
+			window.clearInterval(bInterval);
+			// Let Flash Movies know buffering complete
+			//* send2Flash('flashObject3','_level0.Main_BufferingComplete','true');	
+		}
+	}
+	catch(e)
+	{
+		//alert("Buffering error");
+	}
+}
+		</script>
+		<script for="wmpVideoWMP9_Player" event="ScriptCommand(p_type,p_param)">	
+// http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnwmt/html/WMPlayer_9_SDK_Intro.asp
+try
+{
+	//debugstatus("timecode offset = " + p_type + "," + p_param + " SMPTE: " + GetCurrentPositionTimecode());
+	if (String(p_type) == String("OFFSET"))
+	{		
+		if (g_offset != p_param)
+		{
+			//debugstatus("NEW timecode offset = " + p_type + "," + p_param + " SMPTE: " + GetCurrentPositionTimecode());
+			//alert(p_param);
+			//* send2Flash('flashObject3','_level0.TimeCodeOffset'+','+p_param);
+			g_offset = p_param;
+			
+			//g_History = g_offset + "," + g_History;
+			
+			//debugstatus(g_History);
+			
+		}
+		else
+		{			
+			//debugstatus("OLD timecode offset = " + p_type + "," + p_param + " SMPTE: " + GetCurrentPositionTimecode());
+		}
+		
+	}
+} 
+catch(e) 
+{
+	debugstatus("ERROR");		
+}
+		</script>
+	</body>
+</html>

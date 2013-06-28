@@ -1,0 +1,106 @@
+<script language="JavaScript">
+/*!
+    @fn         function debug(p_msg)
+	@param		p_msg Message to display
+    @brief      Debugging routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function debug(p_msg)
+{
+    alert(p_msg);
+}
+
+
+/*!
+    @fn         function error(p_msg)
+	@param		p_msg Message to display
+    @brief      Error routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function error(p_msg)
+{
+    alert(p_msg);
+}
+
+/*!
+    @fn         function trace(p_msg)
+	@param		p_msg Message to display
+    @brief      Trace routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function trace(p_msg)
+{
+    //window.status = p_msg;
+}
+
+/*!
+    @fn         function ASSERT(p_cond,p_msg)
+	@param		p_cond The flag that determines if we don't display p_msg
+	@param		p_msg Message to display
+    @brief      If p_cond is not true then display p_msg
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+
+var MetaWrap_Structure_m_xsl_location = "client_side_xslt_embeddedxml.xsl";
+
+
+var MetaWrap_Structure_m_xml_raw =
+/*
+'<?xml version="1.0" encoding="utf-8"?>\n\r\
+<?xml-stylesheet type="text/xsl" href="synchronise.xsl" ?>\n\r\
+<response datetime="2006-11-08T13:35:11" duration="0.3247ms">\n\r\
+  <synchronise>\n\r\
+    <status>success</status>\n\r\
+    <accpac_batch>221</accpac_batch>\n\r\
+    <expocad_event>06 SEP</expocad_event>\n\r\
+    <sync_result>completed</sync_result>\n\r\
+  </synchronise>\n\r\
+</response>';
+*/
+
+
+'<?xml version="1.0"?>\n\r\
+<catalog>\n\r\
+	<cd>\n\r\
+		<title>Empire Burlesque</title>\n\r\
+		<artist>Bob Dylan</artist>\n\r\
+		<country>USA</country>\n\r\
+		<company>Columbia</company>\n\r\
+		<price>10.90</price>\n\r\
+		<year>1985</year>\n\r\
+	</cd>\n\r\
+	<cd>\n\r\
+		<title>Hide your heart</title>\n\r\
+		<artist>Bonnie Tyler</artist>\n\r\
+		<country>UK</country>\n\r\
+		<company>CBS Records</company>\n\r\
+		<price>9.90</price>\n\r\
+		<year>1988</year>\n\r\
+	</cd>\n\r\
+</catalog>';
+
+
+
+//alert("test with " + MetaWrap_Structure_m_xml_raw);
+
+</script>
+<script language="JavaScript" type="text/javascript" src="../base/mw_lib.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../pipeline/mw_lib_pipeline.js"></script>
+<script language="JavaScript" type="text/javascript" src="../network/mw_lib_network.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../xml/mw_lib_xml.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../xslt/mw_lib_xml_xslt.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../cookie/mw_lib_cookie.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../css/mw_lib_css.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../structure/mw_lib_structure.js" ></script>
+

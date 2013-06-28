@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<style>
+.wrap{
+    width: 67%;
+    margin: 0 0 1em 14%;
+    padding: 2% 3% 2% 5%;
+    BACKGROUND: white;
+    border-style: solid;
+    border-width: 1px;
+    top: -1px;
+}
+h1,h2,h3,h4{
+    position: relative;
+    left: -1em;
+    clear: both;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: orange;
+    font: 0.8em trebuchet ms;
+}
+em{
+    background: #ffc;
+}
+pre{
+    font-size: 1.1em;
+    background: #f0f0f0;
+    -moz-border-radius: 10px;
+    padding: 1em;
+}
+pre span{
+    font-weight: bold;
+}
+.selector, pre b{
+    color: red;
+}
+.beh{
+    color: blue;
+}
+.event{
+    color: green;
+}
+
+#sortable-list li{
+    cursor:move;
+    -moz-user-select: none;
+    width: 100%;
+}
+
+.dropout li{
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    float: left;
+    margin: 5px;
+    border: 1px solid #ccc;
+    list-style: none;
+    background: red;
+}
+
+.dropout li.hover{
+    background: yellow;
+}
+	</style>
+
+
+	<title>
+		Page - AddHandler - TestCase #10 - MetaWrap JavaScript Library - $Id: test_10_page_addhandler.html,v 1.5 2005/10/23 07:57:32 james Exp $
+	</title>
+	<script language="JavaScript" type="text/javascript" src="../base/mw_lib.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../page/mw_lib_page.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../page/mw_lib_page_element.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../page/mw_lib_page_element_addhandler.js"></script>
+
+<script language="JavaScript">
+
+function error(p_msg)
+{
+    alert(p_msg);
+}
+
+function debug(p_msg)
+{
+    alert(p_msg);
+}
+
+function trace(p_msg)
+{
+    window.status = p_msg;
+    document.title = p_msg;
+}
+
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+
+</script>
+</head>
+<body onload="start()" onunload="end()" >
+<div class="wrap">
+<table width="100%">
+	<tr align="middle" >
+		<td>
+			<h2>
+				Page - AddHandler - TestCases #10 - Cross Browers Event Stacking
+			</h2>
+		</td>
+		<td>
+			<a href="http://www.metawrap.com"><img border="0" src="../images/metawrap_logo_sm.png" align="right" /></a>
+		</td>
+	</tr>
+</table>
+
+<pre>$Id: test_10_page_addhandler.html,v 1.5 2005/10/23 07:57:32 james Exp $</pre>
+</div>
+
+<div class="wrap">
+
+<p>Click on the link below. It starts with event a1_onclick1, when that event fires it changes the event to a1_onclick2 which changes the event to a1_onclick1 again.</p>
+
+<a id="a1">Test1</a>
+
+
+
+<script language="JavaScript" type="text/javascript" >
+
+var l_a1 = document.getElementById("a1");
+
+function a1_onclick1(p_event)
+{
+    // Will the real event please stand up
+    var e = (p_event?p_event:window.event);
+    var t = (e.target?e.target:(e.srcElement?e.srcElement:null));
+
+    alert("a1_onclick1");
+
+    MetaWrap.Page.Element.removeEventListener(l_a1,"click",a1_onclick1,false);
+    MetaWrap.Page.Element.addEventListener(l_a1,"click",a1_onclick2,false);
+}
+
+function a1_onclick2(p_event)
+{
+    // Will the real event please stand up
+    var e = (p_event?p_event:window.event);
+    var t = (e.target?e.target:(e.srcElement?e.srcElement:null));
+
+    alert("a1_onclick2");
+
+    MetaWrap.Page.Element.removeEventListener(l_a1,"click",a1_onclick2,false);
+    MetaWrap.Page.Element.addEventListener(l_a1,"click",a1_onclick1,false);
+}
+
+
+function start()
+{
+    MetaWrap.Page.Element.addEventListener(l_a1,"click",a1_onclick1,false);
+}
+
+function end()
+{
+    //alert("end");
+    //MetaWrap.Page.deleteListeners();
+}
+
+</script>
+</div>
+</body>
+</html>

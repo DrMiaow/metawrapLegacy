@@ -1,0 +1,14 @@
+Wed Jun 29 12:57:58 2005  Google Inc. <opensource@google.com>
+
+	* Version 0.2
+	* Add more missing code
+	  - XML parser and simple DOM implementation in dom.js
+	  - miscellaneous functions in misc.js.
+	* Add simple test pages that serve as examples.
+	  - test-xpath.html tests and demonstrates the XPath parser.
+	  - test-xslt.html tests and demonstrates the XSLT processor.
+	  - output methods for debugging of XPath expressions added
+	    in xpathdebug.js.
+	* Some additions and corrections in README and TODO
+	  - renamed XSL-T to XSLT, because that's more common.
+	  - miscellaneous updates.

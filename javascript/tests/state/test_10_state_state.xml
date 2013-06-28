@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!--
+    $Id: test_10_state.xml,v 1.9 2004/01/02 01:22:43 james Exp $
+
+    $Log: test_10_state.xml,v $
+    Revision 1.9  2004/01/02 01:22:43  james
+    State machine renaming
+
+    Revision 1.8  2008/07/21 12:49:41  james
+    Fixed an issue with the state machine engine - dirty list need to clear out before activements can be examined.
+
+    Revision 1.7  2008/07/21 11:35:36  james
+    Some name changes. Added inactived for now.
+
+    Revision 1.6  2008/07/21 10:16:17  james
+    Added inactive - now just need a better name for it....
+
+    Revision 1.5  2007/05/04 07:58:22  james
+    *** empty log message ***
+
+    Revision 1.4  2007/05/03 12:44:53  james
+    Advice from Lela on some more state machine examples
+
+    Revision 1.3  2007/05/01 12:24:11  james
+    Tidied up logs
+
+    Revision 1.2  2007/05/01 12:08:50  james
+    Updated state engine so that we can active by state name
+
+    Revision 1.1  2007/04/30 12:48:40  james
+    more state machine fun
+
+    <?xml-stylesheet type="text/xsl" href="E:\metawrap\javascript\tests\state\state.xsl"?>
+    <metawrap xmlns="../metawrap/metawrap.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="../metawrap/metawrap.xsd ../metawrap/metawrap.xsd" >
+    XSLT WILL NOT WORK IF xmlns is included
+-->
+<!--<?xml-stylesheet type="text/xsl" href="E:\metawrap\javascript\tests\state\state.xsl"?>-->
+<metawrap>
+    <states>
+        <state name="on">        
+             <to>                                
+                 <from state="" call="onHardStartup()" />                 
+                 <from state="off" call="onOn()" />
+             </to>  
+             <negate state="/off" />
+             <states>
+	              <state name="lever">			            
+			            <enter call="onLeverDown()" />
+			            <exit call="onLeverUp()" />			            
+					    <states>
+							<state name="cook">	              
+								<active state="/bread" />
+								<enter call="onCookingStart()" />
+								<exit call="onCookingStop()" />
+							</state>
+						</states>
+	              </state>
+             </states> 
+        </state>
+        <state name="bread">        
+	        <enter call="onBreadIn()" />			            	        	        
+    	    <exit call="onBreadOut()" />    	    
+    	     
+			<states>
+				<state name="toast">        					
+					<negate state="/on/lever"/>
+					<states>
+						<state name="burned">        					
+							<active state="/on/lever" />							
+							<enter call="onTheToastTheToastTheToastIsOnFire()" />
+						</state>
+					</states>
+				</state>
+			</states>
+        </state>
+        <state name="off" value="true" >        
+             <to>                                
+                 <from state="" call="onStartup()" />
+                 <from state="on" call="onOff()" />
+             </to>
+            <negate state="/on" />            
+        </state>
+    </states>
+</metawrap>

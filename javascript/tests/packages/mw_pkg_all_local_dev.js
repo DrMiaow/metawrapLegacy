@@ -1,0 +1,27 @@
+MwPackage(
+    "file://metawrap/javascript/tests/",
+    "com.metawrap",
+    [
+        "MetaWrap.Logger",            
+        "MetaWrap.Network",
+        "MetaWrap.Cookie",
+        "MetaWrap.Page",
+        "MetaWrap.Page.Event",
+        "MetaWrap.Page.Selection",
+        "MetaWrap.Page.Event.Simulate",      
+        "MetaWrap.Page.Element",
+        "MetaWrap.Page.Element.Addhandler",
+        "MetaWrap.Page.Output",
+        "MetaWrap.Xml",
+        "MetaWrap.Xml.Serialise",
+        "MetaWrap.Tester"
+    ],
+    [    
+    "file://metawrap/javascript/tests/logging/",
+    "file://metawrap/javascript/tests/page/",
+    "file://metawrap/javascript/tests/network/",
+    "file://metawrap/javascript/tests/cookie/",
+    "file://metawrap/javascript/tests/xml/",
+    "file://metawrap/javascript/tests/tester/"
+    ]
+    );

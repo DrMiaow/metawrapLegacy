@@ -1,0 +1,137 @@
+<script language="javascript" src="../base/mw_lib.js"></script>
+<script language="javascript" src="../widget/mw_lib_widget.js"></script>
+<script language="javascript">
+
+var g_Video_Screen_Width = 640;
+var g_Video_Screen_Height = 480;
+
+if (parseInt(navigator.appVersion)>3)
+{
+	alert("meep");
+	 //g_Video_Screen_Width = screen.width;
+	 //g_Video_Screen_Height = screen.height;
+
+	 g_Video_Screen_Width = document.parentWindow.screen.width;
+	 g_Video_Screen_Height = document.parentWindow.screen.height;
+
+
+}
+else
+if (navigator.appName == "Netscape" && parseInt(navigator.appVersion)==3 && navigator.javaEnabled())
+{
+ 	var jToolkit = java.awt.Toolkit.getDefaultToolkit();
+ 	var jScreenSize = jToolkit.getScreenSize();
+ 	g_Video_Screen_Width = jScreenSize.width;
+ 	g_Video_Screen_Height = jScreenSize.height;
+}
+
+alert("primary display height " + g_Video_Screen_Width + "x" + g_Video_Screen_Height);
+
+
+
+
+var g_Standard_Width =  [640,800,1024,1152,1280,1280,1400,1600,1792,1800,1856,1920,2048];
+var g_Standard_Height = [480,600,768,864,960,1024,1050,1080,1200,1280,1344,1392,1440,1536];
+
+
+function nearest_width(p_width)
+{
+
+	var i;
+
+	p_width-= 8;
+
+	for(i = 0;i<g_Standard_Width.length;i++)
+	{
+		if (g_Standard_Width[i] >=p_width)
+		{
+			return g_Standard_Width[i];
+		}
+	}
+
+	return g_Video_Screen_Width;
+}
+
+
+function nearest_height(p_height)
+{
+
+	p_height-= 8;
+
+	var i;
+	for(i = 0;i<g_Standard_Height.length;i++)
+	{
+		if (g_Standard_Height[i] >=p_height)
+		{
+			return g_Standard_Height[i];
+		}
+	}
+
+	return g_Video_Screen_Height;
+}
+
+
+function MwSniffDisplayDimensions()
+{
+/*
+	// Outer Dimensions
+	var l_width,l_height;
+	var test1 = document.body.scrollHeight;
+	var test2 = document.body.offsetHeight
+	if (test1 > test2) // all but Explorer Mac
+	{
+		l_width = document.body.scrollWidth;
+		l_height = document.body.scrollHeight;
+	}
+	else // Explorer Mac;
+		 //would also work in Explorer 6 Strict, Mozilla and Safari
+	{
+		l_width = document.body.offsetWidth;
+		l_height = document.body.offsetHeight;
+	}
+*/
+
+	// Inner Dimensions
+	var l_width,l_height;
+	if (self.innerHeight) // all except Explorer
+	{
+		l_width = self.innerWidth;
+		l_height = self.innerHeight;
+	}
+	else if (document.documentElement && document.documentElement.clientHeight)
+		// Explorer 6 Strict Mode
+	{
+		l_width = document.documentElement.clientWidth;
+		l_height = document.documentElement.clientHeight;
+	}
+	else if (document.body) // other Explorers
+	{
+		l_width = document.body.clientWidth;
+		l_height = document.body.clientHeight;
+	}
+
+	alert("inner_width "+  l_width + "x" + l_height);
+	alert("MwSniffDisplayDimensions "+  nearest_width(l_width) + "x" + nearest_height(l_height));
+}
+
+
+function start()
+{
+	MwSniffDisplayDimensions();
+	//sniff_page_height();
+}
+
+</script>
+
+
+
+
+
+
+<html>
+<head>
+</head>
+<body onload="start()">
+
+</body>
+</html>

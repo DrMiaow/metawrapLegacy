@@ -1,0 +1,71 @@
+<html>
+	<head>
+
+<script language="JavaScript">
+
+
+var g_log = "";
+
+function error(p_msg)
+{
+    alert(p_msg);
+}
+
+function debug(p_msg)
+{
+    alert(p_msg);
+}
+
+function trace(p_msg)
+{
+    window.status = p_msg;
+    document.title = p_msg;
+}
+
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+
+</script>
+			<script language="JavaScript" type="text/javascript" src="../base/mw_lib.js" ></script>
+			<script>MetaWrap.g_dev = true;</script>
+			<script language="JavaScript" type="text/javascript" src="../page/mw_lib_page.js" ></script>
+			<script language="JavaScript" type="text/javascript" src="../page/mw_lib_page_selection.js" ></script>
+			<script language="JavaScript" type="text/javascript" src="../page/mw_lib_page_event.js" ></script>
+			<script language="JavaScript" type="text/javascript" src="../page/mw_lib_page_edit.js" ></script>
+
+
+
+			<script language="JavaScript">
+
+			function Loaded()
+			{
+
+				MetaWrap.Page.Edit.start();
+			}
+
+			</script>
+	</head>
+	<body onload="Loaded()"  >
+
+
+<textarea>01234
+56789</textarea><textarea>01234 56789</textarea><textarea>01234  56789</textarea>
+<h1>0123456789</h1>
+<p>Oh freddled gruntbuggly,
+Thy micturations are to me
+As plurdled gabble blotchits
+On a lurgid bee.
+Groop, I implore thee, my foonting turlingdromes
+And hooptiously drangle me
+with crinkly bindle wurdles,
+Or I will rend thee in the gobberwarts with my blurglecruncheon
+See if I don't.
+</p>
+
+	</body>
+</html>

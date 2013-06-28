@@ -1,0 +1,98 @@
+<html>
+	<head>
+		<script language="JavaScript" src="thunk.js" ></script>
+		
+		<script language="JavaScript">
+			com = {};
+			com.massive = {};		
+		</script>
+		
+		<script language="JavaScript" src="com.massive.Foo_stub.js" ></script>		
+		<script language="JavaScript" src="com.massive.Bar_stub.js" ></script>
+		<script language="JavaScript" src="com.massive.Ni_stub.js" ></script>
+		<script language="JavaScript" >
+		
+		
+		var inherit = function(x,y,z)
+		{		
+			com.massive.Foo.apply(this,[x,y,x]);	
+			
+			this.newStack = [];
+		
+		}
+		
+		for(o in com.massive.Foo.prototype)
+		{		
+			alert("MixinPrototypePrototype sniff:"  + o);
+			inherit.prototype[o] = com.massive.Foo.prototype[o];
+		}	
+		
+		
+		var inherited = new inherit("Huey","Dewey","Lewie");
+			
+		
+		
+		alert("constructed");
+		
+		alert(inherited.Bar("Uno","Duece","Quatro"));
+		
+		inherited.stack.push("Coin");
+		inherited.stack.push("Coin");
+		inherited.stack.push("Coin");
+
+		inherited.newStack.push("Coin");
+		inherited.newStack.push("Coin");
+		inherited.newStack.push("Coin");
+
+		
+		alert("inherited.stack.length = " + inherited.stack.length);
+		alert("inherited.newStack.length = " + inherited.newStack.length);
+		
+		alert("Percy: " + com.massive.Ni.staticField);
+		alert("Lancelot: " + com.massive.Ni.staticObject.peril);
+		alert("com.massive.Ni.staticFoo.A: " + com.massive.Ni.staticFoo.A);
+		alert("com.massive.Ni.staticFoo.Bar('One','Two','Three'): " + com.massive.Ni.staticFoo.Bar('One','Two','Three'));
+		
+		//Thunk("com.massive.Bar");
+		//Thunk("com.massive.Ni");
+		com.massive.bar = new com.massive.Bar();		
+		com.massive.bar.ni = com.massive.bar.createProperty();
+		var said = com.massive.bar.ni.say();		
+		alert("The knights who say " + said + " " + com.massive.bar.ni.shrubbery);
+		
+		alert("Percy: " + com.massive.Ni.staticField);
+		alert("Lancelot: " + com.massive.Ni.staticObject.peril);		
+		alert("com.massive.Ni.staticFoo.A: " + com.massive.Ni.staticFoo.A);
+		alert("com.massive.Ni.staticFoo.Bar('Doh','Ray','Mee'): " + com.massive.Ni.staticFoo.Bar('Doh','Ray','Mee'));
+		
+		
+		/*
+		// Object Constructor
+		var obj = new NameSpace.MyObject("Hello","Cruel","World");
+		
+		// Does the Object method work and preserve the 'this' pointer?
+		alert(obj.f("Cat","In","Hat"));
+		
+		// Static function	
+		NameSpace.f("Hello","Cruel","World");
+
+		// Are the properties preserved?
+		alert(obj.A);
+		alert(obj.B);
+		alert(obj.C);
+		
+		
+		// Object Constructor
+		var foo = new com.massive.Foo("Baa","Ram","Ewe");
+		
+		
+		// Does the Object method work and preserve the 'this' pointer?
+		alert(foo.Bar("Doh!","Ray","Mee"));
+		*/
+				
+		</script>
+	</head>
+	<body>
+		<h1>Hello World</h1>
+	</body>
+</html>

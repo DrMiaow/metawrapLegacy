@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    $Id: action.xsd,v 1.7 2006/05/17 08:17:04 james Exp $
+
+    $Log: action.xsd,v $
+    Revision 1.7  2006/05/17 08:17:04  james
+    XML Schema changes
+
+    Revision 1.6  2006/03/29 12:10:39  james
+    Moving all XML schemas under a single holding schema - as an experiment
+
+    Revision 1.5  2006/02/20 12:16:04  james
+    Adding dispatch code
+
+    Revision 1.4  2006/02/19 13:23:44  james
+    Added code gen to DBC components of actions
+
+    Revision 1.3  2006/02/19 11:53:30  james
+    Added some code generation for the 'call' instruction
+
+    Revision 1.2  2006/02/14 21:43:21  james
+    Trying to move namespace issues out of xslt
+
+    Revision 1.1  2006/02/13 11:09:01  james
+    Getting stup project for actions - first task is to see if I can share code with state via the 'mc' code namespace
+
+    
+    @brief Schema definition for the MetaWrap WireWrap XML Schema
+ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="../metawrap/metawrap.xsd" targetNamespace="../metawrap/metawrap.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:annotation>
+		<xs:documentation xml:lang="en">
+            Schema definition for MetaWrap WireWrap
+            Copyright 2006 The MetaWrap Projet
+        </xs:documentation>
+	</xs:annotation>
+	
+	<xs:include schemaLocation="../code/code.xsd" id="code" />
+		
+	<!-- Main structure -->
+	<!--
+	<xs:element name="actions" type="actions"/>
+	-->
+	<!-- Instructions -->
+	<xs:complexType name="actions">
+		<xs:sequence>
+			<xs:element name="action" type="action" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Action -->
+	<xs:complexType name="action">
+		<xs:sequence>		
+			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1"/>		
+			<xs:element name="param" type="param" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="code" type="code" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="precondition" type="precondition" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="invariant" type="invariant" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="postcondition" type="postcondition" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required" />
+		<xs:attribute name="runat" type="xs:string" use="required" />
+	</xs:complexType>
+	<xs:complexType name="invariant">
+		<xs:sequence>
+			<xs:element name="description" type="xs:string"/>
+			<xs:element name="code" type="code"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="precondition">
+		<xs:sequence>
+			<xs:element name="description" type="xs:string"/>
+			<xs:element name="code" type="code"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="postcondition">
+		<xs:sequence>
+			<xs:element name="description" type="xs:string"/>
+			<xs:element name="code" type="code"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+	</xs:complexType>
+</xs:schema>

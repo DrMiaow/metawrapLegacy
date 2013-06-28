@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<style>
+.wrap{
+    width: 67%;
+    margin: 0 0 1em 14%;
+    padding: 2% 3% 2% 5%;
+    BACKGROUND: white;
+    border-style: solid;
+    border-width: 1px;
+    top: -1px;
+}
+h1,h2,h3,h4{
+    position: relative;
+    left: -1em;
+    clear: both;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: orange;
+    font: 0.8em trebuchet ms;
+}
+em{
+    background: #ffc;
+}
+pre{
+    font-size: 1.1em;
+    background: #f0f0f0;
+    -moz-border-radius: 10px;
+    padding: 1em;
+}
+pre span{
+    font-weight: bold;
+}
+.selector, pre b{
+    color: red;
+}
+.beh{
+    color: blue;
+}
+.event{
+    color: green;
+}
+
+#sortable-list li{
+    cursor:move;
+    -moz-user-select: none;
+    width: 100%;
+}
+
+.dropout li{
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    float: left;
+    margin: 5px;
+    border: 1px solid #ccc;
+    list-style: none;
+    background: red;
+}
+
+.dropout li.hover{
+    background: yellow;
+}
+	</style>
+
+
+	<title>
+		ThumbWhere - Model TestCase #1 - MetaWrap JavaScript Library - $Id: test_1_model.html,v 1.5 2007/01/16 07:48:21 james Exp $
+	</title>
+	
+	
+	<script language="JavaScript" type="text/javascript" src="../base/mw_lib.js"></script>	
+	<script language="JavaScript" type="text/javascript" src="../logger/mw_lib_logger.js"></script>
+	
+	<script language="JavaScript" type="text/javascript" src="../fundamental/test.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../network/mw_lib_network.js"></script>	
+	<script language="JavaScript" type="text/javascript" src="../xml/mw_lib_xml.js"></script>	
+	<script language="JavaScript" type="text/javascript" src="../xml/mw_lib_xml_action.js"></script>
+	<script language="JavaScript" type="text/javascript" src="../api/mw_lib_api.js"></script>	
+	
+	
+	  
+	  
+	  <script src="../../3rdpartylibs/jquery-1.9.1.js"></script>
+	  <script src="../../3rdpartylibs/underscore.js"></script>
+	  <script src="../../3rdpartylibs/backbone.js"></script>
+	  <script src="../../3rdpartylibs/backbone.localStorage.js"></script>
+	  <script src="../../3rdpartylibs/backbone-relational.js"></script>
+	
+
+	<script language="JavaScript" type="text/javascript" src="/thumbwhere/websites/js/api/service_admin_v1_1.js"></script>	    
+	<script language="JavaScript" type="text/javascript" src="/thumbwhere/websites/js/api/service_identity_v1_1.js"></script>   
+	<script language="JavaScript" type="text/javascript" src="/thumbwhere/websites/js/api/service_member_v1_1.js"></script>   
+	<script language="JavaScript" type="text/javascript" src="/thumbwhere/websites/js/api/service_content_v1_1.js"></script>   
+	
+	<script language="JavaScript" type="text/javascript" src="/thumbwhere/websites/js/model/service_admin_v1_1.js"></script>	    
+	<script language="JavaScript" type="text/javascript" src="/thumbwhere/websites/js/model/service_identity_v1_1.js"></script>   
+	<script language="JavaScript" type="text/javascript" src="/thumbwhere/websites/js/model/service_member_v1_1.js"></script>   
+	<script language="JavaScript" type="text/javascript" src="/thumbwhere/websites/js/model/service_content_v1_1.js"></script>   
+	
+	
+    <script language="JavaScript" type="text/javascript" src="../api/mw_lib_api_implementation.js"></script>    
+	
+	
+
+</head>
+<body>
+<div class="wrap">
+<table width="100%">
+	<tr align="middle" >
+		<td>
+			<h2>
+				ThumbWhere- TestCases #1 - Model Tests #1
+			</h2>
+		</td>
+		<td>
+			<a href="http://www.metawrap.com"><img border="0" src="../images/metawrap_logo_sm.png" align="right" /></a>
+		</td>
+	</tr>
+</table>
+
+<pre>$Id: test_1_pipeline.html,v 1.5 2007/01/16 07:48:21 james Exp $</pre>
+</div>
+
+<div class="wrap">
+
+<script language="JavaScript" type="text/javascript" >
+
+
+Person = Backbone.Model.extend({ 
+	initialize: function(){ 
+		alert("Welcome to this world"); 
+	} 
+}); 
+
+	// Handy Links
+	// http://jsfiddle.net/QEdmB/44/
+	// http://stackoverflow.com/questions/13358477/override-backbones-collection-fetch
+	// http://stackoverflow.com/questions/9914952/backbone-js-complex-model-fetch
+	
+	//var producer = new MetaWrap.Model.Producer(); 	
+	//producer.set("name","test");
+	
+	//$ = MetaWrap.$;
+		
+	var producers = new MetaWrap.Collection.Producer(); 	    
+	producers.fetch();
+  
+	var producer = producers.create({name:"hello cruel world 1"});
+	producer.save();
+
+	//alert($("document"));
+  
+	log("producers.size(); = " + producers.size());
+	
+	
+	//
+	// Has Many
+	//
+	
+	
+	var Zoo = Backbone.RelationalModel.extend({
+		relations: [{
+			type: Backbone.HasMany,
+			key: 'animals',
+			relatedModel: 'Animal',
+			collectionType: 'AnimalCollection',
+			reverseRelation: {
+				key: 'livesIn',
+				includeInJSON: 'id'
+				// 'relatedModel' is automatically set to 'Zoo'; the 'relationType' to 'HasOne'.
+			}
+		}]
+	});
+
+	var Animal = Backbone.RelationalModel.extend({
+		//urlRoot: '/animal/'
+	});
+
+	var AnimalCollection = Backbone.Collection.extend({
+		model: Animal,
+  		localStorage: new Backbone.LocalStorage("Animals"), 
+
+	});
+
+	// We've now created a fully managed relation. When you add or remove model from `zoo.animals`,
+	// or update `animal.livesIn`, the other side of the relation will automatically be updated.
+	var myzoo = new Zoo( { name: 'My Zoo' } );
+	var lion = new Animal( { species: 'Lion', livesIn: myzoo } );
+	var tiger = new Animal( { species: 'Tiger', livesIn: myzoo } );
+
+	// `animals` in `artis` now contains `lion`
+	log( myzoo.get( 'animals' ).pluck( 'species' ) );
+	var amersfoort = new Zoo( { name: 'Dierenpark Amersfoort', animals: [ lion ] } );
+
+	// `lion` now livesIn `amersfoort`, and `animals` in `artis` no longer contains `lion`
+	log( lion.get( 'livesIn' ).get( 'name' ) + ', ' + myzoo.get( 'animals' ).length );
+
+
+	
+
+</script>
+</body>
+</html>
+
+
+
+  
+

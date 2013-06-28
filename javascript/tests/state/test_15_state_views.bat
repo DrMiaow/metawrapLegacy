@@ -1,0 +1,2 @@
+..\..\..\tools\MetaWrap.CommandLineXslt.exe test_15_state_views.xml state.xsl test_15_state_views.js
+..\..\..\tools\MetaWrap.CommandLineXslt.exe test_15_state_views_stateviewmap.xml ..\stateviewmap\stateviewmap.xsl test_15_state_views_stateviewmap.js

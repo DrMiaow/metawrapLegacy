@@ -1,0 +1,428 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<style>
+.wrap{
+    width: 67%;
+    margin: 0 0 1em 14%;
+    padding: 2% 3% 2% 5%;
+    BACKGROUND: white;
+    border-style: solid;
+    border-width: 1px;
+    top: -1px;
+}
+h1,h2,h3,h4{
+    position: relative;
+    left: -1em;
+    clear: both;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: orange;
+    font: 0.8em trebuchet ms;
+}
+em{
+    background: #ffc;
+}
+pre{
+    font-size: 1.1em;
+    background: #f0f0f0;
+    -moz-border-radius: 10px;
+    padding: 1em;
+}
+pre span{
+    font-weight: bold;
+}
+.selector, pre b{
+    color: red;
+}
+.beh{
+    color: blue;
+}
+.event{
+    color: green;
+}
+
+#sortable-list li{
+    cursor:move;
+    -moz-user-select: none;
+    width: 100%;
+}
+
+.dropout li{
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    float: left;
+    margin: 5px;
+    border: 1px solid #ccc;
+    list-style: none;
+    background: red;
+}
+
+.dropout li.hover{
+    background: yellow;
+}
+	</style>
+
+
+	<title>
+		Tester TestCase #4 - MetaWrap JavaScript Library - $Id: test_4_tester_instrument.html,v 1.2 2006/05/09 13:44:20 james Exp $
+	</title>
+	
+<script language="JavaScript">
+function error(p_msg)
+{
+    alert(p_msg);
+}
+
+function debug(p_msg)
+{
+    //alert(p_msg);
+}
+
+function trace(p_msg)
+{
+    // Ensure that firefox status window changes are enabled
+    window.status = p_msg;
+}
+
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+
+</script>
+	
+	<script type="text/javascript" src="../base/mw_lib.js"></script>
+	<script type="text/javascript" src="../cookie/mw_lib_cookie.js"></script>
+	<script type="text/javascript" src="../page/mw_lib_page.js"></script>
+	<script type="text/javascript" src="../page/mw_lib_page_element.js"></script>
+	<script type="text/javascript" src="../page/mw_lib_page_element_addhandler.js"></script>
+	<script type="text/javascript" src="../page/mw_lib_page_event.js"></script>
+	<script type="text/javascript" src="../page/mw_lib_page_event_simulate.js"></script>
+	<script type="text/javascript" src="../xml/mw_lib_xml.js"></script>
+	<script type="text/javascript" src="../xml/mw_lib_xml_serialise.js"></script>
+	<script type="text/javascript" src="../tester/mw_lib_tester.js"></script>
+	<script type="text/javascript" src="../macro/mw_lib_macro.js"></script>
+	<script type="text/javascript" src="../logging/mw_lib_logger.js"></script>
+
+<script language="JavaScript">
+
+MwUse("MetaWrap.Page.Event","mw_lib_page_event.js");
+
+
+
+function error(p_msg)
+{
+    alert(p_msg);
+}
+
+function debug(p_msg)
+{
+    alert(p_msg);
+}
+
+function trace(p_msg)
+{
+    window.status = p_msg;
+}
+
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+
+</script>
+</head>
+<body>
+<div class="wrap">
+<table width="100%">
+	<tr align="middle" >
+		<td>
+			<h2>
+				Tester TestCases #4 - Instrumenting And Macro Recording
+			</h2>
+		</td>
+		<td>
+			<a href="http://www.metawrap.com"><img border="0" src="../images/metawrap_logo_sm.png" align="right" /></a>
+		</td>
+	</tr>
+</table>
+
+<pre>$Id: test_4_tester_instrument.html,v 1.2 2006/05/09 13:44:20 james Exp $</pre>
+
+
+</div>
+
+<div class="wrap" onmouseover="statusupdate('DIV(v)'); return true;">
+<script language="JavaScript">
+
+// http://www.mozilla.org/docs/dom/domref/dom_el_ref.html
+// http://www.quirksmode.org/js/events_properties.html
+// http://www.quirksmode.org/js/events_compinfo.html
+function statusupdate(p_string)
+{
+    //window.status = p_string + window.status.substring(0,160);
+    //document.title = p_string + document.title.substring(0,160);
+}
+
+
+
+document.onblur = function(p_event)
+{
+	statusupdate("B");
+}
+
+document.onfocus = function(p_event)
+{
+	statusupdate("F");
+}
+
+document.oncontextmenu = function(p_event)
+{
+	statusupdate("X");
+}
+
+
+document.onresize = function(p_event)
+{
+	statusupdate("Z");
+}
+
+
+document.onscroll = function(p_event)
+{
+	statusupdate("S");
+}
+
+document.ondblclick = function(p_event)
+{
+	statusupdate("D");
+}
+
+function simulate_event(p_event_type,p_element_path,p_X,p_Y,p_ctrl,p_alt,p_shift,p_button)
+{
+    alert("simulate_event " + p_event_type + " " + p_element_path);
+
+    // Create a new event
+    var l_event = new MetaWrap.Page.Event(p_event_type,p_X,p_Y,p_ctrl,p_alt,p_shift,p_button);
+
+	// If we fail to create an event then report an error and flee
+	if (l_event == null)
+	{
+	    error("unabel to create event " + p_event_type);
+	    return;
+	}
+
+    // Pop the event into an elert box if we are in debug mode
+    MetaWrap.Page.Event.Dump(l_event,"Simulated event to " + p_element_path);
+
+    // Take our location string and map it into an element
+	var l_element = MetaWrap.getDOMElementFromLocation(p_element_path);
+
+	// If we fail to find it, report error and flee
+	if (l_element == null)
+	{
+	    error("unknown element " + p_element_path);
+	    return;
+	}
+
+    // Take our location string and map it into an element
+	var l_element = MetaWrap.getDOMElementFromLocation(p_element_path);
+
+    // Send the event
+	MetaWrap.Page.Event.send(l_event,l_element,p_event_type);
+}
+
+document.onclick = function(p_event)
+{
+	statusupdate("C");
+
+	// Get the event
+	var l_event = null;
+
+	if (!p_event)
+		l_event = window.event;
+	else
+		l_event = p_event;
+
+	// Get the target
+	var l_target = (l_event.target) ? l_event.target : l_event.srcElement
+
+
+	var l_target_location = MetaWrap.getDOMLocationFromElement(l_target);
+
+	//statusupdate(l_target_location);
+
+	var l_location_element = MetaWrap.getDOMElementFromLocation(l_target_location);
+
+	if (l_location_element != l_target)
+	{
+		alert("(l_location_element != l_target)");
+	}
+	else
+	{
+		alert("onclick " + l_target_location);
+
+		statusupdate("(onclick " + l_target_location+")");
+
+		// Dump the event?
+		MetaWrap.Page.Event.Dump(l_event,l_target_location);
+	}
+}
+
+document.onmouseover = function(p_event)
+{
+    // Get the event
+    var l_event = null;
+    if (!p_event)
+        l_event = window.event;
+    else
+        l_event = p_event;
+
+    // Get the target
+    var l_target = (l_event.target) ? l_event.target : l_event.srcElement
+
+    statusupdate("Mv");
+    return false;
+}
+
+document.onmouseout = function(p_event)
+{
+	statusupdate("Mo");
+}
+
+document.onmousemove = function(p_event)
+{
+	statusupdate("Mm");
+}
+
+document.onchange = function(p_event)
+{
+	statusupdate("Fc");
+}
+
+document.onreset = function(p_event)
+{
+	statusupdate("Fr");
+}
+
+document.onselect = function(p_event)
+{
+	statusupdate("Fs");
+}
+
+document.onsubmit = function(p_event)
+{
+	statusupdate("Fu");
+}
+
+document.onkeydown = function(p_event)
+{
+	statusupdate("Kd");
+}
+
+document.onkeypress = function(p_event)
+{
+	statusupdate("Kp");
+}
+
+document.onkeyup = function(p_event)
+{
+	statusupdate("Ku");
+}
+
+
+
+function test_event_1(p_event)
+{
+    if (p_event != null)
+    {
+       alert("p_event != null");
+    }
+
+    l_path = "document.HTML.BODY.DIV[1].FORM.P[7].A";
+    l_X = 35;
+    l_Y	= 340;
+    l_type = "click";
+    l_button =0;
+    l_altKey = false;
+    l_ctrlKey = false;
+    l_shiftLeft = false;
+
+    simulate_event(l_type,l_path,l_X,l_Y);
+}
+
+
+/*
+  var r = '';
+  if (document.all)
+  {
+    r += event.ctrlKey ? 'Ctrl-' : '';
+    r += event.altKey ? 'Alt-' : '';
+    r += event.shiftKey ? 'Shift-' : '';
+    r += event.keyCode;
+  }
+  else if (document.getElementById)
+  {
+    r += p_event.ctrlKey ? 'Ctrl-' : '';
+    r += p_event.altKey ? 'Alt-' : '';
+    r += p_event.shiftKey ? 'Shift-' : '';
+    r += p_event.charCode;
+  }
+  else if (document.layers)
+  {
+    r += p_event.modifiers & Event.CONTROL_MASK ? 'Ctrl-' : '';
+    r += p_event.modifiers & Event.ALT_MASK ? 'Alt-' : '';
+    r += p_event.modifiers & Event.SHIFT_MASK ? 'Shift-' : '';
+    r += p_event.which;
+  }
+  alert(r);
+  return true;
+*/
+
+</script>
+
+
+
+<form>
+	<input name="A" type="text" />
+	<p/>
+	<input name="B" type="button" value="yes" />
+	<p/>
+	<input name="C" type="button" value="no" />
+	<p/>
+	<input name="D" type="radio" value="true" />
+	<p/>
+	<input name="D" type="radio" value="false" />
+	<p/>
+	<input name="E" type="checkbox" />
+	<p/>
+	<input name="F" type="password" />
+	<p/>
+	<a onmouseover="statusupdate('v'); return true;">a.onmouseover</a>
+	<p/>
+	<a onclick="alert('a.onclick')">a.onclick</a>
+	<p/>
+	<a onclick="test_event_1(event)">test_event_1(event)</a>
+
+</form>
+</div>
+
+<script type="text/javascript">
+// Render the Macro Controller
+//MetaWrap.Macro.render();
+</script>
+
+</body>
+</html>

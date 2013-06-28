@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    $Id: code.xsd,v 1.9 2007/04/21 06:19:34 james Exp $
+
+    $Log: code.xsd,v $
+    Revision 1.9  2007/04/21 06:19:34  james
+    Working on state machine
+
+    Revision 1.8  2006/05/18 12:18:45  james
+    Tidied some stuff up
+
+    Revision 1.7  2006/05/18 08:17:53  james
+    Schema update to a single global schema
+
+    Revision 1.6  2006/05/17 08:17:04  james
+    XML Schema changes
+
+    Revision 1.5  2006/03/29 12:10:39  james
+    Moving all XML schemas under a single holding schema - as an experiment
+
+    Revision 1.4  2006/02/20 12:16:04  james
+    Adding dispatch code
+
+    Revision 1.3  2006/02/19 11:53:31  james
+    Added some code generation for the 'call' instruction
+
+    Revision 1.2  2006/02/14 21:43:21  james
+    Trying to move namespace issues out of xslt
+
+    Revision 1.1  2006/02/13 10:54:26  james
+    Attempting to share code XSLT between state and action
+
+    
+    @brief Schema definition for the MetaWrap WireWrap XML Schema
+ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="../metawrap/metawrap.xsd" targetNamespace="../metawrap/metawrap.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:annotation>
+		<xs:documentation xml:lang="en">
+            Schema definition for MetaWrap WireWrap
+            Copyright 2006 The MetaWrap Projet
+        </xs:documentation>
+	</xs:annotation>
+	<!-- Main structure -->
+	<!--<xs:element name="code" type="code"/>-->
+	
+	<!--
+	<xs:complexType name="codes">
+		<xs:sequence>
+			<xs:element name="code" type="code" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	-->
+		
+	<!-- Instructions -->
+	<xs:complexType name="code">
+		<xs:sequence>
+			<xs:element name="head" type="instruction" minOccurs="0"/>
+			<xs:element name="body" type="instruction" minOccurs="0"/>
+			<xs:element name="fault" type="instruction" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="param">		
+		<xs:sequence>
+			<xs:element name="doc" type="xs:string" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="type" type="xs:string" use="optional"/>
+		<xs:attribute name="optional" type="xs:boolean" use="optional"/>
+	</xs:complexType>
+
+	<xs:complexType name="reference">
+		<xs:attribute name="name" type="xs:string" use="required"/>
+	</xs:complexType>
+	
+	<!-- Instructions -->
+	<xs:complexType name="var">
+		<xs:attribute name="name" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="call">
+		<xs:sequence>
+			<xs:element name="reference" type="reference" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>	
+		<xs:attribute name="function" type="xs:string" use="required"/>
+		<xs:attribute name="result" type="xs:string" use="required"/>
+	</xs:complexType>	
+	<xs:complexType name="copy">
+		<xs:attribute name="from" type="xs:string" use="required"/>
+		<xs:attribute name="to" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="compare">
+		<xs:attribute name="op" type="xs:string" use="required"/>
+		<xs:attribute name="with" type="xs:string" use="required"/>
+		<xs:attribute name="to" type="xs:string" use="required"/>
+		<xs:attribute name="result" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="return">
+		<xs:attribute name="with" type="xs:string" />
+		<xs:attribute name="call" type="xs:string" />		
+	</xs:complexType>
+
+	<!-- Instruction Type -->
+	<xs:complexType name="instruction">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="var" type="var"/>
+			<xs:element name="call" type="call"/>			
+			<xs:element name="copy" type="copy"/>
+			<xs:element name="compare" type="compare"/>
+			<xs:element name="return" type="return"/>
+		</xs:choice>
+	</xs:complexType>
+</xs:schema>

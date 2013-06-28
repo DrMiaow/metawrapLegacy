@@ -1,0 +1,27 @@
+<!--
+
+   $Revision: 1.1 $
+   $Date: 2005/11/09 07:22:06 $
+
+-->
+
+<!ENTITY blue "blue" >
+<!ENTITY green "green" >
+<!ENTITY red "red" >
+
+<!ELEMENT test (#PCDATA) >
+<!ENTITY % xx '&#37;zz;'>
+<!ENTITY yy "Hello">
+<!ENTITY % zz '&#60;!ENTITY tricky "error-prone" >' >
+
+
+<!ENTITY css "
+	H1, H2, H3
+		{
+			font-family: arial, trebuchet ms;
+			text-decoration: underline;
+			color: &red; ;
+		}
+">
+
+%xx;

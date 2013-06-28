@@ -1,0 +1,27 @@
+<html>
+	<head>
+			<script language="JavaScript" src="../base/mw_lib.js" ></script>
+			<script language="JavaScript" src="../page/mw_lib_page.js" ></script>
+			<script language="JavaScript" src="../page/mw_lib_page_element.js" ></script>
+			<script language="JavaScript" src="../page/mw_lib_page_element_addhandler.js" ></script>
+
+			<script language="JavaScript">
+
+			function Loaded1()
+			{
+				alert("First Function");
+			}
+
+			function Loaded2()
+			{
+				alert("Second Function - Test Complete");
+			}
+
+			MetaWrap.Page.listen("load",Loaded1);
+			MetaWrap.Page.listen("load",Loaded2);
+
+			</script>
+	</head>
+	<body>
+	</body>
+</html>

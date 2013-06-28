@@ -1,0 +1,1 @@
+wget -r http://api.localhost.thumbwhere.com/index.xml -O index.xml

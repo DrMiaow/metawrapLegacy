@@ -1,0 +1,4 @@
+catalog {display:table; }
+book {display:table-row; }
+book *{display:table-cell; padding:5px;}
+title {color:blue; text-decoration:underline;}

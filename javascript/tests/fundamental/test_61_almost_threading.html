@@ -1,0 +1,30 @@
+<html>
+<body>
+<input type="text" onclick="alert('hello')" onkeypress="alert('hello')" >
+
+<script language="JavaScript">
+
+
+var timerID = 0;
+var tStart  = null;
+
+function UpdateTimer()
+{
+   if(timerID)
+   {
+      clearTimeout(timerID);
+      timerID = 0;
+   }
+
+  //alert("UpdateTimer1");
+
+   timerID = setTimeout("UpdateTimer()", 1000);
+
+   alert("UpdateTimer2");
+}
+
+timerID = setTimeout("UpdateTimer()", 1000);
+</script>
+
+</body>
+</html>

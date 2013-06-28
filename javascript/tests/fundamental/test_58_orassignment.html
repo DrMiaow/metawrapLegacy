@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<title>
+		Fundamental Testcases #58 - 'Or Assignment' $Id: test_58_orassignment.html,v 1.3 2006/03/30 03:40:57 james Exp $
+	</title>
+
+	<style>
+.wrap{
+    width: 67%;
+    margin: 0 0 1em 14%;
+    padding: 2% 3% 2% 5%;
+    BACKGROUND: white;
+    border-style: solid;
+    border-width: 1px;
+    top: -1px;
+}
+h1,h2,h3,h4{
+    position: relative;
+    left: -1em;
+    clear: both;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: orange;
+    font: 0.8em trebuchet ms;
+}
+em{
+    background: #ffc;
+}
+pre{
+    font-size: 1.1em;
+    background: #f0f0f0;
+    -moz-border-radius: 10px;
+    padding: 1em;
+}
+pre span{
+    font-weight: bold;
+}
+.selector, pre b{
+    color: red;
+}
+.beh{
+    color: blue;
+}
+.event{
+    color: green;
+}
+
+#sortable-list li{
+    cursor:move;
+    -moz-user-select: none;
+    width: 100%;
+}
+
+.dropout li{
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    float: left;
+    margin: 5px;
+    border: 1px solid #ccc;
+    list-style: none;
+    background: red;
+}
+
+.dropout li.hover{
+    background: yellow;
+}
+	</style>
+<script language="JavaScript">
+/*!
+    @fn         function debug(p_msg)
+	@param		p_msg Message to display
+    @brief      Debugging routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function debug(p_msg)
+{
+    alert(p_msg);
+}
+
+
+
+/*!
+    @fn         function error(p_msg)
+	@param		p_msg Message to display
+    @brief      Error routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function error(p_msg)
+{
+    alert(p_msg);
+}
+
+/*!
+    @fn         function trace(p_msg)
+	@param		p_msg Message to display
+    @brief      Trace routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function trace(p_msg)
+{
+    //window.status = p_msg;
+}
+
+/*!
+    @fn         function ASSERT(p_cond,p_msg)
+	@param		p_cond The flag that determines if we don't display p_msg
+	@param		p_msg Message to display
+    @brief      If p_cond is not true then display p_msg
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+</script>
+
+
+
+<script language="JavaScript" type="text/javascript" src="../base/mw_lib.js" ></script>
+</head>
+<body>
+<div class="wrap">
+<table width="100%" ID="Table1">
+	<tr align="middle" >
+		<td>
+			<h2>
+				Fundamental Testcases #58 - 'Or Assignment'
+			</h2>
+		</td>
+		<td>
+			<a href="http://www.metawrap.com"><img border="0" src="../images/metawrap_logo_sm.png" align="right" /></a>
+		</td>
+	</tr>
+</table>
+<pre>$Id: test_58_orassignment.html,v 1.3 2006/03/30 03:40:57 james Exp $</pre>
+</div>
+
+<div class="wrap">
+<script language="JavaScript" src="../fundamental/test.js" ></script>
+</div>
+
+<script language="JavaScript">
+	var l_name = 'Check that Or Assignment works will all null';
+	var l_test = 'var A = null;\r\n\
+var B = null;\r\n\
+var C = null;\r\n\
+var result = A||B||C;\r\n';
+	var l_valid = 'result == null';
+	passFail(l_name,l_test,l_valid);
+
+    l_name = 'Check that Or Assignment works';
+	l_test = 'var A = "A";\r\n\
+var B = null;\r\n\
+var C = null;\r\n\
+var result = A||B||C;\r\n';
+	l_valid = 'result == "A"';
+	passFail(l_name,l_test,l_valid);
+
+    l_name = 'Check that Or Assignment works';
+	l_test = 'var A = null;\r\n\
+var B = "B";\r\n\
+var C = null;\r\n\
+var result = A||B||C;\r\n';
+	l_valid = 'result == "B"';
+	passFail(l_name,l_test,l_valid);
+
+    l_name = 'Check that Or Assignment works';
+	l_test = 'var A = null;\r\n\
+var B = null;\r\n\
+var C = "C";\r\n\
+var result = A||B||C;\r\n';
+	l_valid = 'result == "C"';
+	passFail(l_name,l_test,l_valid);
+
+    l_name = 'Check that Or Assignment works with multiple true';
+	l_test = 'var A = null;\r\n\
+var B = "B";\r\n\
+var C = "C";\r\n\
+var result = A||B||C;\r\n';
+	l_valid = 'result == "B"';
+	passFail(l_name,l_test,l_valid);
+
+    l_name = 'Check that Or Assignment works with all null';
+	l_test = 'var A = null;\r\n\
+var B = null;\r\n\
+var C = null;\r\n\
+var result = A||B||C;\r\n';
+	l_valid = '!result';
+	passFail(l_name,l_test,l_valid);
+
+    l_name = 'Check that first to evalute to true blocks the rest from being evaluated';
+	l_test = '\r\n\
+var g = -1;\r\n\
+function f(x)\r\n\
+{\r\n\
+  g = x;\r\n\
+  return x;\r\n\
+}\r\n\
+var result = f(0) || f(1) || f(2);\r\n\
+';
+	l_valid = 'g == 1';
+	passFail(l_name,l_test,l_valid);
+
+
+</script>
+
+
+</body>
+</html>
+

@@ -1,0 +1,150 @@
+<script language="JavaScript">
+/*!
+    @fn         function debug(p_msg)
+	@param		p_msg Message to display
+    @brief      Debugging routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function debug(p_msg)
+{
+    //alert(p_msg);
+}
+
+/*!
+    @fn         function error(p_msg)
+	@param		p_msg Message to display
+    @brief      Error routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function error(p_msg)
+{
+    alert(p_msg);
+}
+
+/*!
+    @fn         function warn(p_msg)
+	@param		p_msg Message to display
+    @brief      Warn routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function warn(p_msg)
+{
+    //alert(p_msg);
+}
+
+/*!
+    @fn         function trace(p_msg)
+	@param		p_msg Message to display
+    @brief      Trace routine
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function trace(p_msg)
+{
+    //alert(p_msg);
+}
+
+/*!
+    @fn         function ASSERT(p_cond,p_msg)
+	@param		p_cond The flag that determines if we don't display p_msg
+	@param		p_msg Message to display
+    @brief      If p_cond is not true then display p_msg
+    @author     James Mc Parlane
+    @date       10 June 2005
+*/
+function ASSERT(p_cond,p_msg)
+{
+    if (!p_cond)
+    {
+        alert(p_msg);
+    }
+}
+</script>
+<script language="JavaScript" type="text/javascript" src="../base/mw_lib.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../pipeline/mw_lib_pipeline.js"></script>
+<script language="JavaScript" type="text/javascript" src="../network/mw_lib_network.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../xml/mw_lib_xml.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../xml/mw_lib_xml_serialise.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../xslt/mw_lib_xml_xslt.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../cookie/mw_lib_cookie.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../css/mw_lib_css.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../logger/mw_lib_logger.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../objectmodel/mw_lib_objectmodel.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../objectmodel/mw_lib_objectmodel_node.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../objectmodel/mw_lib_objectmodel_node_cookie.js" ></script>
+<script language="JavaScript" type="text/javascript" src="../code/mw_lib_code.js" ></script>
+<script language="JavaScript">
+
+///////////////////////////////
+
+
+//////////////////////////////
+
+// If you click on any element in the tic tac toe grid..
+function changed(p_element)
+{
+
+	// If its X's turn
+    if (MetaWrap.State.testState("x_turn"))
+    {
+		// Set the state for an X in that location to active
+        if (MetaWrap.State.affirmState("x" + p_element.id))
+        {
+			// display the X in the HTML
+            p_element.value = "_X_";          
+        }
+    }    
+	else    
+    {
+		// Set the state for an O in that location to active
+        if (MetaWrap.State.affirmState("o" + p_element.id))
+        {
+			// display the O in the HTML
+            p_element.value = "_0_";            
+        }
+    }
+	
+	// Flip the state and let the state machine do the rest
+	MetaWrap.State.flipState("x_turn");
+}
+
+function x_wins()
+{
+	alert("X wins");
+	return true;
+}
+
+function o_wins()
+{
+	alert("O wins");
+	return true;
+}
+
+function nobody_wins()
+{
+	alert("Its a draw!");
+	return true;
+}
+
+function game_over()
+{
+	alert("GAME OVER");
+	return true;
+}
+
+
+</script>
+
+<body>
+<p><a href="./test_13_state.xml">XML State Machine Description</a></p>
+<p>
+<input value="___" type="button" id="p11" size="1" maxlength="1" onclick="changed(this)" ><input value="___" type="button" id="p21" size="1" maxlength="1" onclick="changed(this)" ><input value="___" type="button" id="p31" size="1" maxlength="1" onclick="changed(this)" ><br/>
+<input value="___" type="button" id="p12" size="1" maxlength="1" onclick="changed(this)" ><input value="___" type="button" id="p22" size="1" maxlength="1" onclick="changed(this)" ><input value="___" type="button" id="p32" size="1" maxlength="1" onclick="changed(this)" ><br/>
+<input value="___" type="button" id="p13" size="1" maxlength="1" onclick="changed(this)" ><input value="___" type="button" id="p23" size="1" maxlength="1" onclick="changed(this)" ><input value="___" type="button" id="p33" size="1" maxlength="1" onclick="changed(this)" ><br/>
+</p>
+</body>
+<script language="JavaScript" type="text/javascript" src="../state/mw_lib_state.js" ></script>
+

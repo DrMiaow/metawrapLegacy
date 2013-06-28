@@ -1,0 +1,607 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<title>ThumbWhere.com</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />		
+	</head>
+	<body>
+		<div class="page">
+
+			<div>
+				<span class="aspect" name="loading">
+					<h1>Loading.....</h1>
+				</span>
+			</div>
+
+			<div>
+				<span class="aspect" name="loaded">
+
+					<div class="blurb">
+						<h1>Welcome to ThumbWhere</h1>
+						<i>Sharing your life through your mobile device.</i>
+					</div>
+
+					<p/>
+					
+					<div>
+						<span class="aspect" name="ready_for_sms_or_mms">														
+							<h1 style="color:green;">Start Submitting Photos And Videos</h1>
+							<p>To send an photo or video to your {$g_application.m_name} stream, MMS it to <strong>{$l_mms_number}.</strong></p>
+							<p>If you just want to send a short text message, just send an SMS.</p>
+						</span>
+					</div>	
+
+					<div>
+						<span class="aspect" name="not_ready_for_sms_or_mms_loggedin_but_no_app">
+						</span>
+					</div>	
+					
+					<div>
+						<span class="aspect" name="not_ready_for_sms_not_loggedin">																					
+						</span>
+					</div>	
+
+					
+					<div>
+						<span class="aspect" name="register_or_login">
+							<div>					
+								<span class="aspect" name="normal_login">
+									<h1 style="color:green;" >Login</h1>
+									
+									<p>If you have an existing ThumbWhere account you can login here.</p>
+
+									<div>
+										<label for="LOGINUSERNAME">
+										Username:
+											<input type="TEXT" value="" id="LOGINUSERNAME" name="LOGINUSERNAME" onkeyup="MetaWrap.State.negateState('application/loaded/registerOrLogin/loginFailed');MetaWrap.State.determineState();" />
+										</label>
+									</div>
+									<div>
+										<label for="LOGINPASSWORD">
+										Password:									
+											<input type="PASSWORD" value="" id="LOGINPASSWORD" name="LOGINPASSWORD" onkeyup="MetaWrap.State.negateState('application/loaded/registerOrLogin/loginFailed');MetaWrap.State.determineState();" />
+										</label>
+									</div>
+									<div>
+										<span class="aspect" name="login_button">
+											<input type="BUTTON" value="Login" id="LOGIN" name="LOGIN" onclick="MetaWrap.State.negateState('application/loaded/registerOrLogin/loginFailed');doLogin();" />
+										</span>
+									</div>
+									
+									<div>
+										<span class="aspect" name="login_button_off">
+											<input type="BUTTON" value="Login" id="LOGINX" name="LOGINDX" disabled="true"  />
+										</span>
+									</div>
+									
+									
+									<div>
+										<span class="aspect" name="login_failed">
+											<div style="color:red;" >Login failed.</div>
+										</span>
+									</div>
+
+
+									<label for="REMEMBERME">
+										<input type="CHECKBOX" checked="{$l_remember_me}" id="REMEMBERME" name="REMEMBERME" onclick="doRememberMe()" />
+											Remember Me
+									</label>
+									<br/>
+									<!--a href="/forgot" onclick="MetaWrap.State.affirmState('forgot'); return false;" >Forgot Password</a-->
+
+									<h3>or</h3>	
+
+									<h1 style="color:green;">Join</h1>									
+
+									<p>With ThumbWhere you can SMS Text or MMS Photos, Video or Audio to <a href="http://twitter.com">Twitter.</a></p>
+																											
+									<input type="BUTTON" value="Join" id="MOBILELOGIN" name="MOBILELOGIN" onclick="MetaWrap.State.affirmState('/application/loaded/registerOrLogin/mobileRegistration'); return false;" />
+								</span>
+							</div>
+
+							<div>
+								<span class="aspect" name="mobile_login">
+
+									<div>
+										<span class="aspect" name="generating_code">
+											Requesting SMS Code from ThumbWhere - please wait.
+										</span>
+									</div>
+
+									<div>
+										<span class="aspect" name="generating_code_error">
+											<h3 style="color:red;" >There was an error requesting the SMS Code.. .</h3> 											
+											<input type="BUTTON" value="Try Again" id="SMSTRYGAIN" name="SMSTRYGAIN" onclick="MetaWrap.State.affirmState('/application/loaded/registerOrLogin/mobileRegistration/generatingCode'); return false;" />
+											<p>If you keep have having problems, try sending some <a target="_blank" href="http://feedback.thumbwhere.com">feedback</a> or <a href="mailto:james@thumbwhere.com?subject=Suggestions for ThumbWhere&amp;body=Dear James, Send more paramedics... and.. ">contact james@thumbwhere.com directly</a>. He's nice.</p>											
+										</span>
+									</div>
+
+									<div >
+										<span class="aspect" name="waiting_for_sms">
+											<p>Let's start by linking your mobile phone number to your ThumbWhere account.</p>
+											<h3 style="color:green;" >Please use your mobile phone to SMS the code <span id="waiting_for_sms_code" style="color:blue;" >CODE</span> to <span id="waiting_for_sms_number">NUMBER</span></h3>
+											<p>As soon as we recieve your SMS, we will create your ThumbWhere account and log you in.</p>
+										</span>
+									</div>
+
+									<div>
+										<span class="aspect" name="waiting_for_sms_expired">
+											<h3 style="color:red;" >Your request to link your mobile phone number to ThumbWhere has expired.</h3> 											
+											<input type="BUTTON" value="Try Again" id="SMSTRYGAIN" name="SMSTRYGAIN" onclick="MetaWrap.State.affirmState('/application/loaded/registerOrLogin/mobileRegistration/generatingCode'); return false;" />										
+											<p>If you keep have having problems, try sending some <a target="_blank" href="http://feedback.thumbwhere.com">feedback</a> or <a href="mailto:james@thumbwhere.com?subject=Suggestions for ThumbWhere&amp;body=Dear James, Send more paramedics... and.. ">contact james@thumbwhere.com directly</a>. He likes to fiddle with mobile phones.</p>											
+										</span>
+									</div>
+
+									<div>
+										<span class="aspect" name="waiting_for_sms_error">
+											<h3 style="color:red;" >There was an error while we were waiting for your SMS.</h3>
+											<input type="BUTTON" value="Try Again" id="SMSTRYGAIN" name="SMSTRYGAIN" onclick="MetaWrap.State.affirmState('/application/loaded/registerOrLogin/mobileRegistration/waitingForSMS'); return false;" />
+											<p>If you keep getting this issue , please send dome <a target="_blank" href="http://feedback.thumbwhere.com">feedback</a> or <a href="mailto:james@thumbwhere.com?subject=Suggestions for ThumbWhere&amp;body=Dear James, Send more paramedics... and.. ">contact james@thumbwhere.com directly.</a>. He really likes hunting down these kinds of issues.</p>											
+										</span>
+									</div>
+
+									<input type="BUTTON" value="Cancel" id="NORMALLOGIN" name="NORMALLOGIN" onclick="MetaWrap.State.negateState('/application/loaded/registerOrLogin/mobileRegistration'); return false;" />
+								</span>
+							</div>					
+
+
+
+						</span>
+					</div>
+
+
+					<div>
+						<span class="aspect" name="logged_in">
+
+							<div>
+								<span class="aspect" name="complete_registration" >
+									<h1 style="color:green;" >Complete Your Registration</h1>
+
+									<div>
+										<label for="CREATEUSERNAME" >New Username</label>
+										<input type="TEXT" value="" id="CREATEUSERNAME" name="CREATEUSERNAME" onkeypress="return noSpace(event);" onkeyup="MetaWrap.State.determineState();" />
+									</div>
+
+									<div>				
+										<span class="aspect" name="completeregistration_username_invalid" >
+											<div style="color:gray;" >Type your desired username.</div>
+										</span>
+									</div>							
+
+									<div>				
+										<span class="aspect" name="completeregistration_username_current" >	
+											<div style="color:green;" >This is your current username.</div>
+										</span>
+									</div>							
+
+									<div>				
+										<span class="aspect" name="completeregistration_username_checking" >
+											<div style="color:red;" >Checking to see if that username is available. Hope it's available!.</div>
+										</span>
+									</div>												
+									<div>				
+										<span class="aspect" name="completeregistration_username_taken" >
+											<div style="color:red;" >Awww, that name is taken. Please try another</div>
+										</span>
+									</div>		
+									<div>				
+										<span class="aspect" name="completeregistration_username_available" >
+											<div style="color:green;" >Username is available.</div>
+										</span>
+									</div>	
+
+
+									<div>
+										<label for="CREATEPASSWORD" >New Password</label>
+										<input type="PASSWORD" value="" id="CREATEPASSWORD" name="CREATEPASSWORD" onkeyup="MetaWrap.State.determineState();" />
+									</div>
+
+									<div>				
+										<span class="aspect" name="completeregistration_password_invalid" >
+											<div style="color:gray;" >Type your new password.</div>
+										</span>
+									</div>							
+									<div>				
+										<span class="aspect" name="completeregistration_password_poor" >
+											<div style="color:red;" >This password would be easily guessed. Try and be tricky. </div>
+										</span>
+									</div>												
+									<div>				
+										<span class="aspect" name="completeregistration_password_weak" >
+											<div style="color:brown;" >Please make the password more complicated, I need something stronger.</div>
+										</span>
+									</div>		
+									<div>				
+										<span class="aspect" name="completeregistration_password_good" >
+											<div style="color:blue;" >This password is unlikely to be guessed, but could be stronger.</div>
+										</span>
+									</div>		
+									<div>				
+										<span class="aspect" name="completeregistration_password_strong" >
+											<div style="color:green;" >This is a strong password that is unlikely to be guessed.</div>
+										</span>
+									</div>	
+
+
+									<div>				
+										<span class="aspect" name="completeregistration_ask_for_verification_password" >
+
+											<div>					
+												<label for="CREATEPASSWORDVERIFY" >Verify Password</label>
+												<input type="PASSWORD" value="" id="CREATEPASSWORDVERIFY" name="CREATEPASSWORDVERIFY" onkeyup="MetaWrap.State.determineState();" />
+											</div>
+
+											<div>				
+												<span class="aspect" name="completeregistration_passwordverify_blank" >
+													<div style="colorgray;" >Type your new password again.</div>
+												</span>
+											</div>							
+											<div>				
+												<span class="aspect" name="completeregistration_passwordverify_doesnotmatch" >
+													<div style="color:red;" >Passwords don't match</div>
+												</span>
+											</div>							
+											<div>				
+												<span class="aspect" name="completeregistration_passwordverify_matches" >
+													<div style="color:green;" >Good. This matches the new password you want.</div>
+												</span>
+											</div>						
+
+										</span>
+									</div>	
+
+
+
+									<div>				
+										<span class="aspect" name="completeregistration_can_complete" >
+
+											<label for="REMEMBERME">
+												<input type="CHECKBOX" checked="{$l_remember_me}" id="REMEMBERME" name="REMEMBERME" onclick="doRememberMe()" />
+											Remember Me
+											</label>
+											<br/>
+
+											<input type="BUTTON" value="CREATE ACCOUNT" id="CREATEACCOUNT" name="CREATEACCOUNT" onclick="doCreateRegistration();" />
+										</span>
+									</div>	
+
+
+									<div>				
+										<span class="aspect" name="completeregistration_can_not_complete" >
+											<input type="BUTTON" value="CREATE ACCOUNT" id="CREATEACCOUNTX" name="CREATEACCOUNTX" disabled="true" />
+										</span>
+									</div>						
+
+
+									<input type="BUTTON" value="DELETE MY ACCOUNT" id="DELETEACCOUNT2" name="DELETEACCOUNT2" onclick="doDeleteRegistration();" />									
+
+								</span>
+							</div>
+
+
+
+							<div>				
+								<span class="aspect" name="update_registration" >
+
+									<div>				
+										Logged In As {$l_member_username}
+										<input type="BUTTON" value="LOGOUT" id="LOGOUT2" name="LOGOUT2" onclick="doLogout();" />
+										<br/>											
+									</div>
+
+									<div>				
+										<span class="aspect" name="account_created" >
+											<h2 style="color:blue;" >Your ThumbWhere account has been created.</h2>
+										</span>
+									</div>										
+
+									<div>				
+										<h1 style="color:green;" >Update Your ThumbWhere Account</h1>
+
+										<div>
+											<label for="UPDATEUSERNAME" >New Username</label>
+											<input type="TEXT" value="{$l_member_username}" id="UPDATEUSERNAME" name="UPDATEUSERNAME" onkeyup="MetaWrap.State.determineState();" />
+											<div>				
+												<span class="aspect" name="username_invalid" >
+													<div style="color:gray;" >Type your desired ThumbWhere username.</div>
+												</span>
+											</div>							
+
+											<div>				
+												<span class="aspect" name="username_current" >	
+													<div style="color:green;" >This is your current username.</div>
+												</span>
+											</div>							
+
+											<div>				
+												<span class="aspect" name="username_checking" >
+													<div style="color:red;" >I am checking to see if that username is available.</div>
+												</span>
+											</div>												
+											<div>				
+												<span class="aspect" name="username_taken" >
+													<div style="color:red;" >Awww, that name is taken. Please try another</div>
+												</span>
+											</div>		
+											<div>				
+												<span class="aspect" name="username_available" >
+													<div style="color:green;" >Username is available.</div>
+												</span>
+											</div>								
+
+										</div>
+
+										<div>
+											<label for="UPDATEPASSWORD" >New Password</label>
+											<input type="PASSWORD" value="" id="UPDATEPASSWORD" name="UPDATEPASSWORD" onkeyup="MetaWrap.State.determineState();" />
+										</div>
+										<div>				
+											<span class="aspect" name="password_invalid" >
+												<div style="color:gray;" >Type your new password.</div>
+											</span>
+										</div>							
+										<div>				
+											<span class="aspect" name="password_poor" >
+												<div style="color:red;" >This password would be easily guessed. Try and be tricky. </div>
+											</span>
+										</div>												
+										<div>				
+											<span class="aspect" name="password_weak" >
+												<div style="color:brown;" >Please make the password more complicated, I need something stronger.</div>
+											</span>
+										</div>		
+										<div>				
+											<span class="aspect" name="password_good" >
+												<div style="color:blue;" >This password is unlikely to be guessed, but could be stronger.</div>
+											</span>
+										</div>		
+										<div>				
+											<span class="aspect" name="password_strong" >
+												<div style="color:green;" >This is a strong password that is unlikely to be guessed.</div>
+											</span>
+										</div>		
+
+										<div>				
+											<span class="aspect" name="ask_for_verification_password" >
+												<div>
+													<label for="UPDATEPASSWORDVERIFY" >Verify New Password</label>
+													<input type="PASSWORD" value="" id="UPDATEPASSWORDVERIFY" name="UPDATEPASSWORDVERIFY" onkeyup="MetaWrap.State.determineState();" />
+												</div>
+												<div>				
+													<span class="aspect" name="passwordverify_blank" >
+														<div style="color:gray;" >Type your new password again.</div>
+													</span>
+												</div>							
+												<div>				
+													<span class="aspect" name="passwordverify_doesnotmatch" >
+														<div style="color:red;" >Passwords don't match</div>
+													</span>
+												</div>							
+												<div>				
+													<span class="aspect" name="passwordverify_matches" >
+														<div style="color:green;" >Good. This matches the new password you want.</div>
+													</span>
+												</div>		
+
+											</span>
+										</div>
+
+										<div>
+											<span class="aspect" name="ask_for_current_password" >
+												<label for="UPDATEPASSWORDCURRENT" >Current Password</label>
+												<input type="PASSWORD" value="" id="UPDATEPASSWORDCURRENT" name="UPDATEPASSWORDCURRENT" onkeyup="MetaWrap.State.determineState();" />
+												<div>				
+													<span class="aspect" name="current_password_empty" >
+														<div style="color:blue;" >We need your current password to update your account.</div>
+													</span>
+												</div>		
+												<div>				
+													<span class="aspect" name="current_password_ok" >
+														<div style="color:green;" >If this is your password then all should be good..</div>
+													</span>
+												</div>										
+												<div>				
+													<span class="aspect" name="current_password_rejected" >
+														<div style="color:red;" >The server has rejected this password.. Are you *really* who you say you are?</div>
+													</span>
+												</div>										
+											</span>
+										</div>
+
+										<div>				
+											<span class="aspect" name="account_updated" >
+												<div style="color:blue;" >Your requested changes have been accepted.</div>
+											</span>
+										</div>										
+
+
+										<div>				
+											<span class="aspect" name="can_update_account" >
+												<input type="BUTTON" value="UPDATE ACCOUNT" id="MODIFYACCOUNT" name="MODIFYACCOUNT" onclick="doUpdateRegistration();" />
+											</span>
+										</div>		
+
+
+										<div>				
+											<span class="aspect" name="can_not_update_account" >
+												<input type="BUTTON" value="UPDATE ACCOUNT" id="MODIFYACCOUNTX" name="MODIFYACCOUNTX" disabled="true" />
+											</span>
+										</div>	
+
+										<br/>
+
+										<input type="BUTTON" value="DELETE MY ACCOUNT" id="DELETEACCOUNT" name="DELETEACCOUNT" onclick="doDeleteRegistration();" />
+									</div>
+								</span>
+							</div>
+
+
+							<div>							
+
+								<div>
+									<span class="aspect" name="add_application">
+										<h1 style="color:green;"> Add Your {$g_application.m_name} Account</h1>
+										<p>{$g_application.m_description}</p>																			
+									</span>
+								</div>	
+
+
+								<div>
+									<span class="aspect" name="update_application">
+										<h1 style="color:green;">Change Your {$g_application.m_name} Account</h1>						
+									</span>
+								</div>	
+
+
+								<div>
+									<span class="aspect" name="add_application">
+
+										<div>{$g_application.m_name} Username</div>
+										<input type="TEXT" value="{$l_member_username}" id="APPUSERNAME" name="APPUSERNAME" onkeyup="MetaWrap.State.determineState();" />
+
+										<div>{$g_application.m_name} Password</div>
+										<input type="PASSWORD" value="" id="APPPASSWORD" name="APPPASSWORD" onkeyup="MetaWrap.State.determineState();" />
+
+
+										<div>				
+											<span class="aspect" name="application_adding" >
+												<div style="color:blue;" >Registering your {$g_application.m_name} account with ThumbWhere</div>
+											</span>
+										</div>	
+
+
+										<div>				
+											<span class="aspect" name="application_account_valid" >
+												<div style="color:green;" >Great, this seems to be a valid {$g_application.m_name} account.</div>
+											</span>
+										</div>	
+
+										<div>				
+											<span class="aspect" name="application_account_invalid" >
+												<div style="color:red;" >{$g_application.m_name} says no. Does this account really exist?</div>
+											</span>
+										</div>										
+
+										<div>				
+											<span class="aspect" name="application_add_error" >
+												<div style="color:red;" >There was an error while adding {$g_application.m_name} to your ThumbWhere account</div>
+											</span>
+										</div>										
+
+										<div>				
+											<span class="aspect" name="application_add_testing" >
+												<div style="color:blue;" >Asking {$g_application.m_name} if this account really exists.</div>
+											</span>
+										</div>	
+
+									</span>
+								</div>
+
+
+								<div>
+									<span class="aspect" name="update_application">
+
+										<div>{$g_application.m_name} Username</div>
+										<input type="TEXT" value="{$g_member_application.m_username}" id="APPUSERNAMEUPDATE" name="APPUSERNAMEUPDATE" onkeyup="MetaWrap.State.determineState();" />
+
+										<div>{$g_application.m_name} Password</div>
+										<input type="PASSWORD" value="itsasecret" id="APPPASSWORDUPDATE" name="APPPASSWORDUPDATE" onkeyup="appPasswordChanged();MetaWrap.State.determineState();" />
+
+										<div>				
+											<span class="aspect" name="application_updating" >
+												<div style="color:blue;" >Registering your {$g_application.m_name} account with ThumbWhere</div>
+											</span>
+										</div>							
+
+										<div>				
+											<span class="aspect" name="application_update_testing" >
+												<div style="color:blue;" >Asking {$g_application.m_name} if this account really exists.</div>
+											</span>
+										</div>	
+
+										<div>				
+											<span class="aspect" name="application_update_error" >
+												<div style="color:red;" >There was an error while updating your account. Please try again later.</div>
+											</span>
+										</div>										
+
+										<div>				
+											<span class="aspect" name="application_account_invalid" >
+												<div style="color:red;" >{$g_application.m_name} says no. Does this account really exist?</div>
+											</span>
+										</div>	
+
+										<div>				
+											<span class="aspect" name="application_account_valid" >
+												<div style="color:green;" >Great, this seems to be a valid {$g_application.m_name} account.</div>
+											</span>
+										</div>	
+
+									</span>
+								</div>	
+
+
+								<div>
+									<span class="aspect" name="add_application">
+
+
+										<div>
+											<span class="aspect" name="can_add_application">						
+												<input type="BUTTON" value="ADD" id="APPADD" name="APPADD" onclick="doRegisterForApplication();" />
+											</span>
+										</div>
+
+										<div>
+											<span class="aspect" name="can_not_add_application">						
+												<input disabled="true" type="BUTTON" value="ADD" id="APPADD" name="APPADD" />
+											</span>
+										</div>
+
+
+									</span>
+								</div>				
+
+								<div>
+									<span class="aspect" name="update_application">
+
+										<div>
+											<span class="aspect" name="can_update_application">						
+												<input type="BUTTON" value="UPDATE" id="APPUPDATE" name="APPUPDATE" onclick="doApplicationSubscriptionUpdate();" />
+											</span>
+										</div>
+
+										<div>
+											<span class="aspect" name="can_not_update_application">						
+												<input disabled="true" type="BUTTON" value="UPDATE" id="APPUPDATEDISABLED" name="APPUPDATEDISABLED"  />
+											</span>
+										</div>
+
+										<br/>
+
+										<input type="BUTTON" value="REMOVE {$g_application.m_name.toUpperCase()}" id="APPREMOVE" name="APPREMOVE" onclick="doRemoveApplication();" />						
+									</span>
+								</div>
+							</div>
+
+
+						</span>
+					</div>					
+
+					<p/>
+
+					<div class="footer_holder">
+						<div class="footer">
+							<div class="footer_links">
+								&#xa9; 2008 ThumbWhere <a href="/api">API</a>  <a href="http://twitter.com/ThumbWhere">Contact Us</a> <a href="http://blog.thumbwhere.com/">Blog</a> <a href="http://feedback.thumbwhere.com">Feedback</a>
+							</div>
+						</div>
+					</div>
+
+				</span>
+			</div>
+
+
+		</div>
+	</body>
+</html>

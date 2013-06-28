@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Memory leaks</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="/quirksmode.css" />
+<script type="text/javascript" src="leaktest.js"></script>
+<script type="text/javascript">
+
+window.onload = init;
+
+function init()
+{
+	// Start timing
+	var T1 = (new Date()).getTime();
+
+	createLinks();
+
+	var x = document.getElementsByTagName('a');
+
+	for (var i=0;i<x.length;i++)
+	{
+		assignListener(x[i]);
+	}
+
+	// How long did that take?
+	alert("it took " + ((new Date()).getTime() - T1) / 1000 + " seconds to render this\r\nHit F5 and see what happens to the render time.");
+
+}
+
+function assignListener(p_e)
+{
+	p_e.onclick = function ()
+	{
+		this.firstChild.nodeValue = ' Clicked! - ';
+	}
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h2>JavaScript memory leaks - test</h2>
+
+<div id="header"></div>
+
+<p class="intro">Intro</p>
+
+<h3>Explanation</h3>
+
+<p>Leaks one object per closure per element.</p>
+
+<pre>
+window.onload = init;
+
+function init()
+{
+	// Start timing
+	var T1 = (new Date()).getTime();
+
+	createLinks();
+	var x = document.getElementsByTagName('a');
+	for (var i=0;i&lt;x.length;i++)
+	{
+		assignListener(x[i]);
+	}
+
+	// How long did that take?
+	alert("it took " + ((new Date()).getTime() - T1) / 1000 + " seconds to render this\r\nHit F5 and see what happens to the render time.");
+}
+
+function assignListener(p_e)
+{
+	p_e.onclick = function ()
+	{
+		this.firstChild.nodeValue = ' Clicked! - ';
+	}
+}
+
+</pre>
+
+
+<h3>Test</h3>
+
+<div id="writeroot"></div>
+
+
+<div id="footer"></div>
+
+</body>
+</html>
