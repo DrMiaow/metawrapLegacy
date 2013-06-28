@@ -18,16 +18,23 @@ There is also build script that will build an aggregated compressed version.
 
 I starting building the library in the early days of the web, before jquery or prototype so there is a lot of 'you would not do that nowadays' in this code.
 
+### Caveats ###
+You need to run most of the tests through a web server.
+I jave just dumped everything from my SVN repository in here.
+There is a lot of documentation in the comments and file headers.
+
 ### Highlights ###
 
-javascript\tests\macrorecorder - A javascript macro recorder
+**javascript\tests\macrorecorder** - A javascript macro recorder ([http://is.gd/6lzq0k](http://is.gd/6lzq0k "video"))
 
-javascript\tests\logger - A logger class the style of an Amiga "Guru Meditation"
+**javascript\tests\logger** - A logger class the style of an Amiga "Guru Meditation"
 
-javascript\tests\pipeline - A pipelining/requirements system
+**javascript\tests\pipeline** - A pipelining/requirements system
 
-javascript\tests\view - Single page app view library.
+**javascript\tests\view** - Single page app view library.
 
-javascript\tests\state - A state machine library ( [http://www.viddler.com/v/7073ccf7](http://www.viddler.com/v/7073ccf7 "video") ) Integrates with 'view' via 'stateviewmap' to create a state machine driven views libabry.
+**javascript\tests\state** - A state machine library ( [http://www.viddler.com/v/7073ccf7](http://www.viddler.com/v/7073ccf7 "video") ) Integrates with 'view' via 'stateviewmap' to create a state machine driven views libabry.
+
+**javascript\tests\view** - Single page app view library.
 
 
