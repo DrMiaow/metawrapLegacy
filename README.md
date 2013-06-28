@@ -19,9 +19,9 @@ There is also build script that will build an aggregated compressed version.
 I starting building the library in the early days of the web, before jquery or prototype so there is a lot of 'you would not do that nowadays' in this code.
 
 ### Caveats ###
-You need to run most of the tests through a web server.
-I jave just dumped everything from my SVN repository in here.
-There is a lot of documentation in the comments and file headers.
+- You need to run most of the tests through a web server.
+- I jave just dumped everything from my SVN repository in here.
+- There is a lot of documentation in the comments and file headers.
 
 ### Highlights ###
 
